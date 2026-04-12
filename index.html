@@ -16,7 +16,9 @@
 <meta property="og:locale" content="fr_TD">
 <meta property="og:site_name" content="EnerTchad Intermédiaire">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://midstream.enertchad.td/og-image.png">
 <meta name="twitter:title" content="EnerTchad Intermédiaire — Pipeline, Transport & Stockage">
+<meta name="twitter:image" content="https://midstream.enertchad.td/og-image.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"EnerTchad Intermédiaire","url":"https://midstream.enertchad.td","description":"Transport, stockage et métrologie des hydrocarbures au Tchad.","address":{"@type":"PostalAddress","addressLocality":"N'Djamena","addressCountry":"TD"},"telephone":"+235-99-29-86-96","email":"midstream@enertchad.td"}
 </script>
@@ -66,7 +68,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .header.scrolled{background:rgba(11,20,38,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 4px 30px rgba(0,0,0,0.3)}
 .header .ctn{display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white)}
-.logo img{width:40px;height:40px;border-radius:50%}
+.logo img{width:40px;height:40px;border-radius:50%;display:block;flex-shrink:0;object-fit:contain}
 .logo-text{font-family:var(--font-d);font-size:1.15rem;font-weight:700;letter-spacing:-0.02em}
 .logo-text span{color:var(--accent-light);font-weight:400;font-size:0.68rem;display:block;letter-spacing:0.1em;text-transform:uppercase}
 .nav{display:flex;align-items:center;gap:4px}
@@ -570,6 +572,74 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .fg textarea{resize:vertical;min-height:100px}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
+/* ═══ SEARCH OVERLAY ═══ */
+.search-overlay{position:fixed;inset:0;background:rgba(6,13,26,0.96);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding-top:18vh;opacity:0;visibility:hidden;transition:all 0.4s ease;backdrop-filter:blur(20px)}
+.search-overlay.open{opacity:1;visibility:visible}
+.search-inner{width:90%;max-width:640px;text-align:center}
+.search-inner h3{font-family:var(--font-d);font-size:1.3rem;color:var(--white);margin-bottom:24px;font-weight:700}
+.search-box{position:relative}
+.search-box input{width:100%;padding:16px 52px 16px 20px;font-size:1rem;font-family:var(--font-b);background:rgba(255,255,255,0.06);border:1.5px solid rgba(14,165,233,0.2);border-radius:12px;color:var(--white);outline:none;transition:var(--tr)}
+.search-box input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-glow)}
+.search-box input::placeholder{color:rgba(255,255,255,0.3)}
+.search-box .search-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:1rem}
+.search-close{position:absolute;top:28px;right:28px;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer;transition:var(--tr);width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px}
+.search-close:hover{color:var(--white);background:rgba(255,255,255,0.06)}
+.search-results{margin-top:24px;text-align:left;max-height:40vh;overflow-y:auto}
+.search-result{display:block;padding:14px 16px;border-radius:10px;color:rgba(255,255,255,0.6);font-size:0.88rem;text-decoration:none;transition:var(--tr);border:1px solid transparent}
+.search-result:hover{background:rgba(14,165,233,0.06);border-color:rgba(14,165,233,0.12);color:var(--white)}
+.search-result small{display:block;font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:2px;text-transform:uppercase;letter-spacing:0.06em}
+
+/* ═══ CASES ═══ */
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.case-card{background:var(--white);border:1px solid var(--surface-alt);border-radius:16px;overflow:hidden;transition:var(--tr);position:relative}
+.case-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.08);border-color:rgba(14,165,233,0.15)}
+.case-card-img{height:160px;background:linear-gradient(135deg,var(--primary),var(--primary-mid));display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:var(--accent);position:relative;overflow:hidden}
+.case-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(11,20,38,0.3),transparent 40%)}
+.case-card-body{padding:22px}
+.case-card-body h3{font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:6px}
+.case-card-body p{font-size:0.82rem;color:var(--text-sec);line-height:1.65}
+.case-card-meta{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.case-meta-tag{font-size:0.6rem;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(14,165,233,0.06);color:var(--accent);border:1px solid rgba(14,165,233,0.1);text-transform:uppercase;letter-spacing:0.04em}
+
+/* ═══ CAREERS ═══ */
+.careers-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:40px}
+.careers-content h3{font-family:var(--font-d);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:14px}
+.careers-content p{font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:20px}
+.careers-perks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.perk{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(14,165,233,0.04);border:1px solid rgba(14,165,233,0.08);border-radius:10px;font-size:0.82rem;color:rgba(255,255,255,0.6)}
+.perk i{color:var(--accent);font-size:0.9rem;flex-shrink:0}
+.careers-openings h4{font-family:var(--font-d);font-weight:700;color:var(--white);font-size:1rem;margin-bottom:16px}
+.opening{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 20px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;transition:var(--tr)}
+.opening:hover{border-color:rgba(14,165,233,0.18);background:rgba(14,165,233,0.04)}
+.opening-info h5{font-family:var(--font-d);font-size:0.9rem;font-weight:600;color:var(--white);margin-bottom:3px}
+.opening-info span{font-size:0.72rem;color:rgba(255,255,255,0.4)}
+.opening .btn-sm{font-size:0.7rem;padding:6px 14px;border-radius:8px;background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.2);color:var(--accent-light);text-decoration:none;font-weight:600;transition:var(--tr)}
+.opening .btn-sm:hover{background:var(--accent);color:var(--white)}
+
+/* ═══ RESOURCES ═══ */
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.res-card{background:var(--white);border:1px solid var(--surface-alt);border-radius:16px;padding:24px;text-align:center;transition:var(--tr);position:relative;overflow:hidden}
+.res-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal));opacity:0;transition:opacity 0.3s ease}
+.res-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.08);border-color:rgba(14,165,233,0.15)}
+.res-card:hover::before{opacity:1}
+.res-card-ic{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(20,184,166,0.06));display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--accent);margin:0 auto 14px}
+.res-card h3{font-family:var(--font-d);font-size:0.92rem;font-weight:700;margin-bottom:6px}
+.res-card p{font-size:0.78rem;color:var(--text-sec);line-height:1.6}
+.res-card .res-count{display:block;font-family:var(--font-d);font-size:1.4rem;font-weight:800;color:var(--accent);margin-top:10px}
+
+/* ═══ CTA BANNER ═══ */
+.cta-banner{background:linear-gradient(135deg,var(--accent) 0%,#0284C7 50%,var(--teal) 100%);padding:64px 0;text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.cta-banner h2{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--white);margin-bottom:12px}
+.cta-banner p{color:rgba(255,255,255,0.85);font-size:0.95rem;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-banner .btn-white{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--white);color:var(--primary);font-family:var(--font-d);font-size:0.9rem;font-weight:700;border-radius:12px;text-decoration:none;transition:var(--tr);border:none;cursor:pointer}
+.cta-banner .btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+
+/* ═══ SKIP + PRINT ═══ */
+.skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--white);padding:10px 20px;border-radius:0 0 8px 8px;font-family:var(--font-d);font-weight:600;font-size:0.85rem;z-index:9999;transition:top 0.3s ease;text-decoration:none}
+.skip-link:focus{top:0}
+@media print{.nav-wrap,.ftr,.dot-nav,.search-overlay,.cta-banner,.mob-toggle,.back-top{display:none!important}body{background:#fff;color:#000}section{page-break-inside:avoid;padding:20px 0!important}h2{font-size:1.2rem!important}.ctn{max-width:100%!important}}
+
 /* ═══ FOOTER ═══ */
 .ftr{background:var(--primary);color:rgba(255,255,255,0.5);padding:56px 0 24px}
 .ftr-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
@@ -748,6 +818,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 @media(max-width:968px){
   .hero-content{padding:130px 0 100px}
   .nav{display:none}.mob-toggle{display:block}.mega-drop{display:none!important}
+  .cases-grid{grid-template-columns:1fr}.careers-wrap{grid-template-columns:1fr}.careers-perks{grid-template-columns:1fr}.res-grid{grid-template-columns:repeat(2,1fr)}
   .mission-grid{grid-template-columns:1fr}
   .fleet-grid{grid-template-columns:1fr 1fr}
   .contact-wrap{grid-template-columns:1fr}
@@ -789,6 +860,9 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   #vision{padding:80px 0 60px!important}
 }
 @media(max-width:768px){
+  .logo img{width:34px;height:34px;min-width:34px;min-height:34px}
+  .logo-text{font-size:1rem}
+  .logo-text span{font-size:0.6rem}
   .hero-content{padding:100px 0 80px;max-width:100%}
   .hero-brand img{width:64px;height:64px}
   .hero-scope-tag{font-size:0.66rem;padding:5px 11px;gap:5px}
@@ -800,6 +874,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   .team-grid{grid-template-columns:1fr 1fr}
   .ops-grid{grid-template-columns:1fr}
   .ett-grid{grid-template-columns:1fr}
+  .res-grid{grid-template-columns:1fr}
   .pipe-specs-row{grid-template-columns:repeat(2,1fr)}
   .pipe-step-content{padding:16px 20px}
   .fso-stats{grid-template-columns:repeat(3,1fr);gap:8px}
@@ -857,7 +932,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-nav">Aller au contenu principal</a>
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
 <!-- ═══ HEADER ═══ -->
 <header class="header" id="siteHeader">
@@ -976,6 +1051,14 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
                   <div class="mega-link-icon"><i class="fas fa-truck-moving"></i></div>
                   <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Fleet">Flotte</div><div class="mega-link-desc" data-i18n data-en="Transport & logistics fleet">Flotte de transport & logistique</div></div>
                 </a>
+                <a href="#cases" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon gold"><i class="fas fa-trophy"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Case Studies">Études de cas</div><div class="mega-link-desc" data-i18n data-en="Proven results across projects">Résultats prouvés sur nos projets</div></div>
+                </a>
+                <a href="#careers" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon teal"><i class="fas fa-user-tie"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Careers">Carrières</div><div class="mega-link-desc" data-i18n data-en="Join the midstream team">Rejoignez l'équipe</div></div>
+                </a>
               </div>
               <div>
                 <div class="mega-col-title" data-i18n data-en="Ecosystem">Écosystème</div>
@@ -1002,6 +1085,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
       <a href="#contact" class="nav-cta" data-i18n data-en="Contact"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact</a>
     </nav>
     <div class="hdr-actions">
+      <button id="searchBtn" aria-label="Rechercher" style="background:none;border:1.5px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);width:38px;height:38px;border-radius:10px;font-size:0.85rem;cursor:pointer;transition:all .3s ease;display:flex;align-items:center;justify-content:center"><i class="fas fa-magnifying-glass"></i></button>
       <div class="lang-switch" aria-label="Langue" role="radiogroup">
         <button class="lang-btn active" data-lang="fr" role="radio" aria-checked="true">FR</button>
         <button class="lang-btn" data-lang="en" role="radio" aria-checked="false">EN</button>
@@ -1121,6 +1205,18 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
           <a href="#fleet" class="mn-link">
             <div class="mn-link-ic"><i class="fas fa-truck-moving"></i></div>
             <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Fleet">Flotte</div><div class="mn-link-desc" data-i18n data-en="Transport & logistics fleet">Transport & logistique</div></div>
+          </a>
+          <a href="#cases" class="mn-link">
+            <div class="mn-link-ic gold"><i class="fas fa-trophy"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Case Studies">Études de cas</div><div class="mn-link-desc" data-i18n data-en="Projects that prove our expertise">Projets qui prouvent notre expertise</div></div>
+          </a>
+          <a href="#careers" class="mn-link">
+            <div class="mn-link-ic teal"><i class="fas fa-user-tie"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Careers">Carrières</div><div class="mn-link-desc" data-i18n data-en="Join the midstream team">Rejoignez l'équipe midstream</div></div>
+          </a>
+          <a href="#resources" class="mn-link">
+            <div class="mn-link-ic"><i class="fas fa-book-open"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Resources">Ressources</div><div class="mn-link-desc" data-i18n data-en="Reports, datasheets, media">Rapports, fiches, médias</div></div>
           </a>
         </div>
         <!-- Ecosystem links -->
@@ -2430,7 +2526,134 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
     </div>
   </div>
 </section>
+
+<!-- ═══ ÉTUDES DE CAS ═══ -->
+<section class="sec-light" id="cases">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb gold"><i class="fas fa-trophy"></i> <span data-i18n data-en="Case Studies">Études de cas</span></div>
+      <h2 class="stitle" data-i18n data-en="Projects that prove our <span class='hl'>expertise</span>">Des projets qui prouvent notre <span class="hl">expertise</span></h2>
+      <p class="sdesc" data-i18n data-en="Decades of pipeline operations distilled into measurable results across Africa and the Chad Basin.">Des décennies d'opérations pipeline résumées en résultats mesurables à travers l'Afrique et le Bassin tchadien.</p>
+    </div>
+    <div class="cases-grid" data-r>
+      <div class="case-card">
+        <div class="case-card-img"><i class="fas fa-oil-well"></i></div>
+        <div class="case-card-body">
+          <h3 data-i18n data-en="ILI Campaign — Doba-Kribi 2025">Campagne ILI — Doba-Kribi 2025</h3>
+          <p data-i18n data-en="Full MFL+UT inline inspection across 1,070 km with 98.7% anomaly detection rate. 142 critical features identified and repaired within 90-day window.">Inspection MFL+UT en ligne sur 1 070 km avec taux de détection d'anomalies de 98,7 %. 142 défauts critiques identifiés et réparés en 90 jours.</p>
+          <div class="case-card-meta"><span class="case-meta-tag">ILI</span><span class="case-meta-tag">1 070 km</span><span class="case-meta-tag">98.7%</span></div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-card-img" style="background:linear-gradient(135deg,#0284C7,#0B1426)"><i class="fas fa-shield-halved"></i></div>
+        <div class="case-card-body">
+          <h3 data-i18n data-en="SCADA Modernization — Phase II">Modernisation SCADA — Phase II</h3>
+          <p data-i18n data-en="Migration from legacy Modbus RTU to OPC UA architecture. Integration of 48 valve actuators with redundant fiber backbone. Uptime improved from 97.2% to 99.97%.">Migration Modbus RTU vers architecture OPC UA. Intégration de 48 actionneurs avec backbone fibre redondant. Disponibilité améliorée de 97,2 % à 99,97 %.</p>
+          <div class="case-card-meta"><span class="case-meta-tag">SCADA</span><span class="case-meta-tag">OPC UA</span><span class="case-meta-tag">99.97%</span></div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-card-img" style="background:linear-gradient(135deg,#14B8A6,#0B1426)"><i class="fas fa-leaf"></i></div>
+        <div class="case-card-body">
+          <h3 data-i18n data-en="ROW Bioremediation — Moundou Corridor">Bioremédiation Emprise — Corridor Moundou</h3>
+          <p data-i18n data-en="Complete soil restoration of 12 km pipeline corridor affected by legacy contamination. Piezometer monitoring confirmed 99.2% hydrocarbon removal within 18 months.">Restauration complète de 12 km de corridor affecté par contamination historique. Monitoring piézométrique : 99,2 % d'élimination des hydrocarbures en 18 mois.</p>
+          <div class="case-card-meta"><span class="case-meta-tag">ESG</span><span class="case-meta-tag">12 km</span><span class="case-meta-tag">99.2%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CARRIÈRES ═══ -->
+<section id="careers" style="background:linear-gradient(170deg,#0B1426 0%,#0D1B2A 100%);color:var(--white);padding:100px 0 80px">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb blue"><i class="fas fa-user-tie"></i> <span data-i18n data-en="Careers">Carrières</span></div>
+      <h2 class="stitle" style="color:var(--white)" data-i18n data-en="Join the team that moves <span class='hl'>Chad's oil</span>">Rejoignez l'équipe qui transporte <span class="hl">le pétrole du Tchad</span></h2>
+      <p class="sdesc" style="color:rgba(255,255,255,0.55)" data-i18n data-en="EnerTchad Intermédiaire is always looking for passionate professionals ready to take on the challenges of pipeline operations in Africa.">EnerTchad Intermédiaire recrute des professionnels passionnés, prêts à relever les défis des opérations pipeline en Afrique.</p>
+    </div>
+    <div class="careers-wrap" data-r>
+      <div class="careers-content">
+        <h3 data-i18n data-en="Why join us?">Pourquoi nous rejoindre ?</h3>
+        <p data-i18n data-en="Work on one of Africa's most critical pipeline systems. Gain exposure to world-class engineering standards (API, ASME, IEC) while contributing to Chad's energy independence.">Travaillez sur l'un des systèmes pipeline les plus critiques d'Afrique. Bénéficiez d'une exposition aux standards d'ingénierie de classe mondiale (API, ASME, IEC) tout en contribuant à l'indépendance énergétique du Tchad.</p>
+        <div class="careers-perks">
+          <div class="perk"><i class="fas fa-graduation-cap"></i> <span data-i18n data-en="Continuous training (API, ASME)">Formation continue (API, ASME)</span></div>
+          <div class="perk"><i class="fas fa-heart-pulse"></i> <span data-i18n data-en="Health & life insurance">Assurance santé & vie</span></div>
+          <div class="perk"><i class="fas fa-globe-africa"></i> <span data-i18n data-en="International exposure">Exposition internationale</span></div>
+          <div class="perk"><i class="fas fa-chart-line"></i> <span data-i18n data-en="Career progression paths">Parcours d'évolution</span></div>
+        </div>
+      </div>
+      <div class="careers-openings">
+        <h4 data-i18n data-en="Open positions">Postes ouverts</h4>
+        <div class="opening"><div class="opening-info"><h5 data-i18n data-en="Pipeline Integrity Engineer">Ingénieur Intégrité Pipeline</h5><span data-i18n data-en="N'Djamena · Full-time">N'Djamena · CDI</span></div><a href="mailto:rh@enertchad.td?subject=Pipeline%20Integrity%20Engineer" class="btn-sm" data-i18n data-en="Apply">Postuler</a></div>
+        <div class="opening"><div class="opening-info"><h5 data-i18n data-en="SCADA / Automation Technician">Technicien SCADA / Automatisation</h5><span data-i18n data-en="Komé · Full-time">Komé · CDI</span></div><a href="mailto:rh@enertchad.td?subject=SCADA%20Technician" class="btn-sm" data-i18n data-en="Apply">Postuler</a></div>
+        <div class="opening"><div class="opening-info"><h5 data-i18n data-en="HSE Coordinator — Pipeline">Coordinateur HSE — Pipeline</h5><span data-i18n data-en="Moundou · Full-time">Moundou · CDI</span></div><a href="mailto:rh@enertchad.td?subject=HSE%20Coordinator" class="btn-sm" data-i18n data-en="Apply">Postuler</a></div>
+        <div class="opening"><div class="opening-info"><h5 data-i18n data-en="Metering & Custody Transfer Specialist">Spécialiste Métrologie & Custody Transfer</h5><span data-i18n data-en="Kribi · Full-time">Kribi · CDI</span></div><a href="mailto:rh@enertchad.td?subject=Metering%20Specialist" class="btn-sm" data-i18n data-en="Apply">Postuler</a></div>
+        <div style="margin-top:20px"><a href="mailto:rh@enertchad.td" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.2);display:inline-flex;gap:8px" data-i18n data-en="Send Spontaneous Application"><i class="fas fa-envelope"></i> Candidature spontanée</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESSOURCES ═══ -->
+<section class="sec-light" id="resources">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb gold"><i class="fas fa-book-open"></i> <span data-i18n data-en="Resources">Ressources</span></div>
+      <h2 class="stitle" data-i18n data-en="Documentation & <span class='hl'>media library</span>">Documentation & <span class="hl">médiathèque</span></h2>
+      <p class="sdesc" data-i18n data-en="Technical reports, corporate publications, and training resources for our partners and stakeholders.">Rapports techniques, publications institutionnelles et ressources de formation pour nos partenaires et parties prenantes.</p>
+    </div>
+    <div class="res-grid" data-r>
+      <div class="res-card">
+        <div class="res-card-ic"><i class="fas fa-file-pdf"></i></div>
+        <h3 data-i18n data-en="Annual Reports">Rapports annuels</h3>
+        <p data-i18n data-en="Operational performance, ESG metrics, and financial highlights.">Performance opérationnelle, métriques ESG et faits financiers.</p>
+        <span class="res-count">5</span>
+      </div>
+      <div class="res-card">
+        <div class="res-card-ic"><i class="fas fa-file-lines"></i></div>
+        <h3 data-i18n data-en="Technical Datasheets">Fiches techniques</h3>
+        <p data-i18n data-en="Pipeline specs, metering systems, and CP equipment details.">Spécifications pipeline, systèmes de comptage et détails équipements CP.</p>
+        <span class="res-count">12</span>
+      </div>
+      <div class="res-card">
+        <div class="res-card-ic"><i class="fas fa-video"></i></div>
+        <h3 data-i18n data-en="Video Gallery">Vidéothèque</h3>
+        <p data-i18n data-en="Drone footage, ILI campaigns, construction timelapses, and safety briefings.">Prises de vue drone, campagnes ILI, timelapses construction et briefings sécurité.</p>
+        <span class="res-count">8</span>
+      </div>
+      <div class="res-card">
+        <div class="res-card-ic"><i class="fas fa-newspaper"></i></div>
+        <h3 data-i18n data-en="Press & News">Presse & Actualités</h3>
+        <p data-i18n data-en="Latest news, press releases, and industry publications featuring EnerTchad.">Dernières nouvelles, communiqués et publications sectorielles sur EnerTchad.</p>
+        <span class="res-count">15+</span>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
+
+<!-- ═══ CTA BANNER ═══ -->
+<section class="cta-banner">
+  <div class="ctn" data-r>
+    <h2 data-i18n data-en="Ready to discuss your pipeline project?">Prêt à discuter de votre projet pipeline ?</h2>
+    <p data-i18n data-en="Interconnection, storage, metering, EnerTech engineering — our experts are ready.">Interconnexion, stockage, métrologie, ingénierie EnerTech — nos experts sont prêts.</p>
+    <a href="#contact" class="btn-white" data-i18n data-en="Contact our team"><i class="fas fa-paper-plane"></i> Contacter notre équipe</a>
+  </div>
+</section>
+
+<!-- ═══ SEARCH OVERLAY ═══ -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Recherche">
+  <button class="search-close" id="searchClose" aria-label="Fermer"><i class="fas fa-times"></i></button>
+  <div class="search-inner">
+    <h3 data-i18n data-en="Search the site">Rechercher sur le site</h3>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Pipeline, SCADA, EnerTech..." autocomplete="off">
+      <i class="fas fa-magnifying-glass search-icon"></i>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
 
 <!-- ═══ FOOTER ═══ -->
 <footer class="ftr">
@@ -2453,6 +2676,9 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
         <h4 data-i18n data-en="Company">Entreprise</h4>
         <a href="#mission" data-i18n data-en="Mission">Mission</a>
         <a href="#team" data-i18n data-en="Team">Équipe</a>
+        <a href="#cases" data-i18n data-en="Case Studies">Études de cas</a>
+        <a href="#careers" data-i18n data-en="Careers">Carrières</a>
+        <a href="#resources" data-i18n data-en="Resources">Ressources</a>
         <a href="#contact" data-i18n data-en="Contact">Contact</a>
       </div>
       <div>
@@ -2493,6 +2719,9 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   <div class="dot-nav-item"><span class="dot-nav-label">Flotte</span><button class="dot-nav-dot" data-section="fleet" aria-label="Flotte"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Équipe</span><button class="dot-nav-dot" data-section="team" aria-label="Équipe"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Contact</span><button class="dot-nav-dot" data-section="contact" aria-label="Contact"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Études de cas</span><button class="dot-nav-dot" data-section="cases" aria-label="Études de cas"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Carrières</span><button class="dot-nav-dot" data-section="careers" aria-label="Carrières"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Ressources</span><button class="dot-nav-dot" data-section="resources" aria-label="Ressources"></button></div>
 </div>
 
 <script>
@@ -2500,7 +2729,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 (function(){
   const hdr=document.getElementById('siteHeader');
   let lastY=0;
-  const dotSections=['hero','mission','operations','pipeline','producers','vision','fleet','team','contact'];
+  const dotSections=['hero','mission','operations','pipeline','producers','vision','fleet','team','contact','cases','careers','resources'];
 
   window.addEventListener('scroll',function(){
     const y=window.scrollY;
@@ -2787,6 +3016,88 @@ document.getElementById('contactForm')?.addEventListener('submit',function(e){
   msg.className='form-msg ok';msg.style.display='block';msg.textContent='Merci '+name+' ! Votre demande a été envoyée.';
   this.reset();
 });
+
+/* ═══ SEARCH OVERLAY ═══ */
+(function(){
+  var overlay=document.getElementById('searchOverlay');
+  var openBtn=document.getElementById('searchBtn');
+  var closeBtn=document.getElementById('searchClose');
+  var input=overlay?overlay.querySelector('.search-input'):null;
+  var results=overlay?overlay.querySelector('.search-results'):null;
+  if(!overlay||!openBtn)return;
+
+  function openSearch(){
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+    setTimeout(function(){if(input)input.focus()},200);
+  }
+  function closeSearch(){
+    overlay.classList.remove('open');
+    document.body.style.overflow='';
+    if(input)input.value='';
+    if(results)results.innerHTML='';
+  }
+
+  openBtn.addEventListener('click',openSearch);
+  if(closeBtn)closeBtn.addEventListener('click',closeSearch);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeSearch()});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&overlay.classList.contains('open'))closeSearch();
+    if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openSearch()}
+  });
+
+  /* Search logic: filter visible sections by text content */
+  var searchSections=[
+    {id:'hero',label:'Accueil',labelEn:'Home'},
+    {id:'mission',label:'Mission',labelEn:'Mission'},
+    {id:'operations',label:'Opérations & Métrologie',labelEn:'Operations & Metering'},
+    {id:'basins',label:'Bassins Producteurs',labelEn:'Producer Basins'},
+    {id:'pipeline',label:'Pipeline Doba — Kribi',labelEn:'Pipeline Doba — Kribi'},
+    {id:'producers',label:'Opérateurs Connectés',labelEn:'Connected Operators'},
+    {id:'vision',label:'Projets & Vision CAPS',labelEn:'Projects & CAPS Vision'},
+    {id:'enertech',label:'EnerTech — Ingénierie',labelEn:'EnerTech — Engineering'},
+    {id:'enertech-tech',label:'EnerTech — Technologies',labelEn:'EnerTech — Technologies'},
+    {id:'fleet',label:'Flotte & Logistique',labelEn:'Fleet & Logistics'},
+    {id:'team',label:'Équipe Dirigeante',labelEn:'Leadership Team'},
+    {id:'contact',label:'Contact',labelEn:'Contact'},
+    {id:'cases',label:'Études de cas',labelEn:'Case Studies'},
+    {id:'careers',label:'Carrières',labelEn:'Careers'},
+    {id:'resources',label:'Ressources',labelEn:'Resources'}
+  ];
+
+  if(input&&results){
+    input.addEventListener('input',function(){
+      var q=input.value.trim().toLowerCase();
+      results.innerHTML='';
+      if(q.length<2)return;
+      var matches=[];
+      searchSections.forEach(function(s){
+        var el=document.getElementById(s.id);
+        if(!el)return;
+        var text=(el.textContent||'').toLowerCase();
+        var label=(s.label+' '+s.labelEn).toLowerCase();
+        if(text.indexOf(q)!==-1||label.indexOf(q)!==-1){
+          matches.push(s);
+        }
+      });
+      if(matches.length===0){
+        results.innerHTML='<div style="text-align:center;color:rgba(255,255,255,0.4);padding:40px 0;font-family:var(--font-d);font-size:0.9rem">Aucun résultat pour « '+input.value.trim()+' »</div>';
+        return;
+      }
+      matches.forEach(function(s){
+        var a=document.createElement('a');
+        a.href='#'+s.id;
+        a.className='search-result-item';
+        a.style.cssText='display:flex;align-items:center;gap:14px;padding:14px 20px;border-radius:12px;text-decoration:none;transition:all 0.3s ease;border:1px solid rgba(14,165,233,0.08)';
+        a.innerHTML='<i class="fas fa-arrow-right" style="color:var(--accent);font-size:0.75rem;flex-shrink:0"></i><div><div style="color:var(--white);font-family:var(--font-d);font-weight:600;font-size:0.95rem">'+s.label+'</div><div style="color:rgba(255,255,255,0.4);font-size:0.78rem;margin-top:2px">'+s.labelEn+'</div></div>';
+        a.addEventListener('mouseenter',function(){a.style.background='rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.2)'});
+        a.addEventListener('mouseleave',function(){a.style.background='';a.style.borderColor='rgba(14,165,233,0.08)'});
+        a.addEventListener('click',function(){closeSearch()});
+        results.appendChild(a);
+      });
+    });
+  }
+})();
 </script>
 </body>
 </html>
