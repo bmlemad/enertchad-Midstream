@@ -230,23 +230,32 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:40px}
 .mission-text h3{font-family:var(--font-d);font-size:1.4rem;font-weight:700;margin-bottom:12px;line-height:1.3}
 .mission-text p{color:var(--text-sec);font-size:0.92rem;line-height:1.8;margin-bottom:20px}
-.mission-card{background:var(--white);border:1px solid var(--surface-alt);border-radius:var(--radius);padding:28px;transition:var(--tr)}
-.mission-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.06)}
-.mission-card i{font-size:1.3rem;color:var(--accent);margin-bottom:12px}
+.mission-card{background:var(--white);border:1px solid var(--surface-alt);border-radius:16px;padding:28px;transition:var(--tr);position:relative;overflow:hidden}
+.mission-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease}
+.mission-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.08);border-color:rgba(14,165,233,0.15)}
+.mission-card:hover::before{transform:scaleX(1)}
+.mission-card i{font-size:1.3rem;color:var(--accent);margin-bottom:12px;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.1)}
 .mission-card h4{font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:6px}
 .mission-card p{font-size:0.84rem;color:var(--text-sec);line-height:1.6}
 
 /* ═══ OPERATIONS GRID ═══ */
 .ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.op-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:32px 24px;transition:var(--tr);position:relative;overflow:hidden}
+.op-card{background:linear-gradient(155deg,rgba(15,29,53,0.6),rgba(11,20,38,0.85));border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:32px 24px;transition:var(--tr);position:relative;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .op-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal));opacity:0;transition:opacity 0.3s ease}
+.op-card::after{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(14,165,233,0.06),transparent);border-radius:50%;pointer-events:none;transition:transform 0.5s ease}
 .op-card:hover::before{opacity:1}
-.op-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.2)}
-.op-icon{width:52px;height:52px;border-radius:12px;background:rgba(14,165,233,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent-light);margin-bottom:16px}
-.op-card:nth-child(even) .op-icon{background:rgba(20,184,166,0.1);color:var(--teal-light)}
+.op-card:hover::after{transform:scale(1.4)}
+.op-card:hover{background:linear-gradient(155deg,rgba(15,29,53,0.75),rgba(11,20,38,0.92));border-color:rgba(14,165,233,0.2);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.35),0 0 0 1px rgba(14,165,233,0.08) inset}
+.op-card:nth-child(even):hover{border-color:rgba(20,184,166,0.2);box-shadow:0 20px 50px rgba(0,0,0,0.35),0 0 0 1px rgba(20,184,166,0.08) inset}
+.op-card:nth-child(even)::after{background:radial-gradient(circle,rgba(20,184,166,0.06),transparent)}
+.op-icon{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,rgba(14,165,233,0.12),rgba(14,165,233,0.04));display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent-light);margin-bottom:16px;border:1px solid rgba(14,165,233,0.1);transition:all 0.3s ease}
+.op-card:hover .op-icon{transform:scale(1.05);box-shadow:0 6px 20px rgba(14,165,233,0.15)}
+.op-card:nth-child(even) .op-icon{background:linear-gradient(135deg,rgba(20,184,166,0.12),rgba(20,184,166,0.04));color:var(--teal-light);border-color:rgba(20,184,166,0.1)}
+.op-card:nth-child(even):hover .op-icon{box-shadow:0 6px 20px rgba(20,184,166,0.15)}
 .op-card h3{font-family:var(--font-d);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:8px}
 .op-card p{font-size:0.84rem;color:rgba(255,255,255,0.5);line-height:1.65}
 .op-tag{display:inline-block;margin-top:12px;font-family:var(--font-d);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:4px 10px;border-radius:999px;background:rgba(14,165,233,0.08);color:var(--accent-light);border:1px solid rgba(14,165,233,0.15)}
+.op-card:nth-child(even) .op-tag{background:rgba(20,184,166,0.08);color:var(--teal-light);border-color:rgba(20,184,166,0.15)}
 
 /* ═══ STATS BAR ═══ */
 .stats{background:linear-gradient(135deg,var(--primary),var(--primary-mid));padding:60px 0;position:relative;overflow:hidden}
@@ -346,16 +355,23 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 #producers .stitle .hl{-webkit-text-fill-color:transparent;background:linear-gradient(120deg,var(--accent-light),var(--teal));-webkit-background-clip:text;background-clip:text}
 #producers .sdesc{color:rgba(255,255,255,0.5)}
 .prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
-.prod-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:28px;transition:all 0.4s cubic-bezier(0.22,0.61,0.36,1);position:relative;overflow:hidden}
-.prod-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(14,165,233,0.2);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
-.prod-card.national{border-color:rgba(200,150,46,0.15);background:linear-gradient(135deg,rgba(200,150,46,0.04),rgba(14,165,233,0.02))}
+.prod-card{background:linear-gradient(155deg,rgba(15,29,53,0.55),rgba(11,20,38,0.82));border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:28px;transition:all 0.4s cubic-bezier(0.22,0.61,0.36,1);position:relative;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.prod-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--teal));opacity:0;transition:opacity 0.35s ease}
+.prod-card::after{content:'';position:absolute;bottom:-60px;right:-60px;width:140px;height:140px;background:radial-gradient(circle,rgba(14,165,233,0.05),transparent);border-radius:50%;pointer-events:none}
+.prod-card:hover{background:linear-gradient(155deg,rgba(15,29,53,0.7),rgba(11,20,38,0.9));border-color:rgba(14,165,233,0.2);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.35),0 0 0 1px rgba(14,165,233,0.06) inset}
+.prod-card:hover::before{opacity:1}
+.prod-card.national{border-color:rgba(200,150,46,0.15);background:linear-gradient(155deg,rgba(200,150,46,0.05),rgba(15,29,53,0.65),rgba(14,165,233,0.02))}
+.prod-card.national::before{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.prod-card.national::after{background:radial-gradient(circle,rgba(200,150,46,0.06),transparent)}
+.prod-card.national:hover{border-color:rgba(200,150,46,0.25);box-shadow:0 20px 50px rgba(0,0,0,0.35),0 0 0 1px rgba(200,150,46,0.06) inset}
 .prod-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.prod-logo{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:800;font-size:0.7rem;letter-spacing:-0.02em;flex-shrink:0}
-.prod-logo.cnpc{background:linear-gradient(135deg,#DC2626,#991B1B);color:#fff}
-.prod-logo.perenco{background:linear-gradient(135deg,#0369A1,#075985);color:#fff}
-.prod-logo.sht{background:linear-gradient(135deg,var(--gold),#B8860B);color:#fff}
-.prod-logo.opic{background:linear-gradient(135deg,#059669,#047857);color:#fff}
-.prod-logo.savannah{background:linear-gradient(135deg,#7C3AED,#6D28D9);color:#fff}
+.prod-logo{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:800;font-size:0.72rem;letter-spacing:-0.02em;flex-shrink:0;transition:all 0.3s ease;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+.prod-card:hover .prod-logo{transform:scale(1.06);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.prod-logo.cnpc{background:linear-gradient(135deg,#DC2626,#991B1B);color:#fff;border:1px solid rgba(220,38,38,0.3)}
+.prod-logo.perenco{background:linear-gradient(135deg,#0369A1,#075985);color:#fff;border:1px solid rgba(3,105,161,0.3)}
+.prod-logo.sht{background:linear-gradient(135deg,var(--gold),#B8860B);color:#fff;border:1px solid rgba(200,150,46,0.3)}
+.prod-logo.opic{background:linear-gradient(135deg,#059669,#047857);color:#fff;border:1px solid rgba(5,150,105,0.3)}
+.prod-logo.savannah{background:linear-gradient(135deg,#7C3AED,#6D28D9);color:#fff;border:1px solid rgba(124,58,237,0.3)}
 .prod-name{font-family:var(--font-d);font-size:1rem;font-weight:700;color:var(--white)}
 .prod-name span{font-size:0.72rem;font-weight:400;color:var(--text-light);display:block;margin-top:2px}
 .prod-card p{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:14px}
@@ -366,8 +382,9 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .prod-tag.gold i{color:var(--gold)}
 .prod-tag strong{color:var(--white);font-weight:700}
 .prod-summary{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.prod-sum-item{text-align:center;padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px}
-.prod-sum-val{font-family:var(--font-d);font-size:1.6rem;font-weight:800;color:var(--white)}
+.prod-sum-item{text-align:center;padding:24px 20px;background:linear-gradient(155deg,rgba(14,165,233,0.06),rgba(20,184,166,0.03));border:1px solid rgba(14,165,233,0.1);border-radius:14px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:all 0.3s ease}
+.prod-sum-item:hover{transform:translateY(-2px);border-color:rgba(200,150,46,0.2);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.prod-sum-val{font-family:var(--font-d);font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,var(--white),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .prod-sum-label{font-size:0.72rem;color:var(--text-light);margin-top:4px}
 
 /* ═══ PROJETS FUTURS / VISION ═══ */
@@ -381,11 +398,15 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 #vision .eyb.gold{background:rgba(200,150,46,0.1);border-color:rgba(200,150,46,0.2);color:var(--gold-light)}
 
 .vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
-.vision-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px;transition:all 0.4s cubic-bezier(0.22,0.61,0.36,1);position:relative;overflow:hidden}
-.vision-card::before{content:'';position:absolute;top:0;right:0;width:150px;height:150px;background:radial-gradient(circle,var(--card-glow,rgba(14,165,233,0.06)),transparent);border-radius:50%;transform:translate(30%,-30%)}
-.vision-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(200,150,46,0.2);transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,0.3)}
-.vision-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:center;background:linear-gradient(135deg,rgba(200,150,46,0.04),rgba(14,165,233,0.03));border-color:rgba(200,150,46,0.12)}
-.vision-card.featured::before{width:300px;height:300px;background:radial-gradient(circle,rgba(200,150,46,0.08),transparent)}
+.vision-card{background:linear-gradient(160deg,rgba(15,29,53,0.65),rgba(11,20,38,0.88));border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px;transition:all 0.4s cubic-bezier(0.22,0.61,0.36,1);position:relative;overflow:hidden;backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4)}
+.vision-card::before{content:'';position:absolute;top:0;right:0;width:180px;height:180px;background:radial-gradient(circle,var(--card-glow,rgba(14,165,233,0.08)),transparent 70%);border-radius:50%;transform:translate(30%,-30%);transition:transform 0.5s ease,opacity 0.4s ease}
+.vision-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal),var(--gold));opacity:0;transition:opacity 0.35s ease}
+.vision-card:hover{background:linear-gradient(160deg,rgba(15,29,53,0.8),rgba(11,20,38,0.95));border-color:rgba(200,150,46,0.25);transform:translateY(-5px);box-shadow:0 24px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(200,150,46,0.06) inset}
+.vision-card:hover::before{transform:translate(20%,-20%) scale(1.3)}
+.vision-card:hover::after{opacity:1}
+.vision-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:center;background:linear-gradient(155deg,rgba(200,150,46,0.05),rgba(15,29,53,0.7),rgba(14,165,233,0.03));border-color:rgba(200,150,46,0.15);box-shadow:0 8px 40px rgba(0,0,0,0.2)}
+.vision-card.featured::before{width:350px;height:350px;background:radial-gradient(circle,rgba(200,150,46,0.1),transparent 65%)}
+.vision-card.featured:hover{box-shadow:0 28px 70px rgba(0,0,0,0.45),0 0 80px rgba(200,150,46,0.06)}
 
 .vision-status{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-family:var(--font-d);font-size:0.62rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px}
 .vision-status.active{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:var(--green-light)}
@@ -397,10 +418,11 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .vision-status.planned .pulse-sm{background:var(--accent)}
 
 .vision-card h3{font-family:var(--font-d);font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:8px}
-.vision-card h3 span{color:var(--gold-light)}
+.vision-card h3 span{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .vision-card p{font-size:0.84rem;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:16px}
 .vision-specs{display:flex;flex-wrap:wrap;gap:8px}
-.vision-spec{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-family:var(--font-d);font-size:0.7rem;font-weight:500;color:rgba(255,255,255,0.55)}
+.vision-spec{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);border-radius:10px;font-family:var(--font-d);font-size:0.7rem;font-weight:500;color:rgba(255,255,255,0.55);transition:all 0.3s ease;backdrop-filter:blur(4px)}
+.vision-card:hover .vision-spec{border-color:rgba(200,150,46,0.15);background:linear-gradient(135deg,rgba(200,150,46,0.04),rgba(255,255,255,0.02))}
 .vision-spec i{font-size:0.6rem;color:var(--gold)}
 .vision-spec strong{color:var(--white);font-weight:700}
 
@@ -409,8 +431,10 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 
 /* ═══ FLEET ═══ */
 .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.fleet-card{background:var(--white);border:1px solid var(--surface-alt);border-radius:var(--radius);padding:28px;transition:var(--tr);text-align:center}
-.fleet-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.06)}
+.fleet-card{background:var(--white);border:1px solid var(--surface-alt);border-radius:16px;padding:28px;transition:var(--tr);text-align:center;position:relative;overflow:hidden}
+.fleet-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal));opacity:0;transition:opacity 0.3s ease}
+.fleet-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.08);border-color:rgba(14,165,233,0.2)}
+.fleet-card:hover::before{opacity:1}
 .fleet-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(20,184,166,0.08));display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--accent);margin:0 auto 16px}
 .fleet-card h3{font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:6px}
 .fleet-card p{font-size:0.84rem;color:var(--text-sec);line-height:1.6}
@@ -418,8 +442,10 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 
 /* ═══ TEAM ═══ */
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
-.team-card{text-align:center;padding:24px;border-radius:var(--radius);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);transition:var(--tr)}
-.team-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-4px)}
+.team-card{text-align:center;padding:24px;border-radius:16px;background:linear-gradient(155deg,rgba(15,29,53,0.5),rgba(11,20,38,0.75));border:1px solid rgba(255,255,255,0.06);transition:var(--tr);position:relative;overflow:hidden;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.team-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold));opacity:0;transition:opacity 0.3s ease}
+.team-card:hover{background:linear-gradient(155deg,rgba(15,29,53,0.65),rgba(11,20,38,0.85));border-color:rgba(14,165,233,0.15);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.3)}
+.team-card:hover::before{opacity:1}
 .team-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,rgba(14,165,233,0.15),rgba(20,184,166,0.15));margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--accent-light)}
 .team-card h4{font-family:var(--font-d);font-size:0.92rem;font-weight:700;color:var(--white)}
 .team-card small{font-size:0.74rem;color:rgba(255,255,255,0.4)}
@@ -463,6 +489,57 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .dot-nav-dot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(120,113,108,0.4);background:transparent;cursor:pointer;transition:all 0.3s ease;padding:0;flex-shrink:0}
 .dot-nav-dot:hover{border-color:var(--accent);transform:scale(1.3)}
 .dot-nav-dot.active{border-color:var(--accent);background:var(--accent);box-shadow:0 0 12px var(--accent-glow);transform:scale(1.2)}
+/* ═══ BASSIN CONNECTIONS ═══ */
+#basins{background:linear-gradient(170deg,#0D1B2A 0%,#0B1426 50%,#0F1D35 100%);color:var(--white);padding:100px 0 80px;position:relative;overflow:hidden}
+#basins::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 500px at 50% 50%,rgba(14,165,233,0.05),transparent);pointer-events:none}
+#basins .stitle{color:var(--white)}
+#basins .stitle .hl{-webkit-text-fill-color:transparent;background:linear-gradient(120deg,var(--accent-light),var(--teal-light));-webkit-background-clip:text;background-clip:text}
+#basins .sdesc{color:rgba(255,255,255,0.5)}
+
+.basin-schematic{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+
+/* SVG map side */
+.basin-svg-wrap{background:rgba(11,20,38,0.7);border:1px solid rgba(14,165,233,0.12);border-radius:20px;padding:24px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 12px 60px rgba(0,0,0,0.3)}
+.basin-svg-wrap svg{width:100%;height:auto;display:block}
+.basin-svg-wrap svg text{font-family:'Space Grotesk',sans-serif}
+
+/* Basin cards side */
+.basin-cards{display:flex;flex-direction:column;gap:16px}
+.basin-card{background:linear-gradient(155deg,rgba(15,29,53,0.6),rgba(11,20,38,0.85));border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:22px 24px;transition:all 0.4s cubic-bezier(0.22,0.61,0.36,1);position:relative;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);cursor:default}
+.basin-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--basin-accent,linear-gradient(90deg,var(--accent),var(--teal)));opacity:0;transition:opacity 0.35s ease}
+.basin-card:hover{background:linear-gradient(155deg,rgba(15,29,53,0.75),rgba(11,20,38,0.92));border-color:rgba(14,165,233,0.2);transform:translateY(-3px);box-shadow:0 16px 44px rgba(0,0,0,0.35)}
+.basin-card:hover::before{opacity:1}
+
+.basin-card-header{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.basin-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;box-shadow:0 0 10px var(--basin-glow,rgba(14,165,233,0.3))}
+.basin-card-header h4{font-family:var(--font-d);font-size:0.95rem;font-weight:700;color:var(--white);margin:0}
+.basin-card-header .basin-op{font-family:var(--font-d);font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);margin-left:auto;white-space:nowrap}
+
+.basin-card p{font-size:0.78rem;color:rgba(255,255,255,0.42);line-height:1.55;margin:0 0 10px}
+.basin-metrics{display:flex;gap:10px;flex-wrap:wrap}
+.basin-met{font-family:var(--font-d);font-size:0.64rem;font-weight:500;padding:4px 10px;border-radius:999px;background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.12);color:var(--accent-light)}
+.basin-met strong{font-weight:700}
+.basin-met.gold{background:rgba(200,150,46,0.06);border-color:rgba(200,150,46,0.12);color:var(--gold-light)}
+.basin-met.teal{background:rgba(20,184,166,0.06);border-color:rgba(20,184,166,0.12);color:var(--teal-light)}
+.basin-met.green{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.12);color:var(--green-light)}
+
+/* Legend row */
+.basin-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:32px;justify-content:center}
+.basin-legend-item{display:flex;align-items:center;gap:8px;font-family:var(--font-d);font-size:0.7rem;color:rgba(255,255,255,0.5);letter-spacing:0.03em}
+.basin-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.basin-legend-line{width:24px;height:2px;border-radius:1px;flex-shrink:0}
+
+/* Hub callout */
+.hub-callout{margin-top:32px;background:linear-gradient(135deg,rgba(200,150,46,0.06),rgba(14,165,233,0.04));border:1px solid rgba(200,150,46,0.15);border-radius:16px;padding:28px;display:flex;align-items:center;gap:24px;position:relative;overflow:hidden}
+.hub-callout::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(200,150,46,0.08),transparent);border-radius:50%}
+.hub-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--gold),#B8860B);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0}
+.hub-text h4{font-family:var(--font-d);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.hub-text p{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.5;margin:0}
+.hub-stats{display:flex;gap:16px;margin-left:auto;flex-shrink:0}
+.hub-stat{text-align:center}
+.hub-stat strong{display:block;font-family:var(--font-d);font-size:1rem;font-weight:800;background:linear-gradient(120deg,var(--gold-light),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hub-stat span{font-size:0.6rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.04em}
+
 @media(max-width:968px){.dot-nav{display:none}}
 
 /* ═══ REVEAL ═══ */
@@ -587,6 +664,11 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   .vision-card.featured{grid-template-columns:1fr}
   .vision-map{margin-top:16px}
   .stats-row{grid-template-columns:repeat(2,1fr)}
+  .basin-schematic{grid-template-columns:1fr}
+  .basin-svg-wrap{order:-1}
+  .hub-callout{flex-direction:column;text-align:center}
+  .hub-stats{margin-left:0}
+  #basins{padding:80px 0 60px!important}
   /* Mobile: section titles smaller */
   .stitle{font-size:1.6rem}
   .sdesc{font-size:0.88rem}
@@ -611,6 +693,12 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   .fso-stats{grid-template-columns:repeat(3,1fr);gap:8px}
   .stitle{font-size:1.4rem;line-height:1.25}
   .ctn{padding:0 16px}
+  /* Basin mobile */
+  .basin-card{padding:18px 20px}
+  .basin-legend{gap:12px}
+  .hub-callout{padding:20px;gap:16px}
+  .hub-icon{width:44px;height:44px;font-size:1rem}
+  .hub-stats{gap:12px}
   /* Producers mobile */
   .prod-card{padding:20px}
   .prod-header{gap:10px}
@@ -1049,26 +1137,26 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
       <div class="op-card">
         <div class="op-icon"><i class="fas fa-project-diagram"></i></div>
         <h3 data-i18n data-en="Pipeline Transport">Transport Pipeline</h3>
-        <p data-i18n data-en="Operation and maintenance of the 1,070 km Doba-Kribi export pipeline with 4 booster pump stations.">Exploitation et maintenance du pipeline d'export Doba-Kribi de 1 070 km avec 4 stations de pompage relais.</p>
+        <p data-i18n data-en="1,070 km export pipeline, 30&quot; diameter (760 mm), 48 sectioning valves, 3 pump stations (Komé, Dompta, Belabo). Bimonthly pigging, annual ILI inspections, continuous cathodic protection. FSO Komé Kribi 1 (2.4M bbl, 357,000 dwt) anchored 12 km offshore, 22 km subsea pipeline.">Pipeline d'export de 1 070 km, diamètre 30" (760 mm), 48 vannes de sectionnement, 3 stations de pompage (Komé, Dompta, Belabo). Pigging bimensuel, inspections ILI annuelles, protection cathodique continue. FSO Komé Kribi 1 (2,4M bbl, 357 000 tpl) ancré à 12 km au large, pipeline sous-marin de 22 km.</p>
         <span class="op-tag">API 5L X60</span>
       </div>
       <div class="op-card">
         <div class="op-icon"><i class="fas fa-arrows-split-up-and-left"></i></div>
         <h3 data-i18n data-en="Crude Gathering">Collecte Brut</h3>
-        <p data-i18n data-en="350+ km gathering network connecting 120+ wells to manifolds and the Central Processing Facility (CPF).">Réseau de collecte de 350+ km connectant 120+ puits aux manifolds et à l'usine de traitement central (CPF).</p>
+        <p data-i18n data-en="350+ km steel/composite gathering lines, 8 multi-well manifolds, 3 gas-oil-water separation stations. Connects 120+ wells to the Central Processing Facility (CPF).">350+ km de conduites acier/composite, 8 manifolds multi-puits, 3 stations de séparation gaz-pétrole-eau. Connecte 120+ puits à l'usine de traitement central (CPF).</p>
         <span class="op-tag">120+ puits</span>
       </div>
       <div class="op-card">
         <div class="op-icon"><i class="fas fa-warehouse"></i></div>
         <h3 data-i18n data-en="Storage & Terminals">Stockage & Terminaux</h3>
-        <p data-i18n data-en="6 tank farm facilities with 2.8M bbl combined capacity — Doba, Bero, Komé, pump stations and the Kribi FSO terminal.">6 parcs de stockage d'une capacité combinée de 2,8M bbl — Doba, Béro, Komé, stations de pompage et terminal FSO Kribi.</p>
+        <p data-i18n data-en="6 tank farms, 2.8M bbl combined capacity. Sedimentation tanks with level/density monitors, daily chromatographic readings, 4 repump stations. 99.5% availability — Doba, Bero, Komé, pump stations and Kribi FSO terminal.">6 parcs de stockage, 2,8M bbl de capacité combinée. Bacs de sédimentation avec moniteurs niveau/densité, relevés chromatographiques quotidiens, 4 stations de repompage. 99,5 % disponibilité — Doba, Béro, Komé, stations de pompage et terminal FSO Kribi.</p>
         <span class="op-tag">2.8M bbl</span>
       </div>
       <div class="op-card">
         <div class="op-icon"><i class="fas fa-gauge-high"></i></div>
         <h3 data-i18n data-en="Fiscal Metering">Comptage & Metering</h3>
-        <p data-i18n data-en="OIML R117-certified custody transfer metering at pipeline entry/exit points, loading terminals, and export facilities.">Comptage de transfert de garde certifié OIML R117 aux points d'entrée/sortie pipeline, terminaux et installations d'export.</p>
-        <span class="op-tag">OIML R117</span>
+        <p data-i18n data-en="3 redundant Coriolis flowmeters per API MPMS Ch. 5. Annual calibration by accredited lab, ±0.1% precision. Custody transfer at pipeline entry/exit, loading terminals and export facilities.">3 débitmètres Coriolis en redondance selon API MPMS Ch. 5. Calibration annuelle par labo accrédité, ±0,1 % de précision. Transfert de garde aux points d'entrée/sortie pipeline, terminaux et installations d'export.</p>
+        <span class="op-tag">±0.1 %</span>
       </div>
       <div class="op-card">
         <div class="op-icon"><i class="fas fa-satellite-dish"></i></div>
@@ -1093,6 +1181,265 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
         <h3 data-i18n data-en="HSE & Emergency">HSE & Urgence</h3>
         <p data-i18n data-en="Zero-tolerance safety culture with dedicated emergency response teams, spill containment equipment, and continuous HSE training programs.">Culture sécurité zéro-tolérance avec équipes d'intervention d'urgence dédiées, équipements de confinement des déversements et programmes HSE continus.</p>
         <span class="op-tag">Zéro incident</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BASSINS DE PRODUCTION — CONNEXIONS AU PIPELINE ═══ -->
+<section id="basins">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb blue"><i class="fas fa-diagram-project"></i> <span data-i18n data-en="Production Network">Réseau de Production</span></div>
+      <h2 class="stitle" data-i18n data-en="Production basins <span class='hl'>connected</span> to the pipeline">Bassins de production <span class="hl">connectés</span> au pipeline</h2>
+      <p class="sdesc" data-i18n data-en="From 5 production areas, crude flows through 350+ km of gathering lines, 8 manifolds and 3 separation stations into the Doba hub — gateway to the 1,070 km COTCO export pipeline.">Depuis 5 zones de production, le brut circule via 350+ km de conduites de collecte, 8 manifolds et 3 stations de séparation vers le hub de Doba — porte d'entrée du pipeline d'export COTCO de 1 070 km.</p>
+    </div>
+
+    <div class="basin-schematic" data-r>
+      <!-- SVG schematic -->
+      <div class="basin-svg-wrap">
+        <svg viewBox="0 0 520 560" xmlns="http://www.w3.org/2000/svg" aria-label="Schéma des connexions bassins-pipeline">
+          <defs>
+            <linearGradient id="gFlow" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.6"/><stop offset="100%" stop-color="#14B8A6" stop-opacity="0.6"/></linearGradient>
+            <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C8962E" stop-opacity="0.7"/><stop offset="100%" stop-color="#D4A840" stop-opacity="0.7"/></linearGradient>
+            <linearGradient id="gPipe" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8962E"/><stop offset="100%" stop-color="#0EA5E9"/></linearGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <marker id="arrowTeal" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#14B8A6" opacity="0.5"/></marker>
+          </defs>
+
+          <!-- Background grid dots -->
+          <g opacity="0.08">
+            <pattern id="gridDots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="0.8" fill="#fff"/></pattern>
+            <rect width="520" height="560" fill="url(#gridDots)"/>
+          </g>
+
+          <!-- === GATHERING LINES (connections to hub) === -->
+          <!-- Komé/Miandoum/Bolobo → Hub -->
+          <path d="M120,95 C120,160 200,200 260,290" stroke="url(#gFlow)" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.5">
+            <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite"/>
+          </path>
+          <!-- Moundouli/Nya → Hub -->
+          <path d="M80,210 C130,240 190,260 260,300" stroke="url(#gFlow)" stroke-width="1.5" fill="none" stroke-dasharray="5,4" opacity="0.4">
+            <animate attributeName="stroke-dashoffset" from="18" to="0" dur="2.5s" repeatCount="indefinite"/>
+          </path>
+          <!-- Mangara/Badila/Krim → Hub -->
+          <path d="M420,110 C400,180 340,240 270,290" stroke="#0EA5E9" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.5">
+            <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2.2s" repeatCount="indefinite"/>
+          </path>
+          <!-- ORYX (Bongor) → Hub -->
+          <path d="M440,260 C380,270 320,290 275,300" stroke="#14B8A6" stroke-width="1.5" fill="none" stroke-dasharray="5,4" opacity="0.4">
+            <animate attributeName="stroke-dashoffset" from="18" to="0" dur="2.3s" repeatCount="indefinite"/>
+          </path>
+          <!-- Bloc H Salamat → Hub -->
+          <path d="M410,370 C360,350 310,320 275,310" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-dasharray="5,4" opacity="0.4">
+            <animate attributeName="stroke-dashoffset" from="18" to="0" dur="2.4s" repeatCount="indefinite"/>
+          </path>
+
+          <!-- === DOBA HUB (central node) === -->
+          <circle cx="265" cy="305" r="32" fill="none" stroke="#C8962E" stroke-width="1.5" opacity="0.15">
+            <animate attributeName="r" values="32;38;32" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.15;0.05;0.15" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="265" cy="305" r="24" fill="#0B1426" stroke="#C8962E" stroke-width="2" filter="url(#glow)"/>
+          <text x="265" y="301" text-anchor="middle" font-size="7" font-weight="700" fill="#C8962E" letter-spacing="0.08em">HUB</text>
+          <text x="265" y="313" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">DOBA</text>
+
+          <!-- === COTCO PIPELINE (hub → south) === -->
+          <line x1="265" y1="330" x2="265" y2="530" stroke="url(#gPipe)" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+          <!-- Pipeline flow animation -->
+          <circle r="4" fill="#C8962E" opacity="0.8" filter="url(#glow)">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M265,335 L265,525"/>
+          </circle>
+          <circle r="4" fill="#0EA5E9" opacity="0.6">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M265,335 L265,525" begin="1.5s"/>
+          </circle>
+
+          <!-- Pipeline label -->
+          <rect x="280" y="400" width="120" height="40" rx="8" fill="rgba(11,20,38,0.85)" stroke="rgba(200,150,46,0.2)" stroke-width="1"/>
+          <text x="340" y="416" text-anchor="middle" font-size="7" font-weight="600" fill="#C8962E" letter-spacing="0.06em">COTCO PIPELINE</text>
+          <text x="340" y="430" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">→ 1 070 km → Kribi</text>
+
+          <!-- === PRODUCTION BASIN NODES === -->
+          <!-- 1. Komé / Miandoum / Bolobo -->
+          <circle cx="120" cy="75" r="18" fill="#0B1426" stroke="#0EA5E9" stroke-width="1.5"/>
+          <text x="120" y="72" text-anchor="middle" font-size="15" fill="#0EA5E9">&#xf54c;</text>
+          <text x="120" y="72" text-anchor="middle" font-family="'Font Awesome 6 Free'" font-weight="900" font-size="13" fill="#0EA5E9">&#xf54c;</text>
+          <!-- Use simple text instead -->
+          <circle cx="120" cy="75" r="18" fill="rgba(14,165,233,0.12)" stroke="#0EA5E9" stroke-width="1.5"/>
+          <circle cx="120" cy="75" r="4" fill="#0EA5E9"/>
+          <text x="120" y="55" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">Komé</text>
+          <text x="120" y="100" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.4)">Miandoum · Bolobo</text>
+          <rect x="65" y="107" width="110" height="18" rx="9" fill="rgba(14,165,233,0.08)" stroke="rgba(14,165,233,0.15)" stroke-width="0.5"/>
+          <text x="120" y="119" text-anchor="middle" font-size="7" font-weight="600" fill="#7DD3FC">SHT · ~68K bbl/j cible</text>
+
+          <!-- 2. Moundouli / Nya -->
+          <circle cx="65" cy="200" r="14" fill="rgba(14,165,233,0.08)" stroke="#0EA5E9" stroke-width="1" opacity="0.7"/>
+          <circle cx="65" cy="200" r="3" fill="#0EA5E9" opacity="0.7"/>
+          <text x="65" y="185" text-anchor="middle" font-size="8" font-weight="600" fill="rgba(255,255,255,0.7)">Moundouli</text>
+          <text x="65" y="222" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.35)">Nya · Sédigui</text>
+
+          <!-- 3. Mangara / Badila / Krim (Perenco) -->
+          <circle cx="420" cy="90" r="18" fill="rgba(3,105,161,0.12)" stroke="#0369A1" stroke-width="1.5"/>
+          <circle cx="420" cy="90" r="4" fill="#0369A1"/>
+          <text x="420" y="70" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">Mangara</text>
+          <text x="420" y="115" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.4)">Badila · Krim</text>
+          <rect x="365" y="122" width="110" height="18" rx="9" fill="rgba(3,105,161,0.08)" stroke="rgba(3,105,161,0.15)" stroke-width="0.5"/>
+          <text x="420" y="134" text-anchor="middle" font-size="7" font-weight="600" fill="#7DD3FC">Perenco · 18K+ bbl/j</text>
+
+          <!-- 4. ORYX blocks (Bongor basin — OPIC) -->
+          <circle cx="445" cy="245" r="16" fill="rgba(5,150,105,0.12)" stroke="#059669" stroke-width="1.5"/>
+          <circle cx="445" cy="245" r="3.5" fill="#059669"/>
+          <text x="445" y="228" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">ORYX</text>
+          <text x="445" y="268" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.4)">Bassin de Bongor</text>
+          <rect x="395" y="275" width="100" height="18" rx="9" fill="rgba(5,150,105,0.08)" stroke="rgba(5,150,105,0.15)" stroke-width="0.5"/>
+          <text x="445" y="287" text-anchor="middle" font-size="7" font-weight="600" fill="#6EE7B7">OPIC · 3.3K bbl/j</text>
+
+          <!-- 5. Bloc H Salamat (CNPC) -->
+          <circle cx="420" cy="370" r="18" fill="rgba(220,38,38,0.1)" stroke="#DC2626" stroke-width="1.5"/>
+          <circle cx="420" cy="370" r="4" fill="#DC2626"/>
+          <text x="420" y="353" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">Bloc H</text>
+          <text x="420" y="395" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.4)">Bassin de Salamat</text>
+          <rect x="368" y="402" width="104" height="18" rx="9" fill="rgba(220,38,38,0.08)" stroke="rgba(220,38,38,0.15)" stroke-width="0.5"/>
+          <text x="420" y="414" text-anchor="middle" font-size="7" font-weight="600" fill="#FCA5A5">CNPC · Bloc H</text>
+
+          <!-- Manifold markers on gathering lines -->
+          <g opacity="0.6">
+            <rect x="155" y="138" width="36" height="14" rx="7" fill="rgba(14,165,233,0.15)" stroke="rgba(14,165,233,0.25)" stroke-width="0.5"/>
+            <text x="173" y="148" text-anchor="middle" font-size="6" font-weight="600" fill="#7DD3FC">MF-1</text>
+            <rect x="180" y="195" width="36" height="14" rx="7" fill="rgba(14,165,233,0.15)" stroke="rgba(14,165,233,0.25)" stroke-width="0.5"/>
+            <text x="198" y="205" text-anchor="middle" font-size="6" font-weight="600" fill="#7DD3FC">MF-3</text>
+            <rect x="365" y="180" width="36" height="14" rx="7" fill="rgba(14,165,233,0.15)" stroke="rgba(14,165,233,0.25)" stroke-width="0.5"/>
+            <text x="383" y="190" text-anchor="middle" font-size="6" font-weight="600" fill="#7DD3FC">MF-5</text>
+          </g>
+
+          <!-- Separation stations -->
+          <g opacity="0.5">
+            <rect x="195" y="240" width="48" height="14" rx="7" fill="rgba(20,184,166,0.12)" stroke="rgba(20,184,166,0.2)" stroke-width="0.5"/>
+            <text x="219" y="250" text-anchor="middle" font-size="6" font-weight="600" fill="#5EEAD4">SEP-1</text>
+            <rect x="300" y="250" width="48" height="14" rx="7" fill="rgba(20,184,166,0.12)" stroke="rgba(20,184,166,0.2)" stroke-width="0.5"/>
+            <text x="324" y="260" text-anchor="middle" font-size="6" font-weight="600" fill="#5EEAD4">SEP-2</text>
+          </g>
+
+          <!-- Djarmaya refinery (off-hub, via Bongor) -->
+          <path d="M265,290 C230,270 170,230 110,190" stroke="#A855F7" stroke-width="1.5" fill="none" stroke-dasharray="5,4" opacity="0.4">
+            <animate attributeName="stroke-dashoffset" from="0" to="-18" dur="2.5s" repeatCount="indefinite"/>
+          </path>
+          <rect x="60" y="162" width="100" height="46" rx="10" fill="rgba(168,85,247,0.06)" stroke="rgba(168,85,247,0.18)" stroke-width="1"/>
+          <rect x="92" y="150" width="8" height="14" rx="1.5" fill="rgba(168,85,247,0.25)" stroke="rgba(168,85,247,0.35)" stroke-width="0.5"/>
+          <rect x="105" y="146" width="12" height="18" rx="2" fill="rgba(168,85,247,0.2)" stroke="rgba(168,85,247,0.3)" stroke-width="0.5"/>
+          <text x="110" y="176" text-anchor="middle" font-size="8.5" font-weight="700" fill="#C084FC">Raffinerie</text>
+          <text x="110" y="187" text-anchor="middle" font-size="8.5" font-weight="700" fill="#C084FC">Djarmaya</text>
+          <text x="110" y="200" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,0.35)">20K bbl/j · 311 km</text>
+          <rect x="72" y="205" width="76" height="14" rx="7" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.15)" stroke-width="0.5"/>
+          <text x="110" y="215" text-anchor="middle" font-size="6" font-weight="600" fill="#C084FC">CNPC 60% · SHT 40%</text>
+
+          <!-- Scale indicator -->
+          <line x1="30" y1="530" x2="130" y2="530" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <line x1="30" y1="526" x2="30" y2="534" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <line x1="130" y1="526" x2="130" y2="534" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <text x="80" y="545" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.25)">~100 km</text>
+
+          <!-- Arrow to Kribi at bottom -->
+          <text x="265" y="552" text-anchor="middle" font-size="8" font-weight="700" fill="rgba(200,150,46,0.5)" letter-spacing="0.1em">→ KRIBI · FSO · ATLANTIQUE</text>
+        </svg>
+      </div>
+
+      <!-- Basin detail cards -->
+      <div class="basin-cards">
+        <div class="basin-card" style="--basin-accent:linear-gradient(90deg,#0EA5E9,#14B8A6);--basin-glow:rgba(14,165,233,0.3)">
+          <div class="basin-card-header">
+            <div class="basin-dot" style="background:#0EA5E9"></div>
+            <h4 data-i18n data-en="Komé · Miandoum · Bolobo">Komé · Miandoum · Bolobo</h4>
+            <span class="basin-op">SHT</span>
+          </div>
+          <p data-i18n data-en="Principal production cluster in the Doba basin. Crude converges at the Komé manifold before injection into the COTCO pipeline via PS1 pump station. Three-phase separation, water treatment, and gas flaring reduction facility.">Cluster de production principal du bassin de Doba. Le brut converge au manifold de Komé avant injection dans le pipeline COTCO via la station de pompage PS1. Séparation triphasique, traitement d'eau et installation de réduction du torchage.</p>
+          <div class="basin-metrics">
+            <span class="basin-met gold"><strong>68K</strong> bbl/j cible</span>
+            <span class="basin-met">PS1 Komé</span>
+            <span class="basin-met teal">CPF principal</span>
+          </div>
+        </div>
+
+        <div class="basin-card" style="--basin-accent:linear-gradient(90deg,#0369A1,#0EA5E9);--basin-glow:rgba(3,105,161,0.3)">
+          <div class="basin-card-header">
+            <div class="basin-dot" style="background:#0369A1"></div>
+            <h4 data-i18n data-en="Mangara · Badila · Krim">Mangara · Badila · Krim</h4>
+            <span class="basin-op">Perenco</span>
+          </div>
+          <p data-i18n data-en="Fields restarted after Glencore's exit in July 2022. Production restored to 18,000+ bbl/day across three fields with active 12+ well drilling campaign. Connected via dedicated gathering lines to the Doba manifold system.">Champs relancés après la sortie de Glencore en juillet 2022. Production restaurée à 18 000+ bbl/jour sur trois champs avec campagne active de 12+ puits. Connectés via conduites de collecte dédiées au système de manifolds de Doba.</p>
+          <div class="basin-metrics">
+            <span class="basin-met"><strong>18K+</strong> bbl/j</span>
+            <span class="basin-met"><strong>12+</strong> puits</span>
+            <span class="basin-met green">Acquis 2022</span>
+          </div>
+        </div>
+
+        <div class="basin-card" style="--basin-accent:linear-gradient(90deg,#059669,#14B8A6);--basin-glow:rgba(5,150,105,0.3)">
+          <div class="basin-card-header">
+            <div class="basin-dot" style="background:#059669"></div>
+            <h4 data-i18n data-en="ORYX — Bongor Basin">ORYX — Bassin de Bongor</h4>
+            <span class="basin-op">OPIC</span>
+          </div>
+          <p data-i18n data-en="Mouroumar, Benoy, Mbaikoro and Benoy-West blocks operated by CPC Taiwan subsidiary. 17 production wells with 7 water injection wells for pressure maintenance. Connected to the Doba hub via secondary gathering network.">Blocs Mouroumar, Benoy, Mbaikoro et Benoy-Ouest opérés par la filiale de CPC Taiwan. 17 puits de production avec 7 puits d'injection d'eau pour maintien de pression. Connecté au hub de Doba via le réseau secondaire de collecte.</p>
+          <div class="basin-metrics">
+            <span class="basin-met"><strong>3.3K</strong> bbl/j</span>
+            <span class="basin-met"><strong>17</strong> puits prod.</span>
+            <span class="basin-met teal"><strong>7</strong> injection</span>
+          </div>
+        </div>
+
+        <div class="basin-card" style="--basin-accent:linear-gradient(90deg,#DC2626,#F59E0B);--basin-glow:rgba(220,38,38,0.3)">
+          <div class="basin-card-header">
+            <div class="basin-dot" style="background:#DC2626"></div>
+            <h4 data-i18n data-en="Block H — Salamat Basin">Bloc H — Bassin de Salamat</h4>
+            <span class="basin-op">CNPC</span>
+          </div>
+          <p data-i18n data-en="Major concession with 79 fault blocks in the Salamat basin. CNPC operates jointly with SHT, feeding the Djarmaya refinery (20,000 bbl/day) and routing export-grade crude to the COTCO pipeline via the Doba gathering network.">Concession majeure avec 79 blocs faillés dans le bassin de Salamat. CNPC opère conjointement avec SHT, alimentant la raffinerie de Djarmaya (20 000 bbl/j) et acheminant le brut d'export vers le pipeline COTCO via le réseau de collecte de Doba.</p>
+          <div class="basin-metrics">
+            <span class="basin-met"><strong>79</strong> blocs</span>
+            <span class="basin-met gold">Djarmaya 20K bbl/j</span>
+            <span class="basin-met">JV avec SHT</span>
+          </div>
+        </div>
+
+        <div class="basin-card" style="--basin-accent:linear-gradient(90deg,#0EA5E9,#0EA5E9);--basin-glow:rgba(14,165,233,0.2)">
+          <div class="basin-card-header">
+            <div class="basin-dot" style="background:rgba(14,165,233,0.6)"></div>
+            <h4 data-i18n data-en="Moundouli · Nya · Sédigui">Moundouli · Nya · Sédigui</h4>
+            <span class="basin-op">SHT</span>
+          </div>
+          <p data-i18n data-en="Secondary fields in the greater Doba area. Lower-volume production feeding into the main gathering system via intermediate manifolds. Sédigui is an older field under enhanced recovery operations.">Champs secondaires dans la zone élargie de Doba. Production à volume réduit alimentant le système principal de collecte via des manifolds intermédiaires. Sédigui est un champ ancien sous opérations de récupération assistée.</p>
+          <div class="basin-metrics">
+            <span class="basin-met">EOR actif</span>
+            <span class="basin-met teal">Manifolds MF-3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="basin-legend" data-r>
+      <div class="basin-legend-item"><div class="basin-legend-dot" style="background:#0EA5E9"></div>SHT / National</div>
+      <div class="basin-legend-item"><div class="basin-legend-dot" style="background:#0369A1"></div>Perenco</div>
+      <div class="basin-legend-item"><div class="basin-legend-dot" style="background:#059669"></div>OPIC Africa</div>
+      <div class="basin-legend-item"><div class="basin-legend-dot" style="background:#DC2626"></div>CNPC</div>
+      <div class="basin-legend-item"><div class="basin-legend-line" style="background:linear-gradient(90deg,#0EA5E9,#14B8A6)"></div>Conduites collecte</div>
+      <div class="basin-legend-item"><div class="basin-legend-line" style="background:#A855F7"></div>→ Raffinerie Djarmaya</div>
+      <div class="basin-legend-item"><div class="basin-legend-line" style="background:linear-gradient(90deg,#C8962E,#0EA5E9);height:4px"></div>Pipeline COTCO</div>
+    </div>
+
+    <!-- Hub callout -->
+    <div class="hub-callout" data-r>
+      <div class="hub-icon"><i class="fas fa-arrows-to-dot"></i></div>
+      <div class="hub-text">
+        <h4 data-i18n data-en="Doba Hub — Central Processing Facility">Hub Doba — Usine de Traitement Central</h4>
+        <p data-i18n data-en="All production basins converge at the Doba CPF: three-phase separation, dehydration, stabilization, and fiscal metering before injection into the 1,070 km COTCO export pipeline toward Kribi.">Tous les bassins de production convergent vers le CPF de Doba : séparation triphasique, déshydratation, stabilisation et comptage fiscal avant injection dans le pipeline d'export COTCO de 1 070 km vers Kribi.</p>
+      </div>
+      <div class="hub-stats">
+        <div class="hub-stat"><strong>350+</strong><span>km collecte</span></div>
+        <div class="hub-stat"><strong>8</strong><span>manifolds</span></div>
+        <div class="hub-stat"><strong>3</strong><span>stations SEP</span></div>
+        <div class="hub-stat"><strong>~90K</strong><span>bbl/j total</span></div>
       </div>
     </div>
   </div>
@@ -1414,9 +1761,9 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
         <div>
           <div class="vision-status study"><span class="pulse-sm"></span> PROJET STRATÉGIQUE</div>
           <h3><span>CAPS</span> — Central Africa Pipeline System</h3>
-          <p data-i18n data-en="CAPS aims to connect Central Africa's oil infrastructure into an integrated pipeline network. Thanks to its position at the crossroads of the Sahel and Central Africa, Chad becomes the natural pivot — connecting Niger (Agadem), Chad (Doba, Bongor), Cameroon (Kribi), and now extending eastward to South Sudan (Paloich), offering a second Atlantic export route bypassing Sudan.">Le projet CAPS vise à connecter les infrastructures pétrolières d'Afrique Centrale en un réseau intégré de pipelines. Grâce à sa position au carrefour du Sahel et de l'Afrique Centrale, le Tchad devient le pivot naturel — connectant le Niger (Agadem), le Tchad (Doba, Bongor), le Cameroun (Kribi), et désormais le Soudan du Sud (Paloich), offrant une seconde route d'export Atlantique contournant le Soudan.</p>
+          <p data-i18n data-en="CAPS aims to connect Central Africa's oil infrastructure into an integrated pipeline network. Thanks to its position at the crossroads of the Sahel and Central Africa, Chad becomes the natural pivot — connecting Niger (Agadem), Chad (Doba, Bongor), Cameroon (Kribi), South Sudan (Paloich), and offering an alternative export route for Sudan's Darfur reserves (5-15B bbl, CNPC Block 6 on the border). With Port Sudan contested since 2023, the Doba hub offers a natural alternative corridor.">Le projet CAPS vise à connecter les infrastructures pétrolières d'Afrique Centrale en un réseau intégré de pipelines. Grâce à sa position au carrefour du Sahel et de l'Afrique Centrale, le Tchad devient le pivot naturel — connectant le Niger (Agadem), le Tchad (Doba, Bongor), le Cameroun (Kribi), le Soudan du Sud (Paloich), et offrant une route alternative pour les réserves du Darfour soudanais (5-15 Mrd bbl, Bloc 6 CNPC à la frontière). Avec Port-Soudan contesté depuis 2023, le hub de Doba offre un corridor alternatif naturel.</p>
           <div class="vision-specs">
-            <div class="vision-spec"><i class="fas fa-map-marked-alt"></i> <strong>6 pays</strong> connectés</div>
+            <div class="vision-spec"><i class="fas fa-map-marked-alt"></i> <strong>8 connexions</strong> régionales</div>
             <div class="vision-spec"><i class="fas fa-route"></i> <strong>5 000+ km</strong> de réseau</div>
             <div class="vision-spec"><i class="fas fa-oil-well"></i> <strong>4 bassins</strong> producteurs</div>
             <div class="vision-spec"><i class="fas fa-ship"></i> <strong>2 terminaux</strong> Atlantique</div>
@@ -1437,6 +1784,10 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
             <text x="100" y="290" font-family="Inter,sans-serif" font-size="9" fill="rgba(20,184,166,0.15)" font-weight="600">CAMEROUN</text>
             <text x="40" y="340" font-family="Inter,sans-serif" font-size="9" fill="rgba(16,185,129,0.15)" font-weight="600">BÉNIN</text>
             <text x="360" y="220" font-family="Inter,sans-serif" font-size="8" fill="rgba(239,68,68,0.15)" font-weight="600">SOUDAN DU SUD</text>
+            <text x="310" y="140" font-family="Inter,sans-serif" font-size="8" fill="rgba(245,158,11,0.15)" font-weight="600">SOUDAN</text>
+            <!-- Darfour → Doba (concept) -->
+            <path d="M350,155 C300,170 260,190 220,210" stroke="rgba(245,158,11,0.35)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+            <circle r="2.5" fill="#F59E0B" filter="url(#vg)" opacity="0.7"><animateMotion dur="3s" repeatCount="indefinite" path="M350,155 C300,170 260,190 220,210"/><animate attributeName="opacity" values="0;0.7;0.7;0" dur="3s" repeatCount="indefinite"/></circle>
             <!-- Pipeline Tchad-Cameroun (existing) -->
             <path d="M220,210 C190,240 150,270 100,300 C80,310 50,320 30,330" stroke="rgba(14,165,233,0.5)" stroke-width="3" fill="none" stroke-linecap="round"/>
             <!-- Pipeline Niger-Bénin (existing) -->
@@ -1477,12 +1828,36 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
               <text x="390" y="255" font-family="Space Grotesk,sans-serif" font-size="7.5" font-weight="700" fill="#EF4444" text-anchor="middle">Paloich</text>
               <text x="390" y="264" font-family="Inter,sans-serif" font-size="6" fill="rgba(255,255,255,0.3)" text-anchor="middle">3.5B bbl</text>
             </g>
+            <!-- Sudan/Darfour node -->
+            <g>
+              <circle cx="350" cy="155" r="7" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/><circle cx="350" cy="155" r="3.5" fill="#F59E0B" filter="url(#vg)"/>
+              <text x="365" y="152" font-family="Space Grotesk,sans-serif" font-size="7.5" font-weight="700" fill="#F59E0B">Darfour</text>
+              <text x="365" y="162" font-family="Inter,sans-serif" font-size="6" fill="rgba(255,255,255,0.3)">5-15B bbl</text>
+            </g>
+            <!-- Bongor/Djarmaya node + pipeline -->
+            <path d="M180,175 C195,185 210,195 220,210" stroke="rgba(168,85,247,0.4)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle r="2.5" fill="#A855F7" filter="url(#vg)" opacity="0.6"><animateMotion dur="2.5s" repeatCount="indefinite" path="M180,175 C195,185 210,195 220,210"/><animate attributeName="opacity" values="0;0.6;0.6;0" dur="2.5s" repeatCount="indefinite"/></circle>
+            <g>
+              <circle cx="180" cy="175" r="7" fill="rgba(168,85,247,0.15)" stroke="rgba(168,85,247,0.3)" stroke-width="1"/><circle cx="180" cy="175" r="3.5" fill="#A855F7" filter="url(#vg)"/>
+              <text x="147" y="172" font-family="Space Grotesk,sans-serif" font-size="7.5" font-weight="700" fill="#A855F7" text-anchor="end">Bongor</text>
+              <text x="147" y="182" font-family="Inter,sans-serif" font-size="6" fill="rgba(255,255,255,0.3)" text-anchor="end">→ Djarmaya</text>
+            </g>
+            <!-- Djarmaya refinery node -->
+            <g>
+              <rect x="125" y="130" width="8" height="10" rx="1" fill="rgba(168,85,247,0.3)" stroke="rgba(168,85,247,0.4)" stroke-width="0.5"/>
+              <circle cx="129" cy="126" r="4" fill="rgba(168,85,247,0.2)" stroke="rgba(168,85,247,0.35)" stroke-width="0.5"/>
+              <text x="118" y="122" font-family="Space Grotesk,sans-serif" font-size="6.5" font-weight="600" fill="#C084FC" text-anchor="end">Djarmaya</text>
+              <text x="118" y="131" font-family="Inter,sans-serif" font-size="5.5" fill="rgba(255,255,255,0.25)" text-anchor="end">Raffinerie 20K</text>
+            </g>
+            <path d="M180,175 C165,165 145,150 133,140" stroke="rgba(168,85,247,0.35)" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
             <!-- Legend -->
             <g transform="translate(15,20)">
               <line x1="0" y1="0" x2="18" y2="0" stroke="#0EA5E9" stroke-width="2.5"/><text x="24" y="3" font-family="Inter,sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">Existant</text>
               <line x1="0" y1="14" x2="18" y2="14" stroke="#C8962E" stroke-width="2" stroke-dasharray="5,3"/><text x="24" y="17" font-family="Inter,sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">Projet CAPS</text>
               <line x1="0" y1="28" x2="18" y2="28" stroke="#10B981" stroke-width="2"/><text x="24" y="31" font-family="Inter,sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">Niger-Bénin</text>
               <line x1="0" y1="42" x2="18" y2="42" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,3"/><text x="24" y="45" font-family="Inter,sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">Soudan du Sud</text>
+              <line x1="0" y1="56" x2="18" y2="56" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,3"/><text x="24" y="59" font-family="Inter,sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">Soudan (Darfour)</text>
+              <line x1="0" y1="70" x2="18" y2="70" stroke="#A855F7" stroke-width="2"/><text x="24" y="73" font-family="Inter,sans-serif" font-size="7" fill="rgba(255,255,255,0.4)">Bongor → Djarmaya</text>
             </g>
           </svg>
         </div>
@@ -1509,6 +1884,20 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
           <div class="vision-spec"><i class="fas fa-route"></i> <strong>600 km</strong></div>
           <div class="vision-spec"><i class="fas fa-link"></i> Doba Hub</div>
           <div class="vision-spec"><i class="fas fa-ship"></i> → Kribi FSO</div>
+        </div>
+      </div>
+
+      <!-- CARD: Raffinerie Djarmaya — Pipeline Bongor -->
+      <div class="vision-card" style="--card-glow:rgba(168,85,247,0.08)">
+        <div class="vision-status active"><span class="pulse-sm"></span> OPÉRATIONNEL · 2011</div>
+        <h3>Raffinerie <span>Djarmaya</span> — Pipeline Bongor</h3>
+        <p data-i18n data-en="Chad's only refinery, 40 km north of N'Djamena. Owned 60% by CNPC, 40% SHT, operated by SRN SA. Connected via the 311 km Ronier–Djarmaya pipeline to the Bongor Basin (Rônier, Mimosa, Koudalwa fields). Capacity of 20,000 bbl/day, currently ~14,000 bbl/day due to crude quality. Produces gasoline, diesel, fuel oil, LPG and polypropylene. New COSA agreement signed Sept. 2025 (3 years) to improve supply and crude quality. CNPC plans to expand the existing refinery and build a second one in eastern Chad.">Seule raffinerie du Tchad, à 40 km au nord de N'Djamena. Détenue 60 % CNPC, 40 % SHT, opérée par SRN SA. Connectée via le pipeline Rônier–Djarmaya de 311 km au bassin de Bongor (champs Rônier, Mimosa, Koudalwa). Capacité de 20 000 bbl/j, actuellement ~14 000 bbl/j en raison de la qualité du brut. Produit essence, diesel, fioul, GPL et polypropylène. Nouvel accord COSA signé en sept. 2025 (3 ans) pour améliorer l'approvisionnement et la qualité du brut. CNPC prévoit d'étendre la raffinerie et d'en construire une seconde dans l'est du Tchad.</p>
+        <div class="vision-specs">
+          <div class="vision-spec"><i class="fas fa-industry"></i> <strong>20K</strong> bbl/j capacité</div>
+          <div class="vision-spec"><i class="fas fa-route"></i> <strong>311 km</strong> pipeline</div>
+          <div class="vision-spec"><i class="fas fa-handshake"></i> 60% CNPC · 40% SHT</div>
+          <div class="vision-spec"><i class="fas fa-gas-pump"></i> Essence · Diesel · GPL</div>
+          <div class="vision-spec"><i class="fas fa-circle-up"></i> Extension planifiée</div>
         </div>
       </div>
 
@@ -1604,13 +1993,26 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
         </div>
       </div>
 
-      <!-- CARD 6: Position géostratégique -->
+      <!-- CARD 9: Connexion Soudan — Darfour -->
+      <div class="vision-card" style="--card-glow:rgba(245,158,11,0.08)">
+        <div class="vision-status study"><span class="pulse-sm"></span> OPPORTUNITÉ STRATÉGIQUE</div>
+        <h3>Corridor <span>Soudan (Darfour) — Doba</span></h3>
+        <p data-i18n data-en="Sudan's Darfur region holds an estimated 5–15 billion barrels of untapped potential across five basins, with CNPC Block 6 straddling the Chad border. The ongoing civil war (since April 2023) has devastated Sudan's oil infrastructure — a 70% sector contraction, pipeline ruptures, and $5B in damage. Port Sudan remains contested. Chad's existing COTCO pipeline offers a natural alternative export route for future Darfur production, positioning the Doba hub as a strategic alternative to the disrupted Red Sea corridor.">La région du Darfour au Soudan recèle un potentiel estimé de 5 à 15 milliards de barils dans cinq bassins, dont le Bloc 6 de CNPC chevauche la frontière tchadienne. La guerre civile en cours (depuis avril 2023) a dévasté l'infrastructure pétrolière soudanaise — contraction de 70%, ruptures de pipeline et 5 Mrd$ de dommages. Port-Soudan reste contesté. Le pipeline COTCO existant offre une route d'export alternative naturelle pour la future production du Darfour, positionnant le hub de Doba comme alternative stratégique au corridor de la Mer Rouge perturbé.</p>
+        <div class="vision-specs">
+          <div class="vision-spec"><i class="fas fa-oil-well"></i> <strong>5–15B</strong> bbl potentiel</div>
+          <div class="vision-spec"><i class="fas fa-map"></i> CNPC Bloc 6</div>
+          <div class="vision-spec"><i class="fas fa-triangle-exclamation"></i> Port-Soudan contesté</div>
+          <div class="vision-spec"><i class="fas fa-route"></i> → Hub Doba alt.</div>
+        </div>
+      </div>
+
+      <!-- CARD 10: Position géostratégique -->
       <div class="vision-card" style="--card-glow:rgba(200,150,46,0.06)">
         <div class="vision-status planned"><span class="pulse-sm"></span> VISION CONTINENTALE</div>
         <h3>Le Tchad, <span>carrefour continental</span></h3>
-        <p data-i18n data-en="Bordering 6 countries (Libya, Sudan, Central African Republic, Cameroon, Nigeria, Niger), Chad is the only country that can link the Sahel, Central African, and Gulf of Guinea oil corridors. Including South Sudan, this makes 7 potential pipeline connections — an unrivaled transit hub positioning EnerTchad as a strategic operator of African interconnection.">Frontalier de 6 pays (Libye, Soudan, Centrafrique, Cameroun, Nigeria, Niger), le Tchad est le seul pays à pouvoir relier les corridors pétroliers du Sahel, de l'Afrique Centrale et du Golfe de Guinée. Avec le Soudan du Sud, cela ouvre 7 connexions pipeline potentielles — un hub de transit inégalé positionnant EnerTchad comme opérateur stratégique de l'interconnexion africaine.</p>
+        <p data-i18n data-en="Bordering 6 countries (Libya, Sudan, Central African Republic, Cameroon, Nigeria, Niger), Chad is the only country that can link the Sahel, Central African, and Gulf of Guinea oil corridors. Including South Sudan and the Darfur reserves, this makes 8 potential pipeline connections — an unrivaled transit hub positioning EnerTchad as a strategic operator of African interconnection.">Frontalier de 6 pays (Libye, Soudan, Centrafrique, Cameroun, Nigeria, Niger), le Tchad est le seul pays à pouvoir relier les corridors pétroliers du Sahel, de l'Afrique Centrale et du Golfe de Guinée. Avec le Soudan du Sud et les réserves du Darfour, cela ouvre 8 connexions pipeline potentielles — un hub de transit inégalé positionnant EnerTchad comme opérateur stratégique de l'interconnexion africaine.</p>
         <div class="vision-specs">
-          <div class="vision-spec"><i class="fas fa-border-all"></i> <strong>7 connexions</strong></div>
+          <div class="vision-spec"><i class="fas fa-border-all"></i> <strong>8 connexions</strong></div>
           <div class="vision-spec"><i class="fas fa-crosshairs"></i> Position centrale</div>
           <div class="vision-spec"><i class="fas fa-project-diagram"></i> Hub transit</div>
         </div>
@@ -1756,6 +2158,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   <div class="dot-nav-item"><span class="dot-nav-label">Accueil</span><button class="dot-nav-dot active" data-section="hero" aria-label="Accueil"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Mission</span><button class="dot-nav-dot" data-section="mission" aria-label="Mission"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Opérations</span><button class="dot-nav-dot" data-section="operations" aria-label="Opérations"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Bassins</span><button class="dot-nav-dot" data-section="basins" aria-label="Bassins"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Pipeline</span><button class="dot-nav-dot" data-section="pipeline" aria-label="Pipeline"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Producteurs</span><button class="dot-nav-dot" data-section="producers" aria-label="Producteurs"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Projets</span><button class="dot-nav-dot" data-section="vision" aria-label="Projets"></button></div>
