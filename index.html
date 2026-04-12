@@ -480,36 +480,89 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 @keyframes staggerIn{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
 
 /* ═══ MOBILE NAV ═══ */
-.mobile-nav{position:fixed;inset:0;z-index:150;background:rgba(11,20,38,0.98);backdrop-filter:blur(40px) saturate(1.4);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:all 0.5s cubic-bezier(0.22,0.61,0.36,1);overflow-y:auto}
+.mobile-nav{position:fixed;inset:0;z-index:150;background:rgba(11,20,38,0.98);backdrop-filter:blur(40px) saturate(1.4);-webkit-backdrop-filter:blur(40px) saturate(1.4);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:all 0.5s cubic-bezier(0.22,0.61,0.36,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .mobile-nav.open{opacity:1;pointer-events:all}
-.mobile-nav-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mobile-nav-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;background:rgba(11,20,38,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:2}
 .mobile-nav-close{background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);width:40px;height:40px;border-radius:10px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--tr)}
-.mobile-nav-body{flex:1;padding:20px 24px 100px;display:flex;flex-direction:column;gap:6px}
-.mobile-nav-section{font-family:var(--font-d);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.25);padding:20px 0 8px;border-top:1px solid rgba(255,255,255,0.04)}
-.mobile-nav-section:first-child{border-top:none;padding-top:8px}
-.mobile-nav a{color:rgba(255,255,255,0.75);text-decoration:none;font-family:var(--font-d);font-size:1rem;font-weight:500;padding:14px 16px;border-radius:12px;transition:all 0.3s ease;display:flex;align-items:center;gap:14px}
-.mobile-nav a:hover{background:rgba(14,165,233,0.08);color:var(--white)}
-.mobile-nav a i{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--accent);flex-shrink:0}
-.mobile-nav-cta{background:linear-gradient(135deg,var(--accent),var(--teal))!important;color:var(--white)!important;font-weight:600!important;justify-content:center;margin-top:12px;box-shadow:0 4px 20px var(--accent-glow)}
+.mobile-nav-close:hover{border-color:var(--accent);color:var(--accent-light);background:rgba(14,165,233,0.08)}
+.mobile-nav-body{flex:1;padding:12px 16px 100px;display:flex;flex-direction:column;gap:4px}
+
+/* Accordion sections */
+.mn-section{border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);margin-bottom:6px;transition:all 0.3s ease}
+.mn-section.open{background:rgba(14,165,233,0.03);border-color:rgba(14,165,233,0.08)}
+.mn-section-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all 0.3s ease}
+.mn-section-header:active{background:rgba(255,255,255,0.04)}
+.mn-section-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;transition:all 0.3s ease}
+.mn-section-icon.blue{background:rgba(14,165,233,0.1);color:var(--accent)}
+.mn-section-icon.gold{background:rgba(200,150,46,0.1);color:var(--gold)}
+.mn-section-icon.teal{background:rgba(20,184,166,0.1);color:var(--teal)}
+.mn-section.open .mn-section-icon{transform:scale(1.05);box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+.mn-section-text{flex:1;display:flex;flex-direction:column;gap:1px}
+.mn-section-title{font-family:var(--font-d);font-size:0.95rem;font-weight:600;color:rgba(255,255,255,0.85)}
+.mn-section-sub{font-size:0.7rem;color:rgba(255,255,255,0.3)}
+.mn-section.open .mn-section-title{color:var(--white)}
+.mn-chevron{font-size:0.6rem;color:rgba(255,255,255,0.25);transition:transform 0.3s ease}
+.mn-section.open .mn-chevron{transform:rotate(180deg);color:var(--accent)}
+
+/* Accordion body */
+.mn-section-body{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.22,0.61,0.36,1)}
+.mn-section.open .mn-section-body{max-height:600px}
+.mn-section-inner{padding:4px 12px 14px;display:flex;flex-direction:column;gap:2px}
+
+/* Mobile nav links */
+.mn-link{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;color:rgba(255,255,255,0.65);transition:all 0.25s ease;-webkit-tap-highlight-color:transparent}
+.mn-link:active,.mn-link:hover{background:rgba(14,165,233,0.06);color:var(--white)}
+.mn-link-ic{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--accent);flex-shrink:0}
+.mn-link-ic.teal{color:var(--teal)}
+.mn-link-ic.gold{color:var(--gold)}
+.mn-link-text{display:flex;flex-direction:column;gap:1px}
+.mn-link-name{font-family:var(--font-d);font-size:0.85rem;font-weight:500}
+.mn-link-desc{font-size:0.66rem;color:rgba(255,255,255,0.3);line-height:1.3}
+
+/* Stats bar in mobile */
+.mn-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px 14px 12px;border-top:1px solid rgba(255,255,255,0.04);margin-top:4px}
+.mn-stat{text-align:center}
+.mn-stat-val{font-family:var(--font-d);font-size:0.85rem;font-weight:700;color:var(--white)}
+.mn-stat-label{font-size:0.6rem;color:rgba(255,255,255,0.3)}
+
+/* Ecosystem links */
+.mn-eco{display:flex;gap:10px;padding:8px 14px;margin-top:4px}
+.mn-eco-link{flex:1;display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:rgba(200,150,46,0.05);border:1px solid rgba(200,150,46,0.1);text-decoration:none;transition:all 0.3s ease}
+.mn-eco-link:active{background:rgba(200,150,46,0.1)}
+.mn-eco-link i{color:var(--gold);font-size:0.8rem}
+.mn-eco-link span{font-family:var(--font-d);font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.7)}
+
+/* CTA bottom fixed */
+.mn-cta-wrap{position:sticky;bottom:0;padding:12px 16px 20px;background:linear-gradient(0deg,rgba(11,20,38,0.98) 60%,transparent);z-index:2}
+.mn-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--teal));color:var(--white);font-family:var(--font-d);font-size:0.9rem;font-weight:600;text-decoration:none;box-shadow:0 8px 32px var(--accent-glow);transition:all 0.3s ease;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.mn-cta:active{transform:scale(0.98)}
+.mn-cta i{font-size:0.8rem}
+
+/* Language toggle in mobile */
+.mn-lang{display:flex;gap:6px;padding:8px 16px;margin-bottom:8px}
+.mn-lang-btn{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.4);font-family:var(--font-d);font-size:0.78rem;font-weight:600;text-align:center;cursor:pointer;transition:all 0.3s ease;-webkit-tap-highlight-color:transparent}
+.mn-lang-btn.active{background:rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.2);color:var(--accent-light)}
+
+/* Animation staggering */
 .mobile-nav.open .mobile-nav-body>*{animation:mnSlideIn 0.4s cubic-bezier(0.16,1,0.3,1) both}
-.mobile-nav.open .mobile-nav-body>*:nth-child(1){animation-delay:0.05s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(1){animation-delay:0.04s}
 .mobile-nav.open .mobile-nav-body>*:nth-child(2){animation-delay:0.08s}
-.mobile-nav.open .mobile-nav-body>*:nth-child(3){animation-delay:0.11s}
-.mobile-nav.open .mobile-nav-body>*:nth-child(4){animation-delay:0.14s}
-.mobile-nav.open .mobile-nav-body>*:nth-child(5){animation-delay:0.17s}
-.mobile-nav.open .mobile-nav-body>*:nth-child(6){animation-delay:0.20s}
-.mobile-nav.open .mobile-nav-body>*:nth-child(7){animation-delay:0.23s}
-.mobile-nav.open .mobile-nav-body>*:nth-child(8){animation-delay:0.26s}
-.mobile-nav.open .mobile-nav-body>*:nth-child(9){animation-delay:0.29s}
-.mobile-nav.open .mobile-nav-body>*:nth-child(10){animation-delay:0.32s}
-@keyframes mnSlideIn{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:translateX(0)}}
+.mobile-nav.open .mobile-nav-body>*:nth-child(3){animation-delay:0.12s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(4){animation-delay:0.16s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(5){animation-delay:0.20s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(6){animation-delay:0.24s}
+@keyframes mnSlideIn{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
 
 /* ═══ PREMIUM FOCUS RING ═══ */
 .btn:focus-visible{outline:3px solid var(--accent-light);outline-offset:3px}
 :target{scroll-margin-top:80px}
 
 /* ═══ RESPONSIVE ═══ */
-@media(max-width:1024px){.team-grid{grid-template-columns:repeat(2,1fr)}.ops-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1024px){
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .ops-grid{grid-template-columns:repeat(2,1fr)}
+  .mega-drop{min-width:540px}
+}
 @media(max-width:968px){
   .hero-content{padding:130px 0 100px}
   .nav{display:none}.mob-toggle{display:block}.mega-drop{display:none!important}
@@ -534,6 +587,13 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   .vision-card.featured{grid-template-columns:1fr}
   .vision-map{margin-top:16px}
   .stats-row{grid-template-columns:repeat(2,1fr)}
+  /* Mobile: section titles smaller */
+  .stitle{font-size:1.6rem}
+  .sdesc{font-size:0.88rem}
+  section{padding:60px 0 50px!important}
+  #pipeline{padding:80px 0 60px!important}
+  #producers{padding:80px 0 60px!important}
+  #vision{padding:80px 0 60px!important}
 }
 @media(max-width:768px){
   .hero-content{padding:100px 0 80px;max-width:100%}
@@ -549,6 +609,23 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   .pipe-specs-row{grid-template-columns:repeat(2,1fr)}
   .pipe-step-content{padding:16px 20px}
   .fso-stats{grid-template-columns:repeat(3,1fr);gap:8px}
+  .stitle{font-size:1.4rem;line-height:1.25}
+  .ctn{padding:0 16px}
+  /* Producers mobile */
+  .prod-card{padding:20px}
+  .prod-header{gap:10px}
+  .prod-logo{width:40px;height:40px;font-size:0.6rem}
+  .prod-name{font-size:0.88rem}
+  .prod-summary{grid-template-columns:repeat(2,1fr);gap:10px}
+  .prod-sum-val{font-size:1.2rem}
+  /* Vision cards mobile */
+  .vision-card{padding:24px}
+  .vision-card h3{font-size:1rem}
+  .vision-specs{gap:6px}
+  .vision-spec{font-size:0.65rem;padding:4px 10px}
+  /* Hero brand */
+  .hero-title{font-size:2.2rem}
+  .hero-sub{font-size:1rem}
 }
 @media(max-width:640px){
   .fleet-grid{grid-template-columns:1fr}
@@ -556,6 +633,26 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   .fg-row{grid-template-columns:1fr}
   .pipe-specs-row{grid-template-columns:1fr}
   .fso-stats{grid-template-columns:1fr}
+  .prod-summary{grid-template-columns:1fr}
+  .stitle{font-size:1.25rem}
+  .hero-title{font-size:1.8rem}
+  .hero-sub{font-size:0.9rem}
+  .hero-content{padding:90px 0 70px}
+  /* Compact padding */
+  section{padding:50px 0 40px!important}
+  .ctn{padding:0 14px}
+  .prod-tags{gap:4px}
+  .prod-tag{font-size:0.6rem;padding:3px 8px}
+  .pipe-step-content{padding:12px 16px}
+  .pipe-step-content h3{font-size:0.92rem}
+}
+@media(max-width:400px){
+  .hero-title{font-size:1.5rem}
+  .hero-scope-tag{font-size:0.6rem}
+  .stitle{font-size:1.1rem}
+  .mn-section-header{padding:12px 14px}
+  .mn-link{padding:9px 12px}
+  .fso-stats{gap:6px}
 }
 </style>
 </head>
@@ -712,19 +809,120 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 <!-- ═══ MOBILE NAV ═══ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" aria-hidden="true">
   <div class="mobile-nav-header">
-    <a href="#hero" class="logo"><img src="logo.svg" alt="EnerTchad" width="40" height="40"><div class="logo-text">EnerTchad<span>Intermédiaire</span></div></a>
+    <a href="#hero" class="logo"><img src="logo.svg" alt="EnerTchad" width="36" height="36"><div class="logo-text">EnerTchad<span>Intermédiaire</span></div></a>
     <button class="mobile-nav-close" id="mobClose" aria-label="Fermer"><i class="fas fa-times"></i></button>
   </div>
   <div class="mobile-nav-body">
-    <span class="mobile-nav-section">Activités</span>
-    <a href="#mission"><i class="fas fa-bullseye"></i><span>Notre Mission</span></a>
-    <a href="#operations"><i class="fas fa-industry"></i><span>Opérations</span></a>
-    <a href="#pipeline"><i class="fas fa-project-diagram"></i><span>Pipeline & Transport</span></a>
-    <a href="#vision"><i class="fas fa-globe-africa"></i><span>Projets & Vision CAPS</span></a>
-    <span class="mobile-nav-section">Ressources</span>
-    <a href="#fleet"><i class="fas fa-truck-moving"></i><span>Flotte & Logistique</span></a>
-    <a href="#team"><i class="fas fa-users-gear"></i><span>Équipe</span></a>
-    <a href="#contact" class="mobile-nav-cta"><i class="fas fa-paper-plane"></i><span>Contact</span></a>
+
+    <!-- Language toggle -->
+    <div class="mn-lang">
+      <button class="mn-lang-btn active" data-mlang="fr">🇫🇷 Français</button>
+      <button class="mn-lang-btn" data-mlang="en">🇬🇧 English</button>
+    </div>
+
+    <!-- 1. Infrastructure accordion -->
+    <div class="mn-section" data-accordion>
+      <div class="mn-section-header">
+        <div class="mn-section-icon blue"><i class="fas fa-route"></i></div>
+        <div class="mn-section-text">
+          <div class="mn-section-title" data-i18n data-en="Infrastructure">Infrastructure</div>
+          <div class="mn-section-sub" data-i18n data-en="Pipeline, operations, metering">Pipeline, opérations, métrologie</div>
+        </div>
+        <i class="fas fa-chevron-down mn-chevron"></i>
+      </div>
+      <div class="mn-section-body">
+        <div class="mn-section-inner">
+          <a href="#pipeline" class="mn-link">
+            <div class="mn-link-ic"><i class="fas fa-oil-well"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Pipeline Doba — Kribi">Pipeline Doba — Kribi</div><div class="mn-link-desc" data-i18n data-en="1,070 km, 3 pump stations, FSO">1 070 km, 3 stations, FSO</div></div>
+          </a>
+          <a href="#operations" class="mn-link">
+            <div class="mn-link-ic teal"><i class="fas fa-gauge-high"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Operations & Metering">Opérations & Métrologie</div><div class="mn-link-desc" data-i18n data-en="Custody transfer, HSE, integrity">Custody transfer, HSE, intégrité</div></div>
+          </a>
+          <a href="#producers" class="mn-link">
+            <div class="mn-link-ic gold"><i class="fas fa-handshake"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Connected Operators">Opérateurs Connectés</div><div class="mn-link-desc" data-i18n data-en="SHT, CNPC, Perenco, OPIC">SHT, CNPC, Perenco, OPIC</div></div>
+          </a>
+        </div>
+        <div class="mn-stats">
+          <div class="mn-stat"><div class="mn-stat-val">1 070</div><div class="mn-stat-label">km</div></div>
+          <div class="mn-stat"><div class="mn-stat-val">250K</div><div class="mn-stat-label">bbl/j</div></div>
+          <div class="mn-stat"><div class="mn-stat-val">762</div><div class="mn-stat-label">mm ∅</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Projets accordion -->
+    <div class="mn-section" data-accordion>
+      <div class="mn-section-header">
+        <div class="mn-section-icon gold"><i class="fas fa-globe-africa"></i></div>
+        <div class="mn-section-text">
+          <div class="mn-section-title" data-i18n data-en="Projects & Vision">Projets & Vision</div>
+          <div class="mn-section-sub" data-i18n data-en="CAPS, gas corridor, future projects">CAPS, corridor gazier, projets d'avenir</div>
+        </div>
+        <i class="fas fa-chevron-down mn-chevron"></i>
+      </div>
+      <div class="mn-section-body">
+        <div class="mn-section-inner">
+          <a href="#vision" class="mn-link">
+            <div class="mn-link-ic gold"><i class="fas fa-map-marked-alt"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name">CAPS</div><div class="mn-link-desc" data-i18n data-en="Central Africa Pipeline System — 6 countries">Central Africa Pipeline System — 6 pays</div></div>
+          </a>
+          <a href="#vision" class="mn-link">
+            <div class="mn-link-ic"><i class="fas fa-fire-flame-curved"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Trans-Saharan Gas">Gazoduc Transsaharien</div><div class="mn-link-desc" data-i18n data-en="$20B, Nigeria–Chad–Libya–Europe">$20 Mrd, Nigeria–Tchad–Libye–Europe</div></div>
+          </a>
+          <a href="#vision" class="mn-link">
+            <div class="mn-link-ic teal"><i class="fas fa-diagram-project"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Niger–Benin Pipeline">Pipeline Niger–Bénin</div><div class="mn-link-desc" data-i18n data-en="1,950 km, operational 2024">1 950 km, opérationnel 2024</div></div>
+          </a>
+          <a href="#vision" class="mn-link">
+            <div class="mn-link-ic"><i class="fas fa-link"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Agadem–Doba & South Sudan">Agadem–Doba & Soudan du Sud</div><div class="mn-link-desc" data-i18n data-en="New interconnection corridors">Nouveaux corridors d'interconnexion</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Entreprise accordion -->
+    <div class="mn-section" data-accordion>
+      <div class="mn-section-header">
+        <div class="mn-section-icon teal"><i class="fas fa-building"></i></div>
+        <div class="mn-section-text">
+          <div class="mn-section-title" data-i18n data-en="Company">Entreprise</div>
+          <div class="mn-section-sub" data-i18n data-en="Mission, team, fleet, ecosystem">Mission, équipe, flotte, écosystème</div>
+        </div>
+        <i class="fas fa-chevron-down mn-chevron"></i>
+      </div>
+      <div class="mn-section-body">
+        <div class="mn-section-inner">
+          <a href="#mission" class="mn-link">
+            <div class="mn-link-ic"><i class="fas fa-bullseye"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Mission">Mission</div><div class="mn-link-desc" data-i18n data-en="Strategic role in the value chain">Rôle stratégique dans la chaîne de valeur</div></div>
+          </a>
+          <a href="#team" class="mn-link">
+            <div class="mn-link-ic teal"><i class="fas fa-users"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Leadership">Direction</div><div class="mn-link-desc" data-i18n data-en="Executive team & governance">Équipe dirigeante & gouvernance</div></div>
+          </a>
+          <a href="#fleet" class="mn-link">
+            <div class="mn-link-ic"><i class="fas fa-truck-moving"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Fleet">Flotte</div><div class="mn-link-desc" data-i18n data-en="Transport & logistics fleet">Transport & logistique</div></div>
+          </a>
+        </div>
+        <!-- Ecosystem links -->
+        <div class="mn-eco">
+          <a href="https://enertchad-amont.vercel.app" class="mn-eco-link" target="_blank" rel="noopener"><i class="fas fa-mountain-sun"></i><span>Amont</span></a>
+          <a href="https://enertchad-aval.vercel.app" class="mn-eco-link" target="_blank" rel="noopener"><i class="fas fa-gas-pump"></i><span>Aval</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Fixed CTA bottom -->
+  <div class="mn-cta-wrap">
+    <a href="#contact" class="mn-cta"><i class="fas fa-paper-plane"></i> <span data-i18n data-en="Contact Us">Nous Contacter</span></a>
   </div>
 </nav>
 
@@ -1793,12 +1991,38 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 /* ═══ MOBILE NAV ═══ */
 (function(){
   var mn=document.getElementById('mobileNav');
-  function open(){if(mn){mn.classList.add('open');mn.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('mobClose').focus()}}
-  function close(){if(mn){mn.classList.remove('open');mn.setAttribute('aria-hidden','true');document.body.style.overflow='';document.getElementById('mobOpen').focus()}}
+  if(!mn)return;
+  function open(){mn.classList.add('open');mn.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('mobClose').focus()}
+  function close(){mn.classList.remove('open');mn.setAttribute('aria-hidden','true');document.body.style.overflow='';document.getElementById('mobOpen').focus()}
   document.getElementById('mobOpen')?.addEventListener('click',open);
   document.getElementById('mobClose')?.addEventListener('click',close);
-  mn?.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',close)});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mn&&mn.classList.contains('open'))close()});
+  mn.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',close)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mn.classList.contains('open'))close()});
+
+  /* Accordion */
+  mn.querySelectorAll('[data-accordion]').forEach(function(sec){
+    var hdr=sec.querySelector('.mn-section-header');
+    if(!hdr)return;
+    hdr.addEventListener('click',function(){
+      var wasOpen=sec.classList.contains('open');
+      /* Close all */
+      mn.querySelectorAll('[data-accordion].open').forEach(function(s){s.classList.remove('open')});
+      /* Toggle current */
+      if(!wasOpen)sec.classList.add('open');
+    });
+  });
+
+  /* Mobile language toggle synced with main */
+  mn.querySelectorAll('[data-mlang]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var lang=btn.dataset.mlang;
+      /* Update mobile buttons */
+      mn.querySelectorAll('[data-mlang]').forEach(function(b){b.classList.toggle('active',b.dataset.mlang===lang)});
+      /* Trigger main lang switch */
+      var mainBtn=document.querySelector('.lang-btn[data-lang="'+lang+'"]');
+      if(mainBtn)mainBtn.click();
+    });
+  });
 })();
 
 /* ═══ i18n FR/EN ═══ */
