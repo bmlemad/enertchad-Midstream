@@ -57,7 +57,7 @@
   --accent:#0EA5E9;--accent-light:#38BDF8;--accent-glow:rgba(14,165,233,0.25);
   --teal:#14B8A6;--teal-light:#2DD4BF;
   --gold:#C8962E;--gold-light:#D4A840;
-  --green:#10B981;--green-light:#34D399;
+  --success:#10B981;--success-light:#34D399;
   --surface:#F0F4F8;--surface-alt:#E2E8F0;--white:#FFFFFF;
   --text:#1A202C;--text-sec:#4A5568;--text-light:#64748B;
   --danger:#EF4444;
@@ -168,7 +168,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .hero-scope-tag.store:hover{border-color:rgba(20,184,166,0.5);box-shadow:0 4px 20px rgba(20,184,166,0.15)}
 .hero-scope-tag.meter{color:var(--gold-light);border-color:rgba(200,150,46,0.3)}
 .hero-scope-tag.meter:hover{border-color:rgba(200,150,46,0.5);box-shadow:0 4px 20px rgba(200,150,46,0.15)}
-.hero-scope-tag.hse{color:var(--green-light);border-color:rgba(16,185,129,0.3)}
+.hero-scope-tag.hse{color:var(--success-light);border-color:rgba(16,185,129,0.3)}
 .hero-scope-tag.hse:hover{border-color:rgba(16,185,129,0.5);box-shadow:0 4px 20px rgba(16,185,129,0.15)}
 
 .hero h1{font-family:var(--font-d);font-size:clamp(3rem,7vw,5.2rem);font-weight:700;color:var(--white);line-height:1.04;letter-spacing:-0.04em;margin-bottom:24px;opacity:0;animation:heroFadeIn 1s 0.8s cubic-bezier(0.22,0.61,0.36,1) forwards}
@@ -215,8 +215,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 /* ═══ BUTTONS ═══ */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius-sm);font-family:var(--font-d);font-weight:600;font-size:0.92rem;text-decoration:none;transition:var(--tr);border:none;cursor:pointer}
-.btn-accent{background:var(--accent);color:var(--white);box-shadow:0 4px 20px var(--accent-glow)}
-.btn-accent:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-brand{background:var(--accent);color:var(--white);box-shadow:0 4px 20px var(--accent-glow)}
+.btn-brand:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
 .btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.25)}
 .btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,0.06)}
 
@@ -231,7 +231,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .eyb.blue{color:var(--accent)}
 .eyb.teal{color:var(--teal);background:rgba(20,184,166,0.06);border-color:rgba(20,184,166,0.12)}
 .eyb.gold{color:var(--gold);background:rgba(200,150,46,0.06);border-color:rgba(200,150,46,0.12)}
-.eyb.green{color:var(--green);background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.12)}
+.eyb.green{color:var(--success);background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.12)}
 .sec-dark .eyb{background:rgba(56,189,248,0.08);border-color:rgba(56,189,248,0.15)}
 .stitle{font-family:var(--font-d);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.12;margin-bottom:14px}
 .stitle .hl{background:linear-gradient(135deg,var(--accent-light),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -301,7 +301,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .pipe-map-wrap img{width:100%;display:block}
 .pipe-map-badge{position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:8px;background:rgba(11,20,38,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(14,165,233,0.2);border-radius:999px;padding:6px 14px 6px 8px;font-family:var(--font-d);font-size:0.7rem;font-weight:600;color:var(--accent-light);letter-spacing:0.04em}
 .pipe-map-badge i{color:var(--teal);font-size:0.6rem}
-.pipe-map-badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulseGlow 2s infinite}
+.pipe-map-badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--success);animation:pulseGlow 2s infinite}
 @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.5)}50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
 
 /* ── Timeline route ── */
@@ -326,7 +326,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .pipe-step-tag{font-family:var(--font-d);font-size:0.62rem;font-weight:500;padding:3px 10px;border-radius:999px;background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.15);color:var(--accent-light);letter-spacing:0.03em}
 .pipe-step-tag.teal{background:rgba(20,184,166,0.08);border-color:rgba(20,184,166,0.15);color:var(--teal-light)}
 .pipe-step-tag.gold{background:rgba(200,150,46,0.08);border-color:rgba(200,150,46,0.15);color:var(--gold-light)}
-.pipe-step-tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.15);color:var(--green-light)}
+.pipe-step-tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.15);color:var(--success-light)}
 
 /* Center node */
 .pipe-step-node{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;margin:0 auto;flex-shrink:0}
@@ -335,7 +335,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .pipe-step-node.origin .node-inner{background:linear-gradient(135deg,#C8962E,#D4A840);box-shadow:0 0 30px rgba(200,150,46,0.3)}
 .pipe-step-node.pump .node-inner{background:linear-gradient(135deg,var(--accent),#0284C7);box-shadow:0 0 30px var(--accent-glow)}
 .pipe-step-node.storage .node-inner{background:linear-gradient(135deg,var(--teal),#0D9488);box-shadow:0 0 30px rgba(20,184,166,0.3)}
-.pipe-step-node.terminal .node-inner{background:linear-gradient(135deg,var(--green),#059669);box-shadow:0 0 30px rgba(16,185,129,0.3)}
+.pipe-step-node.terminal .node-inner{background:linear-gradient(135deg,var(--success),#059669);box-shadow:0 0 30px rgba(16,185,129,0.3)}
 .pipe-step-node.fso .node-inner{background:linear-gradient(135deg,#6366F1,#4F46E5);box-shadow:0 0 30px rgba(99,102,241,0.3)}
 @keyframes nodeRingPulse{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.15);opacity:0}}
 
@@ -427,11 +427,11 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .vision-card.featured:hover{box-shadow:0 28px 70px rgba(0,0,0,0.45),0 0 80px rgba(200,150,46,0.06)}
 
 .vision-status{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-family:var(--font-d);font-size:0.62rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px}
-.vision-status.active{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:var(--green-light)}
+.vision-status.active{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:var(--success-light)}
 .vision-status.study{background:rgba(200,150,46,0.1);border:1px solid rgba(200,150,46,0.2);color:var(--gold-light)}
 .vision-status.planned{background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.2);color:var(--accent-light)}
 .vision-status .pulse-sm{width:6px;height:6px;border-radius:50%;animation:pulseGlow 2s infinite}
-.vision-status.active .pulse-sm{background:var(--green)}
+.vision-status.active .pulse-sm{background:var(--success)}
 .vision-status.study .pulse-sm{background:var(--gold)}
 .vision-status.planned .pulse-sm{background:var(--accent)}
 
@@ -747,7 +747,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .basin-met strong{font-weight:700}
 .basin-met.gold{background:rgba(200,150,46,0.06);border-color:rgba(200,150,46,0.12);color:var(--gold-light)}
 .basin-met.teal{background:rgba(20,184,166,0.06);border-color:rgba(20,184,166,0.12);color:var(--teal-light)}
-.basin-met.green{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.12);color:var(--green-light)}
+.basin-met.green{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.12);color:var(--success-light)}
 
 /* Legend row */
 .basin-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:32px;justify-content:center}
@@ -1331,7 +1331,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
       <p class="hero-desc" data-i18n data-en="From wellhead to export terminal — we operate the pipelines, storage facilities, and metering systems that ensure the continuous and safe flow of hydrocarbons across Chad.">Du puits au terminal d'export — nous opérons les pipelines, installations de stockage et systèmes de comptage qui assurent le flux continu et sécurisé des hydrocarbures à travers le Tchad.</p>
       <div class="hero-slogan" data-i18n data-en="Every barrel, every kilometer, every day">Chaque baril, chaque kilomètre, chaque jour</div>
       <div class="hero-acts">
-        <a href="#pipeline" class="btn btn-accent" data-i18n data-en="Pipeline Network"><i class="fas fa-project-diagram"></i> Réseau pipeline</a>
+        <a href="#pipeline" class="btn btn-brand" data-i18n data-en="Pipeline Network"><i class="fas fa-project-diagram"></i> Réseau pipeline</a>
         <a href="#operations" class="btn btn-ghost" data-i18n data-en="Our Operations"><i class="fas fa-industry"></i> Nos opérations</a>
         <a href="#contact" class="btn btn-ghost" data-i18n data-en="Contact Us"><i class="fas fa-handshake"></i> Nous contacter</a>
       </div>
@@ -2741,7 +2741,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
         <div class="fg"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company"></div>
         <div class="fg"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select></div>
         <div class="fg"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" required></textarea></div>
-        <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane"></i> Envoyer la demande</button>
+        <button type="submit" class="btn btn-brand" style="width:100%;justify-content:center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane"></i> Envoyer la demande</button>
         <div class="form-msg" id="formMsg"></div>
       </form>
     </div>
