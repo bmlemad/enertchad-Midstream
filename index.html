@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EnerTchad Midstream — Pipeline, Transport & Stockage au Tchad</title>
+<meta name="description" content="Transport par pipeline, collecte brut, stockage stratégique, métrologie et logistique hydrocarbures. Le maillon stratégique entre production et distribution.">
+<meta name="keywords" content="EnerTchad, midstream, pipeline, transport, stockage, terminal, métrologie, custody transfer, collecte brut, Tchad, Doba, Kribi">
+<meta name="author" content="EnerTchad S.A.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://midstream.enertchad.td">
+<meta property="og:title" content="EnerTchad Midstream — Pipeline, Transport & Stockage">
+<meta property="og:description" content="Le maillon stratégique : pipeline, stockage, métrologie — du champ au terminal.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://midstream.enertchad.td">
+<meta property="og:locale" content="fr_TD">
+<meta property="og:site_name" content="EnerTchad Midstream">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EnerTchad Midstream — Pipeline, Transport & Stockage">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"EnerTchad Midstream","url":"https://midstream.enertchad.td","description":"Transport, stockage et métrologie des hydrocarbures au Tchad.","address":{"@type":"PostalAddress","addressLocality":"N'Djamena","addressCountry":"TD"},"telephone":"+235-99-29-86-96","email":"midstream@enertchad.td"}
+</script>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="apple-touch-icon" href="logo.svg">
+<meta name="theme-color" content="#0B1426">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"></noscript>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#0B1426;--primary-mid:#0F1D35;--primary-light:#162A4A;
+  --accent:#0EA5E9;--accent-light:#38BDF8;--accent-glow:rgba(14,165,233,0.25);
+  --teal:#14B8A6;--teal-light:#2DD4BF;
+  --gold:#C8962E;--gold-light:#D4A840;
+  --green:#10B981;--green-light:#34D399;
+  --surface:#F0F4F8;--surface-alt:#E2E8F0;--white:#FFFFFF;
+  --text:#1A202C;--text-sec:#4A5568;--text-light:#64748B;
+  --danger:#EF4444;
+  --font-d:'Space Grotesk',sans-serif;--font-b:'Inter',sans-serif;
+  --radius:14px;--radius-sm:8px;--radius-xs:6px;
+  --tr:0.4s cubic-bezier(0.22,0.61,0.36,1)
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden}
+.ctn{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ═══ A11Y ═══ */
+.skip-nav{position:absolute;top:-100%;left:16px;background:var(--accent);color:#fff;padding:12px 24px;border-radius:0 0 8px 8px;z-index:9999;font-weight:600;text-decoration:none;font-size:0.9rem}
+.skip-nav:focus{top:0}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent-light);outline-offset:2px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  html{scroll-behavior:auto}
+  [data-r]{opacity:1!important;transform:none!important}
+}
+
+/* ═══ HEADER ═══ */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:var(--tr)}
+.header.scrolled{background:rgba(11,20,38,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 4px 30px rgba(0,0,0,0.3)}
+.header .ctn{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white)}
+.logo img{width:40px;height:40px;border-radius:50%}
+.logo-text{font-family:var(--font-d);font-size:1.15rem;font-weight:700;letter-spacing:-0.02em}
+.logo-text span{color:var(--accent-light);font-weight:400;font-size:0.68rem;display:block;letter-spacing:0.1em;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{color:rgba(255,255,255,0.65);text-decoration:none;padding:8px 16px;font-family:var(--font-d);font-size:0.82rem;font-weight:500;border-radius:var(--radius-sm);transition:var(--tr)}
+.nav a:hover{color:var(--white);background:rgba(255,255,255,0.06)}
+.nav a.active{color:var(--accent-light)}
+.nav-cta{background:var(--accent)!important;color:var(--white)!important;font-weight:600!important;padding:8px 20px!important;box-shadow:0 4px 16px var(--accent-glow)}
+.nav-cta:hover{background:var(--accent-light)!important;transform:translateY(-1px)}
+.hdr-actions{display:flex;align-items:center;gap:8px}
+.lang-switch{display:flex;background:rgba(255,255,255,0.06);border-radius:var(--radius-sm);padding:2px}
+.lang-btn{background:none;border:none;color:rgba(255,255,255,0.45);padding:5px 10px;border-radius:6px;letter-spacing:0.04em;cursor:pointer;font-family:var(--font-d);font-size:0.72rem;font-weight:600;transition:var(--tr)}
+.lang-btn:hover{color:rgba(255,255,255,0.7)}
+.lang-btn.active{color:#fff;background:rgba(255,255,255,0.12);box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.mob-toggle{display:none;background:none;border:1.5px solid rgba(255,255,255,0.2);color:var(--white);width:40px;height:40px;border-radius:var(--radius-sm);font-size:1rem;cursor:pointer;transition:var(--tr)}
+.mob-toggle:hover{border-color:var(--accent);color:var(--accent-light)}
+
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;background:var(--primary) url('pipeline-hero.svg') center 60%/cover no-repeat;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.35;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E") repeat}
+.hero-overlay{position:absolute;inset:0;background:
+  radial-gradient(ellipse 90% 70% at 50% 45%,rgba(14,165,233,0.1) 0%,transparent 60%),
+  radial-gradient(ellipse 60% 50% at 80% 80%,rgba(20,184,166,0.06) 0%,transparent 55%),
+  linear-gradient(175deg,rgba(11,20,38,0.98) 0%,rgba(15,29,53,0.93) 40%,rgba(22,42,74,0.88) 70%,rgba(14,165,233,0.12) 100%);z-index:1}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,transparent 0%,transparent 70%,rgba(11,20,38,0.6) 100%)}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(140px);opacity:0.12;animation:orbFloat 16s ease-in-out infinite alternate;z-index:1;pointer-events:none;will-change:transform}
+.hero-orb.orb-1{width:600px;height:600px;background:var(--accent);top:-200px;left:50%;margin-left:-300px}
+.hero-orb.orb-2{width:400px;height:400px;background:var(--teal);bottom:-150px;right:-80px;animation-delay:-5s}
+.hero-orb.orb-3{width:300px;height:300px;background:var(--gold);bottom:30%;left:-60px;animation-delay:-9s;opacity:0.06}
+@keyframes orbFloat{0%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}100%{transform:translate(-15px,15px)}}
+.hero-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
+
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:160px 0 120px;max-width:900px;margin:0 auto}
+.hero-brand{margin-bottom:28px;opacity:0;animation:heroFadeIn 1s 0.3s cubic-bezier(0.22,0.61,0.36,1) forwards}
+.hero-brand img{width:88px;height:88px;filter:drop-shadow(0 8px 30px rgba(14,165,233,0.3)) drop-shadow(0 0 60px rgba(56,189,248,0.2));margin-bottom:14px}
+.hero-brand-name{font-family:var(--font-d);font-size:clamp(0.85rem,1.5vw,1.1rem);font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.hero-brand-sub{font-family:var(--font-d);font-size:clamp(0.62rem,0.9vw,0.72rem);font-weight:500;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent-light);opacity:0.6}
+
+.hero-scope{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px;flex-wrap:wrap;opacity:0;animation:heroFadeIn 0.8s 0.6s ease-out forwards}
+.hero-scope-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.05);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);border:1px solid rgba(255,255,255,0.1);padding:7px 16px;border-radius:999px;font-family:var(--font-d);font-size:0.73rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;color:rgba(255,255,255,0.6);transition:all 0.4s cubic-bezier(0.22,0.61,0.36,1);cursor:pointer}
+.hero-scope-tag:hover{transform:translateY(-2px);background:rgba(255,255,255,0.1);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.hero-scope-tag.pipe{color:var(--accent-light);border-color:rgba(14,165,233,0.3)}
+.hero-scope-tag.pipe:hover{border-color:rgba(14,165,233,0.5);box-shadow:0 4px 20px rgba(14,165,233,0.15)}
+.hero-scope-tag.store{color:var(--teal-light);border-color:rgba(20,184,166,0.3)}
+.hero-scope-tag.store:hover{border-color:rgba(20,184,166,0.5);box-shadow:0 4px 20px rgba(20,184,166,0.15)}
+.hero-scope-tag.meter{color:var(--gold-light);border-color:rgba(200,150,46,0.3)}
+.hero-scope-tag.meter:hover{border-color:rgba(200,150,46,0.5);box-shadow:0 4px 20px rgba(200,150,46,0.15)}
+.hero-scope-tag.hse{color:var(--green-light);border-color:rgba(16,185,129,0.3)}
+.hero-scope-tag.hse:hover{border-color:rgba(16,185,129,0.5);box-shadow:0 4px 20px rgba(16,185,129,0.15)}
+
+.hero h1{font-family:var(--font-d);font-size:clamp(3rem,7vw,5.2rem);font-weight:700;color:var(--white);line-height:1.04;letter-spacing:-0.04em;margin-bottom:24px;opacity:0;animation:heroFadeIn 1s 0.8s cubic-bezier(0.22,0.61,0.36,1) forwards}
+.hero h1 .hl{background:linear-gradient(120deg,var(--accent-light) 0%,var(--accent) 50%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;display:inline}
+.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:3px;background:linear-gradient(90deg,transparent,rgba(14,165,233,0.7),rgba(20,184,166,0.5),transparent);border-radius:3px;transform:scaleX(0);transform-origin:left;animation:heroUnderline 1.2s 2s cubic-bezier(0.22,0.61,0.36,1) forwards}
+.hero-line{width:60px;height:2px;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:2px;margin:0 auto 24px;opacity:0;animation:heroLineIn 0.8s 1.4s ease-out forwards}
+.hero-desc{font-size:clamp(1rem,1.4vw,1.15rem);color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:32px;max-width:620px;font-weight:400;opacity:0;animation:heroFadeUp 1s 1.6s ease-out forwards}
+.hero-slogan{font-family:var(--font-d);font-size:clamp(0.72rem,1vw,0.85rem);font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent-light);margin-bottom:28px;opacity:0;animation:heroFadeUp 0.8s 1.8s ease-out forwards}
+.hero-acts{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;opacity:0;animation:heroFadeUp 0.8s 2s ease-out forwards}
+.hero-acts .btn{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+
+.hero-ticker{display:flex;align-items:center;justify-content:center;gap:0;margin-top:28px;padding:14px 28px;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;animation:heroFadeUp .8s 2.4s ease-out forwards}
+.hero-ticker-item{display:flex;align-items:center;gap:8px;padding:0 20px}
+.hero-ticker-item i{font-size:.85rem;color:var(--accent-light);opacity:.7}
+.hero-ticker-val{font-family:var(--font-d);font-size:1.15rem;font-weight:800;background:linear-gradient(90deg,var(--white),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;min-width:50px;text-align:right;font-variant-numeric:tabular-nums}
+.hero-ticker-item small{font-size:.65rem;color:rgba(255,255,255,.4);max-width:90px;line-height:1.3}
+.hero-ticker-sep{width:1px;height:28px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.12),transparent);flex-shrink:0}
+
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;width:72px;height:72px;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;opacity:0;animation:heroScrollFade 1s 2.8s cubic-bezier(0.22,0.61,0.36,1) forwards;transition:opacity 0.5s ease,transform 0.5s ease}
+.hero-scroll.is-hidden{opacity:0!important;transform:translateX(-50%) translateY(16px);pointer-events:none}
+.hero-scroll-ring{position:absolute;inset:0;animation:scrollRingSpin 12s linear infinite}
+.hero-scroll-ring text{fill:rgba(255,255,255,0.3);font-family:var(--font-d);font-size:10.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase}
+.hero-scroll::before{content:"";position:absolute;inset:-8px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,0.12) 0%,transparent 70%);animation:scrollGlow 3s ease-in-out infinite;pointer-events:none}
+.hero-scroll-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:2px}
+.hero-scroll-chevron{width:16px;height:16px;display:flex;align-items:center;justify-content:center}
+.hero-scroll-chevron svg{width:16px;height:16px;stroke:rgba(255,255,255,0.55);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(14,165,233,0.4))}
+.hero-scroll-chevron:nth-child(1){animation:scrollChevron1 2.4s ease-in-out infinite}
+.hero-scroll-chevron:nth-child(2){animation:scrollChevron2 2.4s ease-in-out infinite;margin-top:-8px}
+.hero-scroll:hover .hero-scroll-ring{animation-duration:6s}
+.hero-scroll:hover .hero-scroll-chevron svg{stroke:rgba(255,255,255,0.85)}
+.hero-scroll::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,0.06);transition:border-color 0.4s ease}
+.hero-scroll:hover::after{border-color:rgba(14,165,233,0.25)}
+
+/* Hero keyframes */
+@keyframes heroFadeIn{0%{opacity:0;transform:translateY(20px) scale(0.98)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes heroFadeUp{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes heroUnderline{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+@keyframes heroLineIn{0%{opacity:0;transform:scaleX(0)}100%{opacity:1;transform:scaleX(1)}}
+@keyframes heroScrollFade{0%{opacity:0;transform:translateX(-50%) translateY(16px)}100%{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes scrollRingSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+@keyframes scrollGlow{0%,100%{opacity:0.6;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes scrollChevron1{0%,100%{opacity:0.5;transform:translateY(0)}50%{opacity:1;transform:translateY(3px)}}
+@keyframes scrollChevron2{0%,100%{opacity:0.3;transform:translateY(0)}50%{opacity:0.7;transform:translateY(3px)}}
+
+/* ═══ BUTTONS ═══ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius-sm);font-family:var(--font-d);font-weight:600;font-size:0.92rem;text-decoration:none;transition:var(--tr);border:none;cursor:pointer}
+.btn-accent{background:var(--accent);color:var(--white);box-shadow:0 4px 20px var(--accent-glow)}
+.btn-accent:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.25)}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,0.06)}
+
+/* ═══ SECTIONS COMMON ═══ */
+section{padding:clamp(72px,8vw,120px) 0;position:relative}
+.sec-light{background:var(--surface)}
+.sec-dark{background:var(--primary);color:var(--white)}
+.sec-grad{background:linear-gradient(180deg,var(--primary) 0%,var(--primary-mid) 100%);color:var(--white)}
+section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1px;background:linear-gradient(90deg,transparent,rgba(14,165,233,0.08),transparent);pointer-events:none}
+.sec-dark::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,0.04),transparent)}
+.eyb{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-d);font-size:0.76rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;padding:6px 14px 6px 12px;border-radius:999px;background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.12)}
+.eyb.blue{color:var(--accent)}
+.eyb.teal{color:var(--teal);background:rgba(20,184,166,0.06);border-color:rgba(20,184,166,0.12)}
+.eyb.gold{color:var(--gold);background:rgba(200,150,46,0.06);border-color:rgba(200,150,46,0.12)}
+.eyb.green{color:var(--green);background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.12)}
+.sec-dark .eyb{background:rgba(56,189,248,0.08);border-color:rgba(56,189,248,0.15)}
+.stitle{font-family:var(--font-d);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.12;margin-bottom:14px}
+.stitle .hl{background:linear-gradient(135deg,var(--accent-light),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sdesc{font-size:1rem;color:var(--text-sec);max-width:600px;line-height:1.8;margin-bottom:44px}
+.sec-dark .sdesc{color:rgba(255,255,255,0.55)}
+
+/* ═══ TRUST STRIP ═══ */
+.trust{background:var(--primary-mid);border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0}
+.trust-row{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-family:var(--font-d);font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.5)}
+.trust-item i{color:var(--accent-light);font-size:0.9rem}
+
+/* ═══ MISSION ═══ */
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:40px}
+.mission-text h3{font-family:var(--font-d);font-size:1.4rem;font-weight:700;margin-bottom:12px;line-height:1.3}
+.mission-text p{color:var(--text-sec);font-size:0.92rem;line-height:1.8;margin-bottom:20px}
+.mission-card{background:var(--white);border:1px solid var(--surface-alt);border-radius:var(--radius);padding:28px;transition:var(--tr)}
+.mission-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.06)}
+.mission-card i{font-size:1.3rem;color:var(--accent);margin-bottom:12px}
+.mission-card h4{font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:6px}
+.mission-card p{font-size:0.84rem;color:var(--text-sec);line-height:1.6}
+
+/* ═══ OPERATIONS GRID ═══ */
+.ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.op-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:32px 24px;transition:var(--tr);position:relative;overflow:hidden}
+.op-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal));opacity:0;transition:opacity 0.3s ease}
+.op-card:hover::before{opacity:1}
+.op-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.2)}
+.op-icon{width:52px;height:52px;border-radius:12px;background:rgba(14,165,233,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent-light);margin-bottom:16px}
+.op-card:nth-child(even) .op-icon{background:rgba(20,184,166,0.1);color:var(--teal-light)}
+.op-card h3{font-family:var(--font-d);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:8px}
+.op-card p{font-size:0.84rem;color:rgba(255,255,255,0.5);line-height:1.65}
+.op-tag{display:inline-block;margin-top:12px;font-family:var(--font-d);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:4px 10px;border-radius:999px;background:rgba(14,165,233,0.08);color:var(--accent-light);border:1px solid rgba(14,165,233,0.15)}
+
+/* ═══ STATS BAR ═══ */
+.stats{background:linear-gradient(135deg,var(--primary),var(--primary-mid));padding:60px 0;position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;top:-50%;left:25%;width:50%;height:200%;background:radial-gradient(ellipse at center,rgba(14,165,233,0.08) 0%,transparent 70%);pointer-events:none}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-item{padding:20px}
+.sv{font-family:var(--font-d);font-size:clamp(2rem,4vw,2.8rem);font-weight:800;background:linear-gradient(135deg,var(--accent-light),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sl{font-size:0.76rem;color:rgba(255,255,255,0.45);margin-top:4px;font-family:var(--font-d);text-transform:uppercase;letter-spacing:0.06em}
+
+/* ═══ PIPELINE SECTION ═══ */
+.pipe-visual{margin-top:40px;background:rgba(14,165,233,0.04);border:1px solid rgba(14,165,233,0.1);border-radius:var(--radius);padding:40px;position:relative;overflow:hidden}
+.pipe-visual::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(14,165,233,0.08),transparent);border-radius:50%;transform:translate(50%,-50%)}
+.pipe-route{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px}
+.pipe-node{text-align:center;flex:0 0 auto}
+.pipe-node-dot{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--teal));display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.85rem;margin:0 auto 8px;box-shadow:0 0 20px var(--accent-glow)}
+.pipe-node-name{font-family:var(--font-d);font-size:0.82rem;font-weight:700}
+.pipe-node-sub{font-size:0.7rem;color:var(--text-light)}
+.pipe-line{flex:1;height:4px;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:2px;position:relative}
+.pipe-line::after{content:'';position:absolute;top:50%;right:0;width:8px;height:8px;background:var(--teal);border-radius:50%;transform:translate(50%,-50%)}
+.pipe-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pipe-spec{background:var(--white);border:1px solid var(--surface-alt);border-radius:var(--radius-sm);padding:16px;text-align:center}
+.pipe-spec strong{display:block;font-family:var(--font-d);font-size:1.2rem;font-weight:800;color:var(--accent)}
+.pipe-spec span{font-size:0.74rem;color:var(--text-light)}
+
+/* ═══ FLEET ═══ */
+.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.fleet-card{background:var(--white);border:1px solid var(--surface-alt);border-radius:var(--radius);padding:28px;transition:var(--tr);text-align:center}
+.fleet-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.06)}
+.fleet-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(20,184,166,0.08));display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--accent);margin:0 auto 16px}
+.fleet-card h3{font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:6px}
+.fleet-card p{font-size:0.84rem;color:var(--text-sec);line-height:1.6}
+.fleet-num{display:block;font-family:var(--font-d);font-size:1.8rem;font-weight:800;color:var(--accent);margin-top:12px}
+
+/* ═══ TEAM ═══ */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.team-card{text-align:center;padding:24px;border-radius:var(--radius);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);transition:var(--tr)}
+.team-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-4px)}
+.team-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,rgba(14,165,233,0.15),rgba(20,184,166,0.15));margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--accent-light)}
+.team-card h4{font-family:var(--font-d);font-size:0.92rem;font-weight:700;color:var(--white)}
+.team-card small{font-size:0.74rem;color:rgba(255,255,255,0.4)}
+
+/* ═══ CONTACT ═══ */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact-left h2{font-family:var(--font-d);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:14px}
+.contact-left p{color:var(--text-sec);line-height:1.8;margin-bottom:28px}
+.cd{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.cd-icon{width:42px;height:42px;border-radius:10px;background:rgba(14,165,233,0.08);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:0.95rem;flex-shrink:0}
+.cd-text{font-size:0.9rem}
+.cd-text small{display:block;font-size:0.74rem;color:var(--text-light)}
+.contact-form{background:var(--white);padding:36px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(0,0,0,0.05)}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:0.8rem;font-weight:600;font-family:var(--font-d);margin-bottom:5px}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 14px;border:1.5px solid var(--surface-alt);border-radius:var(--radius-xs);font-family:var(--font-b);font-size:0.9rem;transition:var(--tr)}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.fg textarea{resize:vertical;min-height:100px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* ═══ FOOTER ═══ */
+.ftr{background:var(--primary);color:rgba(255,255,255,0.5);padding:56px 0 24px}
+.ftr-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.ftr h4{font-family:var(--font-d);font-size:0.85rem;font-weight:700;color:var(--white);margin-bottom:14px;letter-spacing:0.04em;text-transform:uppercase}
+.ftr p{font-size:0.82rem;line-height:1.7}
+.ftr a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.82rem;display:block;padding:3px 0;transition:var(--tr)}
+.ftr a:hover{color:var(--accent-light)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:0.74rem;flex-wrap:wrap;gap:12px}
+.ftr-legal{display:flex;gap:0;align-items:center;flex-wrap:wrap}
+.ftr-legal a{font-size:0.74rem;display:inline;padding:3px 0}
+.ftr-legal a+a::before{content:"·";margin:0 10px;color:rgba(255,255,255,0.3)}
+.ftr-socials{display:flex;gap:8px}
+.ftr-socials a{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;font-size:0.82rem}
+.ftr-socials a:hover{background:var(--accent);color:var(--white)}
+
+/* ═══ DOT NAV ═══ */
+.dot-nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:16px}
+.dot-nav-item{position:relative;display:flex;align-items:center;justify-content:flex-end}
+.dot-nav-label{position:absolute;right:22px;white-space:nowrap;background:rgba(11,20,38,0.92);color:rgba(255,255,255,0.85);padding:5px 13px;border-radius:8px;font-family:var(--font-d);font-size:0.72rem;font-weight:600;opacity:0;transform:translateX(8px);transition:all 0.3s ease;pointer-events:none;backdrop-filter:blur(10px);border:1px solid rgba(14,165,233,0.12);box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+.dot-nav-item:hover .dot-nav-label{opacity:1;transform:translateX(0)}
+.dot-nav-dot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(120,113,108,0.4);background:transparent;cursor:pointer;transition:all 0.3s ease;padding:0;flex-shrink:0}
+.dot-nav-dot:hover{border-color:var(--accent);transform:scale(1.3)}
+.dot-nav-dot.active{border-color:var(--accent);background:var(--accent);box-shadow:0 0 12px var(--accent-glow);transform:scale(1.2)}
+@media(max-width:968px){.dot-nav{display:none}}
+
+/* ═══ REVEAL ═══ */
+[data-r]{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+[data-r].v{opacity:1;transform:translateY(0)}
+
+/* Staggered card reveals */
+[data-r].v .op-card,[data-r].v .fleet-card,[data-r].v .team-card,[data-r].v .mission-card{animation:staggerIn 0.5s cubic-bezier(0.16,1,0.3,1) both}
+[data-r].v *:nth-child(1){animation-delay:0.05s}
+[data-r].v *:nth-child(2){animation-delay:0.12s}
+[data-r].v *:nth-child(3){animation-delay:0.19s}
+[data-r].v *:nth-child(4){animation-delay:0.26s}
+[data-r].v *:nth-child(5){animation-delay:0.33s}
+[data-r].v *:nth-child(6){animation-delay:0.40s}
+@keyframes staggerIn{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+
+/* ═══ MOBILE NAV ═══ */
+.mobile-nav{position:fixed;inset:0;z-index:150;background:rgba(11,20,38,0.98);backdrop-filter:blur(40px) saturate(1.4);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:all 0.5s cubic-bezier(0.22,0.61,0.36,1);overflow-y:auto}
+.mobile-nav.open{opacity:1;pointer-events:all}
+.mobile-nav-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mobile-nav-close{background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);width:40px;height:40px;border-radius:10px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--tr)}
+.mobile-nav-body{flex:1;padding:20px 24px 100px;display:flex;flex-direction:column;gap:6px}
+.mobile-nav-section{font-family:var(--font-d);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.25);padding:20px 0 8px;border-top:1px solid rgba(255,255,255,0.04)}
+.mobile-nav-section:first-child{border-top:none;padding-top:8px}
+.mobile-nav a{color:rgba(255,255,255,0.75);text-decoration:none;font-family:var(--font-d);font-size:1rem;font-weight:500;padding:14px 16px;border-radius:12px;transition:all 0.3s ease;display:flex;align-items:center;gap:14px}
+.mobile-nav a:hover{background:rgba(14,165,233,0.08);color:var(--white)}
+.mobile-nav a i{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--accent);flex-shrink:0}
+.mobile-nav-cta{background:linear-gradient(135deg,var(--accent),var(--teal))!important;color:var(--white)!important;font-weight:600!important;justify-content:center;margin-top:12px;box-shadow:0 4px 20px var(--accent-glow)}
+.mobile-nav.open .mobile-nav-body>*{animation:mnSlideIn 0.4s cubic-bezier(0.16,1,0.3,1) both}
+.mobile-nav.open .mobile-nav-body>*:nth-child(1){animation-delay:0.05s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(2){animation-delay:0.08s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(3){animation-delay:0.11s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(4){animation-delay:0.14s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(5){animation-delay:0.17s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(6){animation-delay:0.20s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(7){animation-delay:0.23s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(8){animation-delay:0.26s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(9){animation-delay:0.29s}
+.mobile-nav.open .mobile-nav-body>*:nth-child(10){animation-delay:0.32s}
+@keyframes mnSlideIn{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:translateX(0)}}
+
+/* ═══ PREMIUM FOCUS RING ═══ */
+.btn:focus-visible{outline:3px solid var(--accent-light);outline-offset:3px}
+:target{scroll-margin-top:80px}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){.team-grid{grid-template-columns:repeat(2,1fr)}.ops-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:968px){
+  .hero-content{padding:130px 0 100px}
+  .nav{display:none}.mob-toggle{display:block}
+  .mission-grid{grid-template-columns:1fr}
+  .fleet-grid{grid-template-columns:1fr 1fr}
+  .contact-wrap{grid-template-columns:1fr}
+  .ftr-inner{grid-template-columns:1fr 1fr}
+  .pipe-route{flex-direction:column;gap:8px}
+  .pipe-line{width:4px;height:40px;background:linear-gradient(180deg,var(--accent),var(--teal))}
+  .pipe-line::after{bottom:0;right:auto;left:50%;transform:translate(-50%,50%)}
+  .pipe-specs{grid-template-columns:1fr 1fr}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .hero-content{padding:100px 0 80px;max-width:100%}
+  .hero-brand img{width:64px;height:64px}
+  .hero-scope-tag{font-size:0.66rem;padding:5px 11px;gap:5px}
+  .hero-scroll{width:56px;height:56px;bottom:20px}
+  .hero-scroll-ring text{font-size:8.5px}
+  .hero-ticker{flex-direction:column;gap:10px;padding:16px 20px}
+  .hero-ticker-sep{width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)}
+  .hero-ticker-item{padding:4px 0}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .ops-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .fleet-grid{grid-template-columns:1fr}
+  .ftr-inner{grid-template-columns:1fr}
+  .fg-row{grid-template-columns:1fr}
+  .pipe-specs{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Aller au contenu principal</a>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="siteHeader">
+  <div class="ctn">
+    <a href="#hero" class="logo" aria-label="EnerTchad Midstream — Accueil">
+      <img src="logo.svg" alt="EnerTchad" width="40" height="40">
+      <div class="logo-text">EnerTchad<span>Midstream</span></div>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#mission" data-i18n data-en="Mission">Mission</a>
+      <a href="#operations" data-i18n data-en="Operations">Opérations</a>
+      <a href="#pipeline" data-i18n data-en="Pipeline">Pipeline</a>
+      <a href="#fleet" data-i18n data-en="Fleet">Flotte</a>
+      <a href="#team" data-i18n data-en="Team">Équipe</a>
+      <a href="#contact" class="nav-cta" data-i18n data-en="Contact"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact</a>
+    </nav>
+    <div class="hdr-actions">
+      <div class="lang-switch" aria-label="Langue" role="radiogroup">
+        <button class="lang-btn active" data-lang="fr" role="radio" aria-checked="true">FR</button>
+        <button class="lang-btn" data-lang="en" role="radio" aria-checked="false">EN</button>
+      </div>
+      <button class="mob-toggle" id="mobOpen" aria-label="Ouvrir le menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ MOBILE NAV ═══ -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" aria-hidden="true">
+  <div class="mobile-nav-header">
+    <a href="#hero" class="logo"><img src="logo.svg" alt="EnerTchad" width="40" height="40"><div class="logo-text">EnerTchad<span>Midstream</span></div></a>
+    <button class="mobile-nav-close" id="mobClose" aria-label="Fermer"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="mobile-nav-body">
+    <span class="mobile-nav-section">Activités</span>
+    <a href="#mission"><i class="fas fa-bullseye"></i><span>Notre Mission</span></a>
+    <a href="#operations"><i class="fas fa-industry"></i><span>Opérations</span></a>
+    <a href="#pipeline"><i class="fas fa-project-diagram"></i><span>Pipeline & Transport</span></a>
+    <span class="mobile-nav-section">Ressources</span>
+    <a href="#fleet"><i class="fas fa-truck-moving"></i><span>Flotte & Logistique</span></a>
+    <a href="#team"><i class="fas fa-users-gear"></i><span>Équipe</span></a>
+    <a href="#contact" class="mobile-nav-cta"><i class="fas fa-paper-plane"></i><span>Contact</span></a>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-orb orb-1" aria-hidden="true"></div>
+  <div class="hero-orb orb-2" aria-hidden="true"></div>
+  <div class="hero-orb orb-3" aria-hidden="true"></div>
+  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="ctn">
+    <div class="hero-content">
+      <div class="hero-brand">
+        <img src="logo.svg" alt="EnerTchad" width="88" height="88" style="border-radius:50%">
+        <div class="hero-brand-name">EnerTchad Midstream</div>
+        <div class="hero-brand-sub" data-i18n data-en="Pipeline · Transport · Storage">Pipeline · Transport · Stockage</div>
+      </div>
+      <div class="hero-scope">
+        <a href="#pipeline" class="hero-scope-tag pipe" data-i18n data-en="Pipeline Network"><i class="fas fa-project-diagram" aria-hidden="true"></i> Réseau pipeline</a>
+        <a href="#operations" class="hero-scope-tag store" data-i18n data-en="Storage & Terminals"><i class="fas fa-warehouse" aria-hidden="true"></i> Stockage & Terminaux</a>
+        <a href="#operations" class="hero-scope-tag meter" data-i18n data-en="Fiscal Metering"><i class="fas fa-gauge-high" aria-hidden="true"></i> Métrologie fiscale</a>
+        <a href="#operations" class="hero-scope-tag hse" data-i18n data-en="Integrity & HSE"><i class="fas fa-shield-halved" aria-hidden="true"></i> Intégrité & HSE</a>
+      </div>
+      <h1 data-i18n data-en="The strategic<br><span class='hl'>link.</span>">Le maillon<br><span class="hl">stratégique.</span></h1>
+      <div class="hero-line" aria-hidden="true"></div>
+      <p class="hero-desc" data-i18n data-en="From wellhead to export terminal — we operate the pipelines, storage facilities, and metering systems that ensure the continuous and safe flow of hydrocarbons across Chad.">Du puits au terminal d'export — nous opérons les pipelines, installations de stockage et systèmes de comptage qui assurent le flux continu et sécurisé des hydrocarbures à travers le Tchad.</p>
+      <div class="hero-slogan" data-i18n data-en="Every barrel, every kilometer, every day">Chaque baril, chaque kilomètre, chaque jour</div>
+      <div class="hero-acts">
+        <a href="#pipeline" class="btn btn-accent" data-i18n data-en="Pipeline Network"><i class="fas fa-project-diagram"></i> Réseau pipeline</a>
+        <a href="#operations" class="btn btn-ghost" data-i18n data-en="Our Operations"><i class="fas fa-industry"></i> Nos opérations</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n data-en="Contact Us"><i class="fas fa-handshake"></i> Nous contacter</a>
+      </div>
+      <div class="hero-ticker" aria-live="polite">
+        <div class="hero-ticker-item"><i class="fas fa-oil-can" aria-hidden="true"></i><span class="hero-ticker-val" id="tickerBbl">0</span><small data-i18n data-en="barrels transported/day">barils transportés/jour</small></div>
+        <div class="hero-ticker-sep"></div>
+        <div class="hero-ticker-item"><i class="fas fa-road" aria-hidden="true"></i><span class="hero-ticker-val" id="tickerKm">0</span><small data-i18n data-en="km of pipeline">km de pipeline</small></div>
+        <div class="hero-ticker-sep"></div>
+        <div class="hero-ticker-item"><i class="fas fa-shield-halved" aria-hidden="true"></i><span class="hero-ticker-val" id="tickerHse">0</span><small data-i18n data-en="consecutive HSE days">jours HSE consécutifs</small></div>
+      </div>
+    </div>
+  </div>
+  <a href="#mission" class="hero-scroll" id="heroScroll" aria-label="Défiler">
+    <svg class="hero-scroll-ring" viewBox="0 0 72 72" aria-hidden="true">
+      <defs><path id="scrollTextPath" d="M 36,36 m -28,0 a 28,28 0 1,1 56,0 a 28,28 0 1,1 -56,0"/></defs>
+      <text><textPath href="#scrollTextPath">DÉCOUVRIR · EXPLORER · </textPath></text>
+    </svg>
+    <div class="hero-scroll-center"><span class="hero-scroll-chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span><span class="hero-scroll-chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span></div>
+  </a>
+</section>
+
+<!-- ═══ TRUST STRIP ═══ -->
+<div class="trust" data-r>
+  <div class="ctn">
+    <div class="trust-row">
+      <div class="trust-item"><i class="fas fa-certificate"></i> <span data-i18n data-en="API 5L / ASME B31.4">API 5L / ASME B31.4</span></div>
+      <div class="trust-item"><i class="fas fa-shield-halved"></i> <span data-i18n data-en="ISO 45001 HSE">ISO 45001 HSE</span></div>
+      <div class="trust-item"><i class="fas fa-leaf"></i> <span data-i18n data-en="ISO 14001 Environment">ISO 14001 Environnement</span></div>
+      <div class="trust-item"><i class="fas fa-gauge-high"></i> <span data-i18n data-en="OIML R117 Metering">OIML R117 Métrologie</span></div>
+      <div class="trust-item"><i class="fas fa-satellite-dish"></i> <span data-i18n data-en="24/7 SCADA Monitoring">Monitoring SCADA 24/7</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MISSION ═══ -->
+<section id="mission">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb blue"><i class="fas fa-bullseye"></i> <span data-i18n data-en="Our Mission">Notre Mission</span></div>
+      <h2 class="stitle" data-i18n data-en="Connecting production to <span class='hl'>market</span>">Connecter la production au <span class="hl">marché</span></h2>
+      <p class="sdesc" data-i18n data-en="EnerTchad Midstream operates the critical infrastructure linking upstream production to downstream distribution — pipelines, terminals, metering, and logistics.">EnerTchad Midstream opère les infrastructures critiques reliant la production amont à la distribution aval — pipelines, terminaux, métrologie et logistique.</p>
+    </div>
+    <div class="mission-grid" data-r>
+      <div style="display:grid;gap:20px">
+        <div class="mission-card">
+          <i class="fas fa-project-diagram"></i>
+          <h4 data-i18n data-en="Pipeline Transport">Transport par pipeline</h4>
+          <p data-i18n data-en="1,070 km of pipeline operated from Doba to the Kribi export terminal, with 4 booster pump stations and real-time SCADA monitoring.">1 070 km de pipeline opérés de Doba au terminal d'export de Kribi, avec 4 stations de pompage et surveillance SCADA temps réel.</p>
+        </div>
+        <div class="mission-card">
+          <i class="fas fa-warehouse"></i>
+          <h4 data-i18n data-en="Strategic Storage">Stockage stratégique</h4>
+          <p data-i18n data-en="6 storage facilities with a total capacity of 2.8 million barrels, ensuring one month of national supply autonomy.">6 sites de stockage d'une capacité totale de 2,8 millions de barils, assurant un mois d'autonomie nationale d'approvisionnement.</p>
+        </div>
+      </div>
+      <div style="display:grid;gap:20px">
+        <div class="mission-card">
+          <i class="fas fa-gauge-high"></i>
+          <h4 data-i18n data-en="Fiscal Metering">Métrologie fiscale</h4>
+          <p data-i18n data-en="OIML-certified metering systems at every custody transfer point — loading terminals, pipeline junctions, and export facilities.">Systèmes de comptage certifiés OIML à chaque point de transfert de garde — terminaux de chargement, jonctions pipeline et installations d'export.</p>
+        </div>
+        <div class="mission-card">
+          <i class="fas fa-shield-halved"></i>
+          <h4 data-i18n data-en="Integrity & HSE">Intégrité & HSE</h4>
+          <p data-i18n data-en="Pipeline integrity management (pigging, corrosion monitoring, cathodic protection) with zero-tolerance safety culture and 24/7 emergency response.">Gestion de l'intégrité pipeline (raclage, suivi corrosion, protection cathodique) avec culture sécurité zéro-tolérance et intervention d'urgence 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<div class="stats" data-r>
+  <div class="ctn">
+    <div class="stats-row">
+      <div class="stat-item"><div class="sv" data-count="1070">0</div><div class="sl" data-i18n data-en="km of pipeline">km de pipeline</div></div>
+      <div class="stat-item"><div class="sv" data-count="120">0</div><div class="sl" data-i18n data-en="thousand bbl/day">milliers bbl/jour</div></div>
+      <div class="stat-item"><div class="sv" data-count="2800">0</div><div class="sl" data-i18n data-en="thousand bbl storage">milliers bbl stockage</div></div>
+      <div class="stat-item"><div class="sv" data-count="850">0</div><div class="sl" data-i18n data-en="consecutive HSE days">jours HSE consécutifs</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ OPERATIONS ═══ -->
+<section class="sec-dark" id="operations">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb blue"><i class="fas fa-industry"></i> <span data-i18n data-en="Operations">Opérations</span></div>
+      <h2 class="stitle" style="color:var(--white)" data-i18n data-en="Eight operational <span class='hl'>pillars</span>">Huit piliers <span class="hl">opérationnels</span></h2>
+      <p class="sdesc" data-i18n data-en="From crude gathering in the Doba Basin to the maritime export terminal — an integrated chain of critical infrastructure.">De la collecte brut dans le bassin de Doba au terminal d'export maritime — une chaîne intégrée d'infrastructures critiques.</p>
+    </div>
+    <div class="ops-grid" data-r>
+      <div class="op-card">
+        <div class="op-icon"><i class="fas fa-project-diagram"></i></div>
+        <h3 data-i18n data-en="Pipeline Transport">Transport Pipeline</h3>
+        <p data-i18n data-en="Operation and maintenance of the 1,070 km Doba-Kribi export pipeline with 4 booster pump stations.">Exploitation et maintenance du pipeline d'export Doba-Kribi de 1 070 km avec 4 stations de pompage relais.</p>
+        <span class="op-tag">API 5L X60</span>
+      </div>
+      <div class="op-card">
+        <div class="op-icon"><i class="fas fa-arrows-split-up-and-left"></i></div>
+        <h3 data-i18n data-en="Crude Gathering">Collecte Brut</h3>
+        <p data-i18n data-en="350+ km gathering network connecting 120+ wells to manifolds and the Central Processing Facility (CPF).">Réseau de collecte de 350+ km connectant 120+ puits aux manifolds et à l'usine de traitement central (CPF).</p>
+        <span class="op-tag">120+ puits</span>
+      </div>
+      <div class="op-card">
+        <div class="op-icon"><i class="fas fa-warehouse"></i></div>
+        <h3 data-i18n data-en="Storage & Terminals">Stockage & Terminaux</h3>
+        <p data-i18n data-en="6 tank farm facilities with 2.8M bbl combined capacity — Doba, Bero, Komé, pump stations and the Kribi FSO terminal.">6 parcs de stockage d'une capacité combinée de 2,8M bbl — Doba, Béro, Komé, stations de pompage et terminal FSO Kribi.</p>
+        <span class="op-tag">2.8M bbl</span>
+      </div>
+      <div class="op-card">
+        <div class="op-icon"><i class="fas fa-gauge-high"></i></div>
+        <h3 data-i18n data-en="Fiscal Metering">Comptage & Metering</h3>
+        <p data-i18n data-en="OIML R117-certified custody transfer metering at pipeline entry/exit points, loading terminals, and export facilities.">Comptage de transfert de garde certifié OIML R117 aux points d'entrée/sortie pipeline, terminaux et installations d'export.</p>
+        <span class="op-tag">OIML R117</span>
+      </div>
+      <div class="op-card">
+        <div class="op-icon"><i class="fas fa-satellite-dish"></i></div>
+        <h3 data-i18n data-en="SCADA & Monitoring">SCADA & Monitoring</h3>
+        <p data-i18n data-en="Real-time supervisory control and data acquisition across all pipeline sections with leak detection, pressure monitoring, and automated valve control.">Contrôle supervisé et acquisition de données temps réel sur toutes les sections pipeline avec détection de fuites, suivi de pression et contrôle automatisé des vannes.</p>
+        <span class="op-tag">24/7</span>
+      </div>
+      <div class="op-card">
+        <div class="op-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+        <h3 data-i18n data-en="Integrity Management">Gestion Intégrité</h3>
+        <p data-i18n data-en="In-line inspection (smart pigging), cathodic protection, corrosion monitoring, and predictive maintenance using ILI data analytics.">Inspection en ligne (raclage intelligent), protection cathodique, suivi corrosion et maintenance prédictive par analyse des données ILI.</p>
+        <span class="op-tag">Smart Pigging</span>
+      </div>
+      <div class="op-card">
+        <div class="op-icon"><i class="fas fa-truck-moving"></i></div>
+        <h3 data-i18n data-en="Road Transport">Transport Routier</h3>
+        <p data-i18n data-en="Fleet of 60+ tanker trucks for secondary distribution from terminals to depots and emergency pipeline bypass operations.">Flotte de 60+ camions-citernes pour la distribution secondaire des terminaux aux dépôts et les opérations de bypass d'urgence.</p>
+        <span class="op-tag">60+ citernes</span>
+      </div>
+      <div class="op-card">
+        <div class="op-icon"><i class="fas fa-hard-hat"></i></div>
+        <h3 data-i18n data-en="HSE & Emergency">HSE & Urgence</h3>
+        <p data-i18n data-en="Zero-tolerance safety culture with dedicated emergency response teams, spill containment equipment, and continuous HSE training programs.">Culture sécurité zéro-tolérance avec équipes d'intervention d'urgence dédiées, équipements de confinement des déversements et programmes HSE continus.</p>
+        <span class="op-tag">Zéro incident</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PIPELINE ═══ -->
+<section id="pipeline">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb teal"><i class="fas fa-route"></i> <span data-i18n data-en="Pipeline Network">Réseau Pipeline</span></div>
+      <h2 class="stitle" data-i18n data-en="Doba — Kribi: <span class='hl'>1,070 km</span>">Doba — Kribi : <span class="hl">1 070 km</span></h2>
+      <p class="sdesc" data-i18n data-en="The Doba-Kribi export pipeline crosses three countries, four climate zones, and serves as Chad's economic lifeline to global markets.">Le pipeline d'export Doba-Kribi traverse trois pays, quatre zones climatiques et constitue la ligne de vie économique du Tchad vers les marchés mondiaux.</p>
+    </div>
+    <div class="pipe-visual" data-r>
+      <div style="margin-bottom:32px;border-radius:16px;overflow:hidden;border:1px solid rgba(14,165,233,0.1);box-shadow:0 8px 40px rgba(0,0,0,0.3)">
+        <img src="pipeline-map.svg" alt="Pipeline Doba-Kribi route map" style="width:100%;display:block" loading="lazy">
+      </div>
+      <div class="pipe-route">
+        <div class="pipe-node">
+          <div class="pipe-node-dot"><i class="fas fa-oil-well"></i></div>
+          <div class="pipe-node-name">Doba</div>
+          <div class="pipe-node-sub" data-i18n data-en="Production fields">Champs de production</div>
+        </div>
+        <div class="pipe-line"></div>
+        <div class="pipe-node">
+          <div class="pipe-node-dot"><i class="fas fa-arrows-split-up-and-left"></i></div>
+          <div class="pipe-node-name">Béro</div>
+          <div class="pipe-node-sub" data-i18n data-en="Pump station 1">Station pompage 1</div>
+        </div>
+        <div class="pipe-line"></div>
+        <div class="pipe-node">
+          <div class="pipe-node-dot"><i class="fas fa-bolt"></i></div>
+          <div class="pipe-node-name">Dompta</div>
+          <div class="pipe-node-sub" data-i18n data-en="Pump station 2">Station pompage 2</div>
+        </div>
+        <div class="pipe-line"></div>
+        <div class="pipe-node">
+          <div class="pipe-node-dot"><i class="fas fa-bolt"></i></div>
+          <div class="pipe-node-name">Belabo</div>
+          <div class="pipe-node-sub" data-i18n data-en="Pump station 3">Station pompage 3</div>
+        </div>
+        <div class="pipe-line"></div>
+        <div class="pipe-node">
+          <div class="pipe-node-dot"><i class="fas fa-ship"></i></div>
+          <div class="pipe-node-name">Kribi</div>
+          <div class="pipe-node-sub" data-i18n data-en="FSO Terminal">Terminal FSO</div>
+        </div>
+      </div>
+      <div class="pipe-specs">
+        <div class="pipe-spec"><strong>30"</strong><span data-i18n data-en="Diameter API 5L X60">Diamètre API 5L X60</span></div>
+        <div class="pipe-spec"><strong>120K</strong><span data-i18n data-en="bbl/day capacity">bbl/jour capacité</span></div>
+        <div class="pipe-spec"><strong>4</strong><span data-i18n data-en="Pump stations">Stations de pompage</span></div>
+        <div class="pipe-spec"><strong>33M</strong><span data-i18n data-en="bbl/year throughput">bbl/an throughput</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FLEET ═══ -->
+<section class="sec-light" id="fleet">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb gold"><i class="fas fa-truck-moving"></i> <span data-i18n data-en="Fleet & Logistics">Flotte & Logistique</span></div>
+      <h2 class="stitle" data-i18n data-en="A fleet designed for <span class='hl'>continuity</span>">Une flotte conçue pour la <span class="hl">continuité</span></h2>
+      <p class="sdesc" data-i18n data-en="Road tankers, maintenance vehicles, and emergency response units — all GPS-tracked and maintained to the highest safety standards.">Camions-citernes, véhicules de maintenance et unités d'intervention d'urgence — tous géolocalisés et maintenus aux plus hauts standards de sécurité.</p>
+    </div>
+    <div class="fleet-grid" data-r>
+      <div class="fleet-card">
+        <div class="fleet-icon"><i class="fas fa-truck-moving"></i></div>
+        <h3 data-i18n data-en="Road Tankers">Camions-citernes</h3>
+        <p data-i18n data-en="MC 306/DOT 407 certified tankers for secondary distribution and emergency bypass operations.">Citernes certifiées MC 306/DOT 407 pour distribution secondaire et opérations de bypass d'urgence.</p>
+        <span class="fleet-num">60+</span>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-icon"><i class="fas fa-toolbox"></i></div>
+        <h3 data-i18n data-en="Maintenance Units">Unités Maintenance</h3>
+        <p data-i18n data-en="Mobile welding, pigging, valve repair, and cathodic protection field units deployed along the pipeline corridor.">Unités mobiles de soudure, raclage, réparation de vannes et protection cathodique déployées le long du corridor pipeline.</p>
+        <span class="fleet-num">25</span>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-icon"><i class="fas fa-truck-medical"></i></div>
+        <h3 data-i18n data-en="Emergency Response">Intervention Urgence</h3>
+        <p data-i18n data-en="Rapid deployment spill response vehicles, fire suppression units, and MEDEVAC-ready ambulances along all pipeline sections.">Véhicules d'intervention rapide anti-déversement, unités anti-incendie et ambulances MEDEVAC le long de toutes les sections pipeline.</p>
+        <span class="fleet-num">15</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TEAM ═══ -->
+<section class="sec-dark" id="team">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb blue"><i class="fas fa-users-gear"></i> <span data-i18n data-en="Leadership">Direction</span></div>
+      <h2 class="stitle" style="color:var(--white)" data-i18n data-en="Experienced <span class='hl'>leadership</span>">Un leadership <span class="hl">expérimenté</span></h2>
+      <p class="sdesc" data-i18n data-en="A team of seasoned midstream professionals with decades of combined experience in pipeline operations, terminal management, and HSE across Africa.">Une équipe de professionnels midstream chevronnés avec des décennies d'expérience cumulée en opérations pipeline, gestion de terminaux et HSE en Afrique.</p>
+    </div>
+    <div class="team-grid" data-r>
+      <div class="team-card">
+        <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+        <h4>Directeur Général</h4>
+        <small data-i18n data-en="Pipeline & Transport Operations">Opérations Pipeline & Transport</small>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><i class="fas fa-hard-hat"></i></div>
+        <h4>Dir. Opérations</h4>
+        <small data-i18n data-en="Field Operations & Maintenance">Opérations Terrain & Maintenance</small>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><i class="fas fa-shield-halved"></i></div>
+        <h4>Dir. HSE</h4>
+        <small data-i18n data-en="Health, Safety & Environment">Santé, Sécurité & Environnement</small>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><i class="fas fa-satellite-dish"></i></div>
+        <h4>Dir. SCADA</h4>
+        <small data-i18n data-en="Control Systems & Monitoring">Systèmes de Contrôle & Monitoring</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="ctn">
+    <div class="contact-wrap">
+      <div class="contact-left" data-r>
+        <div class="eyb blue"><i class="fas fa-paper-plane"></i> Contact</div>
+        <h2 data-i18n data-en="Let's talk <span class='hl'>midstream</span>">Parlons <span class="hl" style="background:linear-gradient(135deg,var(--accent-light),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">midstream</span></h2>
+        <p data-i18n data-en="Pipeline interconnection projects, storage capacity requests, custody transfer metering — our team is ready to discuss your needs.">Projets d'interconnexion pipeline, demandes de capacité de stockage, métrologie de transfert de garde — notre équipe est prête à discuter de vos besoins.</p>
+        <div class="cd"><div class="cd-icon"><i class="fas fa-map-marker-alt"></i></div><div class="cd-text"><strong>N'Djamena, Tchad</strong><small>Radisson, Block D, Bureau 23, Sabangali</small></div></div>
+        <div class="cd"><div class="cd-icon"><i class="fas fa-phone"></i></div><div class="cd-text"><strong>+235 99 29 86 96</strong><small data-i18n data-en="Mon-Fri, 8am-5pm">Lun-Ven, 8h-17h</small></div></div>
+        <div class="cd"><div class="cd-icon"><i class="fas fa-envelope"></i></div><div class="cd-text"><strong>midstream@enertchad.td</strong><small data-i18n data-en="Response within 24h">Réponse sous 24h</small></div></div>
+      </div>
+      <form class="contact-form" id="contactForm" data-r>
+        <div class="fg-row"><div class="fg"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" required></div><div class="fg"><label>Email *</label><input type="email" id="cf-email" required></div></div>
+        <div class="fg"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company"></div>
+        <div class="fg"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="Other">Autre</option></select></div>
+        <div class="fg"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" required></textarea></div>
+        <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane"></i> Envoyer la demande</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="ftr">
+  <div class="ctn">
+    <div class="ftr-inner">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><img src="logo.svg" alt="EnerTchad" width="36" height="36" style="border-radius:50%"><strong style="color:var(--white);font-family:var(--font-d)">EnerTchad Midstream</strong></div>
+        <p data-i18n data-en="The strategic link between production and distribution — pipelines, storage, metering, and logistics across Chad.">Le maillon stratégique entre production et distribution — pipelines, stockage, métrologie et logistique à travers le Tchad.</p>
+      </div>
+      <div>
+        <h4 data-i18n data-en="Operations">Opérations</h4>
+        <a href="#pipeline" data-i18n data-en="Pipeline Network">Réseau Pipeline</a>
+        <a href="#operations" data-i18n data-en="Storage & Terminals">Stockage & Terminaux</a>
+        <a href="#operations" data-i18n data-en="Metering">Métrologie</a>
+        <a href="#fleet" data-i18n data-en="Fleet">Flotte</a>
+      </div>
+      <div>
+        <h4 data-i18n data-en="Company">Entreprise</h4>
+        <a href="#mission" data-i18n data-en="Mission">Mission</a>
+        <a href="#team" data-i18n data-en="Team">Équipe</a>
+        <a href="#contact" data-i18n data-en="Contact">Contact</a>
+      </div>
+      <div>
+        <h4 data-i18n data-en="Ecosystem">Écosystème</h4>
+        <a href="https://enertchad-amont.vercel.app" target="_blank">EnerTchad Amont</a>
+        <a href="https://enertchad-aval.vercel.app" target="_blank">EnerTchad Aval</a>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <span>&copy; 2026 EnerTchad Midstream — <span data-i18n data-en="All rights reserved">Tous droits réservés</span></span>
+      <div class="ftr-legal">
+        <a href="#" data-i18n data-en="Legal Notice">Mentions légales</a>
+        <a href="#" data-i18n data-en="Privacy">Confidentialité</a>
+        <a href="#" data-i18n data-en="Cookies">Cookies</a>
+      </div>
+      <div class="ftr-socials">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ DOT NAV ═══ -->
+<div class="dot-nav" aria-label="Navigation sections">
+  <div class="dot-nav-item"><span class="dot-nav-label">Accueil</span><button class="dot-nav-dot active" data-section="hero" aria-label="Accueil"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Mission</span><button class="dot-nav-dot" data-section="mission" aria-label="Mission"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Opérations</span><button class="dot-nav-dot" data-section="operations" aria-label="Opérations"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Pipeline</span><button class="dot-nav-dot" data-section="pipeline" aria-label="Pipeline"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Flotte</span><button class="dot-nav-dot" data-section="fleet" aria-label="Flotte"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Équipe</span><button class="dot-nav-dot" data-section="team" aria-label="Équipe"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">Contact</span><button class="dot-nav-dot" data-section="contact" aria-label="Contact"></button></div>
+</div>
+
+<script>
+/* ═══ SCROLL ENGINE ═══ */
+(function(){
+  const hdr=document.getElementById('siteHeader');
+  let lastY=0;
+  const dotSections=['hero','mission','operations','pipeline','fleet','team','contact'];
+
+  window.addEventListener('scroll',function(){
+    const y=window.scrollY;
+    /* Header shrink */
+    if(hdr)hdr.classList.toggle('scrolled',y>60);
+    /* Dot nav active */
+    let active='hero';
+    dotSections.forEach(function(id){
+      const el=document.getElementById(id);
+      if(el&&el.offsetTop-300<=y)active=id;
+    });
+    document.querySelectorAll('.dot-nav-dot').forEach(function(d){
+      d.classList.toggle('active',d.dataset.section===active);
+    });
+    lastY=y;
+  },{passive:true});
+
+  /* Dot nav click */
+  document.querySelectorAll('.dot-nav-dot[data-section]').forEach(function(d){
+    d.addEventListener('click',function(){
+      var el=document.getElementById(d.dataset.section);
+      if(el)el.scrollIntoView({behavior:'smooth'});
+    });
+  });
+})();
+
+/* ═══ REVEAL (data-r) ═══ */
+(function(){
+  const rObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('v');rObs.unobserve(e.target)}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('[data-r]').forEach(function(el){rObs.observe(el)});
+})();
+
+/* ═══ CANVAS PARTICLES ═══ */
+(function(){
+  const canvas=document.getElementById('heroCanvas');
+  if(!canvas||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const ctx=canvas.getContext('2d');
+  let w,h,particles=[];
+  const colors=['rgba(14,165,233,0.3)','rgba(56,189,248,0.2)','rgba(20,184,166,0.2)','rgba(200,150,46,0.12)'];
+  function resize(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight}
+  function create(){return{x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.25,r:Math.random()*2+0.5,c:colors[Math.floor(Math.random()*colors.length)]}}
+  function init(){resize();particles=[];for(var i=0;i<55;i++)particles.push(create())}
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    particles.forEach(function(p,i){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;
+      if(p.y<0||p.y>h)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c;ctx.fill();
+      for(var j=i+1;j<particles.length;j++){
+        var dx=p.x-particles[j].x,dy=p.y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<110){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(14,165,233,'+(0.05*(1-dist/110))+')';ctx.lineWidth=0.5;ctx.stroke()}
+      }
+    });
+    requestAnimationFrame(draw);
+  }
+  init();draw();window.addEventListener('resize',function(){resize()});
+})();
+
+/* ═══ HERO PARALLAX ═══ */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var hero=document.getElementById('hero');
+  if(!hero)return;
+  var ticking=false;
+  function update(){
+    var y=window.scrollY,hH=hero.offsetHeight;
+    if(y<hH*1.5){
+      var content=hero.querySelector('.hero-content');
+      if(content)content.style.transform='translateY('+y*0.12+'px)';
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true}},{passive:true});
+})();
+
+/* ═══ HERO TICKER ═══ */
+(function(){
+  var targets={tickerBbl:{end:120,suffix:'K'},tickerKm:{end:1070,suffix:''},tickerHse:{end:850,suffix:''}};
+  var duration=2200;var started=false;
+  function go(){
+    if(started)return;started=true;
+    Object.keys(targets).forEach(function(id){
+      var el=document.getElementById(id);if(!el)return;
+      var t=targets[id],start=performance.now();
+      function tick(now){
+        var p=Math.min((now-start)/duration,1);
+        var ease=1-Math.pow(1-p,3);
+        el.textContent=Math.round(t.end*ease)+t.suffix;
+        if(p<1)requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+  var hero=document.getElementById('hero');
+  if(hero){var obs=new IntersectionObserver(function(e){if(e[0].isIntersecting){go();obs.disconnect()}},{threshold:0.3});obs.observe(hero)}
+})();
+
+/* ═══ STATS COUNTER ═══ */
+(function(){
+  var done=false;
+  var obs=new IntersectionObserver(function(entries){
+    if(!entries[0].isIntersecting||done)return;done=true;obs.disconnect();
+    document.querySelectorAll('.sv[data-count]').forEach(function(el){
+      var end=parseInt(el.dataset.count),start=performance.now(),dur=2000;
+      function tick(now){
+        var p=Math.min((now-start)/dur,1);
+        var ease=1-Math.pow(1-p,3);
+        el.textContent=Math.round(end*ease).toLocaleString('fr-FR');
+        if(p<1)requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  },{threshold:0.3});
+  var stats=document.querySelector('.stats');
+  if(stats)obs.observe(stats);
+})();
+
+/* ═══ SCROLL INDICATOR HIDE ═══ */
+(function(){
+  var el=document.getElementById('heroScroll');
+  if(!el)return;var hidden=false;
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>200&&!hidden){el.classList.add('is-hidden');hidden=true}
+    else if(window.scrollY<=200&&hidden){el.classList.remove('is-hidden');hidden=false}
+  },{passive:true});
+})();
+
+/* ═══ MOBILE NAV ═══ */
+(function(){
+  var mn=document.getElementById('mobileNav');
+  function open(){if(mn){mn.classList.add('open');mn.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('mobClose').focus()}}
+  function close(){if(mn){mn.classList.remove('open');mn.setAttribute('aria-hidden','true');document.body.style.overflow='';document.getElementById('mobOpen').focus()}}
+  document.getElementById('mobOpen')?.addEventListener('click',open);
+  document.getElementById('mobClose')?.addEventListener('click',close);
+  mn?.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',close)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mn&&mn.classList.contains('open'))close()});
+})();
+
+/* ═══ i18n FR/EN ═══ */
+(function(){
+  var btns=document.querySelectorAll('.lang-btn[data-lang]');
+  if(!btns.length)return;
+  var lang='fr';
+  var els=document.querySelectorAll('[data-i18n]');
+  els.forEach(function(el){el.setAttribute('data-fr',el.innerHTML)});
+  function set(l){
+    if(l===lang)return;lang=l;
+    document.documentElement.lang=l;
+    btns.forEach(function(b){var a=b.dataset.lang===l;b.classList.toggle('active',a);b.setAttribute('aria-checked',a?'true':'false')});
+    els.forEach(function(el){
+      var icon=el.querySelector('i.fas,i.fab');
+      var ih=icon?icon.outerHTML+' ':'';
+      if(l==='en'&&el.dataset.en)el.innerHTML=ih+el.dataset.en;
+      else if(el.dataset.fr)el.innerHTML=el.dataset.fr;
+    });
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.lang)})});
+})();
+
+/* ═══ CONTACT FORM ═══ */
+document.getElementById('contactForm')?.addEventListener('submit',function(e){
+  e.preventDefault();
+  var name=document.getElementById('cf-name').value.trim();
+  var email=document.getElementById('cf-email').value.trim();
+  var msg=document.getElementById('formMsg');
+  if(!name||!email){msg.className='form-msg err';msg.style.display='block';msg.textContent='Veuillez remplir les champs obligatoires.';return}
+  msg.className='form-msg ok';msg.style.display='block';msg.textContent='Merci '+name+' ! Votre demande a été envoyée.';
+  this.reset();
+});
+</script>
+</body>
+</html>

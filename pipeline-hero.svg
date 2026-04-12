@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#050D1A"/>
+    <stop offset="40%" stop-color="#0B1426"/>
+    <stop offset="100%" stop-color="#0F1D35"/>
+  </linearGradient>
+  <linearGradient id="pipeG" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#1E3A5F"/>
+    <stop offset="50%" stop-color="#2A5580"/>
+    <stop offset="100%" stop-color="#1E3A5F"/>
+  </linearGradient>
+  <linearGradient id="pipeHL" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="rgba(14,165,233,0.3)"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </linearGradient>
+  <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#1A1510"/>
+    <stop offset="100%" stop-color="#0D0A07"/>
+  </linearGradient>
+  <linearGradient id="tank" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#2A4060"/>
+    <stop offset="100%" stop-color="#1A2840"/>
+  </linearGradient>
+  <linearGradient id="flareG" x1="0" y1="1" x2="0" y2="0">
+    <stop offset="0%" stop-color="#D97706"/>
+    <stop offset="50%" stop-color="#F59E0B"/>
+    <stop offset="100%" stop-color="#FCD34D"/>
+  </linearGradient>
+  <radialGradient id="flareGlow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0%" stop-color="rgba(245,158,11,0.4)"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </radialGradient>
+  <radialGradient id="moonG" cx="0.4" cy="0.35" r="0.5">
+    <stop offset="0%" stop-color="#E8E0D0"/>
+    <stop offset="100%" stop-color="#B8A890"/>
+  </radialGradient>
+  <radialGradient id="lightBeam" cx="0.5" cy="0" r="1">
+    <stop offset="0%" stop-color="rgba(14,165,233,0.08)"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </radialGradient>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="3" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="softGlow">
+    <feGaussianBlur stdDeviation="6"/>
+  </filter>
+</defs>
+
+<!-- Sky -->
+<rect width="1440" height="810" fill="url(#sky)"/>
+
+<!-- Stars -->
+<g opacity="0.6">
+  <circle cx="120" cy="60" r="1.2" fill="#E8E0D0"/>
+  <circle cx="280" cy="120" r="0.8" fill="#C8D0E0"/>
+  <circle cx="440" cy="45" r="1" fill="#E8E0D0"/>
+  <circle cx="590" cy="95" r="0.6" fill="#C8D0E0"/>
+  <circle cx="720" cy="30" r="1.4" fill="#E8E0D0"/>
+  <circle cx="850" cy="110" r="0.7" fill="#C8D0E0"/>
+  <circle cx="980" cy="55" r="1.1" fill="#E8E0D0"/>
+  <circle cx="1100" cy="80" r="0.9" fill="#C8D0E0"/>
+  <circle cx="1250" cy="40" r="1.3" fill="#E8E0D0"/>
+  <circle cx="1380" cy="100" r="0.8" fill="#C8D0E0"/>
+  <circle cx="200" cy="180" r="0.6" fill="#E8E0D0"/>
+  <circle cx="660" cy="150" r="0.5" fill="#C8D0E0"/>
+  <circle cx="1050" cy="160" r="0.7" fill="#E8E0D0"/>
+  <circle cx="350" cy="200" r="0.4" fill="#C8D0E0"/>
+  <circle cx="900" cy="190" r="0.6" fill="#E8E0D0"/>
+</g>
+
+<!-- Moon -->
+<circle cx="1200" cy="130" r="50" fill="url(#moonG)" opacity="0.9"/>
+<circle cx="1200" cy="130" r="55" fill="none" stroke="rgba(232,224,208,0.15)" stroke-width="2"/>
+
+<!-- Distant Mountains / Terrain -->
+<path d="M0,520 Q200,440 400,480 Q550,420 720,460 Q900,400 1050,450 Q1200,410 1300,440 Q1400,420 1440,450 L1440,810 L0,810Z" fill="#0E1520" opacity="0.8"/>
+<path d="M0,560 Q150,500 350,530 Q500,490 700,520 Q850,480 1000,510 Q1200,470 1350,500 L1440,490 L1440,810 L0,810Z" fill="#121B28"/>
+
+<!-- Ground plane -->
+<rect x="0" y="580" width="1440" height="230" fill="url(#ground)"/>
+
+<!-- Pipeline corridor - main pipe running across landscape -->
+<g>
+  <!-- Pipeline supports / pylons -->
+  <rect x="180" y="520" width="8" height="70" fill="#1A2840" rx="2"/>
+  <rect x="380" y="510" width="8" height="80" fill="#1A2840" rx="2"/>
+  <rect x="580" y="515" width="8" height="75" fill="#1A2840" rx="2"/>
+  <rect x="780" y="505" width="8" height="85" fill="#1A2840" rx="2"/>
+  <rect x="980" y="510" width="8" height="80" fill="#1A2840" rx="2"/>
+  <rect x="1180" y="515" width="8" height="75" fill="#1A2840" rx="2"/>
+
+  <!-- Main pipeline tube -->
+  <path d="M0,530 Q90,525 184,525 Q280,520 384,520 Q480,518 584,520 Q680,515 784,512 Q880,510 984,515 Q1080,518 1184,520 Q1300,522 1440,525"
+        stroke="url(#pipeG)" stroke-width="22" fill="none" stroke-linecap="round"/>
+
+  <!-- Pipeline highlight (top reflection) -->
+  <path d="M0,522 Q90,517 184,517 Q280,512 384,512 Q480,510 584,512 Q680,507 784,504 Q880,502 984,507 Q1080,510 1184,512 Q1300,514 1440,517"
+        stroke="rgba(14,165,233,0.2)" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Flow indicators (glowing dots along pipeline) -->
+  <circle cx="100" cy="527" r="3" fill="#0EA5E9" filter="url(#glow)" opacity="0.8">
+    <animate attributeName="cx" values="0;1440" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="500" cy="517" r="3" fill="#14B8A6" filter="url(#glow)" opacity="0.6">
+    <animate attributeName="cx" values="0;1440" dur="8s" begin="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0.6;0" dur="8s" begin="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="900" cy="510" r="3" fill="#0EA5E9" filter="url(#glow)" opacity="0.7">
+    <animate attributeName="cx" values="0;1440" dur="8s" begin="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.7;0.7;0" dur="8s" begin="5s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Storage tanks cluster (left) -->
+<g transform="translate(80,540)">
+  <!-- Tank 1 large -->
+  <ellipse cx="60" cy="0" rx="50" ry="12" fill="#1E3050"/>
+  <rect x="10" y="0" width="100" height="40" fill="url(#tank)" rx="3"/>
+  <ellipse cx="60" cy="40" rx="50" ry="12" fill="#152238"/>
+  <line x1="60" y1="-2" x2="60" y2="6" stroke="rgba(14,165,233,0.5)" stroke-width="1"/>
+  <!-- Tank level indicator -->
+  <rect x="105" y="5" width="3" height="30" fill="#1A2840" rx="1"/>
+  <rect x="105" y="15" width="3" height="20" fill="#10B981" rx="1" opacity="0.6"/>
+
+  <!-- Tank 2 smaller -->
+  <g transform="translate(120,10)">
+    <ellipse cx="35" cy="0" rx="30" ry="8" fill="#1E3050"/>
+    <rect x="5" y="0" width="60" height="30" fill="url(#tank)" rx="2"/>
+    <ellipse cx="35" cy="30" rx="30" ry="8" fill="#152238"/>
+  </g>
+</g>
+
+<!-- Storage tanks cluster (right) -->
+<g transform="translate(1150,530)">
+  <ellipse cx="50" cy="0" rx="45" ry="10" fill="#1E3050"/>
+  <rect x="5" y="0" width="90" height="45" fill="url(#tank)" rx="3"/>
+  <ellipse cx="50" cy="45" rx="45" ry="10" fill="#152238"/>
+  <rect x="90" y="5" width="3" height="35" fill="#1A2840" rx="1"/>
+  <rect x="90" y="18" width="3" height="22" fill="#0EA5E9" rx="1" opacity="0.5"/>
+
+  <g transform="translate(100,8)">
+    <ellipse cx="35" cy="0" rx="30" ry="8" fill="#1E3050"/>
+    <rect x="5" y="0" width="60" height="35" fill="url(#tank)" rx="2"/>
+    <ellipse cx="35" cy="35" rx="30" ry="8" fill="#152238"/>
+  </g>
+</g>
+
+<!-- Pumping station (center) -->
+<g transform="translate(660,500)">
+  <!-- Building -->
+  <rect x="0" y="20" width="80" height="50" fill="#1A2840" rx="3"/>
+  <rect x="5" y="25" width="20" height="15" fill="rgba(14,165,233,0.15)" rx="2"/>
+  <rect x="30" y="25" width="20" height="15" fill="rgba(14,165,233,0.15)" rx="2"/>
+  <rect x="55" y="25" width="20" height="15" fill="rgba(14,165,233,0.15)" rx="2"/>
+  <!-- Roof -->
+  <path d="M-5,20 L40,5 L85,20Z" fill="#162A4A"/>
+  <!-- Status light -->
+  <circle cx="40" cy="12" r="3" fill="#10B981" filter="url(#glow)">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Antenna -->
+  <line x1="65" y1="5" x2="65" y2="-15" stroke="#2A4060" stroke-width="2"/>
+  <circle cx="65" cy="-15" r="2" fill="#EF4444" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Flare stack -->
+<g transform="translate(500,380)">
+  <rect x="0" y="40" width="8" height="120" fill="#2A4060"/>
+  <rect x="-2" y="155" width="12" height="5" fill="#1E3050"/>
+  <!-- Flame -->
+  <path d="M4,40 Q-8,20 4,0 Q16,20 4,40" fill="url(#flareG)" opacity="0.9">
+    <animate attributeName="d" values="M4,40 Q-8,20 4,0 Q16,20 4,40;M4,40 Q-10,15 4,-5 Q18,15 4,40;M4,40 Q-8,20 4,0 Q16,20 4,40" dur="0.8s" repeatCount="indefinite"/>
+  </path>
+  <!-- Flame glow -->
+  <circle cx="4" cy="20" r="30" fill="url(#flareGlow)" opacity="0.6">
+    <animate attributeName="r" values="28;35;28" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Terminal / Loading facility (right) -->
+<g transform="translate(1050,540)">
+  <!-- Loading arm structure -->
+  <rect x="0" y="10" width="50" height="35" fill="#1A2840" rx="2"/>
+  <path d="M-3,10 L25,0 L53,10" fill="#162A4A" stroke="#1E3A5F" stroke-width="1"/>
+  <!-- Loading arm -->
+  <line x1="25" y1="15" x2="70" y2="25" stroke="#2A5580" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="70" cy="25" r="4" fill="#1E3A5F" stroke="#0EA5E9" stroke-width="1" opacity="0.6"/>
+</g>
+
+<!-- Truck silhouettes near ground level -->
+<g transform="translate(350,580)" opacity="0.5">
+  <!-- Tanker truck -->
+  <rect x="0" y="0" width="30" height="15" fill="#1A2840" rx="3"/>
+  <rect x="30" y="-5" width="50" height="20" fill="#162A4A" rx="8"/>
+  <circle cx="15" cy="17" r="4" fill="#0D0A07" stroke="#1A2840" stroke-width="1"/>
+  <circle cx="55" cy="17" r="4" fill="#0D0A07" stroke="#1A2840" stroke-width="1"/>
+  <circle cx="70" cy="17" r="4" fill="#0D0A07" stroke="#1A2840" stroke-width="1"/>
+</g>
+
+<!-- Ambient light beams from facilities -->
+<ellipse cx="700" cy="500" rx="200" ry="300" fill="url(#lightBeam)" opacity="0.4"/>
+<ellipse cx="160" cy="550" rx="120" ry="250" fill="url(#lightBeam)" opacity="0.3"/>
+
+<!-- Road / track line -->
+<path d="M0,600 Q300,595 500,598 Q700,590 900,595 Q1100,592 1300,598 L1440,596"
+      stroke="#1A1510" stroke-width="3" fill="none" stroke-dasharray="20,15" opacity="0.3"/>
+
+<!-- Vegetation silhouettes -->
+<g opacity="0.4">
+  <!-- Baobab left -->
+  <path d="M300,570 L296,540 Q280,530 275,510 Q290,515 296,515 Q290,500 295,490 Q300,500 305,495 Q310,505 305,515 Q310,515 320,510 Q315,530 304,540 L300,570" fill="#0E1520"/>
+  <!-- Acacia right -->
+  <path d="M1350,565 L1348,545 Q1330,530 1325,520 Q1340,525 1348,520 Q1345,510 1350,505 Q1355,510 1352,520 Q1360,525 1375,520 Q1370,530 1352,545 L1350,565" fill="#0E1520"/>
+</g>
+
+<!-- Foreground subtle gradient for depth -->
+<rect x="0" y="700" width="1440" height="110" fill="url(#ground)" opacity="0.5"/>
+</svg>

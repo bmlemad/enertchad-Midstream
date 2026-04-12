@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid meet">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0B1426"/>
+    <stop offset="100%" stop-color="#0F1D35"/>
+  </linearGradient>
+  <linearGradient id="pLine" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#0EA5E9"/>
+    <stop offset="50%" stop-color="#14B8A6"/>
+    <stop offset="100%" stop-color="#0EA5E9"/>
+  </linearGradient>
+  <linearGradient id="nodeA" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0EA5E9"/>
+    <stop offset="100%" stop-color="#0284C7"/>
+  </linearGradient>
+  <linearGradient id="nodeT" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#14B8A6"/>
+    <stop offset="100%" stop-color="#0D9488"/>
+  </linearGradient>
+  <filter id="glow2">
+    <feGaussianBlur stdDeviation="4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="softG">
+    <feGaussianBlur stdDeviation="8"/>
+  </filter>
+</defs>
+
+<!-- Background -->
+<rect width="900" height="500" fill="url(#bg)" rx="16"/>
+
+<!-- Subtle map grid -->
+<g opacity="0.06" stroke="#0EA5E9" stroke-width="0.5">
+  <line x1="0" y1="100" x2="900" y2="100"/>
+  <line x1="0" y1="200" x2="900" y2="200"/>
+  <line x1="0" y1="300" x2="900" y2="300"/>
+  <line x1="0" y1="400" x2="900" y2="400"/>
+  <line x1="180" y1="0" x2="180" y2="500"/>
+  <line x1="360" y1="0" x2="360" y2="500"/>
+  <line x1="540" y1="0" x2="540" y2="500"/>
+  <line x1="720" y1="0" x2="720" y2="500"/>
+</g>
+
+<!-- Country borders (simplified Chad + Cameroon shapes) -->
+<path d="M100,50 L250,40 L350,80 L380,170 L360,280 L300,370 L220,400 L150,350 L80,250 L70,150Z"
+      fill="rgba(14,165,233,0.04)" stroke="rgba(14,165,233,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="200" y="200" font-family="Inter,sans-serif" font-size="11" fill="rgba(14,165,233,0.25)" text-anchor="middle" font-weight="600">TCHAD</text>
+
+<path d="M300,370 L380,350 L460,380 L530,420 L580,460 L500,480 L400,470 L320,430Z"
+      fill="rgba(20,184,166,0.04)" stroke="rgba(20,184,166,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="430" y="430" font-family="Inter,sans-serif" font-size="11" fill="rgba(20,184,166,0.25)" text-anchor="middle" font-weight="600">CAMEROUN</text>
+
+<!-- Pipeline route - main line -->
+<path d="M170,160 C200,180 250,220 290,260 C320,290 370,340 430,370 C480,395 540,420 600,440 C660,455 720,460 790,450"
+      stroke="url(#pLine)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+
+<!-- Pipeline glow -->
+<path d="M170,160 C200,180 250,220 290,260 C320,290 370,340 430,370 C480,395 540,420 600,440 C660,455 720,460 790,450"
+      stroke="rgba(14,165,233,0.15)" stroke-width="16" fill="none" stroke-linecap="round" filter="url(#softG)"/>
+
+<!-- Animated flow dot -->
+<circle r="5" fill="#0EA5E9" filter="url(#glow2)">
+  <animateMotion dur="6s" repeatCount="indefinite"
+    path="M170,160 C200,180 250,220 290,260 C320,290 370,340 430,370 C480,395 540,420 600,440 C660,455 720,460 790,450"/>
+  <animate attributeName="opacity" values="0.3;1;1;0.3" dur="6s" repeatCount="indefinite"/>
+</circle>
+<circle r="5" fill="#14B8A6" filter="url(#glow2)">
+  <animateMotion dur="6s" repeatCount="indefinite" begin="3s"
+    path="M170,160 C200,180 250,220 290,260 C320,290 370,340 430,370 C480,395 540,420 600,440 C660,455 720,460 790,450"/>
+  <animate attributeName="opacity" values="0.3;1;1;0.3" dur="6s" begin="3s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Node 1: Doba (Origin) -->
+<g transform="translate(170,160)">
+  <circle r="18" fill="rgba(14,165,233,0.1)" stroke="rgba(14,165,233,0.3)" stroke-width="1">
+    <animate attributeName="r" values="18;22;18" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="10" fill="url(#nodeA)" filter="url(#glow2)"/>
+  <circle r="4" fill="#FFFFFF" opacity="0.9"/>
+  <text x="0" y="-28" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="700" fill="#0EA5E9" text-anchor="middle">DOBA</text>
+  <text x="0" y="-16" font-family="Inter,sans-serif" font-size="9" fill="rgba(148,163,184,0.7)" text-anchor="middle">Collecte brut</text>
+</g>
+
+<!-- Node 2: Bero -->
+<g transform="translate(290,260)">
+  <circle r="14" fill="rgba(14,165,233,0.08)" stroke="rgba(14,165,233,0.2)" stroke-width="1"/>
+  <circle r="7" fill="url(#nodeA)"/>
+  <circle r="3" fill="#FFFFFF" opacity="0.8"/>
+  <text x="20" y="-10" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="600" fill="#38BDF8" text-anchor="start">BERO</text>
+  <text x="20" y="2" font-family="Inter,sans-serif" font-size="9" fill="rgba(148,163,184,0.6)" text-anchor="start">Station pompage</text>
+</g>
+
+<!-- Node 3: Dompta -->
+<g transform="translate(430,370)">
+  <circle r="14" fill="rgba(20,184,166,0.08)" stroke="rgba(20,184,166,0.2)" stroke-width="1"/>
+  <circle r="7" fill="url(#nodeT)"/>
+  <circle r="3" fill="#FFFFFF" opacity="0.8"/>
+  <text x="-20" y="-15" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="600" fill="#2DD4BF" text-anchor="end">DOMPTA</text>
+  <text x="-20" y="-3" font-family="Inter,sans-serif" font-size="9" fill="rgba(148,163,184,0.6)" text-anchor="end">Stockage inter.</text>
+</g>
+
+<!-- Node 4: Lom Pangar -->
+<g transform="translate(600,440)">
+  <circle r="14" fill="rgba(20,184,166,0.08)" stroke="rgba(20,184,166,0.2)" stroke-width="1"/>
+  <circle r="7" fill="url(#nodeT)"/>
+  <circle r="3" fill="#FFFFFF" opacity="0.8"/>
+  <text x="0" y="-18" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="600" fill="#2DD4BF" text-anchor="middle">LOM PANGAR</text>
+  <text x="0" y="-6" font-family="Inter,sans-serif" font-size="9" fill="rgba(148,163,184,0.6)" text-anchor="middle">Station relais</text>
+</g>
+
+<!-- Node 5: Kribi (Terminal) -->
+<g transform="translate(790,450)">
+  <circle r="20" fill="rgba(20,184,166,0.1)" stroke="rgba(20,184,166,0.3)" stroke-width="1">
+    <animate attributeName="r" values="20;24;20" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="12" fill="url(#nodeT)" filter="url(#glow2)"/>
+  <circle r="5" fill="#FFFFFF" opacity="0.9"/>
+  <text x="0" y="-30" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="700" fill="#14B8A6" text-anchor="middle">KRIBI</text>
+  <text x="0" y="-18" font-family="Inter,sans-serif" font-size="9" fill="rgba(148,163,184,0.7)" text-anchor="middle">Terminal maritime</text>
+</g>
+
+<!-- Distance markers along route -->
+<g font-family="Inter,sans-serif" font-size="8" fill="rgba(148,163,184,0.4)">
+  <text x="230" y="220" text-anchor="middle" transform="rotate(-35,230,220)">~220 km</text>
+  <text x="360" y="325" text-anchor="middle" transform="rotate(-30,360,325)">~180 km</text>
+  <text x="515" y="415" text-anchor="middle" transform="rotate(-15,515,415)">~200 km</text>
+  <text x="700" y="452" text-anchor="middle" transform="rotate(-5,700,452)">~170 km</text>
+</g>
+
+<!-- Specs box -->
+<g transform="translate(620,40)">
+  <rect width="250" height="130" rx="10" fill="rgba(11,20,38,0.8)" stroke="rgba(14,165,233,0.15)" stroke-width="1"/>
+  <text x="20" y="28" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#0EA5E9">PIPELINE DOBA — KRIBI</text>
+  <line x1="20" y1="38" x2="230" y2="38" stroke="rgba(14,165,233,0.15)" stroke-width="1"/>
+  <text x="20" y="58" font-family="Inter,sans-serif" font-size="11" fill="#94A3B8">Longueur</text>
+  <text x="230" y="58" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="600" fill="#E2E8F0" text-anchor="end">1 070 km</text>
+  <text x="20" y="76" font-family="Inter,sans-serif" font-size="11" fill="#94A3B8">Diametre</text>
+  <text x="230" y="76" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="600" fill="#E2E8F0" text-anchor="end">30" (762 mm)</text>
+  <text x="20" y="94" font-family="Inter,sans-serif" font-size="11" fill="#94A3B8">Capacite</text>
+  <text x="230" y="94" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="600" fill="#E2E8F0" text-anchor="end">250 000 bbl/j</text>
+  <text x="20" y="112" font-family="Inter,sans-serif" font-size="11" fill="#94A3B8">Stations pompage</text>
+  <text x="230" y="112" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="600" fill="#E2E8F0" text-anchor="end">3 stations</text>
+</g>
+
+<!-- Legend -->
+<g transform="translate(30,440)">
+  <circle cx="8" cy="8" r="5" fill="url(#nodeA)"/>
+  <text x="20" y="12" font-family="Inter,sans-serif" font-size="10" fill="#94A3B8">Tchad</text>
+  <circle cx="8" cy="28" r="5" fill="url(#nodeT)"/>
+  <text x="20" y="32" font-family="Inter,sans-serif" font-size="10" fill="#94A3B8">Cameroun</text>
+  <line x1="2" y1="48" x2="14" y2="48" stroke="#0EA5E9" stroke-width="2"/>
+  <text x="20" y="52" font-family="Inter,sans-serif" font-size="10" fill="#94A3B8">Pipeline</text>
+</g>
+</svg>
