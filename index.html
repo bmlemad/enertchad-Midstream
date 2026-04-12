@@ -429,35 +429,109 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .vision-map{position:relative}
 .vision-map svg{width:100%;border-radius:12px}
 
-/* ═══ ENERTECH ═══ */
-#enertech{background:linear-gradient(170deg,#0B1426 0%,#0A1220 50%,#0D1B2A 100%);color:var(--white);padding:100px 0 80px;position:relative;overflow:hidden}
-#enertech::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 20%,rgba(14,165,233,0.04),transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(200,150,46,0.03),transparent 60%);pointer-events:none}
-.et-brand{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(200,150,46,0.06));border:1px solid rgba(14,165,233,0.12);border-radius:12px;padding:8px 18px;margin-bottom:20px}
+/* ═══ ENERTECH — DIGITAL TWIN DESIGN ═══ */
+@keyframes dtScan{0%{top:-2px}100%{top:calc(100% + 2px)}}
+@keyframes dtPulse{0%,100%{opacity:0.4}50%{opacity:1}}
+@keyframes dtGlow{0%,100%{box-shadow:0 0 8px rgba(14,165,233,0.15)}50%{box-shadow:0 0 20px rgba(14,165,233,0.35),0 0 40px rgba(14,165,233,0.1)}}
+@keyframes dtDataFlow{0%{background-position:0% 0}100%{background-position:200% 0}}
+@keyframes dtCornerPulse{0%,100%{opacity:0.3}50%{opacity:0.8}}
+@keyframes dtGridMove{0%{transform:translateY(0)}100%{transform:translateY(20px)}}
+
+#enertech{background:linear-gradient(170deg,#060D1A 0%,#0A1220 40%,#0B1628 100%);color:var(--white);padding:100px 0 80px;position:relative;overflow:hidden}
+#enertech::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:
+  radial-gradient(ellipse at 20% 10%,rgba(14,165,233,0.06),transparent 50%),
+  radial-gradient(ellipse at 80% 90%,rgba(20,184,166,0.04),transparent 50%),
+  radial-gradient(ellipse at 50% 50%,rgba(200,150,46,0.02),transparent 60%);pointer-events:none}
+#enertech::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background-image:linear-gradient(rgba(14,165,233,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,0.03) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none;animation:dtGridMove 8s linear infinite;opacity:0.5}
+
+.et-brand{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(14,165,233,0.1),rgba(200,150,46,0.06));border:1px solid rgba(14,165,233,0.18);border-radius:12px;padding:8px 18px;margin-bottom:20px;position:relative}
+.et-brand::before{content:'◆';position:absolute;left:-8px;top:50%;transform:translateY(-50%);font-size:0.5rem;color:var(--accent);animation:dtPulse 2s ease-in-out infinite}
 .et-brand-name{font-family:var(--font-d);font-size:1.1rem;font-weight:700;background:linear-gradient(135deg,var(--accent-light),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.et-brand-tag{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);padding:3px 10px;border-left:1px solid rgba(255,255,255,0.08)}
-.et-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
-.et-card{background:linear-gradient(155deg,rgba(15,29,53,0.6),rgba(11,20,38,0.8));border:1px solid rgba(14,165,233,0.08);border-radius:16px;padding:28px;transition:var(--tr);position:relative;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.et-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold));opacity:0;transition:opacity 0.3s ease}
-.et-card:hover{border-color:rgba(14,165,233,0.18);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.3)}
-.et-card:hover::before{opacity:1}
-.et-card-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
-.et-card-ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(14,165,233,0.12),rgba(20,184,166,0.08));display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--accent);flex-shrink:0;border:1px solid rgba(14,165,233,0.1)}
+.et-brand-tag{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);padding:3px 10px;border-left:1px solid rgba(255,255,255,0.1)}
+
+.et-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+
+/* ── ET CARD — HUD / Digital Twin ── */
+.et-card{background:linear-gradient(155deg,rgba(8,18,36,0.85),rgba(6,13,26,0.95));border:1px solid rgba(14,165,233,0.1);border-radius:2px;padding:0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+
+/* Corner brackets — HUD targeting */
+.et-card::before,.et-card::after{content:'';position:absolute;width:18px;height:18px;border:1.5px solid rgba(14,165,233,0.25);pointer-events:none;transition:all 0.4s ease;z-index:2}
+.et-card::before{top:0;left:0;border-right:none;border-bottom:none;border-radius:2px 0 0 0}
+.et-card::after{bottom:0;right:0;border-left:none;border-top:none;border-radius:0 0 2px 0}
+.et-card:hover::before,.et-card:hover::after{width:24px;height:24px;border-color:rgba(14,165,233,0.6)}
+
+/* Scan line */
+.et-card-scan{position:absolute;top:-2px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),rgba(20,184,166,0.6),transparent);opacity:0;z-index:3;pointer-events:none}
+.et-card:hover .et-card-scan{opacity:0.7;animation:dtScan 2.5s linear infinite}
+
+/* Top status bar */
+.et-card-status{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 8px;border-bottom:1px solid rgba(14,165,233,0.06);font-family:'Courier New',monospace;font-size:0.55rem;color:rgba(14,165,233,0.5);letter-spacing:0.08em;text-transform:uppercase}
+.et-card-status .dt-led{width:5px;height:5px;border-radius:50%;background:var(--teal);box-shadow:0 0 6px var(--teal);animation:dtPulse 2s ease-in-out infinite;flex-shrink:0}
+.et-card-status .dt-id{opacity:0.6}
+
+/* Card body */
+.et-card-body{padding:18px 20px 20px}
+
+.et-card-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.et-card-ic{width:44px;height:44px;border-radius:4px;background:rgba(14,165,233,0.08);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--accent);flex-shrink:0;border:1px solid rgba(14,165,233,0.12);position:relative;transition:all 0.4s ease}
+.et-card-ic::after{content:'';position:absolute;inset:-3px;border:1px solid rgba(14,165,233,0.06);border-radius:6px;pointer-events:none;transition:border-color 0.4s ease}
+.et-card:hover .et-card-ic{animation:dtGlow 2s ease-in-out infinite;border-color:rgba(14,165,233,0.3)}
+.et-card:hover .et-card-ic::after{border-color:rgba(14,165,233,0.15)}
+
 .et-card h3{font-family:var(--font-d);font-size:0.95rem;font-weight:700;color:var(--white)}
-.et-card p{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.65}
-.et-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.et-tag{font-size:0.62rem;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.12);color:var(--accent-light);letter-spacing:0.02em}
-.et-tag.gold{background:rgba(200,150,46,0.08);border-color:rgba(200,150,46,0.12);color:var(--gold-light)}
-.et-tag.teal{background:rgba(20,184,166,0.08);border-color:rgba(20,184,166,0.12);color:var(--teal-light)}
-#enertech-tech{background:var(--surface);padding:100px 0 80px}
-.ett-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
-.ett-card{background:var(--white);border:1px solid var(--surface-alt);border-radius:16px;padding:24px;transition:var(--tr);position:relative;overflow:hidden}
-.ett-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal));opacity:0;transition:opacity 0.3s ease}
-.ett-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.06);border-color:rgba(14,165,233,0.15)}
-.ett-card:hover::before{opacity:1}
-.ett-card-ic{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(20,184,166,0.06));display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent);margin-bottom:14px}
-.ett-card h3{font-family:var(--font-d);font-size:0.92rem;font-weight:700;margin-bottom:6px}
-.ett-card p{font-size:0.8rem;color:var(--text-sec);line-height:1.6}
-.ett-card .ett-std{display:block;font-size:0.62rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.05em;margin-top:10px}
+.et-card p{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:0}
+
+/* Data readout bar */
+.et-card-data{display:flex;gap:1px;margin-top:14px;background:rgba(0,0,0,0.2);border-radius:2px;overflow:hidden}
+.et-datum{flex:1;padding:8px 10px;background:rgba(14,165,233,0.03);text-align:center;border-right:1px solid rgba(14,165,233,0.06);position:relative}
+.et-datum:last-child{border-right:none}
+.et-datum-val{display:block;font-family:var(--font-d);font-size:0.78rem;font-weight:700;color:var(--accent-light);letter-spacing:-0.01em}
+.et-datum-lbl{display:block;font-size:0.52rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-top:2px}
+.et-datum.gold .et-datum-val{color:var(--gold-light)}
+.et-datum.teal .et-datum-val{color:var(--teal-light)}
+
+/* Tags */
+.et-card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.et-tag{font-size:0.58rem;font-weight:600;padding:3px 8px;border-radius:2px;background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.12);color:var(--accent-light);letter-spacing:0.04em;font-family:'Courier New',monospace}
+.et-tag.gold{background:rgba(200,150,46,0.06);border-color:rgba(200,150,46,0.15);color:var(--gold-light)}
+.et-tag.teal{background:rgba(20,184,166,0.06);border-color:rgba(20,184,166,0.15);color:var(--teal-light)}
+
+/* Hover data-flow line at bottom */
+.et-card-flow{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),var(--teal),var(--gold),transparent);background-size:200% 100%;opacity:0;transition:opacity 0.4s ease}
+.et-card:hover .et-card-flow{opacity:1;animation:dtDataFlow 3s linear infinite}
+
+.et-card:hover{border-color:rgba(14,165,233,0.25);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 60px rgba(14,165,233,0.05)}
+
+/* ── ETT CARD — Technologies Twin ── */
+#enertech-tech{background:linear-gradient(170deg,#060D1A 0%,#0A1422 50%,#0D1B2A 100%);color:var(--white);padding:100px 0 80px;position:relative;overflow:hidden}
+#enertech-tech::before{content:'';position:absolute;inset:0;background-image:
+  radial-gradient(circle at 1px 1px,rgba(14,165,233,0.06) 1px,transparent 0);
+  background-size:40px 40px;pointer-events:none;opacity:0.6}
+
+.ett-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+
+.ett-card{background:linear-gradient(165deg,rgba(10,20,40,0.7),rgba(6,13,26,0.9));border:1px solid rgba(14,165,233,0.08);border-radius:2px;padding:0;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+
+/* Top accent line */
+.ett-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 10%,rgba(14,165,233,0.3) 50%,transparent 90%);transition:all 0.4s ease}
+.ett-card:hover::before{height:2px;background:linear-gradient(90deg,transparent 5%,var(--accent) 30%,var(--teal) 70%,transparent 95%)}
+
+/* Corner dot */
+.ett-card::after{content:'';position:absolute;top:8px;right:8px;width:4px;height:4px;border-radius:50%;background:rgba(14,165,233,0.3);transition:all 0.4s ease}
+.ett-card:hover::after{background:var(--teal);box-shadow:0 0 8px var(--teal);animation:dtPulse 1.5s ease-in-out infinite}
+
+.ett-card-body{padding:20px 18px 18px}
+.ett-card-ic{width:42px;height:42px;border-radius:4px;background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--accent);margin-bottom:12px;transition:all 0.4s ease}
+.ett-card:hover .ett-card-ic{border-color:rgba(14,165,233,0.25);box-shadow:0 0 12px rgba(14,165,233,0.1)}
+
+.ett-card h3{font-family:var(--font-d);font-size:0.88rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.ett-card p{font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.65}
+.ett-card .ett-std{display:flex;align-items:center;gap:6px;font-size:0.58rem;font-weight:600;color:var(--teal-light);text-transform:uppercase;letter-spacing:0.06em;margin-top:12px;padding-top:10px;border-top:1px solid rgba(14,165,233,0.06);font-family:'Courier New',monospace}
+.ett-card .ett-std::before{content:'›';color:var(--accent);font-size:0.7rem}
+
+.ett-card:hover{border-color:rgba(14,165,233,0.2);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.4),0 0 50px rgba(14,165,233,0.04)}
 
 /* ═══ FLEET ═══ */
 .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
@@ -696,6 +770,9 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   .vision-map{margin-top:16px}
   .stats-row{grid-template-columns:repeat(2,1fr)}
   .et-grid{grid-template-columns:1fr}
+  .et-card-data{flex-wrap:wrap}
+  .et-datum{min-width:0;flex:1 1 30%}
+  .et-card-status{font-size:0.5rem}
   #enertech{padding:80px 0 60px!important}
   #enertech-tech{padding:80px 0 60px!important}
   .basin-schematic{grid-template-columns:1fr}
@@ -2081,51 +2158,99 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
     <div class="et-grid" data-r>
 
       <div class="et-card">
-        <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-satellite-dish"></i></div><h3 data-i18n data-en="SCADA & Pipeline Automation">SCADA & Automatisation Pipeline</h3></div>
-        <p data-i18n data-en="Real-time supervisory control over 1,070 km: 48 automated sectioning valves, 3 pump station PLCs (Komé, Dompta, Belabo), RTU telemetry at 5-second intervals. Negative pressure wave leak detection (CPM) with 500 m localization accuracy. Redundant Modbus/TCP architecture with 99.97% uptime.">Contrôle supervisé temps réel sur 1 070 km : 48 vannes de sectionnement automatisées, 3 automates de stations de pompage (Komé, Dompta, Belabo), télémétrie RTU à intervalles de 5 secondes. Détection de fuites par onde de pression négative (CPM) avec précision de localisation à 500 m. Architecture Modbus/TCP redondante avec 99,97 % de disponibilité.</p>
-        <div class="et-card-tags"><span class="et-tag">API 1164</span><span class="et-tag teal">CPM Leak Detection</span><span class="et-tag gold">99.97% Uptime</span></div>
+        <div class="et-card-scan"></div>
+        <div class="et-card-status"><span class="dt-id">ET-SCADA-01</span><span style="display:flex;align-items:center;gap:5px"><span class="dt-led"></span> LIVE</span></div>
+        <div class="et-card-body">
+          <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-satellite-dish"></i></div><h3 data-i18n data-en="SCADA & Pipeline Automation">SCADA & Automatisation Pipeline</h3></div>
+          <p data-i18n data-en="Real-time supervisory control over 1,070 km: 48 automated sectioning valves, 3 pump station PLCs (Komé, Dompta, Belabo), RTU telemetry at 5-second intervals. Negative pressure wave leak detection (CPM) with 500 m localization accuracy.">Contrôle supervisé temps réel sur 1 070 km : 48 vannes de sectionnement automatisées, 3 automates de stations de pompage (Komé, Dompta, Belabo), télémétrie RTU à intervalles de 5 secondes. Détection de fuites par onde de pression négative (CPM) avec précision de localisation à 500 m.</p>
+          <div class="et-card-data"><div class="et-datum"><span class="et-datum-val">48</span><span class="et-datum-lbl" data-i18n data-en="Valves">Vannes</span></div><div class="et-datum teal"><span class="et-datum-val">5s</span><span class="et-datum-lbl">RTU Cycle</span></div><div class="et-datum gold"><span class="et-datum-val">99.97%</span><span class="et-datum-lbl">Uptime</span></div></div>
+          <div class="et-card-tags"><span class="et-tag">API 1164</span><span class="et-tag teal">CPM Leak Detection</span><span class="et-tag gold">Modbus/TCP</span></div>
+        </div>
+        <div class="et-card-flow"></div>
       </div>
 
       <div class="et-card">
-        <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-screwdriver-wrench"></i></div><h3 data-i18n data-en="Integrity Management & ILI">Gestion Intégrité & ILI</h3></div>
-        <p data-i18n data-en="Smart pigging program: MFL (Magnetic Flux Leakage) and UT (Ultrasonic Testing) ILI tools detect corrosion, cracks, and geometry anomalies. Caliper runs for dent/ovality mapping. Annual ILI campaigns with GIS-linked anomaly database. Direct assessment (ECDA/ICDA) on non-piggable sections. Fitness-for-service per API 579-1/ASME FFS-1.">Programme de raclage intelligent : outils ILI MFL (Flux Magnétique) et UT (Ultrasons) détectant corrosion, fissures et anomalies géométriques. Passages calibre pour cartographie des bosses/ovalité. Campagnes ILI annuelles avec base d'anomalies géoréférencée. Évaluation directe (ECDA/ICDA) sur sections non raclables. Aptitude au service selon API 579-1/ASME FFS-1.</p>
-        <div class="et-card-tags"><span class="et-tag">MFL/UT ILI</span><span class="et-tag teal">API 579-1</span><span class="et-tag">ECDA/ICDA</span></div>
+        <div class="et-card-scan"></div>
+        <div class="et-card-status"><span class="dt-id">ET-ILI-02</span><span style="display:flex;align-items:center;gap:5px"><span class="dt-led"></span> LIVE</span></div>
+        <div class="et-card-body">
+          <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-screwdriver-wrench"></i></div><h3 data-i18n data-en="Integrity Management & ILI">Gestion Intégrité & ILI</h3></div>
+          <p data-i18n data-en="Smart pigging: MFL and UT ILI tools detect corrosion, cracks, and geometry anomalies. Annual campaigns with GIS-linked anomaly database. Direct assessment (ECDA/ICDA) on non-piggable sections. Fitness-for-service per API 579-1.">Raclage intelligent : outils ILI MFL et UT détectant corrosion, fissures et anomalies géométriques. Campagnes annuelles avec base d'anomalies géoréférencée. Évaluation directe (ECDA/ICDA) sur sections non raclables. Aptitude au service selon API 579-1.</p>
+          <div class="et-card-data"><div class="et-datum"><span class="et-datum-val">MFL/UT</span><span class="et-datum-lbl">ILI Tools</span></div><div class="et-datum teal"><span class="et-datum-val">1×/an</span><span class="et-datum-lbl" data-i18n data-en="Campaign">Campagne</span></div><div class="et-datum gold"><span class="et-datum-val">GIS</span><span class="et-datum-lbl" data-i18n data-en="Linked DB">Base liée</span></div></div>
+          <div class="et-card-tags"><span class="et-tag">API 579-1</span><span class="et-tag teal">ECDA/ICDA</span><span class="et-tag">ASME FFS-1</span></div>
+        </div>
+        <div class="et-card-flow"></div>
       </div>
 
       <div class="et-card">
-        <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-shield-halved"></i></div><h3 data-i18n data-en="Cathodic Protection & Corrosion">Protection Cathodique & Corrosion</h3></div>
-        <p data-i18n data-en="Impressed Current CP system across 1,070 km of buried pipeline. Pipe-to-soil potential monitoring via 200+ test stations. TR/TI (Transformer-Rectifier) units with remote current adjustment. CPCM (CP Current Mapping) during ILI runs to locate CP gaps and interference. Corrosion coupon monitoring, internal inhibitor injection, and biocide programs at pump stations.">Système de protection cathodique à courant imposé sur 1 070 km de pipeline enterré. Suivi du potentiel tube-sol via 200+ stations de test. Unités TR/TI avec ajustement de courant à distance. CPCM (cartographie des courants CP) lors des passages ILI pour localiser les lacunes CP et interférences. Monitoring par coupons de corrosion, injection d'inhibiteurs internes et programmes biocides aux stations de pompage.</p>
-        <div class="et-card-tags"><span class="et-tag">NACE SP0169</span><span class="et-tag teal">200+ Stations</span><span class="et-tag gold">CPCM</span></div>
+        <div class="et-card-scan"></div>
+        <div class="et-card-status"><span class="dt-id">ET-CP-03</span><span style="display:flex;align-items:center;gap:5px"><span class="dt-led"></span> LIVE</span></div>
+        <div class="et-card-body">
+          <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-shield-halved"></i></div><h3 data-i18n data-en="Cathodic Protection & Corrosion">Protection Cathodique & Corrosion</h3></div>
+          <p data-i18n data-en="Impressed Current CP system across 1,070 km. Pipe-to-soil potential monitoring via 200+ test stations. CPCM during ILI runs. Corrosion coupon monitoring, internal inhibitor injection, and biocide programs.">Système CP à courant imposé sur 1 070 km. Suivi du potentiel tube-sol via 200+ stations de test. CPCM lors des passages ILI. Monitoring par coupons de corrosion, injection d'inhibiteurs et programmes biocides.</p>
+          <div class="et-card-data"><div class="et-datum"><span class="et-datum-val">200+</span><span class="et-datum-lbl">Stations</span></div><div class="et-datum teal"><span class="et-datum-val">1 070</span><span class="et-datum-lbl">km CP</span></div><div class="et-datum gold"><span class="et-datum-val">CPCM</span><span class="et-datum-lbl" data-i18n data-en="Mapping">Cartographie</span></div></div>
+          <div class="et-card-tags"><span class="et-tag">NACE SP0169</span><span class="et-tag teal">TR/TI Remote</span><span class="et-tag gold">Biocide</span></div>
+        </div>
+        <div class="et-card-flow"></div>
       </div>
 
       <div class="et-card">
-        <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-gauge-high"></i></div><h3 data-i18n data-en="Fiscal Metering & Custody Transfer">Métrologie Fiscale & Custody Transfer</h3></div>
-        <p data-i18n data-en="Triple-redundant Coriolis flowmeter skids at pipeline entry (Komé), exit (Kribi), and FSO loading. API MPMS Chapter 5 compliance. Prover loop calibration by accredited metrology lab. ±0.1% precision, tamper-proof data loggers, daily chromatographic analysis (density, BS&W, sulfur). Independent custody transfer audits quarterly.">Skids de débitmètres Coriolis en triple redondance aux points d'entrée (Komé), sortie (Kribi) et chargement FSO. Conformité API MPMS Chapitre 5. Calibration par boucle étalon en laboratoire de métrologie accrédité. Précision ±0,1 %, enregistreurs de données inviolables, analyse chromatographique quotidienne (densité, BS&W, soufre). Audits indépendants de custody transfer trimestriels.</p>
-        <div class="et-card-tags"><span class="et-tag">API MPMS Ch.5</span><span class="et-tag teal">±0.1%</span><span class="et-tag">Prover Loop</span></div>
+        <div class="et-card-scan"></div>
+        <div class="et-card-status"><span class="dt-id">ET-MET-04</span><span style="display:flex;align-items:center;gap:5px"><span class="dt-led"></span> LIVE</span></div>
+        <div class="et-card-body">
+          <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-gauge-high"></i></div><h3 data-i18n data-en="Fiscal Metering & Custody Transfer">Métrologie Fiscale & Custody Transfer</h3></div>
+          <p data-i18n data-en="Triple-redundant Coriolis flowmeter skids at Komé, Kribi, and FSO. Prover loop calibration. Tamper-proof data loggers, daily chromatographic analysis. Independent custody transfer audits quarterly.">Débitmètres Coriolis en triple redondance à Komé, Kribi et FSO. Calibration par boucle étalon. Enregistreurs inviolables, analyse chromatographique quotidienne. Audits custody transfer trimestriels.</p>
+          <div class="et-card-data"><div class="et-datum"><span class="et-datum-val">±0.1%</span><span class="et-datum-lbl" data-i18n data-en="Precision">Précision</span></div><div class="et-datum teal"><span class="et-datum-val">3×</span><span class="et-datum-lbl" data-i18n data-en="Redundancy">Redondance</span></div><div class="et-datum gold"><span class="et-datum-val">Q/4</span><span class="et-datum-lbl">Audit Cycle</span></div></div>
+          <div class="et-card-tags"><span class="et-tag">API MPMS Ch.5</span><span class="et-tag teal">Coriolis</span><span class="et-tag">Prover Loop</span></div>
+        </div>
+        <div class="et-card-flow"></div>
       </div>
 
       <div class="et-card">
-        <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-water"></i></div><h3 data-i18n data-en="Hydraulic Modeling & Flow Assurance">Modélisation Hydraulique & Flow Assurance</h3></div>
-        <p data-i18n data-en="Transient hydraulic simulation (OLGA/Synergi) for surge analysis, water hammer, and slack-line conditions. Batch tracking for multi-crude operations. Wax deposition prediction (pour point 33°C for Doba crude) and chemical inhibition programs. Drag-reducing agent (DRA) injection to optimize throughput. Thermal profiling for buried pipeline heat loss.">Simulation hydraulique transitoire (OLGA/Synergi) pour analyse de surpression, coups de bélier et conditions de ligne vide. Suivi de lots pour opérations multi-bruts. Prédiction des dépôts de paraffine (point d'écoulement 33°C pour brut Doba) et programmes d'inhibition chimique. Injection d'agent réducteur de traînée (DRA) pour optimiser le débit. Profilage thermique pour pertes de chaleur du pipeline enterré.</p>
-        <div class="et-card-tags"><span class="et-tag">OLGA/Synergi</span><span class="et-tag teal">DRA</span><span class="et-tag gold">Flow Assurance</span></div>
+        <div class="et-card-scan"></div>
+        <div class="et-card-status"><span class="dt-id">ET-HYD-05</span><span style="display:flex;align-items:center;gap:5px"><span class="dt-led"></span> LIVE</span></div>
+        <div class="et-card-body">
+          <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-water"></i></div><h3 data-i18n data-en="Hydraulic Modeling & Flow Assurance">Modélisation Hydraulique & Flow Assurance</h3></div>
+          <p data-i18n data-en="Transient hydraulic simulation (OLGA/Synergi) for surge analysis and water hammer. Wax deposition prediction (pour point 33°C). DRA injection to optimize throughput. Thermal profiling for heat loss.">Simulation hydraulique transitoire (OLGA/Synergi) pour analyse de surpression et coups de bélier. Prédiction des dépôts de paraffine (point d'écoulement 33°C). Injection DRA pour optimiser le débit. Profilage thermique.</p>
+          <div class="et-card-data"><div class="et-datum"><span class="et-datum-val">33°C</span><span class="et-datum-lbl">Pour Point</span></div><div class="et-datum teal"><span class="et-datum-val">DRA</span><span class="et-datum-lbl" data-i18n data-en="Optimizer">Optimiseur</span></div><div class="et-datum gold"><span class="et-datum-val">OLGA</span><span class="et-datum-lbl">Simulator</span></div></div>
+          <div class="et-card-tags"><span class="et-tag">Synergi</span><span class="et-tag teal">Batch Tracking</span><span class="et-tag gold">Flow Assurance</span></div>
+        </div>
+        <div class="et-card-flow"></div>
       </div>
 
       <div class="et-card">
-        <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-compass-drafting"></i></div><h3 data-i18n data-en="Pipeline Design & Construction">Conception & Construction Pipeline</h3></div>
-        <p data-i18n data-en="FEED and detailed engineering for new pipeline segments: route selection (GIS/LiDAR), geotechnical surveys, HDD (Horizontal Directional Drilling) at river crossings. API 5L X60/X70 pipe specification. HAZOP/SIL studies for pump stations. Construction supervision: welding (API 1104), NDT (radiographic, TOFD), hydrostatic testing at 1.25× MAOP. Commissioning and ramp-up protocols.">FEED et ingénierie détaillée pour nouveaux tronçons : sélection de tracé (GIS/LiDAR), études géotechniques, HDD (Forage Dirigé Horizontal) aux traversées de rivières. Spécification tubes API 5L X60/X70. Études HAZOP/SIL pour stations de pompage. Supervision construction : soudage (API 1104), CND (radiographie, TOFD), essais hydrostatiques à 1,25× MAOP. Protocoles de commissioning et montée en charge.</p>
-        <div class="et-card-tags"><span class="et-tag">API 5L X60</span><span class="et-tag teal">API 1104</span><span class="et-tag">HDD</span></div>
+        <div class="et-card-scan"></div>
+        <div class="et-card-status"><span class="dt-id">ET-EPC-06</span><span style="display:flex;align-items:center;gap:5px"><span class="dt-led"></span> LIVE</span></div>
+        <div class="et-card-body">
+          <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-compass-drafting"></i></div><h3 data-i18n data-en="Pipeline Design & Construction">Conception & Construction Pipeline</h3></div>
+          <p data-i18n data-en="FEED and detailed engineering: route selection (GIS/LiDAR), HDD at river crossings. API 5L X60/X70 specification. HAZOP/SIL studies. Construction supervision: welding (API 1104), NDT, hydrostatic testing at 1.25× MAOP.">FEED et ingénierie détaillée : sélection tracé (GIS/LiDAR), HDD aux traversées. Spécification API 5L X60/X70. Études HAZOP/SIL. Supervision : soudage (API 1104), CND, essais hydrostatiques à 1,25× MAOP.</p>
+          <div class="et-card-data"><div class="et-datum"><span class="et-datum-val">X60</span><span class="et-datum-lbl">API 5L</span></div><div class="et-datum teal"><span class="et-datum-val">1.25×</span><span class="et-datum-lbl">MAOP Test</span></div><div class="et-datum gold"><span class="et-datum-val">HDD</span><span class="et-datum-lbl" data-i18n data-en="Crossings">Traversées</span></div></div>
+          <div class="et-card-tags"><span class="et-tag">API 1104</span><span class="et-tag teal">HAZOP/SIL</span><span class="et-tag">TOFD/RT NDT</span></div>
+        </div>
+        <div class="et-card-flow"></div>
       </div>
 
       <div class="et-card">
-        <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-anchor"></i></div><h3 data-i18n data-en="Terminal & Marine Engineering">Ingénierie Terminal & Marine</h3></div>
-        <p data-i18n data-en="FSO Komé Kribi 1 operations engineering: CALM buoy mooring system, 22 km subsea pipeline integrity, marine loading arm maintenance. Tank farm engineering for 6 sites (2.8M bbl combined): level/density instrumentation, fire suppression system design, secondary containment. Sedimentation tank optimization and oil-water interface monitoring.">Ingénierie opérationnelle FSO Komé Kribi 1 : système d'amarrage bouée CALM, intégrité du pipeline sous-marin de 22 km, maintenance des bras de chargement marin. Ingénierie des parcs de stockage pour 6 sites (2,8M bbl combinés) : instrumentation niveau/densité, conception de systèmes anti-incendie, confinement secondaire. Optimisation des bacs de sédimentation et monitoring d'interface huile-eau.</p>
-        <div class="et-card-tags"><span class="et-tag">CALM Buoy</span><span class="et-tag teal">2.8M bbl</span><span class="et-tag gold">6 Sites</span></div>
+        <div class="et-card-scan"></div>
+        <div class="et-card-status"><span class="dt-id">ET-MAR-07</span><span style="display:flex;align-items:center;gap:5px"><span class="dt-led"></span> LIVE</span></div>
+        <div class="et-card-body">
+          <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-anchor"></i></div><h3 data-i18n data-en="Terminal & Marine Engineering">Ingénierie Terminal & Marine</h3></div>
+          <p data-i18n data-en="FSO Komé Kribi 1: CALM buoy mooring, 22 km subsea pipeline integrity. Tank farm engineering for 6 sites (2.8M bbl): level/density instrumentation, fire suppression, secondary containment.">FSO Komé Kribi 1 : amarrage bouée CALM, intégrité du pipeline sous-marin 22 km. Ingénierie parcs de stockage 6 sites (2,8M bbl) : instrumentation, anti-incendie, confinement secondaire.</p>
+          <div class="et-card-data"><div class="et-datum"><span class="et-datum-val">2.8M</span><span class="et-datum-lbl">bbl Storage</span></div><div class="et-datum teal"><span class="et-datum-val">22 km</span><span class="et-datum-lbl">Subsea</span></div><div class="et-datum gold"><span class="et-datum-val">6</span><span class="et-datum-lbl">Sites</span></div></div>
+          <div class="et-card-tags"><span class="et-tag">CALM Buoy</span><span class="et-tag teal">FSO</span><span class="et-tag gold">Tank Farm</span></div>
+        </div>
+        <div class="et-card-flow"></div>
       </div>
 
       <div class="et-card">
-        <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-leaf"></i></div><h3 data-i18n data-en="ROW & Environmental Monitoring">Emprise Pipeline & Monitoring Environnemental</h3></div>
-        <p data-i18n data-en="Right-of-Way surveillance: aerial and drone-based ROW inspection, encroachment detection, erosion monitoring. Pipeline corridor EIA (Environmental Impact Assessment) updates. Spill response engineering: boom deployment, containment dike design, bioremediation protocols. Quarterly groundwater monitoring via piezometer network. Compliance with Equator Principles and IFC Performance Standards 1-8.">Surveillance de l'emprise : inspection aérienne et par drones, détection d'empiétement, monitoring de l'érosion. Mises à jour des EIE (Études d'Impact Environnemental) du corridor pipeline. Ingénierie d'intervention déversements : déploiement de barrages, conception de digues de confinement, protocoles de bioremédiation. Monitoring trimestriel des eaux souterraines via réseau piézométrique. Conformité aux Principes de l'Équateur et Standards de Performance IFC 1-8.</p>
-        <div class="et-card-tags"><span class="et-tag">IFC PS 1-8</span><span class="et-tag teal">Drones ROW</span><span class="et-tag">Bioremédiation</span></div>
+        <div class="et-card-scan"></div>
+        <div class="et-card-status"><span class="dt-id">ET-ENV-08</span><span style="display:flex;align-items:center;gap:5px"><span class="dt-led"></span> LIVE</span></div>
+        <div class="et-card-body">
+          <div class="et-card-head"><div class="et-card-ic"><i class="fas fa-leaf"></i></div><h3 data-i18n data-en="ROW & Environmental Monitoring">Emprise Pipeline & Monitoring Environnemental</h3></div>
+          <p data-i18n data-en="Aerial and drone-based ROW inspection, encroachment detection. Spill response: boom deployment, containment dikes, bioremediation. Quarterly groundwater monitoring. IFC Performance Standards 1-8 compliance.">Inspection aérienne et par drones de l'emprise, détection d'empiétement. Intervention déversements : barrages, digues, bioremédiation. Monitoring trimestriel des eaux souterraines. Conformité IFC PS 1-8.</p>
+          <div class="et-card-data"><div class="et-datum"><span class="et-datum-val">1 070</span><span class="et-datum-lbl">km ROW</span></div><div class="et-datum teal"><span class="et-datum-val">Q/4</span><span class="et-datum-lbl" data-i18n data-en="Monitoring">Monitoring</span></div><div class="et-datum gold"><span class="et-datum-val">IFC</span><span class="et-datum-lbl">PS 1-8</span></div></div>
+          <div class="et-card-tags"><span class="et-tag">Equator Principles</span><span class="et-tag teal">Drones ROW</span><span class="et-tag gold">Bioremédiation</span></div>
+        </div>
+        <div class="et-card-flow"></div>
       </div>
 
     </div>
@@ -2143,59 +2268,75 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
     <div class="ett-grid" data-r>
 
       <div class="ett-card">
-        <div class="ett-card-ic"><i class="fas fa-display"></i></div>
-        <h3 data-i18n data-en="DCS & Pipeline SCADA">DCS & SCADA Pipeline</h3>
-        <p data-i18n data-en="Distributed Control System for 3 pump stations with redundant PLCs. Pipeline SCADA integrating 48 valve actuators, pressure/temperature transmitters, and flow computers. OPC UA data bus for interoperability.">Système de contrôle distribué pour 3 stations de pompage avec automates redondants. SCADA pipeline intégrant 48 actionneurs de vannes, transmetteurs pression/température et calculateurs de débit. Bus de données OPC UA pour interopérabilité.</p>
-        <span class="ett-std">IEC 61131 · OPC UA</span>
+        <div class="ett-card-body">
+          <div class="ett-card-ic"><i class="fas fa-display"></i></div>
+          <h3 data-i18n data-en="DCS & Pipeline SCADA">DCS & SCADA Pipeline</h3>
+          <p data-i18n data-en="Distributed Control System for 3 pump stations with redundant PLCs. SCADA integrating 48 valve actuators, pressure/temperature transmitters, and flow computers.">Système de contrôle distribué pour 3 stations de pompage avec automates redondants. SCADA intégrant 48 actionneurs de vannes, transmetteurs pression/température et calculateurs de débit.</p>
+          <span class="ett-std">IEC 61131 · OPC UA</span>
+        </div>
       </div>
 
       <div class="ett-card">
-        <div class="ett-card-ic"><i class="fas fa-shield-halved"></i></div>
-        <h3 data-i18n data-en="OT Cybersecurity">Cybersécurité OT</h3>
-        <p data-i18n data-en="IEC 62443 Level 3 compliant OT network segmentation. Dedicated SOC monitoring SCADA traffic 24/7 from N'Djamena. VLAN isolation between pipeline zones, MFA on all engineering workstations, AES-256 encrypted field communications.">Segmentation réseau OT conforme IEC 62443 niveau 3. SOC dédié surveillant le trafic SCADA 24/7 depuis N'Djamena. Isolation VLAN entre zones pipeline, MFA sur toutes les stations ingénieur, communications terrain chiffrées AES-256.</p>
-        <span class="ett-std">IEC 62443 · SOC 24/7</span>
+        <div class="ett-card-body">
+          <div class="ett-card-ic"><i class="fas fa-shield-halved"></i></div>
+          <h3 data-i18n data-en="OT Cybersecurity">Cybersécurité OT</h3>
+          <p data-i18n data-en="IEC 62443 Level 3 OT network segmentation. Dedicated SOC monitoring SCADA 24/7. VLAN isolation, MFA, AES-256 encrypted field communications.">Segmentation réseau OT IEC 62443 niveau 3. SOC dédié SCADA 24/7. Isolation VLAN, MFA, communications terrain AES-256.</p>
+          <span class="ett-std">IEC 62443 · SOC 24/7</span>
+        </div>
       </div>
 
       <div class="ett-card">
-        <div class="ett-card-ic"><i class="fas fa-brain"></i></div>
-        <h3 data-i18n data-en="AI & Predictive Maintenance">IA & Maintenance Prédictive</h3>
-        <p data-i18n data-en="ML models trained on 20+ years of ILI and SCADA data. Corrosion growth rate prediction, CP system degradation alerts, pump bearing failure forecasting 7-14 days ahead. 35% reduction in unplanned downtime since deployment.">Modèles ML entraînés sur 20+ ans de données ILI et SCADA. Prédiction du taux de croissance de corrosion, alertes de dégradation CP, prévision de défaillance des paliers de pompes 7 à 14 jours à l'avance. Réduction de 35 % des arrêts non programmés.</p>
-        <span class="ett-std">-35% Downtime</span>
+        <div class="ett-card-body">
+          <div class="ett-card-ic"><i class="fas fa-brain"></i></div>
+          <h3 data-i18n data-en="AI & Predictive Maintenance">IA & Maintenance Prédictive</h3>
+          <p data-i18n data-en="ML models on 20+ years of ILI/SCADA data. Corrosion growth prediction, CP degradation alerts, pump bearing failure forecasting 7-14 days ahead.">Modèles ML sur 20+ ans de données ILI/SCADA. Prédiction de corrosion, alertes dégradation CP, prévision défaillance paliers 7-14 jours à l'avance.</p>
+          <span class="ett-std">-35% Downtime · ML Pipeline</span>
+        </div>
       </div>
 
       <div class="ett-card">
-        <div class="ett-card-ic"><i class="fas fa-vr-cardboard"></i></div>
-        <h3 data-i18n data-en="Hydraulic Digital Twin">Jumeau Numérique Hydraulique</h3>
-        <p data-i18n data-en="1:1 digital replica of the 1,070 km pipeline modeling pressure, flow, temperature, and wax deposition in real time. Scenario simulation for batch scheduling, DRA optimization, and emergency shutdown planning.">Réplique numérique 1:1 du pipeline de 1 070 km modélisant pression, débit, température et dépôts de paraffine en temps réel. Simulation de scénarios pour planification de lots, optimisation DRA et plans d'arrêt d'urgence.</p>
-        <span class="ett-std">OLGA · Synergi</span>
+        <div class="ett-card-body">
+          <div class="ett-card-ic"><i class="fas fa-vr-cardboard"></i></div>
+          <h3 data-i18n data-en="Hydraulic Digital Twin">Jumeau Numérique Hydraulique</h3>
+          <p data-i18n data-en="1:1 digital replica of 1,070 km modeling pressure, flow, temperature, wax deposition in real time. Scenario simulation for batch scheduling and ESD planning.">Réplique numérique 1:1 de 1 070 km modélisant pression, débit, température, paraffine en temps réel. Simulation de scénarios lots et ESD.</p>
+          <span class="ett-std">OLGA · Synergi · Real-Time</span>
+        </div>
       </div>
 
       <div class="ett-card">
-        <div class="ett-card-ic"><i class="fas fa-drone"></i></div>
-        <h3 data-i18n data-en="Drones & ROW Surveillance">Drones & Surveillance Emprise</h3>
-        <p data-i18n data-en="LiDAR-equipped hexacopters for pipeline ROW inspection. Infrared thermography for leak detection and coating disbondment. Encroachment monitoring with AI image classification. Monthly flyover coverage of the full 1,070 km corridor.">Hexacoptères équipés LiDAR pour inspection de l'emprise pipeline. Thermographie infrarouge pour détection de fuites et décollement de revêtement. Monitoring d'empiétement par classification IA d'images. Survol mensuel de l'intégralité du corridor de 1 070 km.</p>
-        <span class="ett-std">LiDAR · IR · IA</span>
+        <div class="ett-card-body">
+          <div class="ett-card-ic"><i class="fas fa-drone"></i></div>
+          <h3 data-i18n data-en="Drones & ROW Surveillance">Drones & Surveillance Emprise</h3>
+          <p data-i18n data-en="LiDAR hexacopters for ROW inspection. IR thermography for leak detection. AI encroachment monitoring. Monthly 1,070 km corridor flyover.">Hexacoptères LiDAR pour inspection emprise. Thermographie IR, détection fuites. Monitoring IA empiétement. Survol mensuel 1 070 km.</p>
+          <span class="ett-std">LiDAR · IR · IA Vision</span>
+        </div>
       </div>
 
       <div class="ett-card">
-        <div class="ett-card-ic"><i class="fas fa-tower-broadcast"></i></div>
-        <h3 data-i18n data-en="IoT Sensor Network">Réseau Capteurs IoT</h3>
-        <p data-i18n data-en="800+ field sensors across the pipeline corridor: pressure transmitters, temperature probes, vibration monitors on pump bearings, cathodic protection reference cells. LTE-M/LoRaWAN connectivity with edge computing at each pump station.">800+ capteurs de terrain sur le corridor pipeline : transmetteurs de pression, sondes de température, moniteurs de vibration sur paliers de pompes, cellules de référence CP. Connectivité LTE-M/LoRaWAN avec edge computing à chaque station de pompage.</p>
-        <span class="ett-std">800+ Capteurs</span>
+        <div class="ett-card-body">
+          <div class="ett-card-ic"><i class="fas fa-tower-broadcast"></i></div>
+          <h3 data-i18n data-en="IoT Sensor Network">Réseau Capteurs IoT</h3>
+          <p data-i18n data-en="800+ field sensors: pressure, temperature, vibration, CP reference cells. LTE-M/LoRaWAN with edge computing at each pump station.">800+ capteurs terrain : pression, température, vibration, cellules CP. LTE-M/LoRaWAN avec edge computing par station.</p>
+          <span class="ett-std">800+ Sensors · Edge Computing</span>
+        </div>
       </div>
 
       <div class="ett-card">
-        <div class="ett-card-ic"><i class="fas fa-database"></i></div>
-        <h3 data-i18n data-en="Big Data & Pipeline Analytics">Big Data & Analytique Pipeline</h3>
-        <p data-i18n data-en="Data lake integrating ILI anomaly databases, SCADA historian, Coriolis metering logs, CP monitoring, and chromatographic analysis. Real-time dashboards for operations KPIs. GIS-linked integrity management system for risk-based inspection planning.">Data lake intégrant bases d'anomalies ILI, historien SCADA, logs de comptage Coriolis, monitoring CP et analyses chromatographiques. Tableaux de bord temps réel pour KPIs opérationnels. Système de gestion d'intégrité géoréférencé pour planification d'inspection basée sur le risque.</p>
-        <span class="ett-std">GIS · Risk-Based</span>
+        <div class="ett-card-body">
+          <div class="ett-card-ic"><i class="fas fa-database"></i></div>
+          <h3 data-i18n data-en="Big Data & Pipeline Analytics">Big Data & Analytique Pipeline</h3>
+          <p data-i18n data-en="Data lake: ILI anomalies, SCADA historian, metering logs, CP monitoring. Real-time KPI dashboards. GIS integrity management for risk-based inspection.">Data lake : anomalies ILI, historien SCADA, logs comptage, monitoring CP. Dashboards KPI temps réel. Gestion intégrité GIS risk-based.</p>
+          <span class="ett-std">GIS · Risk-Based · Data Lake</span>
+        </div>
       </div>
 
       <div class="ett-card">
-        <div class="ett-card-ic"><i class="fas fa-flask-vial"></i></div>
-        <h3 data-i18n data-en="R&D Lab — Pipeline Innovation">Labo R&D — Innovation Pipeline</h3>
-        <p data-i18n data-en="Research programs: next-gen composite repair sleeves (no hot work), fiber-optic DTS for continuous leak detection along pipeline, bio-based DRA agents, autonomous inspection robots for non-piggable sections. University partnerships with IFP and Polytechnique N'Djamena.">Programmes de recherche : manchons de réparation composite nouvelle génération (sans travail à chaud), DTS fibre optique pour détection continue de fuites, agents DRA biosourcés, robots d'inspection autonomes pour sections non raclables. Partenariats universitaires avec IFP et Polytechnique N'Djamena.</p>
-        <span class="ett-std">R&D · Partenariats</span>
+        <div class="ett-card-body">
+          <div class="ett-card-ic"><i class="fas fa-flask-vial"></i></div>
+          <h3 data-i18n data-en="R&D Lab — Pipeline Innovation">Labo R&D — Innovation Pipeline</h3>
+          <p data-i18n data-en="Next-gen composite sleeves, fiber-optic DTS, bio-DRA agents, autonomous inspection robots. Partnerships with IFP and Polytechnique N'Djamena.">Manchons composites, DTS fibre optique, agents DRA biosourcés, robots d'inspection autonomes. Partenariats IFP et Polytechnique N'Djamena.</p>
+          <span class="ett-std">R&D · Partenariats · Innovation</span>
+        </div>
       </div>
 
     </div>
