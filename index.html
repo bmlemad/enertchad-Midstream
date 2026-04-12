@@ -556,6 +556,42 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .team-card h4{font-family:var(--font-d);font-size:0.92rem;font-weight:700;color:var(--white)}
 .team-card small{font-size:0.74rem;color:rgba(255,255,255,0.4)}
 
+/* ═══ ESG ═══ */
+#esg{background:linear-gradient(170deg,#0D1B2A 0%,#0B1426 50%,#0F1D35 100%);color:var(--white);padding:100px 0 80px;position:relative;overflow:hidden}
+#esg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 500px at 50% 50%,rgba(20,184,166,0.04),transparent);pointer-events:none}
+#esg .stitle{color:var(--white)}
+#esg .stitle .hl{-webkit-text-fill-color:transparent;background:linear-gradient(120deg,var(--teal-light),var(--accent-light));-webkit-background-clip:text;background-clip:text}
+#esg .sdesc{color:rgba(255,255,255,0.5)}
+.esg-tabs{margin-top:48px;position:relative}
+.esg-tab-nav{display:flex;gap:8px;margin-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08);position:relative;z-index:10;flex-wrap:wrap}
+.esg-tab-btn{background:none;border:none;padding:12px 24px;font-family:var(--font-d);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.45);cursor:pointer;transition:all 0.3s ease;position:relative;border-bottom:2px solid transparent;margin-bottom:-1px}
+.esg-tab-btn:hover{color:rgba(255,255,255,0.7)}
+.esg-tab-btn.active{color:var(--white);border-bottom-color:var(--teal)}
+.esg-tab-content{position:relative}
+.esg-tab-pane{opacity:0;visibility:hidden;position:absolute;top:0;left:0;right:0;transition:all 0.4s ease;pointer-events:none}
+.esg-tab-pane.active{opacity:1;visibility:visible;position:relative;pointer-events:auto}
+.esg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:24px}
+.esg-pillar{background:linear-gradient(155deg,rgba(15,29,53,0.5),rgba(11,20,38,0.75));border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:28px;transition:var(--tr);position:relative;overflow:hidden;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.esg-pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:inherit;opacity:0;transition:opacity 0.3s ease}
+.esg-pillar:hover{background:linear-gradient(155deg,rgba(15,29,53,0.65),rgba(11,20,38,0.85));border-color:rgba(255,255,255,0.1);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.3)}
+.esg-pillar-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;background:rgba(255,255,255,0.05);margin-bottom:16px}
+.esg-pillar h3{font-family:var(--font-d);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.3}
+.esg-pillar>p{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:18px}
+.esg-stat{display:flex;flex-direction:column;gap:4px;padding:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;margin-bottom:14px}
+.esg-stat-val{font-family:var(--font-d);font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,var(--white),rgba(255,255,255,0.8));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.esg-stat-label{font-size:0.72rem;color:rgba(255,255,255,0.4)}
+.esg-tags{display:flex;gap:6px;flex-wrap:wrap}
+.esg-tag{font-size:0.65rem;padding:4px 10px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);font-weight:500}
+@media(max-width:1024px){
+  .esg-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .esg-grid{grid-template-columns:1fr}
+  .esg-tab-nav{gap:0;margin-bottom:0;border-bottom:none;background:rgba(255,255,255,0.04);border-radius:12px;padding:4px}
+  .esg-tab-btn{flex:1;border-bottom:none;border-radius:10px;margin-bottom:0}
+  .esg-tab-btn.active{background:rgba(14,165,233,0.15);border:none}
+}
+
 /* ═══ CONTACT ═══ */
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .contact-left h2{font-family:var(--font-d);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:14px}
@@ -1048,6 +1084,10 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
                   <div class="mega-link-icon teal"><i class="fas fa-users"></i></div>
                   <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Leadership">Direction</div><div class="mega-link-desc" data-i18n data-en="Executive team & governance">Équipe dirigeante & gouvernance</div></div>
                 </a>
+                <a href="#esg" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon teal"><i class="fas fa-leaf"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Sustainability">ESG</div><div class="mega-link-desc" data-i18n data-en="Environmental, social & governance">Environnement, social & gouvernance</div></div>
+                </a>
                 <a href="#fleet" class="mega-link" role="menuitem">
                   <div class="mega-link-icon"><i class="fas fa-truck-moving"></i></div>
                   <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Fleet">Flotte</div><div class="mega-link-desc" data-i18n data-en="Transport & logistics fleet">Flotte de transport & logistique</div></div>
@@ -1202,6 +1242,10 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
           <a href="#team" class="mn-link">
             <div class="mn-link-ic teal"><i class="fas fa-users"></i></div>
             <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Leadership">Direction</div><div class="mn-link-desc" data-i18n data-en="Executive team & governance">Équipe dirigeante & gouvernance</div></div>
+          </a>
+          <a href="#esg" class="mn-link">
+            <div class="mn-link-ic teal"><i class="fas fa-leaf"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Sustainability">ESG</div><div class="mn-link-desc" data-i18n data-en="Environmental, social & governance">Environnement, social & gouvernance</div></div>
           </a>
           <a href="#enertech" class="mn-link" style="background:rgba(14,165,233,0.04);border:1px solid rgba(14,165,233,0.08);border-radius:14px;margin-bottom:4px">
             <div class="mn-link-ic"><i class="fas fa-microchip"></i></div>
@@ -2512,6 +2556,158 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   </div>
 </section>
 
+<!-- ═══ ESG ═══ -->
+<section id="esg">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb teal"><i class="fas fa-leaf"></i> <span data-i18n data-en="Sustainability">Durabilité</span></div>
+      <h2 class="stitle" data-i18n data-en="ESG at <span class='hl'>Midstream</span>">ESG au cœur de <span class="hl">Intermédiaire</span></h2>
+      <p class="sdesc" data-i18n data-en="Environmental stewardship, social responsibility, and operational governance across 1,070 km of pipeline infrastructure.">Gestion environnementale, responsabilité sociale et gouvernance opérationnelle sur 1 070 km d'infrastructure pipeline.</p>
+    </div>
+    <div class="esg-tabs" data-r>
+      <div class="esg-tab-nav">
+        <button class="esg-tab-btn active" data-tab="esg-env" data-i18n data-en="Environment">Environnement</button>
+        <button class="esg-tab-btn" data-tab="esg-social" data-i18n data-en="Social">Social</button>
+        <button class="esg-tab-btn" data-tab="esg-gov" data-i18n data-en="Governance">Gouvernance</button>
+      </div>
+      <div class="esg-tab-content">
+        <div class="esg-tab-pane active" id="esg-env">
+          <div class="esg-grid">
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--teal)"><i class="fas fa-water"></i></div>
+              <h3 data-i18n data-en="Soil Bioremediation">Bioremédiation de l'emprise pipeline</h3>
+              <p data-i18n data-en="Complete hydrocarbon remediation across 1,070 km corridor">Remédiation complète des hydrocarbures sur corridor 1 070 km</p>
+              <div class="esg-stat"><span class="esg-stat-val">99.2%</span><span class="esg-stat-label" data-i18n data-en="Removal efficiency">Efficacité d'élimination</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="Bioremediation">Bioremédiation</span>
+                <span class="esg-tag" data-i18n data-en="18-month cycle">Cycle 18 mois</span>
+              </div>
+            </div>
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--teal)"><i class="fas fa-droplet"></i></div>
+              <h3 data-i18n data-en="Water Monitoring">Monitoring piézométrique continu</h3>
+              <p data-i18n data-en="Real-time groundwater piezometer surveillance">Surveillance piézométrique continue des nappes phréatiques</p>
+              <div class="esg-stat"><span class="esg-stat-val">85</span><span class="esg-stat-label" data-i18n data-en="Piezometer stations">Stations piézométriques</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="Monitoring">Monitoring</span>
+                <span class="esg-tag" data-i18n data-en="Real-time data">Données temps réel</span>
+              </div>
+            </div>
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--teal)"><i class="fas fa-wind"></i></div>
+              <h3 data-i18n data-en="Zero Flaring">Programme zéro torchage</h3>
+              <p data-i18n data-en="Gas recovery for power generation and electrification">Récupération gaz pour électrification locale</p>
+              <div class="esg-stat"><span class="esg-stat-val">-30%</span><span class="esg-stat-label" data-i18n data-en="Emissions 2030 target">Cible émissions 2030</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="Gas recovery">Récupération gaz</span>
+                <span class="esg-tag" data-i18n data-en="Power gen">Électrification</span>
+              </div>
+            </div>
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--teal)"><i class="fas fa-certificate"></i></div>
+              <h3 data-i18n data-en="Certifications">Certifications ISO & normes</h3>
+              <p data-i18n data-en="International standards compliance">Conformité aux normes internationales</p>
+              <div class="esg-stat"><span class="esg-stat-val">3</span><span class="esg-stat-label" data-i18n data-en="Core certifications">Certifications clés</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag">ISO 14001</span>
+                <span class="esg-tag">IFC PS 1-8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="esg-tab-pane" id="esg-social">
+          <div class="esg-grid">
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--accent)"><i class="fas fa-briefcase"></i></div>
+              <h3 data-i18n data-en="Local Employment">Emploi local direct</h3>
+              <p data-i18n data-en="High proportion of local workforce recruitment">Recrutement local majoritaire dans la région du Tchad</p>
+              <div class="esg-stat"><span class="esg-stat-val">92%</span><span class="esg-stat-label" data-i18n data-en="Local hire rate">Taux d'emploi local</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="450 jobs">450 emplois directs</span>
+                <span class="esg-tag" data-i18n data-en="Chad focus">Région Tchad</span>
+              </div>
+            </div>
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--accent)"><i class="fas fa-graduation-cap"></i></div>
+              <h3 data-i18n data-en="Technical Training">Programme de formation continue</h3>
+              <p data-i18n data-en="Continuous professional development for all staff">Formation technique continue pour tous les employés</p>
+              <div class="esg-stat"><span class="esg-stat-val">1 200h</span><span class="esg-stat-label" data-i18n data-en="Per employee per year">Par employé par an</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="Training">Formation</span>
+                <span class="esg-tag" data-i18n data-en="Skills">Compétences</span>
+              </div>
+            </div>
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--accent)"><i class="fas fa-road"></i></div>
+              <h3 data-i18n data-en="Community Infrastructure">Maintenance d'infrastructures</h3>
+              <p data-i18n data-en="Maintenance of access roads and community pathways">Entretien des pistes communautaires le long de l'emprise</p>
+              <div class="esg-stat"><span class="esg-stat-val">24</span><span class="esg-stat-label" data-i18n data-en="Communities served">Communautés desservies</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="Infrastructure">Infrastructure</span>
+                <span class="esg-tag" data-i18n data-en="Access">Accès</span>
+              </div>
+            </div>
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--accent)"><i class="fas fa-heart-pulse"></i></div>
+              <h3 data-i18n data-en="Health Partnerships">Partenariats santé</h3>
+              <p data-i18n data-en="Medical facility support in pipeline operational zones">Cliniques partenaires dans les zones traversées</p>
+              <div class="esg-stat"><span class="esg-stat-val">5</span><span class="esg-stat-label" data-i18n data-en="Health centers">Centres médicaux</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="Healthcare">Santé</span>
+                <span class="esg-tag" data-i18n data-en="Communities">Communautés</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="esg-tab-pane" id="esg-gov">
+          <div class="esg-grid">
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--gold)"><i class="fas fa-chart-line"></i></div>
+              <h3 data-i18n data-en="ESG Oversight">Comité ESG & Reporting</h3>
+              <p data-i18n data-en="Quarterly ESG committee meetings with board reporting">Comité ESG trimestriel avec reporting au CA</p>
+              <div class="esg-stat"><span class="esg-stat-val">4x</span><span class="esg-stat-label" data-i18n data-en="Per year">Par an</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="Governance">Gouvernance</span>
+                <span class="esg-tag" data-i18n data-en="Reporting">Reporting</span>
+              </div>
+            </div>
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--gold)"><i class="fas fa-book"></i></div>
+              <h3 data-i18n data-en="Sustainability Report">Publication rapport annuel</h3>
+              <p data-i18n data-en="Comprehensive annual sustainability disclosure">Rapport de durabilité annuel complet</p>
+              <div class="esg-stat"><span class="esg-stat-val">2026</span><span class="esg-stat-label" data-i18n data-en="Next publication">Prochaine publication</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="Transparency">Transparence</span>
+                <span class="esg-tag" data-i18n data-en="Accountability">Responsabilité</span>
+              </div>
+            </div>
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--gold)"><i class="fas fa-scales"></i></div>
+              <h3 data-i18n data-en="EITI Compliance">Conformité EITI</h3>
+              <p data-i18n data-en="Extractive Industries Transparency Initiative alignment">Initiative pour la Transparence des Industries Extractives</p>
+              <div class="esg-stat"><span class="esg-stat-val">100%</span><span class="esg-stat-label" data-i18n data-en="Compliant">Conforme</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag">EITI</span>
+                <span class="esg-tag" data-i18n data-en="Transparency">Transparence</span>
+              </div>
+            </div>
+            <div class="esg-pillar">
+              <div class="esg-pillar-icon" style="color:var(--gold)"><i class="fas fa-shield-check"></i></div>
+              <h3 data-i18n data-en="Anti-Corruption">Politique anti-corruption</h3>
+              <p data-i18n data-en="Comprehensive business ethics and compliance framework">Politique anti-corruption et éthique des affaires</p>
+              <div class="esg-stat"><span class="esg-stat-val">0</span><span class="esg-stat-label" data-i18n data-en="Violations reported">Violations signalées</span></div>
+              <div class="esg-tags">
+                <span class="esg-tag" data-i18n data-en="Ethics">Éthique</span>
+                <span class="esg-tag" data-i18n data-en="Compliance">Conformité</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ CONTACT ═══ -->
 <section id="contact">
   <div class="ctn">
@@ -2527,7 +2723,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
       <form class="contact-form" id="contactForm" data-r>
         <div class="fg-row"><div class="fg"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" required></div><div class="fg"><label>Email *</label><input type="email" id="cf-email" required></div></div>
         <div class="fg"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company"></div>
-        <div class="fg"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select></div>
+        <div class="fg"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select></div>
         <div class="fg"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" required></textarea></div>
         <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane"></i> Envoyer la demande</button>
         <div class="form-msg" id="formMsg"></div>
@@ -2685,6 +2881,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
         <h4 data-i18n data-en="Company">Entreprise</h4>
         <a href="#mission" data-i18n data-en="Mission">Mission</a>
         <a href="#team" data-i18n data-en="Team">Équipe</a>
+        <a href="#esg" data-i18n data-en="Sustainability">ESG</a>
         <a href="#cases" data-i18n data-en="Case Studies">Études de cas</a>
         <a href="#careers" data-i18n data-en="Careers">Carrières</a>
         <a href="#resources" data-i18n data-en="Resources">Ressources</a>
@@ -2727,6 +2924,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   <div class="dot-nav-item"><span class="dot-nav-label">Technologies</span><button class="dot-nav-dot" data-section="enertech-tech" aria-label="Technologies"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Flotte</span><button class="dot-nav-dot" data-section="fleet" aria-label="Flotte"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Équipe</span><button class="dot-nav-dot" data-section="team" aria-label="Équipe"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label">ESG</span><button class="dot-nav-dot" data-section="esg" aria-label="ESG"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Contact</span><button class="dot-nav-dot" data-section="contact" aria-label="Contact"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Études de cas</span><button class="dot-nav-dot" data-section="cases" aria-label="Études de cas"></button></div>
   <div class="dot-nav-item"><span class="dot-nav-label">Carrières</span><button class="dot-nav-dot" data-section="careers" aria-label="Carrières"></button></div>
@@ -2738,7 +2936,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 (function(){
   const hdr=document.getElementById('siteHeader');
   let lastY=0;
-  const dotSections=['hero','mission','operations','pipeline','producers','vision','fleet','team','contact','cases','careers','resources'];
+  const dotSections=['hero','mission','operations','pipeline','producers','vision','fleet','team','esg','contact','cases','careers','resources'];
 
   window.addEventListener('scroll',function(){
     const y=window.scrollY;
@@ -2847,6 +3045,30 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
       var idx=links.indexOf(document.activeElement);
       if(e.key==='ArrowDown'){e.preventDefault();links[(idx+1)%links.length].focus();}
       if(e.key==='ArrowUp'){e.preventDefault();links[(idx-1+links.length)%links.length].focus();}
+    });
+  });
+})();
+
+/* ═══ ESG TABS ═══ */
+(function(){
+  document.querySelectorAll('.esg-tab-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var tabId=btn.dataset.tab;
+      var container=btn.closest('.esg-tabs');
+      if(!container)return;
+
+      /* Deactivate all buttons and panes in this container */
+      container.querySelectorAll('.esg-tab-btn').forEach(function(b){
+        b.classList.remove('active');
+      });
+      container.querySelectorAll('.esg-tab-pane').forEach(function(pane){
+        pane.classList.remove('active');
+      });
+
+      /* Activate clicked button and corresponding pane */
+      btn.classList.add('active');
+      var activePane=container.querySelector('#'+tabId);
+      if(activePane)activePane.classList.add('active');
     });
   });
 })();
