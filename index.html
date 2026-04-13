@@ -2163,6 +2163,49 @@ body.light-theme #academy .academy-filter-tab.active{background:var(--accent);co
 .text-accent-xs-no-shrink{color:var(--accent);font-size:0.75rem;flex-shrink:0}
 .text-white-bold-display{color:var(--white);font-family:var(--font-d);font-weight:600;font-size:0.95rem}
 .text-white-dim-40-xs-mt{color:rgba(255,255,255,0.4);font-size:0.78rem;margin-top:2px}
+
+/* ═══ MOBILE ENHANCEMENTS — Oil & Gas Majors Standard ═══ */
+
+/* 1. SCROLL PROGRESS BAR */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;z-index:9999;background:linear-gradient(90deg,var(--accent),var(--teal));transform-origin:left;transform:scaleX(0);transition:none;pointer-events:none;will-change:transform}
+@media(min-width:769px){.scroll-progress{display:none}}
+
+/* 2. BOTTOM MOBILE NAV BAR */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:120;display:none;background:rgba(11,20,38,0.95);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-top:1px solid rgba(14,165,233,0.15);padding:6px 0 calc(6px + env(safe-area-inset-bottom));box-shadow:0 -4px 30px rgba(0,0,0,0.3)}
+@media(max-width:768px){.bottom-nav{display:flex;justify-content:space-around;align-items:center}}
+.bottom-nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:rgba(255,255,255,0.45);font-size:0.6rem;font-family:var(--font-d);font-weight:600;letter-spacing:0.02em;padding:6px 12px;border-radius:8px;transition:color 0.3s,background 0.3s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;min-width:56px}
+.bottom-nav-item i{font-size:1.1rem;transition:transform 0.2s}
+.bottom-nav-item.active,.bottom-nav-item:active{color:var(--accent);background:rgba(14,165,233,0.08)}
+.bottom-nav-item.active i{transform:scale(1.15)}
+body.light-theme .bottom-nav{background:rgba(255,255,255,0.95);border-top-color:rgba(0,0,0,0.08);box-shadow:0 -2px 20px rgba(0,0,0,0.08)}
+body.light-theme .bottom-nav-item{color:rgba(0,0,0,0.4)}
+body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199,0.06)}
+
+/* 3. SMART STICKY HEADER (hide down, show up) */
+@media(max-width:768px){
+  .header{transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),background 0.4s,padding 0.3s}
+  .header.hdr-hidden{transform:translateY(-100%);pointer-events:none}
+}
+
+/* 4. BODY PADDING FOR BOTTOM NAV */
+@media(max-width:768px){
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  .scroll-top{bottom:calc(72px + env(safe-area-inset-bottom))!important}
+}
+
+/* 5. MOBILE TOUCH FEEDBACK */
+@media(max-width:768px){
+  .op-card,.mission-card,.academy-card,.hse-card,.prod-card,.vision-card,.basin-card{
+    -webkit-tap-highlight-color:transparent
+  }
+  .op-card:active,.mission-card:active,.academy-card:active,.hse-card:active,.prod-card:active,.vision-card:active,.basin-card:active{
+    transform:scale(0.985)!important;box-shadow:none!important
+  }
+}
+
+/* 6. HERO MOBILE (compact 85vh) */
+@media(max-width:768px){.hero{min-height:85vh}}
+@media(max-width:480px){.hero{min-height:80vh}}
 </style>
 <script type="application/ld+json">
 [
@@ -2227,6 +2270,8 @@ body.light-theme #academy .academy-filter-tab.active{background:var(--accent);co
 (function(){try{var t=localStorage.getItem('enertchad-theme');var p=window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches;if(t==='light'||(t!=='dark'&&p))document.documentElement.classList.add('light-theme')}catch(e){}})()</script>
 </head>
 <body class="preloader-active">
+
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- ═══ PRELOADER / SPLASH ═══ -->
 <div id="preloader" role="status" aria-live="polite" aria-label="Chargement du site EnerTchad Intermédiaire">
@@ -5435,10 +5480,78 @@ function toggleTheme(){
 }
 </style>
 
+<nav class="bottom-nav" id="bottomNav" aria-label="Navigation rapide mobile">
+  <a href="#hero" class="bottom-nav-item active" data-section="hero"><i class="fas fa-home" aria-hidden="true"></i><span data-i18n data-en="Home">Accueil</span></a>
+  <a href="#pipeline" class="bottom-nav-item" data-section="pipeline"><i class="fas fa-road" aria-hidden="true"></i><span data-i18n data-en="Pipeline">Pipeline</span></a>
+  <a href="#academy" class="bottom-nav-item" data-section="academy"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span data-i18n data-en="Academy">Academy</span></a>
+  <a href="#esg" class="bottom-nav-item" data-section="esg"><i class="fas fa-leaf" aria-hidden="true"></i><span data-i18n data-en="ESG">ESG</span></a>
+  <a href="#contact" class="bottom-nav-item" data-section="contact"><i class="fas fa-envelope" aria-hidden="true"></i><span data-i18n data-en="Contact">Contact</span></a>
+</nav>
+
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
 <script>
 (function(){const b=document.getElementById('scrollTop');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+
+/* ═══ MOBILE ENHANCEMENTS ═══ */
+
+/* 1. SCROLL PROGRESS BAR */
+(function(){
+  var bar=document.getElementById('scrollProgress');
+  if(!bar||window.innerWidth>768)return;
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(function(){
+      var h=document.documentElement.scrollHeight-window.innerHeight;
+      bar.style.transform='scaleX('+(h>0?window.scrollY/h:0)+')';
+      ticking=false;
+    });ticking=true;}
+  },{passive:true});
+})();
+
+/* 2. BOTTOM NAV — ACTIVE SECTION TRACKING */
+(function(){
+  if(window.innerWidth>768)return;
+  var items=document.querySelectorAll('.bottom-nav-item');
+  var sections=[];
+  items.forEach(function(item){
+    var id=item.getAttribute('data-section');
+    var sec=document.getElementById(id);
+    if(sec)sections.push({el:sec,item:item});
+  });
+  if(!sections.length)return;
+  var ticking=false;
+  function update(){
+    var scrollY=window.scrollY+window.innerHeight*0.4;
+    var current=sections[0];
+    for(var i=0;i<sections.length;i++){
+      if(sections[i].el.offsetTop<=scrollY)current=sections[i];
+    }
+    items.forEach(function(it){it.classList.remove('active')});
+    current.item.classList.add('active');
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(update);ticking=true;}
+  },{passive:true});
+  update();
+})();
+
+/* 3. SMART STICKY HEADER (hide down, show up) */
+(function(){
+  if(window.innerWidth>768)return;
+  var header=document.querySelector('.header');
+  if(!header)return;
+  var lastY=0,threshold=10;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    if(y<80){header.classList.remove('hdr-hidden');lastY=y;return;}
+    if(y-lastY>threshold)header.classList.add('hdr-hidden');
+    else if(lastY-y>threshold)header.classList.remove('hdr-hidden');
+    lastY=y;
+  },{passive:true});
+})();
+
 /* ═══ WEB VITALS MONITORING ═══ */
 if('PerformanceObserver' in window){
   const vitals={};
