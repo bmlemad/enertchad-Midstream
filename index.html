@@ -374,16 +374,32 @@ input[type="text"],input[type="email"],input[type="password"],input[type="tel"],
   0%{opacity:0;transform:translateX(100%)}
   100%{opacity:1;transform:translateX(0)}
 }
-@media(max-width:640px){
-  .preloader-slogan{letter-spacing:0.24em;gap:12px}
+@media(max-width:768px){
+  #preloader{gap:clamp(20px,3vh,36px);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+  .preloader-stage{width:clamp(200px,55vw,280px)}
+  .preloader-stage::before{filter:blur(24px);opacity:0.5}
+  .preloader-halo{filter:blur(16px);opacity:0.7}
+  .preloader-ring::before,.preloader-ring::after{border-width:1px;box-shadow:none}
+  .preloader-logo{width:68%}
+  .preloader-slogan{font-size:clamp(0.75rem,3vw,0.95rem);letter-spacing:0.18em;gap:10px}
   .preloader-slogan .pdot{width:4px;height:4px}
-  .preloader-stage{width:clamp(220px,30vw,280px)}
-  .preloader-stage::before{opacity:0.4}
-  .preloader-halo{filter:blur(18px)}
+  .preloader-progress{width:clamp(140px,50vw,260px)}
+  .preloader-pct{font-size:0.68rem}
 }
 @media(max-width:480px){
-  .preloader-stage{width:200px}
-  .preloader-stage::before{filter:blur(24px)}
+  .preloader-stage{width:180px}
+  .preloader-stage::before{filter:blur(18px);opacity:0.35}
+  .preloader-halo{display:none}
+  .preloader-ring{border-width:0.5px}
+  .preloader-ring::before,.preloader-ring::after{animation-duration:6s}
+  .preloader-slogan{font-size:0.72rem;letter-spacing:0.12em;gap:8px;padding:0 16px}
+  .preloader-progress{width:65vw;height:2px}
+  .preloader-pct{font-size:0.62rem;letter-spacing:0.1em}
+  #preloader.is-leaving .preloader-stage{animation:preloaderStageExitMobile 0.6s ease forwards}
+}
+@keyframes preloaderStageExitMobile{
+  0%{transform:scale(1);opacity:1}
+  100%{transform:scale(1.15);opacity:0}
 }
 @media(prefers-reduced-motion:reduce){
   .preloader-logo,.preloader-halo,.preloader-ring::before,.preloader-ring::after,
@@ -2153,10 +2169,11 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
 (function(){
   const pl=document.getElementById('preloader');
   if(!pl)return;
-  // Generate floating particles
+  // Generate floating particles — reduced on mobile for performance
   const particlesEl=document.getElementById('preloaderParticles');
   if(particlesEl){
-    for(let i=0;i<18;i++){
+    const count=window.matchMedia('(max-width:768px)').matches?8:18;
+    for(let i=0;i<count;i++){
       const p=document.createElement('div');
       p.className='preloader-particle';
       const sz=Math.random()*4+2;
@@ -2194,7 +2211,8 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
   }
   let loaded=false,minElapsed=false;
   function maybeHide(){if(loaded&&minElapsed)hide();}
-  setTimeout(function(){minElapsed=true;maybeHide();},1200);
+  const minTime=window.matchMedia('(max-width:768px)').matches?800:1200;
+  setTimeout(function(){minElapsed=true;maybeHide();},minTime);
   if(document.readyState==='complete'){loaded=true;maybeHide();}
   else window.addEventListener('load',function(){loaded=true;maybeHide();});
   // Safety fallback: never stay more than 5s
