@@ -1038,14 +1038,22 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 @media(max-width:480px){.ftr-socials{gap:10px}}
 
 /* ═══ DOT NAV ═══ */
-.dot-nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:16px}
-.dot-nav-item{position:relative;display:flex;align-items:center;justify-content:flex-end}
-.dot-nav-label{position:absolute;right:22px;white-space:nowrap;background:rgba(11,20,38,0.92);color:rgba(255,255,255,0.85);padding:5px 13px;border-radius:8px;font-family:var(--font-d);font-size:0.72rem;font-weight:600;opacity:0;transform:translateX(8px);transition:all 0.3s ease;pointer-events:none;backdrop-filter:blur(10px);border:1px solid rgba(14,165,233,0.12);box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+.dot-nav{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:0}
+.dot-nav::before{content:'';position:absolute;right:21px;top:16px;bottom:16px;width:1.5px;background:linear-gradient(180deg,transparent,rgba(14,165,233,0.15) 15%,rgba(14,165,233,0.15) 85%,transparent);pointer-events:none}
+.dot-nav-progress{position:absolute;right:21px;top:16px;width:1.5px;background:linear-gradient(180deg,var(--sky),var(--gold));transition:height 0.3s ease;pointer-events:none;border-radius:1px}
+.dot-nav-item{position:relative;display:flex;align-items:center;justify-content:flex-end;padding:6px 0}
+.dot-nav-dot{width:44px;height:44px;border-radius:50%;border:none;background:transparent;cursor:pointer;transition:all 0.3s ease;padding:0;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative;outline:none}
+.dot-nav-dot::before{content:'';width:8px;height:8px;border-radius:50%;background:rgba(14,165,233,0.12);border:1.5px solid rgba(14,165,233,0.25);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.dot-nav-dot::after{content:'';position:absolute;width:20px;height:20px;border-radius:50%;border:1px solid transparent;transition:all 0.4s ease;pointer-events:none}
+.dot-nav-dot:hover::before{background:rgba(14,165,233,0.35);border-color:var(--sky);transform:scale(1.2)}
+.dot-nav-dot:hover::after{border-color:rgba(14,165,233,0.15)}
+.dot-nav-dot.active::before{background:var(--gold);border-color:var(--gold);transform:scale(1.3);box-shadow:0 0 12px rgba(200,150,46,0.5),0 0 24px rgba(200,150,46,0.2)}
+.dot-nav-dot.active::after{border-color:rgba(200,150,46,0.2);transform:scale(1.1);animation:dotPulse 2.5s ease-in-out infinite}
+.dot-nav-dot.passed::before{background:var(--sky);border-color:var(--sky);transform:scale(1)}
+.dot-nav-label{position:absolute;right:calc(100% + 8px);white-space:nowrap;font-family:var(--font-d);font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.92);background:linear-gradient(135deg,rgba(11,20,38,0.95),rgba(8,16,32,0.98));padding:6px 14px;border-radius:8px;opacity:0;transform:translateX(8px);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(14,165,233,0.2);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.dot-nav-label::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);border-left:5px solid rgba(11,20,38,0.95);border-top:5px solid transparent;border-bottom:5px solid transparent}
 .dot-nav-item:hover .dot-nav-label{opacity:1;transform:translateX(0)}
-.dot-nav-dot{width:44px;height:44px;border-radius:50%;border:none;background:transparent;cursor:pointer;transition:all 0.3s ease;padding:0;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative}
-.dot-nav-dot::after{content:'';width:10px;height:10px;border-radius:50%;border:2px solid rgba(120,113,108,0.4);background:transparent;transition:all 0.3s ease}
-.dot-nav-dot:hover::after{border-color:var(--accent);transform:scale(1.3)}
-.dot-nav-dot.active::after{border-color:var(--accent);background:var(--accent);box-shadow:0 0 12px var(--accent-glow);transform:scale(1.2)}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1.1)}50%{opacity:0.5;transform:scale(1.4)}}
 /* ═══ BASSIN CONNECTIONS ═══ */
 #basins{background:linear-gradient(170deg,#0D1B2A 0%,#0B1426 50%,#0F1D35 100%);color:var(--white);padding:100px 0 80px;position:relative;overflow:hidden}
 #basins::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 500px at 50% 50%,rgba(14,165,233,0.05),transparent);pointer-events:none}
@@ -1100,6 +1108,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .hub-stat span{font-size:0.6rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.04em}
 
 @media(max-width:968px){.dot-nav{display:none}}
+
 
 /* ═══ REVEAL ═══ */
 [data-r]{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
@@ -3923,49 +3932,63 @@ body.light-theme #careers .career-icon{
 </footer>
 
 <!-- ═══ DOT NAV ═══ -->
-<div class="dot-nav" aria-label="Navigation sections">
-  <div class="dot-nav-item"><span class="dot-nav-label">Accueil</span><button class="dot-nav-dot active" data-section="hero" aria-label="Accueil"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Mission</span><button class="dot-nav-dot" data-section="mission" aria-label="Mission"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Opérations</span><button class="dot-nav-dot" data-section="operations" aria-label="Opérations"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Bassins</span><button class="dot-nav-dot" data-section="basins" aria-label="Bassins"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Pipeline</span><button class="dot-nav-dot" data-section="pipeline" aria-label="Pipeline"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Producteurs</span><button class="dot-nav-dot" data-section="producers" aria-label="Producteurs"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Projets</span><button class="dot-nav-dot" data-section="vision" aria-label="Projets"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">EnerTech</span><button class="dot-nav-dot" data-section="enertech" aria-label="EnerTech"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Technologies</span><button class="dot-nav-dot" data-section="enertech-tech" aria-label="Technologies"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Flotte</span><button class="dot-nav-dot" data-section="fleet" aria-label="Flotte"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Équipe</span><button class="dot-nav-dot" data-section="team" aria-label="Équipe"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">ESG</span><button class="dot-nav-dot" data-section="esg" aria-label="ESG"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="HSE Services">Services HSE</span><button class="dot-nav-dot" data-section="hse-services" aria-label="Services HSE" style="background:linear-gradient(135deg,var(--teal),var(--teal-light))"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Contact</span><button class="dot-nav-dot" data-section="contact" aria-label="Contact"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Études de cas</span><button class="dot-nav-dot" data-section="cases" aria-label="Études de cas"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Carrières</span><button class="dot-nav-dot" data-section="careers" aria-label="Carrières"></button></div>
-  <div class="dot-nav-item"><span class="dot-nav-label">Ressources</span><button class="dot-nav-dot" data-section="resources" aria-label="Ressources"></button></div>
-</div>
+<nav class="dot-nav" id="dotNav" aria-label="Navigation rapide par section">
+  <div class="dot-nav-progress" id="dotNavProgress"></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="Home">Accueil</span><button type="button" class="dot-nav-dot active" data-section="hero" aria-label="Accueil"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="Mission">Mission</span><button type="button" class="dot-nav-dot" data-section="mission" aria-label="Mission"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="Operations">Opérations</span><button type="button" class="dot-nav-dot" data-section="operations" aria-label="Opérations"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="Pipeline">Pipeline</span><button type="button" class="dot-nav-dot" data-section="pipeline" aria-label="Pipeline"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="Producers">Producteurs</span><button type="button" class="dot-nav-dot" data-section="producers" aria-label="Producteurs"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="Projects">Projets</span><button type="button" class="dot-nav-dot" data-section="vision" aria-label="Projets"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="EnerTech">EnerTech</span><button type="button" class="dot-nav-dot" data-section="enertech" aria-label="EnerTech"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="ESG">ESG</span><button type="button" class="dot-nav-dot" data-section="esg" aria-label="ESG"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="HSE Services">Services HSE</span><button type="button" class="dot-nav-dot" data-section="hse-services" aria-label="Services HSE"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="Team">Équipe</span><button type="button" class="dot-nav-dot" data-section="team" aria-label="Équipe"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="Careers">Carrières</span><button type="button" class="dot-nav-dot" data-section="careers" aria-label="Carrières"></button></div>
+  <div class="dot-nav-item"><span class="dot-nav-label" data-i18n data-en="Contact">Contact</span><button type="button" class="dot-nav-dot" data-section="contact" aria-label="Contact"></button></div>
+</nav>
 
 <script>
 /* ═══ SCROLL ENGINE ═══ */
 (function(){
   const hdr=document.getElementById('siteHeader');
   let lastY=0;
-  const dotSections=['hero','mission','basins','operations','pipeline','producers','vision','fleet','team','esg','hse-services','contact','cases','careers','resources'];
+  const dotSections=['hero','mission','operations','pipeline','producers','vision','enertech','esg','hse-services','team','careers','contact'];
 
   window.addEventListener('scroll',function(){
     const y=window.scrollY;
     /* Header shrink */
     if(hdr)hdr.classList.toggle('scrolled',y>60);
-    /* Dot nav active */
+    /* Dot nav active & progress bar */
     let active='hero';
+    let activeIndex=0;
     dotSections.forEach(function(id){
       const el=document.getElementById(id);
-      if(el&&el.offsetTop-300<=y)active=id;
+      if(el&&el.offsetTop-300<=y){
+        active=id;
+        activeIndex=dotSections.indexOf(id);
+      }
     });
+    /* Calculate overall page scroll percentage for progress bar */
+    const docHeight=document.documentElement.scrollHeight-window.innerHeight;
+    const scrollPercent=docHeight>0?(y/docHeight)*100:0;
+    const progressBar=document.getElementById('dotNavProgress');
+    if(progressBar){
+      /* Scale progress relative to dot nav track (roughly) */
+      const trackHeight=dotSections.length*36;/* ~36px per dot */
+      const progressHeight=Math.min((scrollPercent/100)*trackHeight,trackHeight);
+      progressBar.style.height=progressHeight+'px';
+    }
+    /* Update dot states */
     document.querySelectorAll('.dot-nav-dot').forEach(function(d){
-      d.classList.toggle('active',d.dataset.section===active);
+      const dotSection=d.dataset.section;
+      const dotIndex=dotSections.indexOf(dotSection);
+      d.classList.toggle('active',dotSection===active);
+      d.classList.toggle('passed',dotIndex<activeIndex);
     });
     /* Mega-nav active link highlighting */
     var activeNavItem=null;
-    if(active==='pipeline'||active==='operations'||active==='hse-services'||active==='basins'||active==='producers'){
+    if(active==='pipeline'||active==='operations'||active==='hse-services'||active==='producers'){
       activeNavItem=document.querySelector('.nav-item[data-mega]:nth-child(1)');
     }else if(active==='vision'){
       activeNavItem=document.querySelector('.nav-item[data-mega]:nth-child(2)');
