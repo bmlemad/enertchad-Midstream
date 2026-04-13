@@ -1032,8 +1032,13 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 @media(max-width:480px){.ftr-legal{flex-direction:column;gap:6px}}
 .ftr-legal a+a::before{content:"·";margin:0 10px;color:rgba(255,255,255,0.5)}
 @media(max-width:480px){.ftr-legal a+a::before{content:"";margin:0}}
+.ftr-ecosystem{display:flex;align-items:center;justify-content:center;gap:8px;padding:20px 0;margin:24px 0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);font-size:0.82rem;flex-wrap:wrap}
+.ftr-ecosystem span:first-child{color:rgba(255,255,255,0.5);margin-right:6px}
+.ftr-ecosystem a{color:rgba(255,255,255,0.6);text-decoration:none;transition:var(--tr)}
+.ftr-ecosystem a:hover{color:var(--accent-light)}
+.ftr-sep{color:rgba(255,255,255,0.25)}
 .ftr-socials{display:flex;gap:8px}
-.ftr-socials a{width:48px;height:48px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;font-size:0.82rem;touch-action:manipulation}
+.ftr-socials a{width:48px;height:48px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;font-size:0.82rem;touch-action:manipulation;transition:var(--tr)}
 .ftr-socials a:hover{background:var(--accent);color:var(--white)}
 @media(max-width:480px){.ftr-socials{gap:10px}}
 
@@ -1811,6 +1816,65 @@ body.light-theme #careers .career-icon{
   .hse-cta{width:100%;justify-content:center;margin-top:16px}
 }
 </style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "EnerTchad",
+    "url": "https://enertchad-midstream.vercel.app",
+    "logo": "https://enertchad-midstream.vercel.app/logo.svg",
+    "description": "Transport et stockage d'hydrocarbures au Tchad. Pipeline Doba-Kribi 1070 km, FSO Komé Kribi 1, réseau de collecte.",
+    "foundingDate": "2025",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Avenue Charles de Gaulle",
+      "addressLocality": "N'Djamena",
+      "addressCountry": "TD"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+235-66-38-42-15",
+      "contactType": "customer service",
+      "availableLanguage": ["French", "English"]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/enertchad",
+      "https://x.com/enertchad",
+      "https://www.facebook.com/enertchad"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "EnerTchad Intermédiaire — Pipeline & Transport",
+    "url": "https://enertchad-midstream.vercel.app",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://enertchad-midstream.vercel.app/#search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "EnerTchad",
+        "item": "https://enertchad.td"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Intermédiaire — Pipeline & Transport",
+        "item": "https://enertchad-midstream.vercel.app"
+      }
+    ]
+  }
+]
+</script>
 </head>
 <body class="preloader-active">
 
@@ -4033,54 +4097,74 @@ body.light-theme #careers .career-icon{
 <!-- ═══ FOOTER ═══ -->
 <footer class="ftr">
   <div class="ctn">
+    <!-- Row 1: Main 4-column grid -->
     <div class="ftr-inner">
+      <!-- Column 1: Logo + Brand -->
       <div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><img src="logo.svg" alt="EnerTchad" width="40" height="40" style="border-radius:50%"><strong style="color:var(--white);font-family:var(--font-d)">EnerTchad Intermédiaire</strong></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><img src="logo.svg" alt="EnerTchad" width="40" height="40" style="border-radius:50%"><strong style="color:var(--white);font-family:var(--font-d)">EnerTchad<br>Intermédiaire</strong></div>
         <p data-i18n data-en="The strategic link between production and distribution — pipelines, storage, metering, and logistics across Chad.">Le maillon stratégique entre production et distribution — pipelines, stockage, métrologie et logistique à travers le Tchad.</p>
-        <p style="font-size:0.74rem;color:rgba(255,255,255,0.25);margin-top:8px" data-i18n data-en="Chadian law · OHADA · RCCM N'Djamena">EnerTchad S.A. · Capital 1 000 000 000 <abbr title="Franc CFA d'Afrique Centrale">FCFA</abbr> · RCCM N'Djamena · Droit tchadien · OHADA</p>
+        <p style="font-size:0.74rem;color:rgba(255,255,255,0.25);margin-top:8px">EnerTchad S.A. · Capital 1 000 000 000 <abbr title="Franc CFA d'Afrique Centrale">FCFA</abbr> · RCCM N'Djamena · Droit tchadien · OHADA</p>
       </div>
+
+      <!-- Column 2: Nos Activités -->
       <div>
-        <h4 data-i18n data-en="Operations">Opérations</h4>
-        <a href="#pipeline">Pipeline Doba — Kribi</a>
-        <a href="#vision">Projets & Vision CAPS</a>
-        <a href="#operations">Stockage & Terminaux</a>
-        <a href="#fleet">Flotte & Logistique</a>
-        <a href="#enertech">EnerTech — Ingénierie</a>
-        <a href="#enertech-tech">EnerTech — Technologies</a>
+        <h4 data-i18n data-en="Operations">Nos Activités</h4>
+        <a href="#pipeline" data-i18n data-en="Doba–Kribi Pipeline">Pipeline Doba–Kribi</a>
+        <a href="#fso" data-i18n data-en="FSO Komé Kribi 1">FSO Komé Kribi 1</a>
+        <a href="#operations" data-i18n data-en="Storage & Reserves">Stockage & Réserves</a>
+        <a href="#metering" data-i18n data-en="Fiscal Metering">Comptage Fiscal</a>
+        <a href="#fleet" data-i18n data-en="Collection Network">Réseau de Collecte</a>
       </div>
+
+      <!-- Column 3: Solutions & Innovation -->
+      <div>
+        <h4 data-i18n data-en="Solutions & Innovation">Solutions & Innovation</h4>
+        <a href="#integrity" data-i18n data-en="Pipeline Integrity">Intégrité Pipeline</a>
+        <a href="#hse" data-i18n data-en="HSE Pipeline">HSE Pipeline</a>
+        <a href="#metrology" data-i18n data-en="Metrology">Métrologie</a>
+        <a href="#enertech" data-i18n data-en="EnerTech">EnerTech</a>
+        <a href="#caps" data-i18n data-en="CAPS Projects">Projets CAPS</a>
+      </div>
+
+      <!-- Column 4: Entreprise -->
       <div>
         <h4 data-i18n data-en="Company">Entreprise</h4>
         <a href="#mission" data-i18n data-en="Mission">Mission</a>
+        <a href="#esg" data-i18n data-en="ESG & Sustainability">ESG & Durabilité</a>
         <a href="#team" data-i18n data-en="Team">Équipe</a>
-        <a href="#esg" data-i18n data-en="Sustainability">ESG</a>
-        <a href="#cases" data-i18n data-en="Case Studies">Études de cas</a>
         <a href="#careers" data-i18n data-en="Careers">Carrières</a>
         <a href="#resources" data-i18n data-en="Resources">Ressources</a>
-        <a href="#contact" data-i18n data-en="Contact">Contact</a>
-      </div>
-      <div>
-        <h4 data-i18n data-en="Ecosystem">Écosystème</h4>
-        <a href="https://enertchad.td" target="_blank" rel="noopener noreferrer" data-i18n data-en="Corporate site">Site corporatif</a>
-        <a href="https://enertchad-amont.vercel.app" target="_blank" rel="noopener noreferrer">EnerTchad Amont</a>
-        <a href="https://enertchad-aval.vercel.app" target="_blank" rel="noopener noreferrer">EnerTchad Aval</a>
       </div>
     </div>
+
+    <!-- Row 2: Ecosystem Cross-Links Strip -->
+    <div class="ftr-ecosystem">
+      <span data-i18n data-en="Related sites:">Sites connexes :</span>
+      <a href="https://enertchad-amont-vercel-app.vercel.app" title="EnerTchad Amont — E&P" data-i18n data-en="EnerTchad Amont">EnerTchad Amont</a>
+      <span class="ftr-sep">·</span>
+      <a href="https://enertchad-midstream.vercel.app" title="EnerTchad Intermédiaire — Pipeline" data-i18n data-en="EnerTchad Intermédiaire">EnerTchad Intermédiaire</a>
+      <span class="ftr-sep">·</span>
+      <a href="https://enertchad-aval-push.vercel.app" title="EnerTchad Aval — Distribution" data-i18n data-en="EnerTchad Aval">EnerTchad Aval</a>
+      <span class="ftr-sep">·</span>
+      <a href="https://enertchad.td" title="EnerTchad Corporate" data-i18n data-en="enertchad.td">enertchad.td</a>
+    </div>
+
+    <!-- Row 3: Bottom bar -->
     <div class="ftr-bottom">
-      <span>&copy; 2026 EnerTchad Intermédiaire — <span data-i18n data-en="All rights reserved">Tous droits réservés</span></span>
+      <span data-i18n data-en="© 2025–2026 EnerTchad S.A. — All rights reserved">&copy; 2025–2026 EnerTchad S.A. — Tous droits réservés</span>
       <div class="ftr-legal">
         <a href="mentions-legales.html" data-i18n data-en="Legal Notice">Mentions légales</a>
         <a href="confidentialite.html" data-i18n data-en="Privacy Policy">Politique de confidentialité</a>
-        <a href="cgv.html" data-i18n data-en="Terms">CGV</a>
       </div>
       <div class="ftr-socials">
         <a href="https://www.linkedin.com/company/enertchad" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
         <a href="https://www.facebook.com/enertchad" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
         <a href="https://x.com/enertchad" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
-        <a href="https://wa.me/23566384215" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
 </footer>
+
 
 <!-- ═══ DOT NAV ═══ -->
 <nav class="dot-nav" id="dotNav" aria-label="Navigation rapide par section">
@@ -4290,7 +4374,7 @@ body.light-theme #careers .career-icon{
   const colors=['rgba(14,165,233,0.3)','rgba(56,189,248,0.2)','rgba(20,184,166,0.2)','rgba(200,150,46,0.12)'];
   function resize(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight}
   function create(){return{x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.25,r:Math.random()*2+0.5,c:colors[Math.floor(Math.random()*colors.length)]}}
-  function init(){resize();particles=[];for(var i=0;i<55;i++)particles.push(create())}
+  function init(){resize();particles=[];for(let i=0;i<55;i++)particles.push(create())}
   function draw(){
     ctx.clearRect(0,0,w,h);
     particles.forEach(function(p,i){
@@ -4298,8 +4382,8 @@ body.light-theme #careers .career-icon{
       if(p.x<0||p.x>w)p.vx*=-1;
       if(p.y<0||p.y>h)p.vy*=-1;
       ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c;ctx.fill();
-      for(var j=i+1;j<particles.length;j++){
-        var dx=p.x-particles[j].x,dy=p.y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
+      for(let j=i+1;j<particles.length;j++){
+        const dx=p.x-particles[j].x,dy=p.y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
         if(dist<110){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(14,165,233,'+(0.05*(1-dist/110))+')';ctx.lineWidth=0.5;ctx.stroke()}
       }
     });
@@ -4335,8 +4419,8 @@ body.light-theme #careers .career-icon{
       var el=document.getElementById(id);if(!el)return;
       var t=targets[id],start=performance.now();
       function tick(now){
-        var p=Math.min((now-start)/duration,1);
-        var ease=1-Math.pow(1-p,3);
+        const p=Math.min((now-start)/duration,1);
+        let ease=1-Math.pow(1-p,3);
         el.textContent=Math.round(t.end*ease)+t.suffix;
         if(p<1)requestAnimationFrame(tick);
       }
@@ -4355,8 +4439,8 @@ body.light-theme #careers .career-icon{
     document.querySelectorAll('.sv[data-count]').forEach(function(el){
       var end=parseInt(el.dataset.count),start=performance.now(),dur=2000;
       function tick(now){
-        var p=Math.min((now-start)/dur,1);
-        var ease=1-Math.pow(1-p,3);
+        const p=Math.min((now-start)/dur,1);
+        let ease=1-Math.pow(1-p,3);
         el.textContent=Math.round(end*ease).toLocaleString('fr-FR');
         if(p<1)requestAnimationFrame(tick);
       }
@@ -4438,7 +4522,7 @@ body.light-theme #careers .career-icon{
     document.documentElement.lang=l;
     btns.forEach(function(b){var a=b.dataset.lang===l;b.classList.toggle('active',a);b.setAttribute('aria-checked',a?'true':'false')});
     els.forEach(function(el){
-      var icon=el.querySelector('i.fas,i.fab');
+      const icon=el.querySelector('i.fas,i.fab');
       var ih=icon?icon.outerHTML+' ':'';
       if(l==='en'&&el.dataset.en)el.innerHTML=ih+el.dataset.en;
       else if(el.dataset.fr)el.innerHTML=el.dataset.fr;
@@ -4576,7 +4660,7 @@ function toggleTheme(){
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
 <script>
-(function(){var b=document.getElementById('scrollTop');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+(function(){const b=document.getElementById('scrollTop');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
 </script>
 </body>
 </html>
