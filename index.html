@@ -206,7 +206,7 @@ input[type="text"],input[type="email"],input[type="password"],input[type="tel"],
     radial-gradient(circle at 50% 38%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 22%, transparent 55%),
     radial-gradient(circle at 50% 50%, rgba(14,165,233,0.14) 0%, transparent 68%);
   box-shadow:inset 0 -30px 60px rgba(11,20,38,0.6),inset 0 0 0 1px rgba(255,255,255,0.06);
-  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
   -webkit-backdrop-filter:blur(2px);
   animation:preloaderBreathe 4s ease-in-out infinite;
 }
@@ -601,7 +601,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 @keyframes pulse{0%,100%{box-shadow:0 0 30px rgba(14,165,233,0.2),0 0 60px rgba(14,165,233,0.05)}50%{box-shadow:0 0 40px rgba(14,165,233,0.25),0 0 80px rgba(14,165,233,0.1)}}
 .op-card h3{font-family:var(--font-d);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:8px}
 .op-card p{font-size:0.84rem;color:rgba(255,255,255,0.5);line-height:1.65}
-.op-tag{display:inline-block;margin-top:12px;font-family:var(--font-d);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:4px 10px;border-radius:999px;background:rgba(14,165,233,0.08);color:var(--accent-light);border:1px solid rgba(14,165,233,0.15);backdrop-filter:blur(8px);transition:all 0.3s ease}
+.op-tag{display:inline-block;margin-top:12px;font-family:var(--font-d);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:4px 10px;border-radius:999px;background:rgba(14,165,233,0.08);color:var(--accent-light);border:1px solid rgba(14,165,233,0.15);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:all 0.3s ease}
 .op-card:hover .op-tag{transform:translateY(-1px);box-shadow:0 4px 12px rgba(14,165,233,0.15)}
 .op-card:nth-child(even) .op-tag{background:rgba(20,184,166,0.08);color:var(--teal-light);border-color:rgba(20,184,166,0.15)}
 .op-card:nth-child(even):hover .op-tag{box-shadow:0 4px 12px rgba(20,184,166,0.15)}
@@ -778,7 +778,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .vision-card h3 span{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .vision-card p{font-size:0.84rem;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:16px}
 .vision-specs{display:flex;flex-wrap:wrap;gap:8px}
-.vision-spec{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);border-radius:10px;font-family:var(--font-d);font-size:0.7rem;font-weight:500;color:rgba(255,255,255,0.55);transition:all 0.3s ease;backdrop-filter:blur(4px)}
+.vision-spec{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);border-radius:10px;font-family:var(--font-d);font-size:0.7rem;font-weight:500;color:rgba(255,255,255,0.55);transition:all 0.3s ease;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .vision-card:hover .vision-spec{border-color:rgba(200,150,46,0.15);background:linear-gradient(135deg,rgba(200,150,46,0.04),rgba(255,255,255,0.02))}
 .vision-spec i{font-size:0.6rem;color:var(--gold)}
 .vision-spec strong{color:var(--white);font-weight:700}
@@ -994,7 +994,7 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .form-shake{animation:shake 0.4s ease}
 
 /* ═══ SEARCH OVERLAY ═══ */
-.search-overlay{position:fixed;inset:0;background:rgba(6,13,26,0.96);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding-top:18vh;opacity:0;visibility:hidden;transition:all 0.4s ease;backdrop-filter:blur(20px)}
+.search-overlay{position:fixed;inset:0;background:rgba(6,13,26,0.96);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding-top:18vh;opacity:0;visibility:hidden;transition:all 0.4s ease;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
 .search-overlay.open{opacity:1;visibility:visible}
 .search-inner{width:90%;max-width:640px;text-align:center}
 .search-inner h3{font-family:var(--font-d);font-size:1.3rem;color:var(--white);margin-bottom:24px;font-weight:700}
@@ -1480,6 +1480,8 @@ body.light-theme .hero-desc{color:#475569}
 body.light-theme .hero-kpi-bar{background:rgba(248,250,252,0.7);border-top-color:rgba(0,0,0,0.06)}
 body.light-theme .hero-kpi-val{color:#0F172A}
 body.light-theme .hero-kpi-label{color:#64748B}
+body.light-theme .prod-logo,.body.light-theme .prod-logo.total,.body.light-theme .prod-logo.schlum,.body.light-theme .prod-logo.halliburton,.body.light-theme .prod-logo.baker,.body.light-theme .prod-logo.weath{color:#1E293B}
+body.light-theme .hub-icon{color:#0F172A}
 body.light-theme .hero-kpi-divider{background:rgba(0,0,0,0.08)}
 body.light-theme .hero-scroll-chevron svg{stroke:#64748B}
 
@@ -1606,7 +1608,7 @@ body.light-theme .sec-dark .esg-tab-btn:hover{
 /* Header adaptation */
 body.light-theme header:not(#hero *){
   background:rgba(255,255,255,0.85) !important;
-  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
   border-bottom-color:rgba(0,0,0,0.06) !important
 }
 
@@ -1623,7 +1625,7 @@ body.light-theme .nav-link:hover{
 /* Mega menu in light mode */
 body.light-theme .mega-drop{
   background:rgba(248,250,252,0.95) !important;
-  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
   border-color:rgba(0,0,0,0.1) !important;
   color:#0F172A
 }
@@ -1844,7 +1846,7 @@ body.light-theme #careers .career-icon{
 body.light-theme .mega-drop,
 body.light-theme .mega-drop--xl,
 body.light-theme .mega-drop--sm,
-body.light-theme .simple-drop{background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);border-color:rgba(0,0,0,0.08);box-shadow:0 20px 60px rgba(0,0,0,0.12)}
+body.light-theme .simple-drop{background:rgba(255,255,255,0.98);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-color:rgba(0,0,0,0.08);box-shadow:0 20px 60px rgba(0,0,0,0.12)}
 body.light-theme .mega-col-title{color:#1a1a2e;border-color:rgba(0,0,0,0.08)}
 body.light-theme .mega-link:hover{background:rgba(0,0,0,0.04)}
 body.light-theme .mega-link strong,
@@ -1860,7 +1862,7 @@ body.light-theme .mega-label{color:#64748b;border-color:rgba(0,0,0,0.06)}
 
 /* ═══ LIGHT THEME — MOBILE NAV ═══ */
 body.light-theme .mobile-nav,
-body.light-theme #mobileNav{background:rgba(255,255,255,0.98);backdrop-filter:blur(20px)}
+body.light-theme #mobileNav{background:rgba(255,255,255,0.98);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
 body.light-theme .mobile-nav a,
 body.light-theme #mobileNav a{color:#1a1a2e}
 body.light-theme .mobile-nav a span,
@@ -2208,13 +2210,13 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
     <span class="ticker-item"><i class="fas fa-oil-well" aria-hidden="true"></i> <span data-i18n data-en="Pipeline Network">Réseau Pipeline</span>: <span class="val">1 200 <small class="text-sm-em">km</small></span></span>
     <span class="ticker-item"><i class="fas fa-tachometer-alt" aria-hidden="true"></i> <span data-i18n data-en="Throughput">Débit</span>: <span class="val">120 K <small class="text-sm-em">bbl/j</small></span></span>
     <span class="ticker-item"><i class="fas fa-warehouse" aria-hidden="true"></i> <span data-i18n data-en="Storage Capacity">Capacité Stockage</span>: <span class="val">2,5M <small class="text-sm-em">bbl</small></span></span>
-    <span class="ticker-item"><i class="fas fa-satellite" aria-hidden="true"></i> <span data-i18n data-en="SCADA Monitoring">Surveillance SCADA</span>: <span class="val" class="text-success">24/7 ✓</span></span>
+    <span class="ticker-item"><i class="fas fa-satellite" aria-hidden="true"></i> <span data-i18n data-en="SCADA Monitoring">Surveillance SCADA</span>: <span class="val text-success">24/7 ✓</span></span>
     <span class="ticker-item"><i class="fas fa-globe-africa" aria-hidden="true"></i> <span data-i18n data-en="N'Djamena — Kribi Corridor">Corridor N'Djamena–Kribi</span></span>
-    <span class="ticker-item"><i class="fas fa-check-circle" aria-hidden="true"></i> <span data-i18n data-en="Zero Major Incident">Zéro Incident Majeur</span>: <span class="val" class="text-success">2024–2026</span></span>
+    <span class="ticker-item"><i class="fas fa-check-circle" aria-hidden="true"></i> <span data-i18n data-en="Zero Major Incident">Zéro Incident Majeur</span>: <span class="val text-success">2024–2026</span></span>
     <span class="ticker-item"><i class="fas fa-oil-well" aria-hidden="true"></i> <span data-i18n data-en="Pipeline Network">Réseau Pipeline</span>: <span class="val">1 200 <small class="text-sm-em">km</small></span></span>
     <span class="ticker-item"><i class="fas fa-tachometer-alt" aria-hidden="true"></i> <span data-i18n data-en="Throughput">Débit</span>: <span class="val">120 K <small class="text-sm-em">bbl/j</small></span></span>
     <span class="ticker-item"><i class="fas fa-warehouse" aria-hidden="true"></i> <span data-i18n data-en="Storage Capacity">Capacité Stockage</span>: <span class="val">2,5M <small class="text-sm-em">bbl</small></span></span>
-    <span class="ticker-item"><i class="fas fa-satellite" aria-hidden="true"></i> <span data-i18n data-en="SCADA Monitoring">Surveillance SCADA</span>: <span class="val" class="text-success">24/7 ✓</span></span>
+    <span class="ticker-item"><i class="fas fa-satellite" aria-hidden="true"></i> <span data-i18n data-en="SCADA Monitoring">Surveillance SCADA</span>: <span class="val text-success">24/7 ✓</span></span>
   </div>
   <button class="ticker-close" id="tickerCloseBtn" aria-label="Fermer la barre de ticker"><i class="fas fa-times" aria-hidden="true"></i></button>
 </div>
@@ -2330,9 +2332,9 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
             </div>
             <div class="mega-featured">
               <div class="mega-featured-title" data-i18n data-en="Safety Record">Performance HSE</div>
-              <div class="mega-featured-stat"><div class="val" class="text-base-tight" data-i18n data-en="Zero major incidents 2024-2026">Zéro incident majeur 2024-2026</div></div>
+              <div class="mega-featured-stat"><div class="val text-base-tight" data-i18n data-en="Zero major incidents 2024-2026">Zéro incident majeur 2024-2026</div></div>
               <div class="mega-featured-stat"><div class="val">48 <small class="text-xs-muted">vannes</small></div><div class="label" data-i18n data-en="Automated sectioning valves">Vannes automatisées</div></div>
-              <div class="mega-featured-stat"><div class="val" class="text-sm-tight" data-i18n data-en="Continuous cathodic protection">Protection cathodique continue</div></div>
+              <div class="mega-featured-stat"><div class="val text-sm-tight" data-i18n data-en="Continuous cathodic protection">Protection cathodique continue</div></div>
               <a href="#hse-services" class="mega-featured-link" data-i18n data-en="Learn more">En savoir plus <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
@@ -2372,7 +2374,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
             <div class="mega-featured">
               <div class="mega-featured-title" data-i18n data-en="CAPS Vision">Vision CAPS</div>
               <div class="mega-featured-stat"><div class="val">5 <small class="text-xs-muted">pays</small></div><div class="label" data-i18n data-en="Connected countries">Pays connectés</div></div>
-              <div class="mega-featured-stat"><div class="val" class="text-base-tight" data-i18n data-en="Continental pipeline hub">Hub continental</div></div>
+              <div class="mega-featured-stat"><div class="val text-base-tight" data-i18n data-en="Continental pipeline hub">Hub continental</div></div>
               <a href="#vision" class="mega-featured-link" data-i18n data-en="Explore projects">Explorer les projets <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
@@ -2407,7 +2409,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
             </div>
             <div class="mega-featured">
               <div class="mega-featured-title" data-i18n data-en="ESG Performance">Performance ESG</div>
-              <div class="mega-featured-stat"><div class="val" class="text-base-tight" data-i18n data-en="Certified sustainability program">Programme de durabilité certifié</div></div>
+              <div class="mega-featured-stat"><div class="val text-base-tight" data-i18n data-en="Certified sustainability program">Programme de durabilité certifié</div></div>
               <div class="mega-featured-stat"><div class="val">850+ <small class="text-xs-muted">jours</small></div><div class="label" data-i18n data-en="Consecutive HSE days">Jours HSE consécutifs</div></div>
               <a href="#esg" class="mega-featured-link" data-i18n data-en="Learn more">En savoir plus <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -2462,8 +2464,8 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
             </div>
             <div class="mega-featured">
               <div class="mega-featured-title" data-i18n data-en="Contact">Contact</div>
-              <div class="mega-featured-stat"><div class="val" class="text-sm-tight-bold">Av. du Terminal, Zone Ind. Sud<br>N'Djamena, Tchad<br><span class="text-accent">+235 66 38 42 15</span></div></div>
-              <div class="mega-featured-stat"><div class="val" class="text-accent-sm-bold">midstream@enertchad.td</div></div>
+              <div class="mega-featured-stat"><div class="val text-sm-tight-bold">Av. du Terminal, Zone Ind. Sud<br>N'Djamena, Tchad<br><span class="text-accent">+235 66 38 42 15</span></div></div>
+              <div class="mega-featured-stat"><div class="val text-accent-sm-bold">midstream@enertchad.td</div></div>
               <a href="#contact" class="mega-featured-link" data-i18n data-en="Contact us">Nous contacter <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
@@ -2621,9 +2623,9 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
             <div class="mn-link-ic teal"><i class="fas fa-link"></i></div>
             <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Agadem–Doba Interconnect">Interconnexion Agadem–Doba</div><div class="mn-link-desc" data-i18n data-en="600 km link, revived 2024">600 km, relancé 2024</div></div>
           </a>
-          <a href="#enertech" class="mn-link" class="bg-accent-light-border">
+          <a href="#enertech" class="mn-link bg-accent-light-border">
             <div class="mn-link-ic teal"><i class="fas fa-microchip"></i></div>
-            <div class="mn-link-text"><div class="mn-link-name" class="text-grad-accent-teal" data-i18n data-en="EnerTech — Tech Subsidiary">EnerTech — Filiale Tech</div><div class="mn-link-desc" data-i18n data-en="SCADA, digital, automation">SCADA, digital, automatisation</div></div>
+            <div class="mn-link-text"><div class="mn-link-name text-grad-accent-teal" data-i18n data-en="EnerTech — Tech Subsidiary">EnerTech — Filiale Tech</div><div class="mn-link-desc" data-i18n data-en="SCADA, digital, automation">SCADA, digital, automatisation</div></div>
           </a>
         </div>
       </div>
@@ -2804,7 +2806,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
   <div class="ctn">
     <div data-r>
       <div class="eyb blue"><i class="fas fa-industry" aria-hidden="true"></i> <span data-i18n data-en="Operations">Opérations</span></div>
-      <h2 class="stitle" class="text-white" data-i18n data-en="Eight operational <span class='hl'>pillars</span>">Huit piliers <span class="hl">opérationnels</span></h2>
+      <h2 class="stitle text-white" data-i18n data-en="Eight operational <span class='hl'>pillars</span>">Huit piliers <span class="hl">opérationnels</span></h2>
       <p class="sdesc" data-i18n data-en="From crude gathering in the Doba Basin to the maritime export terminal — an integrated chain of critical infrastructure.">De la collecte brut dans le bassin de Doba au terminal d'export maritime — une chaîne intégrée d'infrastructures critiques.</p>
     </div>
     <div class="ops-grid" data-r>
@@ -3021,9 +3023,9 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
 
       <!-- Basin detail cards -->
       <div class="basin-cards">
-        <div class="basin-card" class="basin-grad-17">
+        <div class="basin-card basin-grad-17">
           <div class="basin-card-header">
-            <div class="basin-dot" class="bg-accent"></div>
+            <div class="basin-dot bg-accent"></div>
             <h4 data-i18n data-en="Komé · Miandoum · Bolobo">Komé · Miandoum · Bolobo</h4>
             <span class="basin-op">SHT</span>
           </div>
@@ -3035,9 +3037,9 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
           </div>
         </div>
 
-        <div class="basin-card" class="basin-grad-19">
+        <div class="basin-card basin-grad-19">
           <div class="basin-card-header">
-            <div class="basin-dot" class="bg-sky-600"></div>
+            <div class="basin-dot bg-sky-600"></div>
             <h4 data-i18n data-en="Mangara · Badila · Krim">Mangara · Badila · Krim</h4>
             <span class="basin-op">Perenco</span>
           </div>
@@ -3049,9 +3051,9 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
           </div>
         </div>
 
-        <div class="basin-card" class="basin-grad-21">
+        <div class="basin-card basin-grad-21">
           <div class="basin-card-header">
-            <div class="basin-dot" class="bg-teal-700"></div>
+            <div class="basin-dot bg-teal-700"></div>
             <h4 data-i18n data-en="ORYX — Bongor Basin">ORYX — Bassin de Bongor</h4>
             <span class="basin-op">OPIC</span>
           </div>
@@ -3063,9 +3065,9 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
           </div>
         </div>
 
-        <div class="basin-card" class="basin-grad-23">
+        <div class="basin-card basin-grad-23">
           <div class="basin-card-header">
-            <div class="basin-dot" class="bg-red-600"></div>
+            <div class="basin-dot bg-red-600"></div>
             <h4 data-i18n data-en="Block H — Salamat Basin">Bloc H — Bassin de Salamat</h4>
             <span class="basin-op">CNPC</span>
           </div>
@@ -3077,9 +3079,9 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
           </div>
         </div>
 
-        <div class="basin-card" class="basin-grad-25">
+        <div class="basin-card basin-grad-25">
           <div class="basin-card-header">
-            <div class="basin-dot" class="bg-accent-60"></div>
+            <div class="basin-dot bg-accent-60"></div>
             <h4 data-i18n data-en="Moundouli · Nya · Sédigui">Moundouli · Nya · Sédigui</h4>
             <span class="basin-op">SHT</span>
           </div>
@@ -3094,13 +3096,13 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
 
     <!-- Legend -->
     <div class="basin-legend" data-r>
-      <div class="basin-legend-item"><div class="basin-legend-dot" class="bg-accent"></div>SHT / National</div>
-      <div class="basin-legend-item"><div class="basin-legend-dot" class="bg-sky-600"></div>Perenco</div>
-      <div class="basin-legend-item"><div class="basin-legend-dot" class="bg-teal-700"></div>OPIC Africa</div>
-      <div class="basin-legend-item"><div class="basin-legend-dot" class="bg-red-600"></div>CNPC</div>
-      <div class="basin-legend-item"><div class="basin-legend-line" class="bg-grad-accent-teal-h"></div>Conduites collecte</div>
-      <div class="basin-legend-item"><div class="basin-legend-line" class="bg-purple-600"></div>→ Raffinerie Djarmaya</div>
-      <div class="basin-legend-item"><div class="basin-legend-line" class="bar-gold-accent-h"></div>Pipeline COTCO</div>
+      <div class="basin-legend-item"><div class="basin-legend-dot bg-accent"></div>SHT / National</div>
+      <div class="basin-legend-item"><div class="basin-legend-dot bg-sky-600"></div>Perenco</div>
+      <div class="basin-legend-item"><div class="basin-legend-dot bg-teal-700"></div>OPIC Africa</div>
+      <div class="basin-legend-item"><div class="basin-legend-dot bg-red-600"></div>CNPC</div>
+      <div class="basin-legend-item"><div class="basin-legend-line bg-grad-accent-teal-h"></div>Conduites collecte</div>
+      <div class="basin-legend-item"><div class="basin-legend-line bg-purple-600"></div>→ Raffinerie Djarmaya</div>
+      <div class="basin-legend-item"><div class="basin-legend-line bar-gold-accent-h"></div>Pipeline COTCO</div>
     </div>
 
     <!-- Hub callout -->
@@ -3229,8 +3231,8 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
             <div class="pipe-step-name">FSO Komé Kribi 1</div>
             <div class="pipe-step-role">ULCC converti de 357 000 tonnes de port en lourd. Capacité de stockage de 2,4 millions de barils. Traite jusqu'à 225 000 bbl/jour. Ancré en permanence par tower yoke mooring. Ballasts séparés empêchant le mélange eau/brut. Premier chargement le 3 octobre 2003.</div>
             <div class="pipe-step-tags">
-              <span class="pipe-step-tag" class="bg-indigo-light">FSO</span>
-              <span class="pipe-step-tag" class="bg-indigo-light">VLCC</span>
+              <span class="pipe-step-tag bg-indigo-light">FSO</span>
+              <span class="pipe-step-tag bg-indigo-light">VLCC</span>
               <span class="pipe-step-tag green">Export</span>
             </div>
           </div>
@@ -3432,7 +3434,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
     <div class="vision-grid" data-r>
 
       <!-- CARD 1: Featured — Maillage stratégique CAPS -->
-      <div class="vision-card featured" class="card-glow-31">
+      <div class="vision-card featured card-glow-31">
         <div>
           <div class="vision-status study"><span class="pulse-sm"></span> PROJET STRATÉGIQUE</div>
           <h3><span><abbr title="Central Africa Pipeline System">CAPS</abbr></span> — Central Africa Pipeline System</h3>
@@ -3539,7 +3541,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD 2: Pipeline Niger-Bénin -->
-      <div class="vision-card" class="card-glow-32">
+      <div class="vision-card card-glow-32">
         <div class="vision-status active"><span class="pulse-sm"></span> OPÉRATIONNEL · 2024</div>
         <h3>Pipeline <span>Niger — Bénin</span></h3>
         <p>Le plus long pipeline d'Afrique (1 950 km). Relie les champs d'Agadem au terminal offshore de Sèmè-Kpodji. Construit par CNPC, opérationnel depuis mai 2024 avec 110 000 bbl/jour de capacité. Plus de 14 millions de barils déjà exportés.</p>
@@ -3551,7 +3553,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD 3: Interconnexion Niger-Tchad -->
-      <div class="vision-card" class="card-glow-31">
+      <div class="vision-card card-glow-31">
         <div class="vision-status study"><span class="pulse-sm"></span> ÉTUDE · RELANCÉ 2024</div>
         <h3>Interconnexion <span>Agadem — Doba</span></h3>
         <p>Pipeline de 600 km reliant le bassin d'Agadem (Niger) au hub de Doba, offrant un second accès à l'Atlantique via le pipeline Tchad-Cameroun et le FSO Kribi. Initialement planifié par CNPC, le projet a été relancé en juin 2024 par le gouvernement nigérien comme route d'export alternative.</p>
@@ -3563,7 +3565,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD: Raffinerie Djarmaya — Pipeline Bongor -->
-      <div class="vision-card" class="card-glow-33">
+      <div class="vision-card card-glow-33">
         <div class="vision-status active"><span class="pulse-sm"></span> OPÉRATIONNEL · 2011</div>
         <h3>Raffinerie <span>Djarmaya</span> — Pipeline Bongor</h3>
         <p data-i18n data-en="Chad's only refinery, 40 km north of N'Djamena. Owned 60% by CNPC, 40% SHT, operated by SRN SA. Connected via the 311 km Ronier–Djarmaya pipeline to the Bongor Basin (Rônier, Mimosa, Koudalwa fields). Capacity of 20,000 bbl/day, currently ~14,000 bbl/day due to crude quality. Produces gasoline, diesel, fuel oil, LPG and polypropylene. New COSA agreement signed Sept. 2025 (3 years) to improve supply and crude quality. CNPC plans to expand the existing refinery and build a second one in eastern Chad.">Seule raffinerie du Tchad, à 40 km au nord de N'Djamena. Détenue 60 % CNPC, 40 % SHT, opérée par SRN SA. Connectée via le pipeline Rônier–Djarmaya de 311 km au bassin de Bongor (champs Rônier, Mimosa, Koudalwa). Capacité de 20 000 bbl/j, actuellement ~14 000 bbl/j en raison de la qualité du brut. Produit essence, diesel, fioul, <abbr title="Gaz de Pétrole Liquéfié">GPL</abbr> et polypropylène. Nouvel accord COSA signé en sept. 2025 (3 ans) pour améliorer l'approvisionnement et la qualité du brut. CNPC prévoit d'étendre la raffinerie et d'en construire une seconde dans l'est du Tchad.</p>
@@ -3577,7 +3579,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD 4: WAGP connexion -->
-      <div class="vision-card" class="card-glow-34">
+      <div class="vision-card card-glow-34">
         <div class="vision-status planned"><span class="pulse-sm"></span> VISION LONG TERME</div>
         <h3>Connexion au <span><abbr title="West Africa Gas Pipeline">WAGP</abbr></span></h3>
         <p>Le West African Gas Pipeline (681 km) relie déjà le Nigeria au Bénin, Togo et Ghana. L'interconnexion du réseau CAPS avec le corridor <abbr title="West Africa Gas Pipeline">WAGP</abbr> via le Bénin ouvrirait un accès aux marchés d'Afrique de l'Ouest et aux hubs de raffinage nigérians, complétant le maillage continental.</p>
@@ -3589,7 +3591,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD 5: Nigeria-Tchad-Libye Gas Corridor (VERIFIED $20B) -->
-      <div class="vision-card featured" class="card-glow-35">
+      <div class="vision-card featured card-glow-35">
         <div>
           <div class="vision-status active"><span class="pulse-sm"></span> NÉGOCIATIONS ACTIVES · 2026</div>
           <h3>Gazoduc <span>Nigeria — Tchad — Libye — Europe</span></h3>
@@ -3632,7 +3634,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD 6: Centrafrique — exploration -->
-      <div class="vision-card" class="card-glow-33">
+      <div class="vision-card card-glow-33">
         <div class="vision-status study"><span class="pulse-sm"></span> EXPLORATION · 2024-2025</div>
         <h3>Raccordement <span>Centrafrique — Doba</span></h3>
         <p data-i18n data-en="The Central African Republic launched its first offshore block licensing in 2024 (8 blocks, 31,883 km²), with exploration in the Doba-Doseo-Salamat basin straddling the CAR-Chad border. Any future CAR production would naturally connect to the COTCO pipeline via the Doba hub — adding new volumes to the existing export corridor.">La Centrafrique a lancé son premier appel d'offres pétrolier en 2024 (8 blocs, 31 883 km²), avec exploration dans le bassin Doba-Doseo-Salamat à cheval sur la frontière RCA-Tchad. Toute production future de la RCA se raccorderait naturellement au pipeline COTCO via le hub de Doba — ajoutant de nouveaux volumes au corridor d'export existant.</p>
@@ -3644,7 +3646,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD 7: Expansion raffinerie -->
-      <div class="vision-card" class="card-glow-34">
+      <div class="vision-card card-glow-34">
         <div class="vision-status study"><span class="pulse-sm"></span> EN DISCUSSION</div>
         <h3>Expansion <span>Capacité Raffinage</span></h3>
         <p data-i18n data-en="With domestic refining at 20,000 bbl/day (Djarmaya, CNPC-SHT joint venture) against 137,000 bbl/day production, Chad captures only 15% of value domestically. Expansion plans under discussion would increase capacity, reduce fuel imports, and position the Doba corridor as a processing hub — not just a transit pipeline.">Avec une capacité de raffinage de 20 000 bbl/j (Djarmaya, co-entreprise CNPC-SHT) contre 137 000 bbl/j de production, le Tchad ne capture que 15% de la valeur localement. Des plans d'expansion en discussion augmenteraient la capacité, réduiraient les importations de carburant et positionneraient le corridor Doba comme hub de transformation — pas seulement un pipeline de transit.</p>
@@ -3656,7 +3658,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD 8: Soudan du Sud — nouvelle connexion -->
-      <div class="vision-card" class="card-glow-36">
+      <div class="vision-card card-glow-36">
         <div class="vision-status study"><span class="pulse-sm"></span> CONCEPT STRATÉGIQUE</div>
         <h3>Connexion <span>Soudan du Sud — Doba</span></h3>
         <p data-i18n data-en="South Sudan holds 3.5 billion barrels of proven reserves but depends on a single export route via Sudan (GNPOC pipeline to Port Sudan). An alternative pipeline (~800 km) from Paloich/Upper Nile to the Doba hub would unlock a second Atlantic export route via Kribi FSO, bypassing Sudan transit risks. Chad's central position makes this corridor geographically viable.">Le Soudan du Sud dispose de 3,5 milliards de barils de réserves prouvées mais dépend d'une seule route d'export via le Soudan (pipeline GNPOC vers Port-Soudan). Un pipeline alternatif (~800 km) de Paloich/Haut-Nil vers le hub de Doba offrirait une seconde route d'export Atlantique via le FSO Kribi, contournant les risques de transit soudanais. La position centrale du Tchad rend ce corridor géographiquement viable.</p>
@@ -3669,7 +3671,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD 9: Connexion Soudan — Darfour -->
-      <div class="vision-card" class="card-glow-35">
+      <div class="vision-card card-glow-35">
         <div class="vision-status study"><span class="pulse-sm"></span> OPPORTUNITÉ STRATÉGIQUE</div>
         <h3>Corridor <span>Soudan (Darfour) — Doba</span></h3>
         <p data-i18n data-en="Sudan's Darfur region holds an estimated 5–15 billion barrels of untapped potential across five basins, with CNPC Block 6 straddling the Chad border. The ongoing civil war (since April 2023) has devastated Sudan's oil infrastructure — a 70% sector contraction, pipeline ruptures, and $5B in damage. Port Sudan remains contested. Chad's existing COTCO pipeline offers a natural alternative export route for future Darfur production, positioning the Doba hub as a strategic alternative to the disrupted Red Sea corridor.">La région du Darfour au Soudan recèle un potentiel estimé de 5 à 15 milliards de barils dans cinq bassins, dont le Bloc 6 de CNPC chevauche la frontière tchadienne. La guerre civile en cours (depuis avril 2023) a dévasté l'infrastructure pétrolière soudanaise — contraction de 70%, ruptures de pipeline et 5 Mrd$ de dommages. Port-Soudan reste contesté. Le pipeline COTCO existant offre une route d'export alternative naturelle pour la future production du Darfour, positionnant le hub de Doba comme alternative stratégique au corridor de la Mer Rouge perturbé.</p>
@@ -3682,7 +3684,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       </div>
 
       <!-- CARD 10: Position géostratégique -->
-      <div class="vision-card" class="card-glow-37">
+      <div class="vision-card card-glow-37">
         <div class="vision-status planned"><span class="pulse-sm"></span> VISION CONTINENTALE</div>
         <h3>Le Tchad, <span>carrefour continental</span></h3>
         <p data-i18n data-en="Bordering 6 countries (Libya, Sudan, Central African Republic, Cameroon, Nigeria, Niger), Chad is the only country that can link the Sahel, Central African, and Gulf of Guinea oil corridors. Including South Sudan and the Darfur reserves, this makes 8 potential pipeline connections — an unrivaled transit hub positioning EnerTchad as a strategic operator of African interconnection.">Frontalier de 6 pays (Libye, Soudan, Centrafrique, Cameroun, Nigeria, Niger), le Tchad est le seul pays à pouvoir relier les corridors pétroliers du Sahel, de l'Afrique Centrale et du Golfe de Guinée. Avec le Soudan du Sud et les réserves du Darfour, cela ouvre 8 connexions pipeline potentielles — un hub de transit inégalé positionnant EnerTchad comme opérateur stratégique de l'interconnexion africaine.</p>
@@ -3702,8 +3704,8 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
   <div class="ctn">
     <div data-r>
       <div class="et-brand"><span class="et-brand-name">EnerTech</span><span class="et-brand-tag">Filiale Ingénierie, Technologie & R&D</span></div>
-      <h2 class="stitle" class="text-white" data-i18n data-en="Pipeline engineering, <span class='hl'>from design to integrity</span>">Ingénierie pipeline, <span class="hl">du design à l'intégrité</span></h2>
-      <p class="sdesc" class="text-white-dim-55" data-i18n data-en="EnerTech is EnerTchad's specialized subsidiary for engineering, technology and R&D. Our pipeline engineers cover the full lifecycle — hydraulic design, construction supervision, SCADA integration, integrity management, and decommissioning.">EnerTech est la filiale spécialisée d'EnerTchad en ingénierie, technologie et R&D. Nos ingénieurs pipeline couvrent le cycle de vie complet — conception hydraulique, supervision de construction, intégration SCADA, gestion d'intégrité et décommissionnement.</p>
+      <h2 class="stitle text-white" data-i18n data-en="Pipeline engineering, <span class='hl'>from design to integrity</span>">Ingénierie pipeline, <span class="hl">du design à l'intégrité</span></h2>
+      <p class="sdesc text-white-dim-55" data-i18n data-en="EnerTech is EnerTchad's specialized subsidiary for engineering, technology and R&D. Our pipeline engineers cover the full lifecycle — hydraulic design, construction supervision, SCADA integration, integrity management, and decommissioning.">EnerTech est la filiale spécialisée d'EnerTchad en ingénierie, technologie et R&D. Nos ingénieurs pipeline couvrent le cycle de vie complet — conception hydraulique, supervision de construction, intégration SCADA, gestion d'intégrité et décommissionnement.</p>
     </div>
     <div class="et-grid" data-r>
 
@@ -3929,7 +3931,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
   <div class="ctn">
     <div data-r>
       <div class="eyb blue"><i class="fas fa-users-gear" aria-hidden="true"></i> <span data-i18n data-en="Leadership">Direction</span></div>
-      <h2 class="stitle" class="text-white" data-i18n data-en="Experienced <span class='hl'>leadership</span>">Un leadership <span class="hl">expérimenté</span></h2>
+      <h2 class="stitle text-white" data-i18n data-en="Experienced <span class='hl'>leadership</span>">Un leadership <span class="hl">expérimenté</span></h2>
       <p class="sdesc" data-i18n data-en="A team of seasoned pipeline &amp; transport professionals with decades of combined experience in pipeline operations, terminal management, and HSE across Africa.">Une équipe de professionnels intermédiaires chevronnés avec des décennies d'expérience cumulée en opérations pipeline, gestion de terminaux et HSE en Afrique.</p>
     </div>
     <div class="team-grid" data-r>
@@ -3982,7 +3984,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
         <div class="esg-tab-pane active" id="esg-env">
           <div class="esg-grid">
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-teal"><i class="fas fa-water"></i></div>
+              <div class="esg-pillar-icon text-teal"><i class="fas fa-water"></i></div>
               <h3 data-i18n data-en="Soil Bioremediation">Bioremédiation de l'emprise pipeline</h3>
               <p data-i18n data-en="Complete hydrocarbon remediation across 1,070 km corridor">Remédiation complète des hydrocarbures sur corridor 1 070 km</p>
               <div class="esg-stat"><span class="esg-stat-val">99.2%</span><span class="esg-stat-label" data-i18n data-en="Removal efficiency">Efficacité d'élimination</span></div>
@@ -3992,7 +3994,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
               </div>
             </div>
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-teal"><i class="fas fa-droplet"></i></div>
+              <div class="esg-pillar-icon text-teal"><i class="fas fa-droplet"></i></div>
               <h3 data-i18n data-en="Water Monitoring">Monitoring piézométrique continu</h3>
               <p data-i18n data-en="Real-time groundwater piezometer surveillance">Surveillance piézométrique continue des nappes phréatiques</p>
               <div class="esg-stat"><span class="esg-stat-val">85</span><span class="esg-stat-label" data-i18n data-en="Piezometer stations">Stations piézométriques</span></div>
@@ -4002,7 +4004,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
               </div>
             </div>
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-teal"><i class="fas fa-wind"></i></div>
+              <div class="esg-pillar-icon text-teal"><i class="fas fa-wind"></i></div>
               <h3 data-i18n data-en="Zero Flaring">Programme zéro torchage</h3>
               <p data-i18n data-en="Gas recovery for power generation and electrification">Récupération gaz pour électrification locale</p>
               <div class="esg-stat"><span class="esg-stat-val">-30%</span><span class="esg-stat-label" data-i18n data-en="Emissions 2030 target">Cible émissions 2030</span></div>
@@ -4012,7 +4014,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
               </div>
             </div>
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-teal"><i class="fas fa-certificate"></i></div>
+              <div class="esg-pillar-icon text-teal"><i class="fas fa-certificate"></i></div>
               <h3 data-i18n data-en="Certifications">Certifications ISO & normes</h3>
               <p data-i18n data-en="International standards compliance">Conformité aux normes internationales</p>
               <div class="esg-stat"><span class="esg-stat-val">3</span><span class="esg-stat-label" data-i18n data-en="Core certifications">Certifications clés</span></div>
@@ -4026,7 +4028,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
         <div class="esg-tab-pane" id="esg-social">
           <div class="esg-grid">
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-accent"><i class="fas fa-briefcase"></i></div>
+              <div class="esg-pillar-icon text-accent"><i class="fas fa-briefcase"></i></div>
               <h3 data-i18n data-en="Local Employment">Emploi local direct</h3>
               <p data-i18n data-en="High proportion of local workforce recruitment">Recrutement local majoritaire dans la région du Tchad</p>
               <div class="esg-stat"><span class="esg-stat-val">92%</span><span class="esg-stat-label" data-i18n data-en="Local hire rate">Taux d'emploi local</span></div>
@@ -4036,7 +4038,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
               </div>
             </div>
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-accent"><i class="fas fa-graduation-cap"></i></div>
+              <div class="esg-pillar-icon text-accent"><i class="fas fa-graduation-cap"></i></div>
               <h3 data-i18n data-en="Technical Training">Programme de formation continue</h3>
               <p data-i18n data-en="Continuous professional development for all staff">Formation technique continue pour tous les employés</p>
               <div class="esg-stat"><span class="esg-stat-val">1 200h</span><span class="esg-stat-label" data-i18n data-en="Per employee per year">Par employé par an</span></div>
@@ -4046,7 +4048,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
               </div>
             </div>
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-accent"><i class="fas fa-road"></i></div>
+              <div class="esg-pillar-icon text-accent"><i class="fas fa-road"></i></div>
               <h3 data-i18n data-en="Community Infrastructure">Maintenance d'infrastructures</h3>
               <p data-i18n data-en="Maintenance of access roads and community pathways">Entretien des pistes communautaires le long de l'emprise</p>
               <div class="esg-stat"><span class="esg-stat-val">24</span><span class="esg-stat-label" data-i18n data-en="Communities served">Communautés desservies</span></div>
@@ -4056,7 +4058,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
               </div>
             </div>
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-accent"><i class="fas fa-heart-pulse"></i></div>
+              <div class="esg-pillar-icon text-accent"><i class="fas fa-heart-pulse"></i></div>
               <h3 data-i18n data-en="Health Partnerships">Partenariats santé</h3>
               <p data-i18n data-en="Medical facility support in pipeline operational zones">Cliniques partenaires dans les zones traversées</p>
               <div class="esg-stat"><span class="esg-stat-val">5</span><span class="esg-stat-label" data-i18n data-en="Health centers">Centres médicaux</span></div>
@@ -4070,7 +4072,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
         <div class="esg-tab-pane" id="esg-gov">
           <div class="esg-grid">
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-gold"><i class="fas fa-chart-line"></i></div>
+              <div class="esg-pillar-icon text-gold"><i class="fas fa-chart-line"></i></div>
               <h3 data-i18n data-en="ESG Oversight">Comité ESG & Reporting</h3>
               <p data-i18n data-en="Quarterly ESG committee meetings with board reporting">Comité ESG trimestriel avec reporting au CA</p>
               <div class="esg-stat"><span class="esg-stat-val">4x</span><span class="esg-stat-label" data-i18n data-en="Per year">Par an</span></div>
@@ -4080,7 +4082,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
               </div>
             </div>
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-gold"><i class="fas fa-book"></i></div>
+              <div class="esg-pillar-icon text-gold"><i class="fas fa-book"></i></div>
               <h3 data-i18n data-en="Sustainability Report">Publication rapport annuel</h3>
               <p data-i18n data-en="Comprehensive annual sustainability disclosure">Rapport de durabilité annuel complet</p>
               <div class="esg-stat"><span class="esg-stat-val">2026</span><span class="esg-stat-label" data-i18n data-en="Next publication">Prochaine publication</span></div>
@@ -4090,7 +4092,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
               </div>
             </div>
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-gold"><i class="fas fa-scales"></i></div>
+              <div class="esg-pillar-icon text-gold"><i class="fas fa-scales"></i></div>
               <h3 data-i18n data-en="EITI Compliance">Conformité EITI</h3>
               <p data-i18n data-en="Extractive Industries Transparency Initiative alignment">Initiative pour la Transparence des Industries Extractives</p>
               <div class="esg-stat"><span class="esg-stat-val">100%</span><span class="esg-stat-label" data-i18n data-en="Compliant">Conforme</span></div>
@@ -4100,7 +4102,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
               </div>
             </div>
             <div class="esg-pillar">
-              <div class="esg-pillar-icon" class="text-gold"><i class="fas fa-shield-check"></i></div>
+              <div class="esg-pillar-icon text-gold"><i class="fas fa-shield-check"></i></div>
               <h3 data-i18n data-en="Anti-Corruption">Politique anti-corruption</h3>
               <p data-i18n data-en="Comprehensive business ethics and compliance framework">Politique anti-corruption et éthique des affaires</p>
               <div class="esg-stat"><span class="esg-stat-val">0</span><span class="esg-stat-label" data-i18n data-en="Violations reported">Violations signalées</span></div>
@@ -4186,7 +4188,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
     <div class="contact-wrap">
       <div class="contact-left" data-r>
         <div class="eyb blue"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact</div>
-        <h2 data-i18n data-en="Let's talk <span class='hl'>pipeline</span>">Parlons <span class="hl" class="text-grad-accent">intermédiaire</span></h2>
+        <h2 data-i18n data-en="Let's talk <span class='hl'>pipeline</span>">Parlons <span class="hl text-grad-accent">intermédiaire</span></h2>
         <p data-i18n data-en="Pipeline interconnection projects, storage capacity requests, custody transfer metering — our team is ready to discuss your needs.">Projets d'interconnexion pipeline, demandes de capacité de stockage, métrologie de transfert de garde — notre équipe est prête à discuter de vos besoins.</p>
         <div class="cd"><div class="cd-icon"><i class="fas fa-map-marker-alt"></i></div><div class="cd-text"><strong data-i18n data-en="N'Djamena, Chad">N'Djamena, Tchad</strong><small data-i18n data-en="Avenue du Terminal, Zone Industrielle Sud, BP 4012">Avenue du Terminal, Zone Industrielle Sud, BP 4012</small></div></div>
         <div class="cd"><div class="cd-icon"><i class="fas fa-phone"></i></div><div class="cd-text"><strong>+235 66 38 42 15</strong><small data-i18n data-en="Mon-Fri, 8am-5pm">Lun-Ven, 8h-17h</small></div></div>
@@ -4197,7 +4199,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
         <div class="form-group"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company"><i class="fas fa-check-circle valid-check"></i></div>
         <div class="form-group"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE — Pipeline Services">HSE — Services pipeline</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select><i class="fas fa-check-circle valid-check"></i></div>
         <div class="form-group"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" required aria-required="true"></textarea><div class="form-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div>
-        <button type="submit" class="btn btn-brand" class="w-full-center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer la demande</button>
+        <button type="submit" class="btn btn-brand w-full-center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer la demande</button>
         <div class="form-msg" id="formMsg" role="alert" aria-live="assertive" aria-atomic="true"></div>
       </form>
       <div class="form-submit-success" id="formSuccess">
@@ -4227,7 +4229,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
         </div>
       </div>
       <div class="case-card">
-        <div class="case-card-img" class="bg-grad-blue-dark"><i class="fas fa-shield-halved"></i></div>
+        <div class="case-card-img bg-grad-blue-dark"><i class="fas fa-shield-halved"></i></div>
         <div class="case-card-body">
           <h3 data-i18n data-en="SCADA Modernization — Phase II">Modernisation SCADA — Phase II</h3>
           <p data-i18n data-en="Migration from legacy Modbus RTU to OPC UA architecture. Integration of 48 valve actuators with redundant fiber backbone. Uptime improved from 97.2% to 99.97%.">Migration Modbus RTU vers architecture OPC UA. Intégration de 48 actionneurs avec backbone fibre redondant. Disponibilité améliorée de 97,2 % à 99,97 %.</p>
@@ -4235,7 +4237,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
         </div>
       </div>
       <div class="case-card">
-        <div class="case-card-img" class="bg-grad-teal-dark"><i class="fas fa-leaf"></i></div>
+        <div class="case-card-img bg-grad-teal-dark"><i class="fas fa-leaf"></i></div>
         <div class="case-card-body">
           <h3 data-i18n data-en="ROW Bioremediation — Moundou Corridor">Bioremédiation Emprise — Corridor Moundou</h3>
           <p data-i18n data-en="Complete soil restoration of 12 km pipeline corridor affected by legacy contamination. Piezometer monitoring confirmed 99.2% hydrocarbon removal within 18 months.">Restauration complète de 12 km de corridor affecté par contamination historique. Monitoring piézométrique : 99,2 % d'élimination des hydrocarbures en 18 mois.</p>
@@ -4251,8 +4253,8 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
   <div class="ctn">
     <div data-r>
       <div class="eyb blue"><i class="fas fa-user-tie" aria-hidden="true"></i> <span data-i18n data-en="Careers">Carrières</span></div>
-      <h2 class="stitle" class="text-white" data-i18n data-en="Join the team that moves <span class='hl'>Chad's oil</span>">Rejoignez l'équipe qui transporte <span class="hl">le pétrole du Tchad</span></h2>
-      <p class="sdesc" class="text-white-dim-55" data-i18n data-en="EnerTchad Intermédiaire is always looking for passionate professionals ready to take on the challenges of pipeline operations in Africa.">EnerTchad Intermédiaire recrute des professionnels passionnés, prêts à relever les défis des opérations pipeline en Afrique.</p>
+      <h2 class="stitle text-white" data-i18n data-en="Join the team that moves <span class='hl'>Chad's oil</span>">Rejoignez l'équipe qui transporte <span class="hl">le pétrole du Tchad</span></h2>
+      <p class="sdesc text-white-dim-55" data-i18n data-en="EnerTchad Intermédiaire is always looking for passionate professionals ready to take on the challenges of pipeline operations in Africa.">EnerTchad Intermédiaire recrute des professionnels passionnés, prêts à relever les défis des opérations pipeline en Afrique.</p>
     </div>
     <div class="careers-wrap" data-r>
       <div class="careers-content">
@@ -4271,7 +4273,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
         <div class="opening"><div class="opening-info"><h5 data-i18n data-en="SCADA / Automation Technician">Technicien SCADA / Automatisation</h5><span data-i18n data-en="Komé · Full-time">Komé · CDI</span></div><a href="mailto:rh@enertchad.td?subject=SCADA%20Technician" class="btn-sm" data-i18n data-en="Apply">Postuler</a></div>
         <div class="opening"><div class="opening-info"><h5 data-i18n data-en="HSE Coordinator — Pipeline">Coordinateur HSE — Pipeline</h5><span data-i18n data-en="Moundou · Full-time">Moundou · CDI</span></div><a href="mailto:rh@enertchad.td?subject=HSE%20Coordinator" class="btn-sm" data-i18n data-en="Apply">Postuler</a></div>
         <div class="opening"><div class="opening-info"><h5 data-i18n data-en="Metering & Custody Transfer Specialist">Spécialiste Métrologie & Custody Transfer</h5><span data-i18n data-en="Kribi · Full-time">Kribi · CDI</span></div><a href="mailto:rh@enertchad.td?subject=Metering%20Specialist" class="btn-sm" data-i18n data-en="Apply">Postuler</a></div>
-        <div class="mt-lg"><a href="mailto:rh@enertchad.td" class="btn btn-outline" class="link-inline-flex" data-i18n data-en="Send Spontaneous Application"><i class="fas fa-envelope"></i> Candidature spontanée</a></div>
+        <div class="mt-lg"><a href="mailto:rh@enertchad.td" class="btn btn-outline link-inline-flex" data-i18n data-en="Send Spontaneous Application"><i class="fas fa-envelope"></i> Candidature spontanée</a></div>
       </div>
     </div>
   </div>
@@ -4913,7 +4915,7 @@ if (form) {
         a.href='#'+s.id;
         a.className='search-result-item';
         a.style.cssText='display:flex;align-items:center;gap:14px;padding:14px 20px;border-radius:12px;text-decoration:none;transition:all 0.3s ease;border:1px solid rgba(14,165,233,0.08)';
-        a.innerHTML='<i class="fas fa-arrow-right" class="text-accent-xs-no-shrink"></i><div><div class="text-white-bold-display">'+s.label+'</div><div class="text-white-dim-40-xs-mt">'+s.labelEn+'</div></div>';
+        a.innerHTML='<i class="fas fa-arrow-right text-accent-xs-no-shrink"></i><div><div class="text-white-bold-display">'+s.label+'</div><div class="text-white-dim-40-xs-mt">'+s.labelEn+'</div></div>';
         a.addEventListener('mouseenter',function(){a.style.background='rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.2)'});
         a.addEventListener('mouseleave',function(){a.style.background='';a.style.borderColor='rgba(14,165,233,0.08)'});
         a.addEventListener('click',function(){closeSearch()});
