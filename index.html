@@ -351,14 +351,16 @@ body.preloader-active{overflow:hidden}
 
 /* ═══ MEGA MENU ═══ */
 .nav-item{position:relative}
-.nav-item>a{color:rgba(255,255,255,0.65);text-decoration:none;padding:8px 16px;font-family:var(--font-d);font-size:0.82rem;font-weight:500;border-radius:var(--radius-sm);transition:var(--tr);display:flex;align-items:center;gap:5px;cursor:pointer}
+.nav-item>a{color:rgba(255,255,255,0.65);text-decoration:none;padding:8px 16px;font-family:var(--font-d);font-size:0.82rem;font-weight:500;border-radius:var(--radius-sm);transition:var(--tr);display:flex;align-items:center;gap:5px;cursor:pointer;border-bottom:2px solid transparent}
 .nav-item>a:hover,.nav-item.open>a{color:var(--white);background:rgba(255,255,255,0.06)}
+.nav-item>a.is-active{color:var(--accent-light);border-bottom-color:var(--accent);background:rgba(14,165,233,0.04)}
 .nav-item>a .chevron{font-size:0.55rem;opacity:0.5;transition:transform 0.3s ease}
 .nav-item.open>a .chevron{transform:rotate(180deg);opacity:0.8}
-.mega-drop{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.3s ease,transform 0.3s ease;z-index:200;min-width:620px;border-radius:var(--radius);overflow:hidden;background:rgba(11,20,38,0.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(14,165,233,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(14,165,233,0.08) inset,0 1px 0 rgba(255,255,255,0.04) inset}
+.mega-drop{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.3s ease,transform 0.3s ease;transition-delay:150ms;z-index:200;min-width:620px;border-radius:var(--radius);overflow:hidden;background:rgba(11,20,38,0.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(14,165,233,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(14,165,233,0.08) inset,0 1px 0 rgba(255,255,255,0.04) inset}
 @media(max-width:768px){.mega-drop{display:none!important}}
 .mega-drop::before{content:"";position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:8px;clip-path:polygon(50% 0%,0% 100%,100% 100%);background:rgba(14,165,233,0.25)}
-.nav-item.open .mega-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-item:hover .mega-drop{transition-delay:0ms}
+.nav-item.open .mega-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:0ms}
 .mega-inner{display:flex;gap:0}
 .mega-cols{flex:1;display:grid;gap:0;padding:20px}
 .mega-cols-2{grid-template-columns:1fr 1fr}
@@ -499,6 +501,7 @@ body.preloader-active{overflow:hidden}
 section{padding:clamp(72px,8vw,120px) 0;position:relative}
 @media(max-width:768px){section{padding:3.5rem 0}}
 @media(max-width:480px){section{padding:2.5rem 0}}
+section[id]{scroll-margin-top:90px}
 .sec-light{background:var(--surface)}
 .sec-dark{background:var(--primary);color:var(--white)}
 .sec-grad{background:linear-gradient(180deg,var(--primary) 0%,var(--primary-mid) 100%);color:var(--white)}
@@ -1118,8 +1121,8 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .mobile-nav{position:fixed;inset:0;z-index:150;background:rgba(11,20,38,0.98);backdrop-filter:blur(40px) saturate(1.4);-webkit-backdrop-filter:blur(40px) saturate(1.4);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:all 0.5s cubic-bezier(0.22,0.61,0.36,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .mobile-nav.open{opacity:1;pointer-events:all}
 .mobile-nav-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;background:rgba(11,20,38,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:2}
-.mobile-nav-close{background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);width:40px;height:40px;border-radius:10px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--tr)}
-.mobile-nav-close:hover{border-color:var(--accent);color:var(--accent-light);background:rgba(14,165,233,0.08)}
+.mobile-nav-close{background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);width:48px;height:48px;border-radius:10px;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--tr);-webkit-tap-highlight-color:transparent}
+.mobile-nav-close:hover{border-color:var(--accent);color:var(--accent-light);background:rgba(14,165,233,0.12);box-shadow:0 0 12px rgba(14,165,233,0.2)}
 .mobile-nav-body{flex:1;padding:12px 16px 100px;display:flex;flex-direction:column;gap:4px}
 
 /* Accordion sections */
@@ -1963,8 +1966,12 @@ body.light-theme #careers .career-icon{
                   <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Agadem–Doba Interconnect">Interconnexion Agadem–Doba</div><div class="mega-link-desc" data-i18n data-en="600 km link, revived 2024">600 km, relancé 2024</div></div>
                 </a>
                 <a href="#vision" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon"><i class="fas fa-fire-flame-curved"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Trans-Saharan Gas">Gazoduc Transsaharien</div><div class="mega-link-desc" data-i18n data-en="$20B, Nigeria–Chad–Libya–Europe">$20 Mrd, Nigeria–Tchad–Libye–Europe</div></div>
+                </a>
+                <a href="#vision" class="mega-link" role="menuitem">
                   <div class="mega-link-icon teal"><i class="fas fa-bolt"></i></div>
-                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="WAGP Connection">Connexion WAGP</div><div class="mega-link-desc" data-i18n data-en="West African Gas Pipeline tie-in">Raccordement au gazoduc ouest-africain</div></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Agadem–Doba & South Sudan">Agadem–Doba & Soudan du Sud</div><div class="mega-link-desc" data-i18n data-en="New interconnection corridors">Nouveaux corridors d'interconnexion</div></div>
                 </a>
               </div>
             </div>
@@ -2001,7 +2008,7 @@ body.light-theme #careers .career-icon{
                 </a>
                 <a href="#esg" class="mega-link" role="menuitem">
                   <div class="mega-link-icon teal"><i class="fas fa-leaf"></i></div>
-                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Sustainability">ESG</div><div class="mega-link-desc" data-i18n data-en="Environmental, social & governance">Environnement, social & gouvernance</div></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Sustainability & Durability">ESG & Durabilité</div><div class="mega-link-desc" data-i18n data-en="Environmental, social & governance">Environnement, social & gouvernance</div></div>
                 </a>
                 <a href="#fleet" class="mega-link" role="menuitem">
                   <div class="mega-link-icon"><i class="fas fa-truck-moving"></i></div>
@@ -2214,6 +2221,7 @@ body.light-theme #careers .career-icon{
 
   <!-- Fixed CTA bottom -->
   <div class="mn-cta-wrap">
+    <a href="#hero" class="mn-back-top" id="mnBackTop" style="display:none;text-align:center;padding:8px 0;color:rgba(255,255,255,0.5);font-size:0.8rem;font-family:var(--font-d);text-decoration:none;transition:color 0.3s ease;margin-bottom:8px" data-i18n data-en="Back to top">Retour en haut</a>
     <a href="#contact" class="mn-cta"><i class="fas fa-paper-plane"></i> <span data-i18n data-en="Contact Us">Nous Contacter</span></a>
   </div>
 </nav>
@@ -3955,6 +3963,18 @@ body.light-theme #careers .career-icon{
     document.querySelectorAll('.dot-nav-dot').forEach(function(d){
       d.classList.toggle('active',d.dataset.section===active);
     });
+    /* Mega-nav active link highlighting */
+    var activeNavItem=null;
+    if(active==='pipeline'||active==='operations'||active==='hse-services'||active==='basins'||active==='producers'){
+      activeNavItem=document.querySelector('.nav-item[data-mega]:nth-child(1)');
+    }else if(active==='vision'){
+      activeNavItem=document.querySelector('.nav-item[data-mega]:nth-child(2)');
+    }else if(active==='esg'||active==='team'){
+      activeNavItem=document.querySelector('.nav-item[data-mega]:nth-child(4)');
+    }
+    document.querySelectorAll('.nav-item[data-mega]>a').forEach(function(a){
+      a.classList.toggle('is-active',activeNavItem&&activeNavItem.querySelector('a')===a);
+    });
     lastY=y;
   },{passive:true});
 
@@ -4193,6 +4213,18 @@ body.light-theme #careers .career-icon{
   document.getElementById('mobClose')?.addEventListener('click',close);
   mn.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',close)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mn.classList.contains('open'))close()});
+
+  /* Show/hide "Retour en haut" in mobile nav */
+  var backTopBtn=document.getElementById('mnBackTop');
+  if(backTopBtn){
+    window.addEventListener('scroll',function(){
+      if(window.scrollY>400){
+        backTopBtn.style.display='block';
+      }else{
+        backTopBtn.style.display='none';
+      }
+    },{passive:true});
+  }
 
   /* Accordion */
   mn.querySelectorAll('[data-accordion]').forEach(function(sec){
