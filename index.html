@@ -945,6 +945,29 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .fg textarea{resize:vertical;min-height:100px}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
+/* ═══ FORM VALIDATION UX ═══ */
+.form-group{position:relative;margin-bottom:20px}
+.form-group label{display:block;font-size:0.78rem;font-weight:600;margin-bottom:6px;transition:color 0.3s ease}
+.form-group .form-error{font-size:0.72rem;color:var(--danger,#EF4444);margin-top:4px;display:none;align-items:center;gap:4px}
+.form-group .form-error i{font-size:0.65rem}
+.form-group.has-error .form-error{display:flex}
+.form-group.has-error label{color:var(--danger,#EF4444)}
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea{border-color:var(--danger,#EF4444)!important;box-shadow:0 0 0 3px rgba(239,68,68,0.1)}
+.form-group.is-valid input,
+.form-group.is-valid select,
+.form-group.is-valid textarea{border-color:var(--success,#10B981)!important;box-shadow:0 0 0 3px rgba(16,185,129,0.1)}
+.form-group .valid-check{position:absolute;right:12px;top:50%;color:var(--success,#10B981);font-size:0.8rem;opacity:0;transition:opacity 0.3s ease}
+.form-group.is-valid .valid-check{opacity:1}
+.form-submit-success{text-align:center;padding:40px 24px;display:none}
+.form-submit-success .success-icon{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--success,#10B981),#059669);display:inline-flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;margin-bottom:16px;animation:successPop 0.5s cubic-bezier(0.22,0.61,0.36,1)}
+.form-submit-success h3{font-family:var(--font-d);font-size:1.2rem;margin-bottom:8px}
+.form-submit-success p{font-size:0.85rem;color:var(--text-sec);line-height:1.6}
+@keyframes successPop{0%{transform:scale(0)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.form-shake{animation:shake 0.4s ease}
+
 /* ═══ SEARCH OVERLAY ═══ */
 .search-overlay{position:fixed;inset:0;background:rgba(6,13,26,0.96);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding-top:18vh;opacity:0;visibility:hidden;transition:all 0.4s ease;backdrop-filter:blur(20px)}
 .search-overlay.open{opacity:1;visibility:visible}
@@ -1762,6 +1785,53 @@ body.light-theme #careers .career-icon{
   color:#0284C7 !important
 }
 
+/* ═══ LIGHT THEME — MEGA MENU ═══ */
+body.light-theme .mega-drop,
+body.light-theme .mega-drop--xl,
+body.light-theme .mega-drop--sm,
+body.light-theme .simple-drop{background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);border-color:rgba(0,0,0,0.08);box-shadow:0 20px 60px rgba(0,0,0,0.12)}
+body.light-theme .mega-col-title{color:#1a1a2e;border-color:rgba(0,0,0,0.08)}
+body.light-theme .mega-link:hover{background:rgba(0,0,0,0.04)}
+body.light-theme .mega-link strong,
+body.light-theme .mega-link .mega-link-title,
+body.light-theme .ml-title{color:#1a1a2e}
+body.light-theme .mega-link small,
+body.light-theme .mega-link .mega-link-desc,
+body.light-theme .ml-desc{color:#64748b}
+body.light-theme .mega-featured{background:rgba(0,0,0,0.03);border-color:rgba(0,0,0,0.06)}
+body.light-theme .mega-featured-title,
+body.light-theme .mega-featured p{color:#1a1a2e}
+body.light-theme .mega-label{color:#64748b;border-color:rgba(0,0,0,0.06)}
+
+/* ═══ LIGHT THEME — MOBILE NAV ═══ */
+body.light-theme .mobile-nav,
+body.light-theme #mobileNav{background:rgba(255,255,255,0.98);backdrop-filter:blur(20px)}
+body.light-theme .mobile-nav a,
+body.light-theme #mobileNav a{color:#1a1a2e}
+body.light-theme .mobile-nav a span,
+body.light-theme #mobileNav .mn-link-name{color:#1a1a2e}
+body.light-theme .mobile-nav a .mn-desc,
+body.light-theme .mobile-nav a .mn-link-desc,
+body.light-theme #mobileNav .mn-link-desc{color:#64748b}
+body.light-theme .mn-section-title,
+body.light-theme .mobile-nav-section{color:#64748b}
+body.light-theme .mn-header,
+body.light-theme .mobile-nav-header{border-color:rgba(0,0,0,0.06)}
+
+/* ═══ LIGHT THEME — FOOTER ═══ */
+body.light-theme footer,
+body.light-theme .site-footer{background:#f8fafc;color:#1a1a2e}
+body.light-theme footer h4,
+body.light-theme .site-footer h4{color:#1a1a2e}
+body.light-theme footer a,
+body.light-theme .site-footer a{color:#475569}
+body.light-theme footer a:hover,
+body.light-theme .site-footer a:hover{color:var(--accent)}
+body.light-theme footer p,
+body.light-theme .site-footer p{color:#64748b}
+body.light-theme .ftr-bottom,
+body.light-theme .footer-bottom{background:#f1f5f9;border-color:rgba(0,0,0,0.06)}
+
 /* ═══ ESG KPI STRIP ═══ */
 .esg-kpi-strip{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;padding:24px;background:linear-gradient(135deg,rgba(15,29,53,0.5),rgba(11,20,38,0.75));border:1px solid rgba(255,255,255,0.06);border-radius:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .esg-kpi{text-align:center;padding:12px 20px;min-width:120px}
@@ -1815,6 +1885,19 @@ body.light-theme #careers .career-icon{
   .hse-kpi-val{font-size:1.4rem}
   .hse-cta{width:100%;justify-content:center;margin-top:16px}
 }
+
+/* ═══ PRINT STYLES ═══ */
+@media print{
+  .header,.site-footer,footer,.mobile-nav,#mobileNav,.dot-nav,.chat-widget,.fab,.bottom-nav,.ticker,.search-overlay,#searchOverlay,.nav-cta,.mob-tog,.mob-toggle,.theme-toggle,.lang-switch,.chat-toggle,#chatToggle{display:none!important}
+  body,body.light-theme{background:#fff!important;color:#000!important}
+  section{break-inside:avoid;page-break-inside:avoid}
+  a[href]:after{content:" (" attr(href) ")";font-size:0.8em;color:#666}
+  .sec-dark,.sec-grad{background:#fff!important;color:#000!important}
+  .sec-dark h2,.sec-dark h3,.sec-dark p,.sec-grad h2,.sec-grad h3,.sec-grad p{color:#000!important}
+  *{box-shadow:none!important;text-shadow:none!important}
+  img{max-width:100%!important}
+}
+
 </style>
 <script type="application/ld+json">
 [
@@ -3955,13 +4038,18 @@ body.light-theme #careers .career-icon{
         <div class="cd"><div class="cd-icon"><i class="fas fa-envelope"></i></div><div class="cd-text"><strong>midstream@enertchad.td</strong><small data-i18n data-en="Response within 24h">Réponse sous 24h</small></div></div>
       </div>
       <form class="contact-form" id="contactForm" data-r>
-        <div class="fg-row"><div class="fg"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" required aria-required="true"></div><div class="fg"><label data-i18n data-en="Email">Email *</label><input type="email" id="cf-email" required aria-required="true"></div></div>
-        <div class="fg"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company"></div>
-        <div class="fg"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE — Pipeline Services">HSE — Services pipeline</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select></div>
-        <div class="fg"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" required aria-required="true"></textarea></div>
+        <div class="fg-row"><div class="form-group"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" required aria-required="true"><div class="form-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div><div class="form-group"><label data-i18n data-en="Email">Email *</label><input type="email" id="cf-email" required aria-required="true"><div class="form-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="Valid email required">Email valide requis</span></div><i class="fas fa-check-circle valid-check"></i></div></div>
+        <div class="form-group"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company"><i class="fas fa-check-circle valid-check"></i></div>
+        <div class="form-group"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE — Pipeline Services">HSE — Services pipeline</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select><i class="fas fa-check-circle valid-check"></i></div>
+        <div class="form-group"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" required aria-required="true"></textarea><div class="form-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div>
         <button type="submit" class="btn btn-brand" style="width:100%;justify-content:center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer la demande</button>
         <div class="form-msg" id="formMsg" role="alert" aria-live="assertive" aria-atomic="true"></div>
       </form>
+      <div class="form-submit-success" id="formSuccess">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h3 data-i18n data-en="Message Sent!">Message Envoyé !</h3>
+        <p data-i18n data-en="Thank you for contacting us. Our team will respond within 24 hours.">Merci de nous avoir contacté. Notre équipe vous répondra sous 24 heures.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -4550,15 +4638,66 @@ body.light-theme #careers .career-icon{
 })();
 
 /* ═══ CONTACT FORM ═══ */
-document.getElementById('contactForm')?.addEventListener('submit',function(e){
-  e.preventDefault();
-  var name=document.getElementById('cf-name').value.trim();
-  var email=document.getElementById('cf-email').value.trim();
-  var msg=document.getElementById('formMsg');
-  if(!name||!email){msg.className='form-msg err';msg.style.display='block';msg.textContent='Veuillez remplir les champs obligatoires.';return}
-  msg.className='form-msg ok';msg.style.display='block';msg.textContent='Merci '+name+' ! Votre demande a été envoyée.';
-  this.reset();
+// Form validation
+function validateField(input) {
+  const group = input.closest('.form-group');
+  if (!group) return true;
+  const error = group.querySelector('.form-error');
+
+  let valid = true;
+  if (input.required && !input.value.trim()) {
+    valid = false;
+  } else if (input.type === 'email' && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+    valid = false;
+    if (error) error.innerHTML = '<i class="fas fa-exclamation-circle"></i> Email invalide';
+  }
+
+  group.classList.toggle('has-error', !valid);
+  group.classList.toggle('is-valid', valid && input.value.trim().length > 0);
+  return valid;
+}
+
+// Add real-time validation on blur
+document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea').forEach(input => {
+  input.addEventListener('blur', () => validateField(input));
+  input.addEventListener('input', () => {
+    const group = input.closest('.form-group');
+    if (group && group.classList.contains('has-error')) validateField(input);
+  });
 });
+
+// On form submit
+const form = document.querySelector('.contact-form');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let allValid = true;
+    this.querySelectorAll('input[required], select[required], textarea[required]').forEach(input => {
+      if (!validateField(input)) allValid = false;
+    });
+
+    if (!allValid) {
+      this.classList.add('form-shake');
+      setTimeout(() => this.classList.remove('form-shake'), 400);
+      return;
+    }
+
+    // Show success state
+    const successEl = this.querySelector('.form-submit-success') || this.parentElement.querySelector('.form-submit-success');
+    if (successEl) {
+      this.style.display = 'none';
+      successEl.style.display = 'block';
+    } else {
+      const msg=document.getElementById('formMsg');
+      const name=document.getElementById('cf-name').value.trim();
+      msg.className='form-msg ok';msg.style.display='block';msg.textContent='Merci '+name+' ! Votre demande a été envoyée.';
+    }
+    this.reset();
+    this.querySelectorAll('.form-group').forEach(group => {
+      group.classList.remove('has-error', 'is-valid');
+    });
+  });
+}
 
 /* ═══ SEARCH OVERLAY ═══ */
 (function(){
@@ -4661,6 +4800,22 @@ function toggleTheme(){
 
 <script>
 (function(){const b=document.getElementById('scrollTop');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+/* ═══ WEB VITALS MONITORING ═══ */
+if('PerformanceObserver' in window){
+  const vitals={};
+  try{
+    new PerformanceObserver(l=>{l.getEntries().forEach(e=>{vitals.LCP=Math.round(e.startTime);})}).observe({type:'largest-contentful-paint',buffered:true});
+    new PerformanceObserver(l=>{l.getEntries().forEach(e=>{if(!e.hadRecentInput){vitals.CLS=(vitals.CLS||0)+e.value;}})}).observe({type:'layout-shift',buffered:true});
+    new PerformanceObserver(l=>{l.getEntries().forEach(e=>{vitals.FID=Math.round(e.processingStart-e.startTime);})}).observe({type:'first-input',buffered:true});
+    new PerformanceObserver(l=>{l.getEntries().forEach(e=>{vitals.INP=Math.round(e.duration);})}).observe({type:'event',buffered:true,durationThreshold:40});
+  }catch(e){}
+  window.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='hidden'){
+      vitals.CLS=Math.round((vitals.CLS||0)*1000)/1000;
+      console.table({'Web Vitals':vitals});
+    }
+  });
+}
 </script>
 </body>
 </html>
