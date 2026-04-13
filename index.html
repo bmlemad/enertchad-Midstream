@@ -1065,6 +1065,12 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .mn-lang-btn{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.4);font-family:var(--font-d);font-size:0.78rem;font-weight:600;text-align:center;cursor:pointer;transition:all 0.3s ease;-webkit-tap-highlight-color:transparent}
 .mn-lang-btn.active{background:rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.2);color:var(--accent-light)}
 
+/* Mobile theme toggle styling */
+#themeToggleMobile{display:flex;align-items:center;justify-content:center;gap:0;font-size:0.9rem;color:rgba(255,255,255,0.7);transition:all 0.3s ease;margin:0 16px 8px 16px !important;padding:10px !important;border-radius:10px !important}
+#themeToggleMobile:hover{background:rgba(255,255,255,0.15) !important;color:#fff}
+body.light-theme #themeToggleMobile{background:rgba(0,0,0,0.05) !important;border-color:rgba(0,0,0,0.1) !important;color:#475569}
+body.light-theme #themeToggleMobile:hover{background:rgba(0,0,0,0.1) !important;color:#0F172A}
+
 /* Animation staggering */
 .mobile-nav.open .mobile-nav-body>*{animation:mnSlideIn 0.4s cubic-bezier(0.16,1,0.3,1) both}
 .mobile-nav.open .mobile-nav-body>*:nth-child(1){animation-delay:0.04s}
@@ -1200,6 +1206,231 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
   .mn-section-header{padding:12px 14px}
   .mn-link{padding:9px 12px}
   .fso-stats{gap:6px}
+}
+
+/* ═══ THEME TOGGLE ═══ */
+.theme-toggle{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:999px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.9rem;color:rgba(255,255,255,0.7);transition:all 0.3s ease;padding:0;margin:0;font-family:inherit}
+.theme-toggle:hover{background:rgba(255,255,255,0.15);color:#fff}
+.theme-icon-light{display:none}
+body.light-theme .theme-icon-dark{display:none}
+body.light-theme .theme-icon-light{display:inline}
+body.light-theme .theme-toggle{background:rgba(0,0,0,0.05);border-color:rgba(0,0,0,0.1);color:#475569}
+body.light-theme .theme-toggle:hover{background:rgba(0,0,0,0.1);color:#0F172A}
+
+/* ═══ LIGHT THEME ═══ */
+body.light-theme{
+  --primary:#F8FAFC;
+  --primary-mid:#F1F5F9;
+  --primary-light:#E2E8F0;
+  --accent:#0284C7;
+  --accent-light:#0EA5E9;
+  --teal:#0D9488;
+  --teal-light:#14B8A6;
+  --surface:#FFFFFF;
+  --surface-alt:#F1F5F9;
+  --text:#0F172A;
+  --text-sec:#475569;
+  --text-light:#64748B;
+  --white:#FFFFFF;
+  background:#F8FAFC;
+  color:#0F172A;
+  color-scheme:light
+}
+
+body.light-theme,body.light-theme * {
+  transition:background 0.4s ease,color 0.4s ease,border-color 0.4s ease,box-shadow 0.4s ease
+}
+
+/* ═══ LIGHT THEME - KEEP DARK ═══ */
+body.light-theme #hero,
+body.light-theme .stats,
+body.light-theme footer,
+body.light-theme #preloader,
+body.light-theme .ticker{
+  --primary:#0B1426;--primary-mid:#0F1D35;--primary-light:#162A4A;
+  --accent:#0EA5E9;--accent-light:#38BDF8;
+  --teal:#14B8A6;--teal-light:#2DD4BF;
+  --text:#FFFFFF;--text-sec:#CBD5E1;--text-light:#94A3B8;
+  background-color:#0B1426 !important;
+  color:#FFFFFF
+}
+
+body.light-theme footer h3,
+body.light-theme footer h4,
+body.light-theme footer a {
+  color:inherit
+}
+
+/* ═══ LIGHT THEME - FLIP DARK SECTIONS ═══ */
+body.light-theme .sec-dark{
+  background:#F8FAFC !important;
+  color:#0F172A
+}
+
+body.light-theme .sec-dark h2,
+body.light-theme .sec-dark h3,
+body.light-theme .sec-dark h4{
+  color:#0F172A
+}
+
+body.light-theme .sec-dark p,
+body.light-theme .sec-dark span:not(.logo-text span):not([class*="stat"]):not([class*="val"]):not([class*="label"]){
+  color:#475569
+}
+
+body.light-theme .sec-dark .op-card,
+body.light-theme .sec-dark .vision-card,
+body.light-theme .sec-dark .team-card,
+body.light-theme .sec-dark .esg-pillar,
+body.light-theme .sec-dark .basin-card,
+body.light-theme .sec-dark .prod-card{
+  background:#FFFFFF !important;
+  border-color:#E2E8F0 !important;
+  box-shadow:0 1px 3px rgba(0,0,0,0.06) !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important
+}
+
+body.light-theme .sec-dark .op-card:hover,
+body.light-theme .sec-dark .vision-card:hover,
+body.light-theme .sec-dark .team-card:hover,
+body.light-theme .sec-dark .esg-pillar:hover,
+body.light-theme .sec-dark .basin-card:hover,
+body.light-theme .sec-dark .prod-card:hover{
+  box-shadow:0 20px 50px rgba(0,0,0,0.08) !important;
+  border-color:rgba(14,165,233,0.2) !important
+}
+
+body.light-theme .sec-dark .op-card h3,
+body.light-theme .sec-dark .vision-card h3,
+body.light-theme .sec-dark .team-card h4,
+body.light-theme .sec-dark .esg-pillar h3,
+body.light-theme .sec-dark .basin-card h4,
+body.light-theme .sec-dark .prod-card h4{
+  color:#0F172A
+}
+
+body.light-theme .sec-dark .op-card p,
+body.light-theme .sec-dark .vision-card p,
+body.light-theme .sec-dark .team-card small,
+body.light-theme .sec-dark .team-card p,
+body.light-theme .sec-dark .esg-pillar p,
+body.light-theme .sec-dark .basin-card p,
+body.light-theme .sec-dark .prod-card p{
+  color:#475569
+}
+
+/* Tags and badges */
+body.light-theme .sec-dark .op-tag,
+body.light-theme .sec-dark .esg-tag,
+body.light-theme .sec-dark .prod-tag{
+  background:rgba(14,165,233,0.08) !important;
+  border-color:rgba(14,165,233,0.15) !important;
+  color:#0284C7 !important
+}
+
+/* ESG stat boxes */
+body.light-theme .sec-dark .esg-stat{
+  background:#F8FAFC !important;
+  border-color:#E2E8F0 !important
+}
+
+body.light-theme .sec-dark .esg-stat-val{
+  color:#0F172A !important;
+  background:none !important;
+  -webkit-text-fill-color:#0F172A
+}
+
+body.light-theme .sec-dark .esg-stat-label{
+  color:#64748B
+}
+
+/* Icon containers */
+body.light-theme .sec-dark .op-icon,
+body.light-theme .sec-dark .esg-pillar-icon,
+body.light-theme .sec-dark .team-card-avatar{
+  background:rgba(14,165,233,0.06) !important;
+  border-color:rgba(14,165,233,0.15) !important;
+  color:#0284C7 !important
+}
+
+/* Vision card gradient text */
+body.light-theme .sec-dark .vision-card h3 span{
+  color:#B45309 !important;
+  -webkit-text-fill-color:#B45309;
+  background:none !important
+}
+
+/* Tab buttons */
+body.light-theme .sec-dark .esg-tab-btn{
+  color:#64748B
+}
+
+body.light-theme .sec-dark .esg-tab-btn.active{
+  color:#0F172A;
+  border-bottom-color:#0D9488
+}
+
+body.light-theme .sec-dark .esg-tab-btn:hover{
+  color:#0F172A
+}
+
+/* Header adaptation */
+body.light-theme header:not(#hero *){
+  background:rgba(255,255,255,0.85) !important;
+  backdrop-filter:blur(20px);
+  border-bottom-color:rgba(0,0,0,0.06) !important
+}
+
+body.light-theme .nav a,
+body.light-theme .nav-link{
+  color:#334155
+}
+
+body.light-theme .nav a:hover,
+body.light-theme .nav-link:hover{
+  color:#0284C7
+}
+
+/* Mega menu in light mode */
+body.light-theme .mega-drop{
+  background:rgba(248,250,252,0.95) !important;
+  backdrop-filter:blur(20px);
+  border-color:rgba(0,0,0,0.1) !important;
+  color:#0F172A
+}
+
+body.light-theme .mega-link{
+  color:#334155 !important
+}
+
+body.light-theme .mega-link:hover{
+  background:rgba(14,165,233,0.08) !important;
+  color:#0284C7 !important
+}
+
+body.light-theme .mega-col-title{
+  color:#0F172A
+}
+
+/* Mobile nav in light mode - keep dark if opened from dark theme, else adapt */
+body.light-theme .mobile-nav{
+  background:rgba(248,250,252,0.98) !important;
+  color:#0F172A
+}
+
+body.light-theme .mobile-nav .mn-section-title{
+  color:#0F172A
+}
+
+body.light-theme .mobile-nav .mn-link{
+  color:#334155
+}
+
+body.light-theme .mobile-nav .mn-link:hover,
+body.light-theme .mobile-nav .mn-link:active{
+  background:rgba(14,165,233,0.06);
+  color:#0284C7
 }
 </style>
 </head>
@@ -1448,6 +1679,10 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
     </nav>
     <div class="hdr-actions">
       <button id="searchBtn" aria-label="Rechercher (Ctrl+K)" title="Rechercher (Ctrl+K)" style="background:none;border:1.5px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);height:38px;border-radius:10px;font-size:0.82rem;cursor:pointer;transition:all .3s ease;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 12px"><i class="fas fa-magnifying-glass"></i><kbd style="font-family:var(--font-d);font-size:0.6rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:2px 6px;color:rgba(255,255,255,0.4);line-height:1">⌘K</kbd></button>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Basculer thème clair/sombre" title="Basculer thème clair/sombre">
+        <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+        <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+      </button>
       <div class="lang-switch" aria-label="Langue" role="radiogroup">
         <button class="lang-btn active" data-lang="fr" role="radio" aria-checked="true">FR</button>
         <button class="lang-btn" data-lang="en" role="radio" aria-checked="false">EN</button>
@@ -1470,6 +1705,13 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
       <button class="mn-lang-btn active" data-mlang="fr">🇫🇷 Français</button>
       <button class="mn-lang-btn" data-mlang="en">🇬🇧 English</button>
     </div>
+
+    <!-- Theme toggle for mobile -->
+    <button class="theme-toggle" id="themeToggleMobile" onclick="toggleTheme()" style="width:100%;margin:0 0 8px 0;padding:10px;border-radius:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12)" aria-label="Basculer thème clair/sombre">
+      <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+      <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+      <span style="margin-left:8px;font-family:var(--font-d);font-size:0.78rem;font-weight:600" data-i18n data-en="Light/Dark">Clair/Sombre</span>
+    </button>
 
     <!-- 1. Infrastructure accordion -->
     <div class="mn-section" data-accordion>
@@ -3660,6 +3902,20 @@ document.getElementById('contactForm')?.addEventListener('submit',function(e){
         results.appendChild(a);
       });
     });
+  }
+})();
+
+/* ═══ THEME TOGGLE ═══ */
+function toggleTheme(){
+  document.body.classList.toggle('light-theme');
+  localStorage.setItem('enertchad-theme',document.body.classList.contains('light-theme')?'light':'dark');
+}
+
+(function(){
+  var savedTheme=localStorage.getItem('enertchad-theme');
+  var prefersDark=window.matchMedia('(prefers-color-scheme:dark)').matches;
+  if(savedTheme==='light'||(!savedTheme&&!prefersDark)){
+    document.body.classList.add('light-theme');
   }
 })();
 </script>
