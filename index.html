@@ -395,99 +395,45 @@ body.preloader-active{overflow:hidden}
 .mob-toggle{display:none;background:none;border:1.5px solid rgba(255,255,255,0.2);color:var(--white);width:48px;height:48px;border-radius:var(--radius-sm);font-size:1rem;cursor:pointer;transition:var(--tr);touch-action:manipulation}
 .mob-toggle:hover{border-color:var(--accent);color:var(--accent-light)}
 
-/* ═══ HERO ═══ */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;background:var(--primary) url('pipeline-hero.svg') center 60%/cover no-repeat;overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.35;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E") repeat}
+/* ═══ HERO — CINEMATIC MAJORS ═══ */
+.hero{min-height:100vh;display:flex;align-items:flex-end;position:relative;background:var(--primary) url('pipeline-hero.svg') center 60%/cover no-repeat;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.3;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E") repeat}
 .hero-overlay{position:absolute;inset:0;background:
-  radial-gradient(ellipse 90% 70% at 50% 45%,rgba(14,165,233,0.1) 0%,transparent 60%),
-  radial-gradient(ellipse 60% 50% at 80% 80%,rgba(20,184,166,0.06) 0%,transparent 55%),
-  linear-gradient(175deg,rgba(11,20,38,0.98) 0%,rgba(15,29,53,0.93) 40%,rgba(22,42,74,0.88) 70%,rgba(14,165,233,0.12) 100%);z-index:1}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,transparent 0%,transparent 70%,rgba(11,20,38,0.6) 100%)}
-.hero-orb{position:absolute;border-radius:50%;filter:blur(140px);opacity:0.12;animation:orbFloat 16s ease-in-out infinite alternate;z-index:1;pointer-events:none;will-change:transform}
-.hero-orb.orb-1{width:600px;height:600px;background:var(--accent);top:-200px;left:50%;margin-left:-300px}
-.hero-orb.orb-2{width:400px;height:400px;background:var(--teal);bottom:-150px;right:-80px;animation-delay:-5s}
-.hero-orb.orb-3{width:300px;height:300px;background:var(--gold);bottom:30%;left:-60px;animation-delay:-9s;opacity:0.06}
-@keyframes orbFloat{0%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}100%{transform:translate(-15px,15px)}}
-.hero-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
-
-.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:160px 0 120px;max-width:900px;margin:0 auto}
-@media(max-width:768px){.hero-content{padding:120px 16px 90px;max-width:100%}}
-@media(max-width:480px){.hero-content{padding:100px 16px 70px}}
-.hero-brand{margin-bottom:28px;opacity:0;animation:heroFadeIn 1s 0.3s cubic-bezier(0.22,0.61,0.36,1) forwards}
-.hero-brand img{width:88px;height:88px;filter:drop-shadow(0 8px 30px rgba(14,165,233,0.3)) drop-shadow(0 0 60px rgba(56,189,248,0.2));margin-bottom:14px}
-.hero-brand-name{font-family:var(--font-d);font-size:clamp(0.85rem,1.5vw,1.1rem);font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.6)}
-.hero-brand-sub{font-family:var(--font-d);font-size:clamp(0.62rem,0.9vw,0.72rem);font-weight:500;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent-light);opacity:0.6}
-
-.hero-scope{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px;flex-wrap:wrap;opacity:0;animation:heroFadeIn 0.8s 0.6s ease-out forwards}
-.hero-scope-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.05);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);border:1px solid rgba(255,255,255,0.1);padding:7px 16px;border-radius:999px;font-family:var(--font-d);font-size:0.73rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;color:rgba(255,255,255,0.6);transition:all 0.4s cubic-bezier(0.22,0.61,0.36,1);cursor:pointer}
-.hero-scope-tag:hover{transform:translateY(-2px);background:rgba(255,255,255,0.1);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
-.hero-scope-tag.pipe{color:var(--accent-light);border-color:rgba(14,165,233,0.3)}
-.hero-scope-tag.pipe:hover{border-color:rgba(14,165,233,0.5);box-shadow:0 4px 20px rgba(14,165,233,0.15)}
-.hero-scope-tag.store{color:var(--teal-light);border-color:rgba(20,184,166,0.3)}
-.hero-scope-tag.store:hover{border-color:rgba(20,184,166,0.5);box-shadow:0 4px 20px rgba(20,184,166,0.15)}
-.hero-scope-tag.meter{color:var(--gold-light);border-color:rgba(200,150,46,0.3)}
-.hero-scope-tag.meter:hover{border-color:rgba(200,150,46,0.5);box-shadow:0 4px 20px rgba(200,150,46,0.15)}
-.hero-scope-tag.hse{color:var(--success-light);border-color:rgba(16,185,129,0.3)}
-.hero-scope-tag.hse:hover{border-color:rgba(16,185,129,0.5);box-shadow:0 4px 20px rgba(16,185,129,0.15)}
-
-.hero h1{font-family:var(--font-d);font-size:clamp(2.2rem,6.5vw,5.2rem);font-weight:700;color:var(--white);line-height:1.04;letter-spacing:-0.04em;margin-bottom:24px;opacity:0;animation:heroFadeIn 1s 0.8s cubic-bezier(0.22,0.61,0.36,1) forwards}
+  linear-gradient(180deg,rgba(11,20,38,0.55) 0%,rgba(11,20,38,0.3) 40%,rgba(11,20,38,0.65) 75%,rgba(11,20,38,0.95) 100%);z-index:1}
+/* Content — bottom-aligned, left-heavy */
+.hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 0;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding-top:30vh;padding-bottom:120px}
+/* Eyebrow */
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-d);font-size:0.72rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent-light);opacity:0;animation:heroReveal 0.6s 0.1s ease-out forwards;margin-bottom:20px}
+.hero-eyebrow::before{content:'';width:32px;height:1.5px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px}
+/* H1 */
+.hero h1{font-family:var(--font-d);font-size:clamp(2.8rem,7vw,5.8rem);font-weight:800;line-height:1;letter-spacing:-0.035em;color:#fff;margin-bottom:24px;opacity:0;animation:heroReveal 0.7s 0.2s ease-out forwards;max-width:14ch}
 .hero h1 .hl{background:linear-gradient(120deg,var(--accent-light) 0%,var(--accent) 50%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;display:inline}
-.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:3px;background:linear-gradient(90deg,transparent,rgba(14,165,233,0.7),rgba(20,184,166,0.5),transparent);border-radius:3px;transform:scaleX(0);transform-origin:left;animation:heroUnderline 1.2s 2s cubic-bezier(0.22,0.61,0.36,1) forwards}
-.hero-line{width:60px;height:2px;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:2px;margin:0 auto 24px;opacity:0;animation:heroLineIn 0.8s 1.4s ease-out forwards}
-.hero-desc{font-size:clamp(0.85rem,1.4vw,1.15rem);color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:32px;max-width:620px;font-weight:400;opacity:0;animation:heroFadeUp 1s 1.6s ease-out forwards}
-.hero-slogan{font-family:var(--font-d);font-size:clamp(0.72rem,1vw,0.85rem);font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent-light);margin-bottom:28px;opacity:0;animation:heroFadeUp 0.8s 1.8s ease-out forwards}
-.hero-acts{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;opacity:0;animation:heroFadeUp 0.8s 2s ease-out forwards;flex-direction:column;width:100%}
-@media(max-width:480px){.hero-acts{gap:10px}}
-.hero-acts .btn{width:100%;justify-content:center}
-@media(min-width:481px){.hero-acts{flex-direction:row;width:auto}
-.hero-acts .btn{width:auto}}
+/* Desc */
+.hero-desc{font-size:clamp(1rem,1.3vw,1.15rem);color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:32px;max-width:520px;opacity:0;animation:heroReveal 0.7s 0.35s ease-out forwards}
+/* CTAs */
+.hero-acts{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:heroReveal 0.6s 0.5s ease-out forwards}
 .hero-acts .btn{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-
-.hero-ticker{display:flex;align-items:center;justify-content:center;gap:0;margin-top:28px;padding:14px 28px;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;animation:heroFadeUp .8s 2.4s ease-out forwards}
-@media(max-width:768px){.hero-ticker{padding:12px 20px;margin-top:20px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}}
-@media(max-width:480px){.hero-ticker{padding:10px 16px;margin-top:16px;border-radius:12px}}
-.hero-ticker-item{display:flex;align-items:center;gap:8px;padding:0 20px}
-.hero-ticker-item i{font-size:.85rem;color:var(--accent-light);opacity:.7}
-.hero-ticker-val{font-family:var(--font-d);font-size:1.15rem;font-weight:800;background:linear-gradient(90deg,var(--white),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;min-width:50px;text-align:right;font-variant-numeric:tabular-nums}
-.hero-ticker-item small{font-size:.65rem;color:rgba(255,255,255,.4);max-width:90px;line-height:1.3}
-@media(max-width:768px){
-  .hero-ticker-item{padding:0 12px;gap:6px}
-  .hero-ticker-val{font-size:0.95rem}
-  .hero-ticker-item small{font-size:0.6rem;max-width:75px}
-}
-@media(max-width:480px){
-  .hero-ticker-item{padding:0 8px;gap:4px}
-  .hero-ticker-val{font-size:0.88rem}
-  .hero-ticker-item i{font-size:0.7rem}
-}
-.hero-ticker-sep{width:1px;height:28px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.12),transparent);flex-shrink:0}
-
-.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;width:72px;height:72px;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;opacity:0;animation:heroScrollFade 1s 2.8s cubic-bezier(0.22,0.61,0.36,1) forwards;transition:opacity 0.5s ease,transform 0.5s ease}
-.hero-scroll.is-hidden{opacity:0!important;transform:translateX(-50%) translateY(16px);pointer-events:none}
-.hero-scroll-ring{position:absolute;inset:0;animation:scrollRingSpin 12s linear infinite}
-.hero-scroll-ring text{fill:rgba(255,255,255,0.3);font-family:var(--font-d);font-size:10.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase}
-.hero-scroll::before{content:"";position:absolute;inset:-8px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,0.12) 0%,transparent 70%);animation:scrollGlow 3s ease-in-out infinite;pointer-events:none}
-.hero-scroll-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:2px}
-.hero-scroll-chevron{width:16px;height:16px;display:flex;align-items:center;justify-content:center}
-.hero-scroll-chevron svg{width:16px;height:16px;stroke:rgba(255,255,255,0.55);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(14,165,233,0.4))}
-.hero-scroll-chevron:nth-child(1){animation:scrollChevron1 2.4s ease-in-out infinite}
-.hero-scroll-chevron:nth-child(2){animation:scrollChevron2 2.4s ease-in-out infinite;margin-top:-8px}
-.hero-scroll:hover .hero-scroll-ring{animation-duration:6s}
-.hero-scroll:hover .hero-scroll-chevron svg{stroke:rgba(255,255,255,0.85)}
-.hero-scroll::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,0.06);transition:border-color 0.4s ease}
-.hero-scroll:hover::after{border-color:rgba(14,165,233,0.25)}
-
-/* Hero keyframes */
-@keyframes heroFadeIn{0%{opacity:0;transform:translateY(20px) scale(0.98)}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes heroFadeUp{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes heroUnderline{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
-@keyframes heroLineIn{0%{opacity:0;transform:scaleX(0)}100%{opacity:1;transform:scaleX(1)}}
-@keyframes heroScrollFade{0%{opacity:0;transform:translateX(-50%) translateY(16px)}100%{opacity:1;transform:translateX(-50%) translateY(0)}}
-@keyframes scrollRingSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-@keyframes scrollGlow{0%,100%{opacity:0.6;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
-@keyframes scrollChevron1{0%,100%{opacity:0.5;transform:translateY(0)}50%{opacity:1;transform:translateY(3px)}}
-@keyframes scrollChevron2{0%,100%{opacity:0.3;transform:translateY(0)}50%{opacity:0.7;transform:translateY(3px)}}
+@media(max-width:480px){.hero-acts{flex-direction:column;width:100%}.hero-acts .btn{width:100%;justify-content:center}}
+/* KPI bar — bottom anchored */
+.hero-kpi-bar{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:center;gap:0;padding:16px 24px;background:rgba(11,20,38,0.6);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-top:1px solid rgba(255,255,255,0.06);opacity:0;animation:heroReveal 0.6s 0.7s ease-out forwards}
+.hero-kpi{display:flex;align-items:center;gap:10px;padding:0 clamp(16px,3vw,32px)}
+.hero-kpi i{font-size:0.85rem;color:var(--accent-light);opacity:0.7}
+.hero-kpi-val{font-family:var(--font-d);font-size:clamp(1rem,1.5vw,1.25rem);font-weight:800;color:#fff;font-variant-numeric:tabular-nums;min-width:40px;text-align:right}
+.hero-kpi small{font-size:0.65rem;color:rgba(255,255,255,0.4);max-width:100px;line-height:1.3}
+.hero-kpi-sep{width:1px;height:24px;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.12),transparent);flex-shrink:0}
+@media(max-width:768px){.hero-kpi-bar{flex-wrap:wrap;gap:8px;padding:12px 16px}.hero-kpi{padding:4px 12px}.hero-kpi-sep{display:none}}
+/* Scroll indicator */
+.hero-scroll{position:absolute;bottom:68px;left:50%;transform:translateX(-50%);z-index:4;opacity:0;animation:heroReveal 0.5s 0.9s ease-out forwards;transition:opacity 0.5s}
+.hero-scroll.is-hidden{opacity:0!important;pointer-events:none}
+.hero-scroll-chevron{display:block;animation:heroChevronBounce 2s ease-in-out infinite}
+.hero-scroll-chevron svg{width:20px;height:20px;stroke:rgba(255,255,255,0.4);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.hero-scroll:hover .hero-scroll-chevron svg{stroke:rgba(255,255,255,0.8)}
+/* Keyframes */
+@keyframes heroReveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroChevronBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes heroFadeIn{to{opacity:1}}
+@keyframes heroFadeUp{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes heroUnderline{to{transform:scaleX(1)}}
 
 /* ═══ BUTTONS ═══ */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius-sm);font-family:var(--font-d);font-weight:600;font-size:0.92rem;text-decoration:none;transition:var(--tr);border:none;cursor:pointer;min-height:48px;touch-action:manipulation}
@@ -1415,7 +1361,6 @@ body.light-theme,body.light-theme * {
 }
 
 /* ═══ LIGHT THEME - KEEP DARK ═══ */
-body.light-theme #hero,
 body.light-theme .stats,
 body.light-theme footer,
 body.light-theme #preloader,
@@ -1427,6 +1372,19 @@ body.light-theme .ticker{
   background-color:#0B1426 !important;
   color:#FFFFFF
 }
+
+/* ═══ LIGHT THEME - HERO (Cinematic Majors) ═══ */
+body.light-theme .hero{background:#F8FAFC}
+body.light-theme .hero-overlay{background:linear-gradient(180deg,rgba(248,250,252,0.3) 0%,rgba(248,250,252,0.85) 60%,rgba(248,250,252,0.98) 100%)}
+body.light-theme .hero h1{color:#0F172A;-webkit-text-fill-color:#0F172A}
+body.light-theme .hero-eyebrow{color:#0284C7}
+body.light-theme .hero-eyebrow::before{background:linear-gradient(90deg,#0EA5E9,transparent)}
+body.light-theme .hero-desc{color:#475569}
+body.light-theme .hero-kpi-bar{background:rgba(248,250,252,0.7);border-top-color:rgba(0,0,0,0.06)}
+body.light-theme .hero-kpi-val{color:#0F172A}
+body.light-theme .hero-kpi-label{color:#64748B}
+body.light-theme .hero-kpi-divider{background:rgba(0,0,0,0.08)}
+body.light-theme .hero-scroll-chevron svg{stroke:#64748B}
 
 body.light-theme footer h3,
 body.light-theme footer h4,
@@ -1835,10 +1793,10 @@ body.light-theme .footer-bottom{background:#f1f5f9;border-color:rgba(0,0,0,0.06)
 /* ─── Buttons (light sections) ─── */
 body.light-theme .btn-ghost{color:#1E293B;border-color:rgba(0,0,0,0.15)}
 body.light-theme .btn-ghost:hover{background:rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.3);color:#0284C7}
-body.light-theme #hero .btn-ghost,
+body.light-theme .hero .btn-ghost{color:#1E293B;border-color:rgba(0,0,0,0.15)}
+body.light-theme .hero .btn-ghost:hover{background:rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.3);color:#0284C7}
 body.light-theme .sec-dark .btn-ghost,
 body.light-theme footer .btn-ghost{color:#FFFFFF;border-color:rgba(255,255,255,0.25)}
-body.light-theme #hero .btn-ghost:hover,
 body.light-theme .sec-dark .btn-ghost:hover,
 body.light-theme footer .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.08)}
 body.light-theme .btn-brand{box-shadow:0 4px 20px rgba(14,165,233,0.2)}
@@ -2586,48 +2544,25 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
-  <div class="hero-orb orb-1" aria-hidden="true"></div>
-  <div class="hero-orb orb-2" aria-hidden="true"></div>
-  <div class="hero-orb orb-3" aria-hidden="true"></div>
-  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
   <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="ctn">
-    <div class="hero-content">
-      <div class="hero-brand">
-        <img src="logo.svg" alt="EnerTchad" width="88" height="88" style="border-radius:50%">
-        <div class="hero-brand-name">EnerTchad Intermédiaire</div>
-        <div class="hero-brand-sub" data-i18n data-en="Pipeline · Transport · Storage">Pipeline · Transport · Stockage</div>
-      </div>
-      <div class="hero-scope">
-        <a href="#pipeline" class="hero-scope-tag pipe" data-i18n data-en="Pipeline Network"><i class="fas fa-project-diagram" aria-hidden="true"></i> Réseau pipeline</a>
-        <a href="#operations" class="hero-scope-tag store" data-i18n data-en="Storage & Terminals"><i class="fas fa-warehouse" aria-hidden="true"></i> Stockage & Terminaux</a>
-        <a href="#operations" class="hero-scope-tag meter" data-i18n data-en="Fiscal Metering"><i class="fas fa-gauge-high" aria-hidden="true"></i> Métrologie fiscale</a>
-        <a href="#operations" class="hero-scope-tag hse" data-i18n data-en="Integrity & HSE"><i class="fas fa-shield-halved" aria-hidden="true"></i> Intégrité & HSE</a>
-      </div>
-      <h1 data-i18n data-en="The strategic<br><span class='hl'>link.</span>">Le maillon<br><span class="hl">stratégique.</span></h1>
-      <div class="hero-line" aria-hidden="true"></div>
-      <p class="hero-desc" data-i18n data-en="From wellhead to export terminal — we operate the pipelines, storage facilities, and metering systems that ensure the continuous and safe flow of hydrocarbons across Chad.">Du puits au terminal d'export — nous opérons les pipelines, installations de stockage et systèmes de comptage qui assurent le flux continu et sécurisé des hydrocarbures à travers le Tchad.</p>
-      <div class="hero-slogan" data-i18n data-en="Every barrel, every kilometer, every day">Chaque baril, chaque kilomètre, chaque jour</div>
-      <div class="hero-acts">
-        <a href="#pipeline" class="btn btn-brand" data-i18n data-en="Pipeline Network"><i class="fas fa-project-diagram"></i> Réseau pipeline</a>
-        <a href="#operations" class="btn btn-ghost" data-i18n data-en="Our Operations"><i class="fas fa-industry"></i> Nos opérations</a>
-        <a href="#contact" class="btn btn-ghost" data-i18n data-en="Contact Us"><i class="fas fa-handshake"></i> Nous contacter</a>
-      </div>
-      <div class="hero-ticker" aria-live="polite">
-        <div class="hero-ticker-item"><i class="fas fa-oil-can" aria-hidden="true"></i><span class="hero-ticker-val" id="tickerBbl">0</span><small data-i18n data-en="barrels transported/day">barils transportés/jour</small></div>
-        <div class="hero-ticker-sep"></div>
-        <div class="hero-ticker-item"><i class="fas fa-road" aria-hidden="true"></i><span class="hero-ticker-val" id="tickerKm">0</span><small data-i18n data-en="km of pipeline">km de pipeline</small></div>
-        <div class="hero-ticker-sep"></div>
-        <div class="hero-ticker-item"><i class="fas fa-shield-halved" aria-hidden="true"></i><span class="hero-ticker-val" id="tickerHse">0</span><small data-i18n data-en="consecutive HSE days">jours HSE consécutifs</small></div>
-      </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-i18n data-en="Pipeline · Transport · Storage · Chad">Pipeline · Transport · Stockage · Tchad</div>
+    <h1 data-i18n data-en="1,070 km of pipeline.<br>Zero <span class='hl'>compromise.</span>">1 070 km de pipeline.<br>Zéro <span class="hl">compromis.</span></h1>
+    <p class="hero-desc" data-i18n data-en="We operate the critical infrastructure linking wellheads to export terminals — pipelines, storage, metering, and logistics across Chad and Central Africa.">Nous opérons les infrastructures critiques reliant les puits aux terminaux d'export — pipelines, stockage, métrologie et logistique à travers le Tchad.</p>
+    <div class="hero-acts">
+      <a href="#pipeline" class="btn btn-brand" data-i18n data-en="Pipeline network"><i class="fas fa-project-diagram" aria-hidden="true"></i> Réseau pipeline</a>
+      <a href="#contact" class="btn btn-ghost" data-i18n data-en="Contact us"><i class="fas fa-envelope" aria-hidden="true"></i> Nous contacter</a>
     </div>
   </div>
+  <div class="hero-kpi-bar" aria-live="polite">
+    <div class="hero-kpi"><i class="fas fa-oil-can" aria-hidden="true"></i><span class="hero-kpi-val" id="tickerBbl">0</span><small data-i18n data-en="bbl transported/day">barils transportés/jour</small></div>
+    <div class="hero-kpi-sep" aria-hidden="true"></div>
+    <div class="hero-kpi"><i class="fas fa-road" aria-hidden="true"></i><span class="hero-kpi-val" id="tickerKm">1 070</span><small data-i18n data-en="km of pipeline">km de pipeline</small></div>
+    <div class="hero-kpi-sep" aria-hidden="true"></div>
+    <div class="hero-kpi"><i class="fas fa-shield-halved" aria-hidden="true"></i><span class="hero-kpi-val" id="tickerHse">842</span><small data-i18n data-en="consecutive HSE days">jours HSE consécutifs</small></div>
+  </div>
   <a href="#mission" class="hero-scroll" id="heroScroll" aria-label="Défiler">
-    <svg class="hero-scroll-ring" viewBox="0 0 72 72" aria-hidden="true">
-      <defs><path id="scrollTextPath" d="M 36,36 m -28,0 a 28,28 0 1,1 56,0 a 28,28 0 1,1 -56,0"/></defs>
-      <text><textPath href="#scrollTextPath">DÉCOUVRIR · EXPLORER · </textPath></text>
-    </svg>
-    <div class="hero-scroll-center"><span class="hero-scroll-chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span><span class="hero-scroll-chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span></div>
+    <span class="hero-scroll-chevron"><svg viewBox="0 0 20 20" aria-hidden="true"><polyline points="4 7 10 13 16 7"/></svg></span>
   </a>
 </section>
 
@@ -4502,32 +4437,7 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
   document.querySelectorAll('[data-r]').forEach(function(el){rObs.observe(el)});
 })();
 
-/* ═══ CANVAS PARTICLES ═══ */
-(function(){
-  const canvas=document.getElementById('heroCanvas');
-  if(!canvas||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  const ctx=canvas.getContext('2d');
-  let w,h,particles=[];
-  const colors=['rgba(14,165,233,0.3)','rgba(56,189,248,0.2)','rgba(20,184,166,0.2)','rgba(200,150,46,0.12)'];
-  function resize(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight}
-  function create(){return{x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.25,r:Math.random()*2+0.5,c:colors[Math.floor(Math.random()*colors.length)]}}
-  function init(){resize();particles=[];for(let i=0;i<55;i++)particles.push(create())}
-  function draw(){
-    ctx.clearRect(0,0,w,h);
-    particles.forEach(function(p,i){
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0||p.x>w)p.vx*=-1;
-      if(p.y<0||p.y>h)p.vy*=-1;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c;ctx.fill();
-      for(let j=i+1;j<particles.length;j++){
-        const dx=p.x-particles[j].x,dy=p.y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<110){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(14,165,233,'+(0.05*(1-dist/110))+')';ctx.lineWidth=0.5;ctx.stroke()}
-      }
-    });
-    requestAnimationFrame(draw);
-  }
-  init();draw();window.addEventListener('resize',function(){resize()});
-})();
+/* ═══ CANVAS PARTICLES — removed (Cinematic Majors refonte) ═══ */
 
 /* ═══ HERO PARALLAX ═══ */
 (function(){
