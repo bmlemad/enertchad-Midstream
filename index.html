@@ -2005,6 +2005,8 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
   }
 ]
 </script>
+<script>/* FOUC prevention — apply theme before first paint */
+(function(){try{var t=localStorage.getItem('enertchad-theme');var p=window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches;if(t==='light'||(t!=='dark'&&p))document.documentElement.classList.add('light-theme')}catch(e){}})()</script>
 </head>
 <body class="preloader-active">
 
@@ -4831,14 +4833,20 @@ if (form) {
 /* ═══ THEME TOGGLE ═══ */
 function toggleTheme(){
   document.body.classList.toggle('light-theme');
+  document.documentElement.classList.toggle('light-theme');
   localStorage.setItem('enertchad-theme',document.body.classList.contains('light-theme')?'light':'dark');
 }
 
 (function(){
-  var savedTheme=localStorage.getItem('enertchad-theme');
-  var prefersDark=window.matchMedia('(prefers-color-scheme:dark)').matches;
-  if(savedTheme==='light'||(!savedTheme&&!prefersDark)){
+  if(document.documentElement.classList.contains('light-theme')){
     document.body.classList.add('light-theme');
+  } else {
+    var savedTheme=localStorage.getItem('enertchad-theme');
+    var prefersDark=window.matchMedia('(prefers-color-scheme:dark)').matches;
+    if(savedTheme==='light'||(!savedTheme&&!prefersDark)){
+      document.body.classList.add('light-theme');
+      document.documentElement.classList.add('light-theme');
+    }
   }
 })();
 </script>
