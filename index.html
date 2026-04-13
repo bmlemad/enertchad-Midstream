@@ -7,9 +7,12 @@
 <meta name="description" content="Transport par pipeline, collecte brut, stockage stratégique, métrologie et logistique hydrocarbures. Le maillon stratégique entre production et distribution.">
 <meta name="keywords" content="EnerTchad, midstream, pipeline, transport, stockage, terminal, métrologie, custody transfer, collecte brut, Tchad, Doba, Kribi">
 <meta name="author" content="EnerTchad S.A.">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://midstream.enertchad.td">
+<link rel="alternate" hreflang="fr" href="https://midstream.enertchad.td">
+<link rel="alternate" hreflang="en" href="https://midstream.enertchad.td?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://midstream.enertchad.td">
 <meta property="og:title" content="EnerTchad Intermédiaire — Pipeline, Transport & Stockage">
 <meta property="og:description" content="Le maillon stratégique : pipeline, stockage, métrologie — du champ au terminal.">
 <meta property="og:type" content="website">
@@ -1432,6 +1435,12 @@ body.light-theme .mobile-nav .mn-link:active{
   background:rgba(14,165,233,0.06);
   color:#0284C7
 }
+
+.scroll-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(14,165,233,0.15);border:1px solid rgba(14,165,233,0.2);color:var(--accent-light);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s ease;z-index:90;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:0.9rem}
+.scroll-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.scroll-top:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 8px 25px rgba(14,165,233,0.3)}
+body.light-theme .scroll-top{background:rgba(2,132,199,0.1);border-color:rgba(2,132,199,0.15);color:#0284C7}
+body.light-theme .scroll-top:hover{background:#0284C7;color:#fff}
 </style>
 </head>
 <body class="preloader-active">
@@ -1452,6 +1461,7 @@ body.light-theme .mobile-nav .mn-link:active{
 </div>
 
 <script>
+"use strict";
 (function(){
   var pl=document.getElementById('preloader');
   if(!pl)return;
@@ -3918,6 +3928,12 @@ function toggleTheme(){
     document.body.classList.add('light-theme');
   }
 })();
+</script>
+
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+<script>
+(function(){var b=document.getElementById('scrollTop');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
 </script>
 </body>
 </html>
