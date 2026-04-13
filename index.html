@@ -140,76 +140,90 @@ input[type="text"],input[type="email"],input[type="password"],input[type="tel"],
   -webkit-mask-image:radial-gradient(ellipse 65% 55% at 50% 50%,#000 25%,transparent 80%);
   pointer-events:none;
 }
-/* Logo stage with prismatic aura */
+/* Logo stage with prismatic aura + counter-rotating rings */
 .preloader-stage{
   position:relative;
-  width:clamp(280px,35vw,440px);
+  width:clamp(300px,40vw,500px);
   aspect-ratio:1/1;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   z-index:2;
-  gap:16px;
 }
 /* Outer conic aurora — prismatic rotating light */
 .preloader-stage::before{
-  content:"";position:absolute;inset:-6%;border-radius:50%;
+  content:"";position:absolute;inset:-4%;border-radius:50%;
   background:conic-gradient(from 0deg,
     rgba(14,165,233,0) 0deg,
-    rgba(14,165,233,0.5) 60deg,
+    rgba(14,165,233,0.55) 60deg,
     rgba(20,184,166,0.4) 120deg,
-    rgba(200,150,46,0.3) 180deg,
-    rgba(14,165,233,0.4) 240deg,
-    rgba(20,184,166,0.25) 300deg,
+    rgba(14,165,233,0) 180deg,
+    rgba(20,184,166,0.45) 240deg,
+    rgba(200,150,46,0.25) 300deg,
     rgba(14,165,233,0) 360deg);
-  filter:blur(36px);
-  opacity:0.65;
-  animation:preloaderAura 8s linear infinite;
+  filter:blur(38px);
+  opacity:0.7;
+  animation:preloaderAura 9s linear infinite;
   mask:radial-gradient(circle,#000 45%,transparent 75%);
   -webkit-mask:radial-gradient(circle,#000 45%,transparent 75%);
 }
 .preloader-halo{
   position:absolute;inset:-10%;border-radius:50%;
   background:
-    radial-gradient(circle at 50% 50%,rgba(14,165,233,0.4) 0%,rgba(20,184,166,0.15) 28%,transparent 64%);
-  filter:blur(24px);
-  animation:preloaderHalo 3.5s ease-in-out infinite;
+    radial-gradient(circle at 50% 50%, rgba(14,165,233,0.42) 0%, rgba(20,184,166,0.18) 28%, transparent 64%);
+  filter:blur(22px);
+  animation:preloaderHalo 3.6s ease-in-out infinite;
 }
-/* Glassmorphic dome */
+/* Double orbital ring system */
+.preloader-ring{
+  position:absolute;inset:4%;border-radius:50%;
+  border:1px solid rgba(14,165,233,0.2);
+  box-shadow:
+    inset 0 0 80px rgba(14,165,233,0.1),
+    inset 0 0 1px rgba(255,255,255,0.12),
+    0 0 1px rgba(255,255,255,0.18);
+}
+.preloader-ring::before,
+.preloader-ring::after{
+  content:"";position:absolute;inset:-1px;border-radius:50%;
+  border:1.5px solid transparent;
+  border-top-color:rgba(14,165,233,0.85);
+  border-right-color:rgba(14,165,233,0.3);
+  animation:preloaderSpin 3s linear infinite;
+  box-shadow:0 0 12px rgba(14,165,233,0.35);
+}
+.preloader-ring::after{
+  inset:9%;
+  border-top-color:rgba(20,184,166,0.7);
+  border-right-color:transparent;
+  border-left-color:rgba(20,184,166,0.2);
+  animation-duration:4.6s;
+  animation-direction:reverse;
+  box-shadow:0 0 10px rgba(20,184,166,0.3);
+}
+/* Inner glass dome behind the logo */
 .preloader-stage > .preloader-dome{
-  position:absolute;inset:12%;border-radius:50%;
+  position:absolute;inset:14%;border-radius:50%;
   background:
-    radial-gradient(circle at 50% 38%,rgba(255,255,255,0.13) 0%,rgba(255,255,255,0.02) 22%,transparent 55%),
-    radial-gradient(circle at 50% 50%,rgba(14,165,233,0.12) 0%,transparent 68%);
-  box-shadow:inset 0 -28px 56px rgba(11,20,38,0.7),inset 0 0 0 1px rgba(255,255,255,0.07);
-  backdrop-filter:blur(1.5px);
-  -webkit-backdrop-filter:blur(1.5px);
+    radial-gradient(circle at 50% 38%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 22%, transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(14,165,233,0.14) 0%, transparent 68%);
+  box-shadow:inset 0 -30px 60px rgba(11,20,38,0.6),inset 0 0 0 1px rgba(255,255,255,0.06);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
   animation:preloaderBreathe 4s ease-in-out infinite;
 }
-/* Text content wrapper */
-.preloader-content{
-  position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;
+.preloader-logo{
+  width:74%;height:auto;
+  filter:
+    drop-shadow(0 22px 70px rgba(14,165,233,0.55))
+    drop-shadow(0 0 120px rgba(20,184,166,0.35))
+    drop-shadow(0 4px 8px rgba(0,0,0,0.35))
+    drop-shadow(0 0 1px rgba(255,255,255,0.5));
+  animation:preloaderLogoIn 1.4s cubic-bezier(0.22,0.61,0.36,1) both,
+            preloaderLogoFloat 5s 1.4s ease-in-out infinite;
+  position:relative;z-index:3;
 }
-.preloader-logo-text{
-  font-family:var(--font-d);
-  font-size:clamp(2.2rem,5vw,3.5rem);
-  font-weight:700;
-  letter-spacing:-0.03em;
-  background:linear-gradient(135deg,#fff 0%,var(--accent-light) 50%,var(--teal-light) 100%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 20px 60px rgba(14,165,233,0.35)) drop-shadow(0 0 100px rgba(14,165,233,0.2));
-  animation:preloaderLogoIn 1.3s cubic-bezier(0.22,0.61,0.36,1) both;
-}
-.preloader-subtitle{
-  font-family:var(--font-d);
-  font-size:clamp(0.75rem,1.5vw,0.92rem);
-  font-weight:500;
-  letter-spacing:0.24em;
-  text-transform:uppercase;
-  color:rgba(20,184,166,0.75);
-  animation:preloaderFadeUp 1s 0.4s ease-out both;
-}
-/* Shimmer sweep */
+/* Shimmer sweep across the logo */
 .preloader-stage > .preloader-sheen{
-  position:absolute;inset:12%;border-radius:50%;
+  position:absolute;inset:14%;border-radius:50%;
   background:linear-gradient(115deg,
     transparent 40%,
     rgba(255,255,255,0.18) 48%,
@@ -218,38 +232,82 @@ input[type="text"],input[type="email"],input[type="password"],input[type="tel"],
     transparent 60%);
   mix-blend-mode:overlay;
   opacity:0;
-  animation:preloaderSheen 3.6s 1.6s ease-in-out infinite;
+  animation:preloaderSheen 3.8s 1.8s ease-in-out infinite;
   pointer-events:none;z-index:4;
 }
-/* Progress bar */
+/* Floating particles */
+.preloader-particles{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;
+}
+.preloader-particle{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,0.6),transparent 70%);
+  animation:particleFloat linear infinite;
+}
+.preloader-particle:nth-child(odd){
+  background:radial-gradient(circle,rgba(20,184,166,0.5),transparent 70%);
+}
+/* Slogan */
+.preloader-slogan{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(14px,2.2vw,28px);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(0.92rem,1.6vw,1.25rem);
+  font-weight:600;
+  letter-spacing:0.32em;
+  text-transform:uppercase;
+  text-align:center;
+  padding:0 24px;
+}
+.preloader-slogan .pw{
+  color:#fff;
+  background:linear-gradient(180deg,#fff 0%,#B8E3FF 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:preloaderFadeUp 1s both;
+  text-shadow:0 2px 20px rgba(14,165,233,0.25);
+}
+.preloader-slogan .pw:nth-of-type(1){animation-delay:0.55s}
+.preloader-slogan .pw:nth-of-type(2){animation-delay:0.75s}
+.preloader-slogan .pw:nth-of-type(3){animation-delay:0.95s}
+.preloader-slogan .pdot{
+  width:5px;height:5px;border-radius:50%;
+  background:#14B8A6;
+  box-shadow:0 0 12px rgba(20,184,166,0.7),0 0 24px rgba(20,184,166,0.4);
+  animation:preloaderDot 1s both;
+}
+.preloader-slogan .pdot:nth-of-type(1){animation-delay:0.65s}
+.preloader-slogan .pdot:nth-of-type(2){animation-delay:0.85s}
+/* Progress bar & counter */
 .preloader-progress{
-  position:relative;z-index:2;width:clamp(160px,28vw,300px);height:2.5px;
-  background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;
-  margin-top:12px;
+  position:relative;z-index:2;width:clamp(180px,30vw,320px);height:3px;
+  background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;
+  margin-top:-8px;
 }
 .preloader-progress-fill{
-  height:100%;width:0%;border-radius:2px;
+  height:100%;width:100%;border-radius:4px;
   background:linear-gradient(90deg,var(--accent),var(--teal));
-  box-shadow:0 0 12px rgba(14,165,233,0.4),0 0 2px rgba(20,184,166,0.3);
-  transition:width 0.25s ease-out;
+  box-shadow:0 0 14px rgba(14,165,233,0.5),0 0 4px rgba(20,184,166,0.4);
+  transform-origin:left;transform:scaleX(0);
+  transition:transform 0.3s ease-out;
 }
 .preloader-pct{
   position:relative;z-index:2;
-  font-family:var(--font-d);
-  font-size:clamp(0.65rem,0.95vw,0.75rem);
-  font-weight:500;letter-spacing:0.12em;
-  color:rgba(255,255,255,0.3);
-  margin-top:10px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(0.7rem,1.1vw,0.85rem);
+  font-weight:500;letter-spacing:0.18em;
+  color:rgba(255,255,255,0.35);
+  margin-top:8px;
   font-variant-numeric:tabular-nums;
 }
-/* Exit animation */
+/* Exit animation — zoom + blur */
 #preloader.is-leaving{
   animation:preloaderExit 0.9s cubic-bezier(0.22,0.61,0.36,1) forwards;
 }
 #preloader.is-leaving .preloader-stage{
   animation:preloaderStageExit 0.8s cubic-bezier(0.22,0.61,0.36,1) forwards;
 }
-#preloader.is-leaving .preloader-subtitle,
+#preloader.is-leaving .preloader-slogan,
 #preloader.is-leaving .preloader-progress,
 #preloader.is-leaving .preloader-pct{
   animation:preloaderFadeOut 0.4s ease-out forwards;
@@ -265,12 +323,16 @@ input[type="text"],input[type="email"],input[type="password"],input[type="tel"],
 }
 @keyframes preloaderFadeOut{
   0%{opacity:1;transform:translateY(0)}
-  100%{opacity:0;transform:translateY(10px)}
+  100%{opacity:0;transform:translateY(12px)}
 }
 @keyframes preloaderLogoIn{
-  0%{opacity:0;transform:scale(0.7) translateY(16px)}
-  55%{opacity:1;transform:scale(1.05) translateY(-3px)}
-  100%{opacity:1;transform:scale(1) translateY(0)}
+  0%{opacity:0;transform:scale(0.7) translateY(18px) rotate(-4deg)}
+  55%{opacity:1;transform:scale(1.06) translateY(-4px) rotate(1deg)}
+  100%{opacity:1;transform:scale(1) translateY(0) rotate(0deg)}
+}
+@keyframes preloaderLogoFloat{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-7px) scale(1.015)}
 }
 @keyframes preloaderHalo{
   0%,100%{opacity:0.85;transform:scale(1)}
@@ -282,37 +344,53 @@ input[type="text"],input[type="email"],input[type="password"],input[type="tel"],
 }
 @keyframes preloaderBreathe{
   0%,100%{opacity:0.85;transform:scale(1)}
-  50%{opacity:1;transform:scale(1.02)}
+  50%{opacity:1;transform:scale(1.03)}
 }
 @keyframes preloaderSheen{
-  0%{opacity:0;transform:translateX(-30%)}
+  0%{opacity:0;transform:translateX(-30%) rotate(0deg)}
   25%{opacity:1}
-  55%{opacity:1;transform:translateX(30%)}
-  80%,100%{opacity:0;transform:translateX(60%)}
+  55%{opacity:1;transform:translateX(30%) rotate(0deg)}
+  80%,100%{opacity:0;transform:translateX(60%) rotate(0deg)}
+}
+@keyframes preloaderSpin{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
 }
 @keyframes preloaderFadeUp{
-  0%{opacity:0;transform:translateY(8px)}
+  0%{opacity:0;transform:translateY(10px)}
   100%{opacity:1;transform:translateY(0)}
+}
+@keyframes preloaderDot{
+  0%{opacity:0;transform:scale(0.5)}
+  100%{opacity:1;transform:scale(1)}
+}
+@keyframes particleFloat{
+  0%{transform:translateY(100vh) scale(0);opacity:0}
+  10%{opacity:1}
+  90%{opacity:0.6}
+  100%{transform:translateY(-10vh) scale(1);opacity:0}
 }
 @keyframes slideInNav{
   0%{opacity:0;transform:translateX(100%)}
   100%{opacity:1;transform:translateX(0)}
 }
 @media(max-width:640px){
-  .preloader-logo-text{letter-spacing:-0.02em}
-  .preloader-subtitle{letter-spacing:0.18em}
+  .preloader-slogan{letter-spacing:0.24em;gap:12px}
+  .preloader-slogan .pdot{width:4px;height:4px}
   .preloader-stage{width:clamp(220px,30vw,280px)}
   .preloader-stage::before{opacity:0.4}
   .preloader-halo{filter:blur(18px)}
 }
 @media(max-width:480px){
-  .preloader-stage{width:200px;gap:12px}
+  .preloader-stage{width:200px}
   .preloader-stage::before{filter:blur(24px)}
 }
 @media(prefers-reduced-motion:reduce){
-  .preloader-logo-text,.preloader-halo,.preloader-subtitle,
+  .preloader-logo,.preloader-halo,.preloader-ring::before,.preloader-ring::after,
+  .preloader-slogan .pw,.preloader-slogan .pdot,
   .preloader-stage::before,.preloader-dome,.preloader-sheen,
-  #preloader.is-leaving,#preloader.is-leaving .preloader-stage{animation:none!important}
+  .preloader-particle,#preloader.is-leaving,
+  #preloader.is-leaving .preloader-stage{animation:none!important}
 }
 body.preloader-active{overflow:hidden}
 
@@ -1970,44 +2048,60 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
 
 <!-- ═══ PRELOADER / SPLASH ═══ -->
 <div id="preloader" role="status" aria-live="polite" aria-label="Chargement du site EnerTchad Intermédiaire">
+  <!-- Floating particles -->
+  <div class="preloader-particles" aria-hidden="true" id="preloaderParticles"></div>
   <div class="preloader-stage">
     <div class="preloader-halo" aria-hidden="true"></div>
     <div class="preloader-dome" aria-hidden="true"></div>
-    <div class="preloader-content">
-      <div class="preloader-logo-text">EnerTchad</div>
-      <div class="preloader-subtitle">Intermédiaire</div>
-    </div>
+    <div class="preloader-ring" aria-hidden="true"></div>
+    <img src="logo.svg" alt="EnerTchad" class="preloader-logo" width="380" height="380" decoding="async" fetchpriority="high">
     <div class="preloader-sheen" aria-hidden="true"></div>
   </div>
+  <div class="preloader-slogan" aria-label="Connexion Transit Fiabilité">
+    <span class="pw">Connexion</span>
+    <span class="pdot" aria-hidden="true"></span>
+    <span class="pw">Transit</span>
+    <span class="pdot" aria-hidden="true"></span>
+    <span class="pw">Fiabilité</span>
+  </div>
   <div class="preloader-progress" aria-hidden="true"><div class="preloader-progress-fill" id="preloaderFill"></div></div>
-  <div class="preloader-pct" id="preloaderPct" aria-hidden="true">0%</div>
+  <div class="preloader-pct" id="preloaderPct" aria-hidden="true">0 %</div>
 </div>
-
 <script>
 "use strict";
 (function(){
-  var pl=document.getElementById('preloader');
+  const pl=document.getElementById('preloader');
   if(!pl)return;
-
+  // Generate floating particles
+  const particlesEl=document.getElementById('preloaderParticles');
+  if(particlesEl){
+    for(let i=0;i<18;i++){
+      const p=document.createElement('div');
+      p.className='preloader-particle';
+      const sz=Math.random()*4+2;
+      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;animation-duration:'+(Math.random()*5+4)+'s;animation-delay:'+(Math.random()*4)+'s;';
+      particlesEl.appendChild(p);
+    }
+  }
   // Progress bar animation
-  var fill=document.getElementById('preloaderFill');
-  var pctEl=document.getElementById('preloaderPct');
-  var progress=0;
-  var progressInterval=setInterval(function(){
-    // Fast start, slow middle, fast end
-    var increment;
+  const fill=document.getElementById('preloaderFill');
+  const pctEl=document.getElementById('preloaderPct');
+  let progress=0;
+  const progressInterval=setInterval(function(){
+    let increment;
     if(progress<30)increment=Math.random()*6+3;
-    else if(progress<70)increment=Math.random()*2+0.5;
-    else increment=Math.random()*8+4;
-    progress=Math.min(progress+increment,99);
-    if(fill)fill.style.width=progress+'%';
-    if(pctEl)pctEl.textContent=Math.floor(progress)+'%';
+    else if(progress<70)increment=Math.random()*3+1;
+    else if(progress<90)increment=Math.random()*2+0.5;
+    else increment=0.3;
+    progress=Math.min(progress+increment,loaded?100:92);
+    if(fill)fill.style.transform='scaleX('+progress/100+')';
+    if(pctEl)pctEl.textContent=Math.round(progress)+' %';
   },80);
-
-  // Hide function
+  // Exit animation
   function hide(){
-    if(fill)fill.style.width='100%';
-    if(pctEl)pctEl.textContent='100%';
+    progress=100;
+    if(fill)fill.style.transform='scaleX(1)';
+    if(pctEl)pctEl.textContent='100 %';
     clearInterval(progressInterval);
     setTimeout(function(){
       pl.classList.add('is-leaving');
@@ -2017,11 +2111,9 @@ body.light-theme .esg-kpi-lbl{color:#64748B}
       },950);
     },200);
   }
-
-  // Control when preloader hides
-  var loaded=false,minElapsed=false;
+  let loaded=false,minElapsed=false;
   function maybeHide(){if(loaded&&minElapsed)hide();}
-  setTimeout(function(){minElapsed=true;maybeHide();},2500);
+  setTimeout(function(){minElapsed=true;maybeHide();},1200);
   if(document.readyState==='complete'){loaded=true;maybeHide();}
   else window.addEventListener('load',function(){loaded=true;maybeHide();});
   // Safety fallback: never stay more than 5s
