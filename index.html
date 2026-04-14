@@ -2234,6 +2234,13 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
   .bottom-nav-item span{display:none}
   .scroll-progress{height:2px}
 }
+
+/* ═══ CHAPTER MARKERS ═══ */
+.chapter-marker{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-d);font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);opacity:0.9;margin-bottom:12px;padding:4px 14px;background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.18);border-radius:999px}
+.chapter-marker-num{color:var(--teal);font-weight:800}
+.chapter-marker-sep{width:20px;height:1px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0.5}
+body.light-theme .chapter-marker{background:rgba(14,165,233,0.05);border-color:rgba(14,165,233,0.15);color:#0284C7}
+@media(max-width:480px){.chapter-marker{font-size:0.62rem;padding:3px 10px;letter-spacing:0.12em}}
 </style>
 <script type="application/ld+json">
 [
@@ -2948,6 +2955,11 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
 <section id="mission">
   <div class="ctn">
     <div data-r>
+      <div class="chapter-marker" aria-hidden="true">
+        <span class="chapter-marker-num">01</span>
+        <span class="chapter-marker-sep"></span>
+        <span data-i18n data-en="Vision">Vision</span>
+      </div>
       <div class="eyb blue"><i class="fas fa-bullseye" aria-hidden="true"></i> <span data-i18n data-en="Our Mission">Notre Mission</span></div>
       <h2 class="stitle" data-i18n data-en="Connecting production to <span class='hl'>market</span>">Connecter la production au <span class="hl">marché</span></h2>
       <p class="sdesc" data-i18n data-en="EnerTchad Intermédiaire operates the critical infrastructure linking upstream production to downstream distribution — pipelines, terminals, metering, and logistics.">EnerTchad Intermédiaire opère les infrastructures critiques reliant la production amont à la distribution aval — pipelines, terminaux, métrologie et logistique.</p>
@@ -2997,6 +3009,11 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
 <section class="sec-dark" id="operations">
   <div class="ctn">
     <div data-r>
+      <div class="chapter-marker" aria-hidden="true">
+        <span class="chapter-marker-num">02</span>
+        <span class="chapter-marker-sep"></span>
+        <span data-i18n data-en="Operations">Opérations</span>
+      </div>
       <div class="eyb blue"><i class="fas fa-industry" aria-hidden="true"></i> <span data-i18n data-en="Operations">Opérations</span></div>
       <h2 class="stitle text-white" data-i18n data-en="Eight operational <span class='hl'>pillars</span>">Huit piliers <span class="hl">opérationnels</span></h2>
       <p class="sdesc" data-i18n data-en="From crude gathering in the Doba Basin to the maritime export terminal — an integrated chain of critical infrastructure.">De la collecte brut dans le bassin de Doba au terminal d'export maritime — une chaîne intégrée d'infrastructures critiques.</p>
@@ -3895,6 +3912,11 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
 <section id="enertech">
   <div class="ctn">
     <div data-r>
+      <div class="chapter-marker" aria-hidden="true">
+        <span class="chapter-marker-num">03</span>
+        <span class="chapter-marker-sep"></span>
+        <span data-i18n data-en="Innovation">Innovation</span>
+      </div>
       <div class="et-brand"><span class="et-brand-name">EnerTech</span><span class="et-brand-tag">Filiale Ingénierie, Technologie & R&D</span></div>
       <h2 class="stitle text-white" data-i18n data-en="Pipeline engineering, <span class='hl'>from design to integrity</span>">Ingénierie pipeline, <span class="hl">du design à l'intégrité</span></h2>
       <p class="sdesc text-white-dim-55" data-i18n data-en="EnerTech is EnerTchad's specialized subsidiary for engineering, technology and R&D. Our pipeline engineers cover the full lifecycle — hydraulic design, construction supervision, SCADA integration, integrity management, and decommissioning.">EnerTech est la filiale spécialisée d'EnerTchad en ingénierie, technologie et R&D. Nos ingénieurs pipeline couvrent le cycle de vie complet — conception hydraulique, supervision de construction, intégration SCADA, gestion d'intégrité et décommissionnement.</p>
@@ -4155,6 +4177,11 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
 <section id="esg">
   <div class="ctn">
     <div data-r>
+      <div class="chapter-marker" aria-hidden="true">
+        <span class="chapter-marker-num">05</span>
+        <span class="chapter-marker-sep"></span>
+        <span data-i18n data-en="Impact">Impact</span>
+      </div>
       <div class="eyb teal"><i class="fas fa-leaf" aria-hidden="true"></i> <span data-i18n data-en="Sustainability">Durabilité</span></div>
       <h2 class="stitle" data-i18n data-en="ESG at <span class='hl'>Midstream</span>"><abbr title="Environnement, Social, Gouvernance">ESG</abbr> au cœur de <span class="hl">Intermédiaire</span></h2>
       <p class="sdesc" data-i18n data-en="Environmental stewardship, social responsibility, and operational governance across 1,070 km of pipeline infrastructure.">Gestion environnementale, responsabilité sociale et gouvernance opérationnelle sur 1 070 km d'infrastructure pipeline.</p>
@@ -4378,6 +4405,11 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
 <section id="academy" class="sec-grad">
   <div class="ctn">
     <div data-r>
+      <div class="chapter-marker" aria-hidden="true">
+        <span class="chapter-marker-num">04</span>
+        <span class="chapter-marker-sep"></span>
+        <span data-i18n data-en="People">People</span>
+      </div>
       <div class="eyb blue"><i class="fas fa-graduation-cap" aria-hidden="true"></i> <span>EnerTchad Academy</span></div>
       <h2 class="stitle" data-i18n data-en="Pipeline Training & Certifications">Formations & Certifications Pipeline</h2>
       <p class="sdesc" data-i18n data-en="Transport & infrastructure skills development program — API, ASME and NACE certifications, specialized pipeline field training.">Programme de développement des compétences transport & infrastructure — certifications API, ASME et NACE, formations terrain spécialisées pipeline.</p>
@@ -4670,35 +4702,6 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
   </div>
 </section>
 
-<!-- ═══ CONTACT ═══ -->
-<section id="contact">
-  <div class="ctn">
-    <div class="contact-wrap">
-      <div class="contact-left" data-r>
-        <div class="eyb blue"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact</div>
-        <h2 data-i18n data-en="Let's talk <span class='hl'>pipeline</span>">Parlons <span class="hl text-grad-accent">intermédiaire</span></h2>
-        <p data-i18n data-en="Pipeline interconnection projects, storage capacity requests, custody transfer metering — our team is ready to discuss your needs.">Projets d'interconnexion pipeline, demandes de capacité de stockage, métrologie de transfert de garde — notre équipe est prête à discuter de vos besoins.</p>
-        <div class="cd"><div class="cd-icon"><i class="fas fa-map-marker-alt"></i></div><div class="cd-text"><strong data-i18n data-en="N'Djamena, Chad">N'Djamena, Tchad</strong><small data-i18n data-en="Avenue du Terminal, Zone Industrielle Sud, BP 4012">Avenue du Terminal, Zone Industrielle Sud, BP 4012</small></div></div>
-        <div class="cd"><div class="cd-icon"><i class="fas fa-phone"></i></div><div class="cd-text"><strong>+235 66 38 42 15</strong><small data-i18n data-en="Mon-Fri, 8am-5pm">Lun-Ven, 8h-17h</small></div></div>
-        <div class="cd"><div class="cd-icon"><i class="fas fa-envelope"></i></div><div class="cd-text"><strong>midstream@enertchad.td</strong><small data-i18n data-en="Response within 24h">Réponse sous 24h</small></div></div>
-      </div>
-      <form class="contact-form" id="contactForm" data-r>
-        <div class="fg-row"><div class="form-group"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" required aria-required="true" aria-describedby="cf-name-error"><div class="form-error" id="cf-name-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div><div class="form-group"><label data-i18n data-en="Email">Email *</label><input type="email" id="cf-email" required aria-required="true" aria-describedby="cf-email-error"><div class="form-error" id="cf-email-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="Valid email required">Email valide requis</span></div><i class="fas fa-check-circle valid-check"></i></div></div>
-        <div class="form-group"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company"><i class="fas fa-check-circle valid-check"></i></div>
-        <div class="form-group"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE — Pipeline Services">HSE — Services pipeline</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select><i class="fas fa-check-circle valid-check"></i></div>
-        <div class="form-group"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" required aria-required="true" aria-describedby="cf-msg-error"></textarea><div class="form-error" id="cf-msg-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div>
-        <button type="submit" class="btn btn-brand w-full-center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer la demande</button>
-        <div class="form-msg" id="formMsg" role="alert" aria-live="assertive" aria-atomic="true"></div>
-      </form>
-      <div class="form-submit-success" id="formSuccess">
-        <div class="success-icon"><i class="fas fa-check"></i></div>
-        <h3 data-i18n data-en="Message Sent!">Message Envoyé !</h3>
-        <p data-i18n data-en="Thank you for contacting us. Our team will respond within 24 hours.">Merci de nous avoir contacté. Notre équipe vous répondra sous 24 heures.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ ÉTUDES DE CAS ═══ -->
 <section class="sec-light" id="cases">
   <div class="ctn">
@@ -4771,6 +4774,11 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
 <section class="sec-light" id="resources">
   <div class="ctn">
     <div data-r>
+      <div class="chapter-marker" aria-hidden="true">
+        <span class="chapter-marker-num">06</span>
+        <span class="chapter-marker-sep"></span>
+        <span data-i18n data-en="Contact">Contact</span>
+      </div>
       <div class="eyb gold"><i class="fas fa-book-open" aria-hidden="true"></i> <span data-i18n data-en="Resources">Ressources</span></div>
       <h2 class="stitle" data-i18n data-en="Documentation & <span class='hl'>media library</span>">Documentation & <span class="hl">médiathèque</span></h2>
       <p class="sdesc" data-i18n data-en="Technical reports, corporate publications, and training resources for our partners and stakeholders.">Rapports techniques, publications institutionnelles et ressources de formation pour nos partenaires et parties prenantes.</p>
@@ -4799,6 +4807,35 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
         <h3 data-i18n data-en="Press & News">Presse & Actualités</h3>
         <p data-i18n data-en="Latest news, press releases, and industry publications featuring EnerTchad.">Dernières nouvelles, communiqués et publications sectorielles sur EnerTchad.</p>
         <span class="res-count">15+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="ctn">
+    <div class="contact-wrap">
+      <div class="contact-left" data-r>
+        <div class="eyb blue"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact</div>
+        <h2 data-i18n data-en="Let's talk <span class='hl'>pipeline</span>">Parlons <span class="hl text-grad-accent">intermédiaire</span></h2>
+        <p data-i18n data-en="Pipeline interconnection projects, storage capacity requests, custody transfer metering — our team is ready to discuss your needs.">Projets d'interconnexion pipeline, demandes de capacité de stockage, métrologie de transfert de garde — notre équipe est prête à discuter de vos besoins.</p>
+        <div class="cd"><div class="cd-icon"><i class="fas fa-map-marker-alt"></i></div><div class="cd-text"><strong data-i18n data-en="N'Djamena, Chad">N'Djamena, Tchad</strong><small data-i18n data-en="Avenue du Terminal, Zone Industrielle Sud, BP 4012">Avenue du Terminal, Zone Industrielle Sud, BP 4012</small></div></div>
+        <div class="cd"><div class="cd-icon"><i class="fas fa-phone"></i></div><div class="cd-text"><strong>+235 66 38 42 15</strong><small data-i18n data-en="Mon-Fri, 8am-5pm">Lun-Ven, 8h-17h</small></div></div>
+        <div class="cd"><div class="cd-icon"><i class="fas fa-envelope"></i></div><div class="cd-text"><strong>midstream@enertchad.td</strong><small data-i18n data-en="Response within 24h">Réponse sous 24h</small></div></div>
+      </div>
+      <form class="contact-form" id="contactForm" data-r>
+        <div class="fg-row"><div class="form-group"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" required aria-required="true" aria-describedby="cf-name-error"><div class="form-error" id="cf-name-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div><div class="form-group"><label data-i18n data-en="Email">Email *</label><input type="email" id="cf-email" required aria-required="true" aria-describedby="cf-email-error"><div class="form-error" id="cf-email-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="Valid email required">Email valide requis</span></div><i class="fas fa-check-circle valid-check"></i></div></div>
+        <div class="form-group"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company"><i class="fas fa-check-circle valid-check"></i></div>
+        <div class="form-group"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE — Pipeline Services">HSE — Services pipeline</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select><i class="fas fa-check-circle valid-check"></i></div>
+        <div class="form-group"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" required aria-required="true" aria-describedby="cf-msg-error"></textarea><div class="form-error" id="cf-msg-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div>
+        <button type="submit" class="btn btn-brand w-full-center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer la demande</button>
+        <div class="form-msg" id="formMsg" role="alert" aria-live="assertive" aria-atomic="true"></div>
+      </form>
+      <div class="form-submit-success" id="formSuccess">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h3 data-i18n data-en="Message Sent!">Message Envoyé !</h3>
+        <p data-i18n data-en="Thank you for contacting us. Our team will respond within 24 hours.">Merci de nous avoir contacté. Notre équipe vous répondra sous 24 heures.</p>
       </div>
     </div>
   </div>
