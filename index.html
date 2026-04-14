@@ -766,6 +766,49 @@ section::after{content:'';position:absolute;bottom:0;left:5%;width:90%;height:1p
 .fso-visual{position:relative;z-index:1}
 .fso-visual img,.fso-visual svg{width:100%;border-radius:14px}
 
+/* ═══ PREMIUM PIPELINE SECTION ═══ */
+.pipe-edition-badge{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;margin-top:16px;background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.22);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:rgba(255,255,255,0.85);letter-spacing:0.05em;font-variant-numeric:tabular-nums}
+.pipe-edition-pulse{width:8px;height:8px;background:var(--teal,#14B8A6);border-radius:50%;animation:pipePulse 2.4s ease-in-out infinite;box-shadow:0 0 8px rgba(20,184,166,0.6)}
+@keyframes pipePulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.pipe-lead{display:flex;align-items:flex-start;gap:12px;margin-top:20px;padding:14px 18px;background:linear-gradient(90deg,rgba(14,165,233,0.06),transparent);border-left:3px solid var(--accent,#0EA5E9);border-radius:0 10px 10px 0;font-size:0.92rem;color:rgba(255,255,255,0.78);line-height:1.55}
+.pipe-lead i{color:var(--accent,#0EA5E9);font-size:1.1rem;flex-shrink:0;margin-top:2px}
+body.light-theme .pipe-edition-badge{background:rgba(14,165,233,0.06);border-color:rgba(14,165,233,0.18);color:#0F172A}
+body.light-theme .pipe-lead{background:linear-gradient(90deg,rgba(14,165,233,0.04),transparent);color:#334155}
+@media(max-width:480px){.pipe-edition-badge{font-size:0.62rem;padding:4px 10px}.pipe-lead{font-size:0.82rem;padding:12px 14px}}
+
+/* Pipeline KPI strip — gradient text + trend chips */
+.pipe-kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:linear-gradient(90deg,transparent,rgba(14,165,233,0.15),transparent);padding:1px;border-radius:14px;margin:32px 0;overflow:hidden}
+.pkpi{background:linear-gradient(155deg,rgba(15,29,53,0.85),rgba(11,20,38,0.7));padding:20px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;transition:background 0.3s}
+.pkpi:hover{background:linear-gradient(155deg,rgba(15,29,53,0.95),rgba(11,20,38,0.85))}
+.pkpi-v{font-family:var(--font-d,'Space Grotesk',sans-serif);font-size:clamp(1.4rem,3vw,2rem);font-weight:800;background:linear-gradient(135deg,#fff,rgba(255,255,255,0.6));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-variant-numeric:tabular-nums;line-height:1}
+.pkpi-v small{font-size:0.65em;color:rgba(255,255,255,0.6);font-weight:600;-webkit-text-fill-color:rgba(255,255,255,0.6)}
+.pkpi-l{font-family:var(--font-d,'Space Grotesk',sans-serif);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5)}
+.pkpi.accent .pkpi-v{background:linear-gradient(135deg,#C8962E,#D4A840);-webkit-background-clip:text;background-clip:text}
+body.light-theme .pkpi{background:linear-gradient(155deg,#F8FAFC,#F1F5F9)}
+body.light-theme .pkpi-v{background:linear-gradient(135deg,#0F172A 30%,#0EA5E9);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+body.light-theme .pkpi-l{color:#64748B}
+@media(max-width:1024px){.pipe-kpi-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.pipe-kpi-strip{grid-template-columns:repeat(2,1fr)}.pkpi{padding:14px 10px}.pkpi-v{font-size:1.3rem}}
+
+/* Pipeline schematic frame — corner brackets + LIVE DATA badge */
+.pipe-frame-wrap{position:relative;margin-top:24px}
+.pipe-corner{position:absolute;width:24px;height:24px;pointer-events:none;z-index:5;border:2px solid var(--accent,#0EA5E9);opacity:0.6}
+.pipe-corner.tl{top:12px;left:12px;border-right:none;border-bottom:none;border-radius:4px 0 0 0}
+.pipe-corner.tr{top:12px;right:12px;border-left:none;border-bottom:none;border-radius:0 4px 0 0}
+.pipe-corner.bl{bottom:12px;left:12px;border-right:none;border-top:none;border-radius:0 0 0 4px}
+.pipe-corner.br{bottom:12px;right:12px;border-left:none;border-top:none;border-radius:0 0 4px 0}
+.pipe-live-badge{position:absolute;top:16px;left:16px;z-index:6;display:inline-flex;align-items:center;gap:8px;padding:5px 12px;background:rgba(11,20,38,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(52,211,153,0.3);border-radius:999px;font-family:var(--font-d,'Space Grotesk',sans-serif);font-size:0.65rem;font-weight:700;letter-spacing:0.2em;color:rgba(255,255,255,0.9);text-transform:uppercase}
+.pipe-live-badge .pdot{width:6px;height:6px;background:#34d399;border-radius:50%;animation:pipeLivePulse 2s ease-in-out infinite;box-shadow:0 0 12px rgba(52,211,153,0.8)}
+@keyframes pipeLivePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.3)}}
+body.light-theme .pipe-live-badge{background:rgba(248,250,252,0.9);color:#0F172A;border-color:rgba(52,211,153,0.4)}
+@media(max-width:480px){.pipe-corner{width:18px;height:18px;top:8px;left:8px}.pipe-corner.tr{right:8px;left:auto}.pipe-corner.bl{bottom:8px;top:auto}.pipe-corner.br{right:8px;left:auto;bottom:8px;top:auto}.pipe-live-badge{font-size:0.58rem;padding:4px 10px;top:10px;left:10px}}
+
+/* Pipeline source caption premium */
+.pipe-caption{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:16px;padding:14px 20px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:10px;font-size:0.75rem;color:rgba(255,255,255,0.5);font-style:italic}
+.pipe-caption::before{content:'📍';font-style:normal;margin-right:6px}
+body.light-theme .pipe-caption{background:rgba(248,250,252,0.5);border-color:rgba(0,0,0,0.05);color:#64748B}
+
 /* ═══ PRODUCTEURS / OPÉRATEURS ═══ */
 #producers{background:linear-gradient(170deg,#0F1D35 0%,#0B1426 60%,#0D1B2A 100%);color:var(--white);padding:100px 0 80px;position:relative;overflow:hidden}
 #producers::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 30% 40%,rgba(14,165,233,0.06),transparent),radial-gradient(ellipse 500px 350px at 70% 60%,rgba(20,184,166,0.04),transparent);pointer-events:none}
@@ -3416,6 +3459,38 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
       <div class="eyb teal"><i class="fas fa-route" aria-hidden="true"></i> Réseau Pipeline</div>
       <h2 class="stitle">Doba — Kribi — Atlantique : <span class="hl">1 070 km</span></h2>
       <p class="sdesc">Du gisement au terminal flottant FSO sur l'océan Atlantique. L'oléoduc d'export Tchad-Cameroun, opéré par COTCO, traverse 170 km au Tchad et 904 km au Cameroun. Tubes de 760 mm de diamètre, enfouis à 1 m minimum, protégés par 48 vannes de sectionnement et un système de protection cathodique continue. En service depuis octobre 2003.</p>
+      <div class="pipe-edition-badge">
+        <span class="pipe-edition-pulse"></span>
+        <span data-i18n data-en="Operational Data 2025 · Updated April 14, 2026">Données opérationnelles 2025 · Mise à jour 14 avril 2026</span>
+      </div>
+      <div class="pipe-lead">
+        <i class="fas fa-route" aria-hidden="true"></i>
+        <span data-i18n data-en="1,070 km export pipeline · 300 kbbl/d capacity · 3 pumping stations · 2 storage hubs">Pipeline export 1 070 km · 300 kbbl/j capacité · 3 stations de pompage · 2 hubs stockage</span>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="pipe-kpi-strip" data-r>
+      <div class="pkpi">
+        <span class="pkpi-v" data-count="1070">0</span>
+        <span class="pkpi-l" data-i18n data-en="km Pipeline">km Pipeline</span>
+        <span class="kpi-trend-chip stable"><i class="fas fa-minus"></i> stable</span>
+      </div>
+      <div class="pkpi">
+        <span class="pkpi-v" data-count="300">0</span>
+        <span class="pkpi-l" data-i18n data-en="kbbl/d Capacity">kbbl/j Capacité</span>
+        <span class="kpi-trend-chip up"><i class="fas fa-arrow-trend-up"></i> +8%</span>
+      </div>
+      <div class="pkpi">
+        <span class="pkpi-v" data-count="99"><small>.8</small>%</span>
+        <span class="pkpi-l" data-i18n data-en="Uptime">Disponibilité</span>
+        <span class="kpi-trend-chip up"><i class="fas fa-arrow-trend-up"></i> +0.4pt</span>
+      </div>
+      <div class="pkpi accent">
+        <span class="pkpi-v">0</span>
+        <span class="pkpi-l" data-i18n data-en="Major Incidents">Incidents majeurs</span>
+        <span class="kpi-trend-chip up"><i class="fas fa-check"></i> 5 ans</span>
+      </div>
     </div>
 
     <!-- SVG Map -->
@@ -3426,7 +3501,8 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
       </div>
 
       <!-- Timeline route -->
-      <div class="pipe-timeline">
+      <div class="pipe-frame-wrap">
+        <div class="pipe-timeline">
         <div class="pipe-tl-flow"></div>
 
         <!-- Doba — Origin -->
@@ -3524,6 +3600,11 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
             </div>
           </div>
         </div>
+        <div class="pipe-corner tl"></div>
+        <div class="pipe-corner tr"></div>
+        <div class="pipe-corner bl"></div>
+        <div class="pipe-corner br"></div>
+        <div class="pipe-live-badge"><span class="pdot"></span> LIVE · DATA</div>
       </div>
 
       <!-- Specs row -->
@@ -3628,6 +3709,9 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
           <rect x="140" y="202" width="240" height="30" fill="rgba(14,165,233,0.03)" rx="4"/>
         </svg>
       </div>
+    </div>
+    <div class="pipe-caption">
+      <span data-i18n data-en="Source: EnerTchad Midstream operational data · MPGM 2025 regulatory framework">Source : Données opérationnelles EnerTchad Intermédiaire · Cadre réglementaire MPGM 2025</span>
     </div>
   </div>
 </section>
