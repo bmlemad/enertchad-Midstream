@@ -458,6 +458,8 @@ body.preloader-active{overflow:hidden}
 .nav-item.open .mega-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:0ms}
 .mega-inner{display:flex;gap:0}
 .mega-cols{flex:1;display:grid;gap:0;padding:20px}
+.mega-cols-5{grid-template-columns:1fr 1fr 1fr 1fr 1fr}
+.mega-cols-3{grid-template-columns:1fr 1fr 1fr}
 .mega-cols-2{grid-template-columns:1fr 1fr}
 .mega-cols-1{grid-template-columns:1fr}
 .mega-col-title{font-family:var(--font-d);font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);padding:0 12px 10px;border-bottom:1px solid rgba(14,165,233,0.08);margin-bottom:8px}
@@ -2728,7 +2730,55 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
         </div>
       </div>
 
-      <!-- 3. Innovation mega -->
+      <!-- 3. Expertises & Solutions mega -->
+      <div class="nav-item" data-mega>
+        <a href="#hse-services" role="button" aria-expanded="false" aria-haspopup="true" data-i18n data-en="Expertises & Solutions">Expertises & Solutions <i class="fas fa-chevron-down chevron" aria-hidden="true"></i></a>
+        <div class="mega-drop" role="menu">
+          <div class="mega-inner">
+            <div class="mega-cols mega-cols-5">
+              <div>
+                <a href="#hse-services" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon teal"><i class="fas fa-shield-halved"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="HSE Pipeline">HSE Pipeline</div><div class="mega-link-desc" data-i18n data-en="Audit, training, ERP, monitoring">Audit, formation, ERP, monitoring</div></div>
+                </a>
+              </div>
+              <div>
+                <a href="#academy" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon gold"><i class="fas fa-graduation-cap"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Academy">Academy</div><div class="mega-link-desc" data-i18n data-en="API 1169, ATEX, NACE training">Formations API 1169, ATEX, NACE</div></div>
+                </a>
+              </div>
+              <div>
+                <a href="#enertech-tech" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon teal"><i class="fas fa-microscope"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Engineering">Engineering</div><div class="mega-link-desc" data-i18n data-en="FEED, integrity, simulation studies">Études FEED, intégrité, simulation</div></div>
+                </a>
+              </div>
+              <div>
+                <a href="#fleet" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon teal"><i class="fas fa-truck-field"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Fleet Inspection">Inspection Fleet</div><div class="mega-link-desc" data-i18n data-en="Smart pigging, ILI, pressure">Smart pigging, ILI, pression</div></div>
+                </a>
+              </div>
+              <div>
+                <a href="#producers" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon gold"><i class="fas fa-network-wired"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Operators Portal">Operators Portal</div><div class="mega-link-desc" data-i18n data-en="CNPC, Perenco, UHCL interface">Interface CNPC, Perenco, UHCL</div></div>
+                </a>
+              </div>
+            </div>
+            <div class="mega-featured" style="background:linear-gradient(180deg,rgba(200,150,46,0.05),rgba(200,150,46,0.03))">
+              <div class="mega-featured-title" data-i18n data-en="Solutions">Solutions</div>
+              <div class="mega-featured-stat"><div class="val text-sm-tight">2 400+ <small class="text-xs-muted">formés</small></div></div>
+              <div class="mega-featured-stat"><div class="val text-sm-tight">99.8% <small class="text-xs-muted">uptime</small></div></div>
+              <div class="mega-featured-stat"><div class="val text-sm-tight" data-i18n data-en="24h mobilization">Mobilisation 24h</div></div>
+              <a href="#contact" class="mega-featured-link" data-i18n data-en="Request a quote">Demander un devis <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Innovation mega -->
       <div class="nav-item" data-mega>
         <a href="#vision" role="button" aria-expanded="false" aria-haspopup="true" data-i18n data-en="Innovation">Innovation <i class="fas fa-chevron-down chevron" aria-hidden="true"></i></a>
         <div class="mega-drop" role="menu">
@@ -2772,7 +2822,7 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
         </div>
       </div>
 
-      <!-- 4. Durabilité mega -->
+      <!-- 5. Durabilité mega -->
       <div class="nav-item" data-mega>
         <a href="#esg" role="button" aria-expanded="false" aria-haspopup="true" data-i18n data-en="Sustainability">Durabilité <i class="fas fa-chevron-down chevron" aria-hidden="true"></i></a>
         <div class="mega-drop" role="menu">
@@ -2808,12 +2858,12 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
         </div>
       </div>
 
-      <!-- 5. Entreprise mega -->
+      <!-- 6. Entreprise mega -->
       <div class="nav-item" data-mega>
         <a href="#mission" role="button" aria-expanded="false" aria-haspopup="true" data-i18n data-en="Company">Entreprise <i class="fas fa-chevron-down chevron" aria-hidden="true"></i></a>
         <div class="mega-drop" role="menu">
           <div class="mega-inner">
-            <div class="mega-cols mega-cols-2">
+            <div class="mega-cols mega-cols-3">
               <div>
                 <div class="mega-col-title" data-i18n data-en="About Us">À Propos</div>
                 <a href="#mission" class="mega-link" role="menuitem">
@@ -2847,9 +2897,28 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
                   <div class="mega-link-icon teal"><i class="fas fa-globe"></i></div>
                   <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Corporate Site">Site Corporatif</div><div class="mega-link-desc" data-i18n data-en="EnerTchad Group">Groupe EnerTchad — enertchad.td</div></div>
                 </a>
+              </div>
+              <div>
+                <div class="mega-col-title" data-i18n data-en="Resources">Ressources</div>
                 <a href="#resources" class="mega-link" role="menuitem">
-                  <div class="mega-link-icon teal"><i class="fas fa-book-open"></i></div>
-                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Resources">Ressources</div><div class="mega-link-desc" data-i18n data-en="Reports, datasheets, media">Rapports, fiches, médias</div></div>
+                  <div class="mega-link-icon teal"><i class="fas fa-file-pdf"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Pipeline Datasheets">Datasheets Pipeline</div><div class="mega-link-desc" data-i18n data-en="Technical specifications">Fiches techniques</div></div>
+                </a>
+                <a href="#resources" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon teal"><i class="fas fa-book"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="API/ASME Specs">API/ASME Specs</div><div class="mega-link-desc" data-i18n data-en="Standards & compliance">Normes & conformité</div></div>
+                </a>
+                <a href="#resources" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon gold"><i class="fas fa-certificate"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Certifications">Certifications</div><div class="mega-link-desc" data-i18n data-en="ISO, API, safety">ISO, API, sécurité</div></div>
+                </a>
+                <a href="#news" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon teal"><i class="fas fa-newspaper"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Press Releases">Communiqués de Presse</div><div class="mega-link-desc" data-i18n data-en="Latest news & updates">Actualités & mises à jour</div></div>
+                </a>
+                <a href="#resources" class="mega-link" role="menuitem">
+                  <div class="mega-link-icon teal"><i class="fas fa-images"></i></div>
+                  <div class="mega-link-text"><div class="mega-link-title" data-i18n data-en="Media Kit">Media Kit</div><div class="mega-link-desc" data-i18n data-en="Logos, photos, branding">Logos, photos, marque</div></div>
                 </a>
               </div>
             </div>
@@ -2998,7 +3067,43 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
       </div>
     </div>
 
-    <!-- 3. Innovation accordion -->
+    <!-- 3. Expertises & Solutions accordion -->
+    <div class="mn-section" data-accordion>
+      <div class="mn-section-header" aria-expanded="false">
+        <div class="mn-section-icon teal"><i class="fas fa-shield-halved"></i></div>
+        <div class="mn-section-text">
+          <div class="mn-section-title" data-i18n data-en="Expertises & Solutions">Expertises & Solutions</div>
+          <div class="mn-section-sub" data-i18n data-en="HSE, Academy, Engineering, Fleet, Operators">HSE, Academy, Engineering, Fleet, Opérateurs</div>
+        </div>
+        <i class="fas fa-chevron-down mn-chevron"></i>
+      </div>
+      <div class="mn-section-body">
+        <div class="mn-section-inner">
+          <a href="#hse-services" class="mn-link">
+            <div class="mn-link-ic teal"><i class="fas fa-shield-halved"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="HSE Pipeline">HSE Pipeline</div><div class="mn-link-desc" data-i18n data-en="Audit, training, ERP, monitoring">Audit, formation, ERP, monitoring</div></div>
+          </a>
+          <a href="#academy" class="mn-link">
+            <div class="mn-link-ic gold"><i class="fas fa-graduation-cap"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Academy">Academy</div><div class="mn-link-desc" data-i18n data-en="API 1169, ATEX, NACE training">Formations API 1169, ATEX, NACE</div></div>
+          </a>
+          <a href="#enertech-tech" class="mn-link">
+            <div class="mn-link-ic teal"><i class="fas fa-microscope"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Engineering">Engineering</div><div class="mn-link-desc" data-i18n data-en="FEED, integrity, simulation">Études FEED, intégrité, simulation</div></div>
+          </a>
+          <a href="#fleet" class="mn-link">
+            <div class="mn-link-ic teal"><i class="fas fa-truck-field"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Fleet Inspection">Inspection Fleet</div><div class="mn-link-desc" data-i18n data-en="Smart pigging, ILI, pressure">Smart pigging, ILI, pression</div></div>
+          </a>
+          <a href="#producers" class="mn-link">
+            <div class="mn-link-ic gold"><i class="fas fa-network-wired"></i></div>
+            <div class="mn-link-text"><div class="mn-link-name" data-i18n data-en="Operators Portal">Operators Portal</div><div class="mn-link-desc" data-i18n data-en="CNPC, Perenco, UHCL interface">Interface CNPC, Perenco, UHCL</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Innovation accordion -->
     <div class="mn-section" data-accordion>
       <div class="mn-section-header" aria-expanded="false">
         <div class="mn-section-icon gold"><i class="fas fa-globe-africa"></i></div>
@@ -3038,7 +3143,7 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
       </div>
     </div>
 
-    <!-- 4. Durabilité accordion -->
+    <!-- 5. Durabilité accordion -->
     <div class="mn-section" data-accordion>
       <div class="mn-section-header" aria-expanded="false">
         <div class="mn-section-icon teal"><i class="fas fa-leaf"></i></div>
@@ -3070,7 +3175,7 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
       </div>
     </div>
 
-    <!-- 5. Entreprise accordion -->
+    <!-- 6. Entreprise accordion -->
     <div class="mn-section" data-accordion>
       <div class="mn-section-header" aria-expanded="false">
         <div class="mn-section-icon teal"><i class="fas fa-building"></i></div>
