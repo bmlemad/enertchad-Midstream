@@ -2512,6 +2512,58 @@ body.light-theme .certif-title{color:#666}
 body.light-theme .certif-strip{background:#f5f5f5}
 body.light-theme .certif-badge{background:#fff;color:#333}
 
+/* FEATURE A: CASE STUDY MODALS */
+.case-modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:60px 20px;animation:caseModalFade 0.3s ease}
+.case-modal.open{display:flex}
+@keyframes caseModalFade{from{opacity:0}to{opacity:1}}
+.case-modal-content{max-width:900px;width:100%;background:linear-gradient(155deg,#162A4A,#0B1426);border:1px solid rgba(14,165,233,0.25);border-radius:18px;padding:48px;color:rgba(255,255,255,0.92);position:relative;animation:caseModalSlide 0.4s cubic-bezier(0.22,0.61,0.36,1)}
+@keyframes caseModalSlide{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.case-modal-close{position:absolute;top:20px;right:20px;width:44px;height:44px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:50%;color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+.case-modal-close:hover{background:rgba(14,165,233,0.2);border-color:var(--accent);transform:rotate(90deg)}
+.case-modal-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.25);border-radius:999px;font-family:var(--font-d);font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#38BDF8;margin-bottom:18px}
+.case-modal-title{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;line-height:1.15;margin-bottom:14px;color:#fff}
+.case-modal-meta{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.08);font-size:0.82rem;color:rgba(255,255,255,0.65)}
+.case-modal-meta strong{color:#fff;display:block;font-family:var(--font-d);font-size:0.95rem}
+.case-modal-section{margin-bottom:28px}
+.case-modal-section h3{font-family:var(--font-d);font-size:1.1rem;font-weight:700;color:#38BDF8;margin-bottom:12px}
+.case-modal-section p{font-size:0.95rem;line-height:1.7;color:rgba(255,255,255,0.82);margin-bottom:10px}
+.case-modal-results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0;padding:20px;background:rgba(14,165,233,0.08);border-radius:12px;border:1px solid rgba(14,165,233,0.18)}
+.case-modal-result{text-align:center}
+.case-modal-result-val{font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#38BDF8;font-variant-numeric:tabular-nums;line-height:1;margin-bottom:4px}
+.case-modal-result-lbl{font-size:0.7rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em}
+.case-modal-quote{padding:20px 24px;background:rgba(255,255,255,0.04);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;font-style:italic;font-size:1.02rem;line-height:1.6;color:rgba(255,255,255,0.88);margin:20px 0}
+.case-modal-quote cite{display:block;margin-top:12px;font-style:normal;font-size:0.82rem;color:rgba(255,255,255,0.55)}
+.case-modal-quote cite strong{color:#38BDF8;font-weight:700}
+.case-cta-btn{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:14px 28px;background:var(--accent);color:#fff;border-radius:10px;font-weight:700;text-decoration:none;transition:all 0.3s}
+.case-cta-btn:hover{background:#38BDF8;transform:translateY(-2px);box-shadow:0 8px 20px rgba(14,165,233,0.35)}
+@media(max-width:768px){.case-modal{padding:30px 12px}.case-modal-content{padding:28px}.case-modal-results{grid-template-columns:1fr;gap:12px}}
+body.light-theme .case-modal{background:rgba(0,0,0,0.55)}
+body.light-theme .case-modal-content{background:#fff;color:#1a1a1a;border-color:rgba(14,165,233,0.18)}
+body.light-theme .case-modal-title{color:#1a1a1a}
+body.light-theme .case-modal-section p{color:#444}
+body.light-theme .case-modal-quote{background:#f5f5f5;color:#333}
+body.light-theme .case-modal-close{background:#f0f0f0;color:#333}
+.case-card{cursor:pointer}
+.case-card .case-read-more{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:var(--font-d);font-size:0.82rem;font-weight:600;color:#38BDF8;transition:gap 0.3s}
+.case-card:hover .case-read-more{gap:10px}
+
+/* FEATURE B: SVG ANIMATED PROCESS FLOW */
+.flow-section{padding:60px 0}
+.flow-svg{width:100%;max-width:1200px;margin:40px auto 0;overflow:visible}
+.flow-step{transition:all 0.4s cubic-bezier(0.22,0.61,0.36,1)}
+.flow-step circle.outer{fill:rgba(14,165,233,0.08);stroke:rgba(14,165,233,0.25);stroke-width:1.5}
+.flow-step circle.inner{fill:var(--accent);stroke:#38BDF8;stroke-width:2}
+.flow-step.is-active circle.outer{fill:rgba(14,165,233,0.18);stroke:#38BDF8}
+.flow-step.is-active circle.inner{fill:#38BDF8;filter:drop-shadow(0 0 12px rgba(14,165,233,0.6))}
+.flow-step text.label{fill:rgba(255,255,255,0.85);font-family:var(--font-d);font-size:13px;font-weight:600;text-anchor:middle}
+.flow-step text.num{fill:#fff;font-family:var(--font-d);font-size:14px;font-weight:800;text-anchor:middle;dominant-baseline:central}
+.flow-path{fill:none;stroke:rgba(14,165,233,0.2);stroke-width:2;stroke-dasharray:6 4}
+.flow-progress{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(14,165,233,0.5))}
+.flow-pulse{fill:#38BDF8;filter:drop-shadow(0 0 8px rgba(14,165,233,0.8))}
+@media(prefers-reduced-motion:reduce){.flow-step,.flow-pulse{animation:none!important;transition:none!important}}
+body.light-theme .flow-step text.label{fill:#333}
+body.light-theme .flow-path{stroke:rgba(14,165,233,0.3)}
+
 </style>
 <script type="application/ld+json">
 [
@@ -5513,12 +5565,13 @@ window.addEventListener('cookie-consent',function(e){
       <p class="sdesc" data-i18n data-en="Decades of pipeline operations distilled into measurable results across Africa and the Chad Basin.">Des décennies d'opérations pipeline résumées en résultats mesurables à travers l'Afrique et le Bassin tchadien.</p>
     </div>
     <div class="cases-grid" data-r>
-      <div class="case-card">
+      <div class="case-card" data-case="caseILI">
         <div class="case-card-img"><i class="fas fa-oil-well"></i></div>
         <div class="case-card-body">
           <h3 data-i18n data-en="ILI Campaign — Doba-Kribi 2025">Campagne ILI — Doba-Kribi 2025</h3>
           <p data-i18n data-en="Full MFL+UT inline inspection across 1,070 km with 98.7% anomaly detection rate. 142 critical features identified and repaired within 90-day window.">Inspection MFL+UT en ligne sur 1 070 km avec taux de détection d'anomalies de 98,7 %. 142 défauts critiques identifiés et réparés en 90 jours.</p>
           <div class="case-card-meta"><span class="case-meta-tag">ILI</span><span class="case-meta-tag">1 070 km</span><span class="case-meta-tag">98.7%</span></div>
+          <span class="case-read-more">Lire l'étude de cas →</span>
         </div>
       </div>
       <div class="case-card">
@@ -5538,6 +5591,65 @@ window.addEventListener('cookie-consent',function(e){
         </div>
       </div>
     </div>
+
+    <!-- FEATURE A: CASE MODAL -->
+    <div class="case-modal" id="caseILI" role="dialog" aria-modal="true" aria-labelledby="caseILITitle" hidden>
+      <div class="case-modal-content">
+        <button class="case-modal-close" aria-label="Fermer">×</button>
+        <span class="case-modal-eyebrow"><i class="fas fa-shield-halved"></i> <span data-i18n data-en="Case study · ILI">Étude de cas · ILI</span></span>
+        <h2 id="caseILITitle" class="case-modal-title">Campagne ILI — Doba-Kribi 2025</h2>
+        <div class="case-modal-meta">
+          <div><strong data-i18n data-en="Client">Client</strong>COTCO / SHT</div>
+          <div><strong data-i18n data-en="Duration">Durée</strong>2024-2025</div>
+          <div><strong data-i18n data-en="Scope">Périmètre</strong>1 070 km · Doba-Kribi</div>
+        </div>
+        <div class="case-modal-section">
+          <h3 data-i18n data-en="Context">Contexte</h3>
+          <p>La ligne Doba-Kribi, artère vitale du bassin tchadien, n'avait pas bénéficié d'inspection de géométrie complète depuis 2015. Les informations d'intégrité de la coque et des joints soudés étaient incomplètes, limitant la capacité de transport à 80 % des installations initiales.</p>
+        </div>
+        <div class="case-modal-section">
+          <h3 data-i18n data-en="Our intervention">Notre intervention</h3>
+          <p>Déploiement d'une campagne ILI intégrée combinant MFL (Magnetic Flux Leakage) pour détection de corrosion et UT (Ultrasonic Testing) pour mesure d'épaisseur. Acquisition continu sur 1 070 km, traitement des données en temps réel via plate-forme d'analyse prédictive propriétaire. Réparations ciblées validées par ultrason et test de pression.</p>
+        </div>
+        <div class="case-modal-results">
+          <div class="case-modal-result"><div class="case-modal-result-val">98.7%</div><div class="case-modal-result-lbl" data-i18n data-en="Detection rate">Taux détection</div></div>
+          <div class="case-modal-result"><div class="case-modal-result-val">142</div><div class="case-modal-result-lbl" data-i18n data-en="Features repaired">Défauts réparés</div></div>
+          <div class="case-modal-result"><div class="case-modal-result-val">90j</div><div class="case-modal-result-lbl" data-i18n data-en="Completion window">Délai réparations</div></div>
+        </div>
+        <div class="case-modal-quote">
+          <span>Cette inspection a transformé notre compréhension de l'état d'intégrité du pipeline. Nous avons pu augmenter le débit nominal de 20 % en toute sécurité, améliorant le flux d'exportation du Tchad.</span>
+          <cite>— <strong>Engineering Manager, COTCO</strong></cite>
+        </div>
+        <a href="#contact" class="case-cta-btn" data-i18n data-en="Discuss your project →">Discuter de votre projet →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE B: PROCESS FLOW SECTION -->
+<section class="flow-section" id="process-flow">
+  <div class="ctn">
+    <div data-r class="text-center">
+      <div class="eyb blue"><i class="fas fa-route"></i> <span data-i18n data-en="Process flow">Flux opérationnel</span></div>
+      <h2 class="stitle" data-i18n data-en="From wellhead to terminal">Du puits au terminal</h2>
+      <p class="sdesc" data-i18n data-en="The critical pathway of every barrel through pipeline infrastructure.">La trajectoire critique de chaque baril à travers l'infrastructure pipeline.</p>
+    </div>
+    <svg class="flow-svg" viewBox="0 0 1200 200" aria-label="Flux opérationnel puits vers terminal">
+      <defs>
+        <marker id="flowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 Z" fill="var(--accent)"/>
+        </marker>
+      </defs>
+      <path class="flow-path" d="M 80 100 L 1120 100" />
+      <path class="flow-progress" id="flowProgress" d="M 80 100 L 80 100" pathLength="1" stroke-dasharray="0 1" />
+      <circle class="flow-pulse" id="flowPulse" cx="80" cy="100" r="6" />
+      <g class="flow-step" data-step="1"><circle class="outer" cx="80" cy="100" r="32"/><circle class="inner" cx="80" cy="100" r="18"/><text class="num" x="80" y="100">1</text><text class="label" x="80" y="155">Collecte</text></g>
+      <g class="flow-step" data-step="2"><circle class="outer" cx="280" cy="100" r="32"/><circle class="inner" cx="280" cy="100" r="18"/><text class="num" x="280" y="100">2</text><text class="label" x="280" y="155">Métrologie</text></g>
+      <g class="flow-step" data-step="3"><circle class="outer" cx="480" cy="100" r="32"/><circle class="inner" cx="480" cy="100" r="18"/><text class="num" x="480" y="100">3</text><text class="label" x="480" y="155">Pompage</text></g>
+      <g class="flow-step" data-step="4"><circle class="outer" cx="680" cy="100" r="32"/><circle class="inner" cx="680" cy="100" r="18"/><text class="num" x="680" y="100">4</text><text class="label" x="680" y="155">Stockage</text></g>
+      <g class="flow-step" data-step="5"><circle class="outer" cx="880" cy="100" r="32"/><circle class="inner" cx="880" cy="100" r="18"/><text class="num" x="880" y="100">5</text><text class="label" x="880" y="155">Export</text></g>
+      <g class="flow-step" data-step="6"><circle class="outer" cx="1120" cy="100" r="32"/><circle class="inner" cx="1120" cy="100" r="18"/><text class="num" x="1120" y="100">6</text><text class="label" x="1120" y="155">Terminal</text></g>
+    </svg>
   </div>
 </section>
 
@@ -6920,6 +7032,53 @@ if('serviceWorker' in navigator){
   });
 
   compute();
+})();
+
+/* FEATURE A: CASE MODAL HANDLERS */
+(function(){
+  document.querySelectorAll('[data-case]').forEach(function(card){
+    card.style.cursor='pointer';
+    card.addEventListener('click',function(){
+      var modal=document.getElementById(card.dataset.case);
+      if(!modal)return;
+      modal.hidden=false;
+      requestAnimationFrame(function(){modal.classList.add('open')});
+      document.body.style.overflow='hidden';
+    });
+  });
+  document.querySelectorAll('.case-modal').forEach(function(modal){
+    function close(){
+      modal.classList.remove('open');
+      setTimeout(function(){modal.hidden=true;document.body.style.overflow=''},300);
+    }
+    modal.querySelector('.case-modal-close')?.addEventListener('click',close);
+    modal.addEventListener('click',function(e){if(e.target===modal)close()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))close()});
+  });
+})();
+
+/* FEATURE B: PROCESS FLOW ANIMATION */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var svg=document.querySelector('.flow-svg');
+  if(!svg)return;
+  var steps=svg.querySelectorAll('.flow-step');
+  var pulse=svg.querySelector('#flowPulse');
+  var progress=svg.querySelector('#flowProgress');
+  var idx=0;
+  function tick(){
+    steps.forEach(function(s){s.classList.remove('is-active')});
+    steps[idx].classList.add('is-active');
+    var cx=parseFloat(steps[idx].querySelector('.outer').getAttribute('cx'));
+    if(pulse)pulse.setAttribute('cx',cx);
+    if(progress){
+      var pct=idx/(steps.length-1);
+      progress.setAttribute('stroke-dasharray',pct+' 1');
+    }
+    idx=(idx+1)%steps.length;
+  }
+  tick();
+  setInterval(tick,2200);
 })();
 </script>
 </body>
