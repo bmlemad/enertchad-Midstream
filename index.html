@@ -3072,7 +3072,7 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
       <span class="hero-ctx-city" aria-hidden="true">N'Djamena</span>
     </div>
     <div class="hero-kpi-sep" aria-hidden="true"></div>
-    <div class="hero-kpi"><i class="fas fa-oil-can" aria-hidden="true"></i><span class="hero-kpi-val" id="tickerBbl" data-count="250000" data-suffix=" bbl/j">0</span><small data-i18n data-en="bbl transported/day">barils transportés/jour</small></div>
+    <div class="hero-kpi"><i class="fas fa-oil-can" aria-hidden="true"></i><span class="hero-kpi-val" id="tickerBbl" data-count="250000" data-suffix=" bbl/j" data-live="true" data-step-min="100" data-step-max="500" data-direction="fluctuate" data-live-interval="18000" data-live-jitter="7000">0</span><small data-i18n data-en="bbl transported/day">barils transportés/jour</small></div>
     <div class="hero-kpi-sep" aria-hidden="true"></div>
     <div class="hero-kpi"><i class="fas fa-road" aria-hidden="true"></i><span class="hero-kpi-val" id="tickerKm" data-count="1070" data-suffix=" km">0</span><small data-i18n data-en="km of pipeline">km de pipeline</small></div>
     <div class="hero-kpi-sep" aria-hidden="true"></div>
@@ -3501,7 +3501,7 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
         <span class="kpi-trend-chip stable"><i class="fas fa-minus"></i> stable</span>
       </div>
       <div class="pkpi">
-        <span class="pkpi-v" data-count="300">0</span>
+        <span class="pkpi-v" data-count="300" data-live="true" data-step-min="1" data-step-max="3" data-direction="fluctuate" data-live-interval="15000" data-live-jitter="5000">0</span>
         <span class="pkpi-l" data-i18n data-en="kbbl/d Capacity">kbbl/j Capacité</span>
         <span class="kpi-trend-chip up"><i class="fas fa-arrow-trend-up"></i> +8%</span>
       </div>
@@ -4868,7 +4868,7 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
     <!-- KPI Row -->
     <div class="academy-kpi-row" data-r>
       <div class="academy-kpi">
-        <span class="academy-kpi-val" data-count="2400">2 400+</span>
+        <span class="academy-kpi-val" data-count="2400" data-live="true" data-step-min="1" data-step-max="1" data-direction="up" data-live-interval="25000" data-live-jitter="8000">2 400+</span>
         <span class="academy-kpi-lbl" data-i18n data-en="Personnel trained">Personnes formées</span>
         <span class="kpi-trend-chip up"><i class="fas fa-arrow-trend-up"></i> +22%</span>
       </div>
@@ -5777,6 +5777,7 @@ function toggleTheme(){
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+[data-live]{transition:color 0.4s ease,transform 0.3s ease}
 </style>
 
 <nav class="bottom-nav" id="bottomNav" aria-label="Navigation rapide mobile">
@@ -5920,6 +5921,45 @@ if('PerformanceObserver' in window){
   updateTime();fetchWeather();
   setInterval(updateTime,30000);
   setInterval(fetchWeather,15*60*1000);
+})();
+
+/* ═══ PSEUDO REAL-TIME KPI TICKER ═══ */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var liveKpis=document.querySelectorAll('[data-live]');
+  if(!liveKpis.length)return;
+  function formatValue(el,newVal){
+    var suffix=el.getAttribute('data-suffix')||'';
+    if(suffix==='+')return newVal+'+';
+    if(suffix==='%')return newVal+'%';
+    if(newVal>=1000)return newVal.toLocaleString('fr-FR');
+    return String(newVal);
+  }
+  function tickerUpdate(el){
+    var current=parseInt(el.getAttribute('data-current')||el.getAttribute('data-count')||'0',10);
+    var minStep=parseInt(el.getAttribute('data-step-min')||'1',10);
+    var maxStep=parseInt(el.getAttribute('data-step-max')||'2',10);
+    var direction=el.getAttribute('data-direction')||'up';
+    var step=minStep+Math.floor(Math.random()*(maxStep-minStep+1));
+    var newVal=direction==='fluctuate'?current+(Math.random()>0.5?step:-step):current+step;
+    el.style.transition='color 0.4s ease,transform 0.3s ease';
+    el.style.color='#0EA5E9';
+    el.style.transform='scale(1.04)';
+    el.textContent=formatValue(el,newVal);
+    el.setAttribute('data-current',newVal);
+    setTimeout(function(){el.style.color='';el.style.transform='';},600);
+  }
+  setTimeout(function(){
+    liveKpis.forEach(function(el){
+      var interval=parseInt(el.getAttribute('data-live-interval')||'20000',10);
+      var jitter=parseInt(el.getAttribute('data-live-jitter')||'5000',10);
+      function scheduleNext(){
+        var delay=interval+Math.floor(Math.random()*jitter);
+        setTimeout(function(){tickerUpdate(el);scheduleNext();},delay);
+      }
+      scheduleNext();
+    });
+  },3000);
 })();
 </script>
 </body>
