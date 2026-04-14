@@ -517,6 +517,19 @@ body.preloader-active{overflow:hidden}
 .hero-kpi small{font-size:0.65rem;color:rgba(255,255,255,0.7);max-width:100px;line-height:1.3}
 .hero-kpi-sep{width:1px;height:24px;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.12),transparent);flex-shrink:0}
 @media(max-width:768px){.hero-kpi-bar{flex-wrap:wrap;gap:8px;padding:12px 16px}.hero-kpi{padding:4px 12px}.hero-kpi-sep{display:none}}
+/* Time & Weather Context Pill */
+.hero-ctx{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.25);border-radius:999px;font-family:var(--font-d,'Space Grotesk',sans-serif);font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.02em;white-space:nowrap;line-height:1.2}
+.hero-ctx i{font-size:0.95rem;color:#38BDF8}
+.hero-ctx-temp{color:#38BDF8;font-weight:700}
+.hero-ctx-time{color:#D4A840;font-weight:700;font-variant-numeric:tabular-nums}
+.hero-ctx-sep{opacity:0.35}
+.hero-ctx-city{opacity:0.55;font-weight:500;font-size:0.72rem}
+@media(max-width:480px){.hero-ctx{padding:5px 12px;font-size:0.72rem;gap:6px}.hero-ctx-city{display:none}}
+body.light-theme .hero-ctx{background:rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.2);color:#0F172A}
+body.light-theme .hero-ctx i{color:#0284C7}
+body.light-theme .hero-ctx-temp{color:#0284C7}
+body.light-theme .hero-ctx-time{color:#92400E}
+body.light-theme .hero-ctx-city{color:#475569}
 /* Scroll indicator */
 .hero-scroll{position:absolute;bottom:68px;left:50%;transform:translateX(-50%);z-index:4;opacity:0;animation:heroReveal 0.5s 0.9s ease-out forwards;transition:opacity 0.5s}
 .hero-scroll.is-hidden{opacity:0!important;pointer-events:none}
@@ -2209,18 +2222,6 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
 @media(max-width:768px){.hero{min-height:85vh}}
 @media(max-width:480px){.hero{min-height:80vh}}
 
-/* ═══ TASK 1: HERO META CHIP — Time & Weather Widget ═══ */
-.hero-meta-chip{position:absolute;top:calc(56px + env(safe-area-inset-top,0px));right:clamp(16px,3vw,32px);z-index:5;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:rgba(11,20,38,0.55);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(255,255,255,0.08);border-radius:999px;font-family:var(--font-d,'Space Grotesk',sans-serif);font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.02em;opacity:0;animation:heroReveal 0.6s 0.6s ease-out forwards;box-shadow:0 8px 24px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.06);white-space:nowrap;max-width:calc(100vw - 32px)}
-.hero-meta-chip i{font-size:0.95rem}
-.hero-meta-chip .hmc-temp{color:var(--accent-light,#38BDF8);font-weight:700}
-.hero-meta-chip .hmc-time{color:var(--gold-light,#D4A840);font-weight:700;font-variant-numeric:tabular-nums}
-.hero-meta-chip .hmc-sep{opacity:0.3;margin:0 2px}
-.hero-meta-chip .hmc-city{opacity:0.6;font-weight:500;font-size:0.72rem;display:none}
-@media(min-width:481px){.hero-meta-chip .hmc-city{display:inline}}
-@media(max-width:480px){.hero-meta-chip{top:calc(64px + env(safe-area-inset-top,0px));right:12px;padding:6px 12px;font-size:0.72rem;gap:8px}}
-body.light-theme .hero-meta-chip{background:rgba(255,255,255,0.65);border-color:rgba(0,0,0,0.06);color:rgba(15,23,42,0.92)}
-body.light-theme .hero-meta-chip .hmc-temp{color:#0284C7}
-body.light-theme .hero-meta-chip .hmc-time{color:#92400E}
 
 /* ═══ TASK 2: Mobile Design Polish ═══ */
 @media(max-width:768px){
@@ -2900,14 +2901,6 @@ body.light-theme .hero-meta-chip .hmc-time{color:#92400E}
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
-  <div class="hero-meta-chip" id="heroMetaChip" role="status" aria-live="polite" aria-label="Heure et météo à N'Djamena">
-    <i id="hmcIcon" class="fas fa-cloud-sun" aria-hidden="true"></i>
-    <span class="hmc-temp" id="hmcTemp">—°C</span>
-    <span class="hmc-sep">·</span>
-    <span class="hmc-time" id="hmcTime">--:--</span>
-    <span class="hmc-sep">·</span>
-    <span class="hmc-city">N'Djamena</span>
-  </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-eyebrow" data-i18n data-en="Pipeline · Transport · Storage · Chad">Pipeline · Transport · Stockage · Tchad</div>
@@ -2919,6 +2912,14 @@ body.light-theme .hero-meta-chip .hmc-time{color:#92400E}
     </div>
   </div>
   <div class="hero-kpi-bar" aria-live="polite">
+    <div class="hero-ctx" id="heroCtx" role="status" aria-live="polite" aria-label="Heure et météo à N'Djamena">
+      <i id="hmcIcon" class="fas fa-cloud-sun" aria-hidden="true"></i>
+      <span class="hero-ctx-temp" id="hmcTemp">—°C</span>
+      <span class="hero-ctx-sep" aria-hidden="true">·</span>
+      <span class="hero-ctx-time" id="hmcTime">--:--</span>
+      <span class="hero-ctx-city" aria-hidden="true">N'Djamena</span>
+    </div>
+    <div class="hero-kpi-sep" aria-hidden="true"></div>
     <div class="hero-kpi"><i class="fas fa-oil-can" aria-hidden="true"></i><span class="hero-kpi-val" id="tickerBbl" data-count="250000" data-suffix=" bbl/j">0</span><small data-i18n data-en="bbl transported/day">barils transportés/jour</small></div>
     <div class="hero-kpi-sep" aria-hidden="true"></div>
     <div class="hero-kpi"><i class="fas fa-road" aria-hidden="true"></i><span class="hero-kpi-val" id="tickerKm" data-count="1070" data-suffix=" km">0</span><small data-i18n data-en="km of pipeline">km de pipeline</small></div>
