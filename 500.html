@@ -4,49 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Page non trouvée — EnerTchad Intermédiaire</title>
-<meta name="description" content="La page que vous recherchez n'existe pas ou a été déplacée.">
+<title>Erreur serveur — EnerTchad Intermédiaire</title>
+<meta name="description" content="Une erreur est survenue. Notre équipe technique a été notifiée.">
 <meta name="robots" content="noindex,follow">
 <link rel="icon" type="image/svg+xml" href="/logo.svg">
 <style>
-:root{--primary:#0B1426;--accent:#0EA5E9;--accent-light:#38BDF8;--teal:#14B8A6;--gold:#C8962E;--surface:#F0F4F8;--danger:#EF4444;--font-d:'Space Grotesk',sans-serif;--font-b:'Inter',sans-serif;--radius:14px}
+:root{--primary:#0B1426;--accent:#0EA5E9;--accent-light:#38BDF8;--teal:#14B8A6;--danger:#EF4444;--surface:#F0F4F8;--font-d:'Space Grotesk',sans-serif;--font-b:'Inter',sans-serif;--radius:14px}
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-b);color:var(--text);background:var(--white);font-size:16px;overflow-x:hidden;transition:background 0.4s}
-body.light-theme{--text:#1A202C;--surface:#FFFFFF}
-body.dark-theme{--primary:#0B1426;--accent:#0EA5E9;--text:#F8FAFC;--surface:#0F1D35;--white:#1A1A2E}
+body.light-theme{--text:#1A202C;--white:#FFFFFF}
+body.dark-theme{--primary:#0B1426;--accent:#0EA5E9;--text:#F8FAFC;--white:#1A1A2E}
 
 a{color:var(--accent);text-decoration:none}a:hover{color:var(--accent-light)}
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--primary);color:#fff;padding:1rem;z-index:9999}.skip-link:focus{left:0}
-header.error-header{background:var(--primary);color:#fff;padding:1.25rem 0;border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:100}
+header.error-header{background:var(--primary);color:#fff;padding:1.25rem 0;border-bottom:3px solid var(--danger);position:sticky;top:0;z-index:100}
 .container{max-width:1000px;margin:0 auto;padding:0 1.5rem}
 .header-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .brand{display:flex;align-items:center;gap:.75rem;color:#fff;font-weight:700;font-size:1.15rem;text-decoration:none;font-family:var(--font-d)}
 .brand:hover{color:var(--accent-light)}
-.brand-logo{width:40px;height:40px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
+.brand-logo{width:40px;height:40px;background:var(--danger);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
 nav.error-nav a{color:#fff;padding:0.5rem 0.75rem;font-size:.9rem;opacity:.85}
-nav.error-nav a:hover{opacity:1;color:var(--accent-light)}
+nav.error-nav a:hover{opacity:1}
 .theme-toggle{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:0.5rem 0.75rem;border-radius:6px;cursor:pointer}
-.theme-toggle:hover{background:rgba(255,255,255,0.15)}
+.theme-toggle:hover{background:rgba(255,255,255,0.15);border-color:var(--danger)}
 main{padding:4rem 0;min-height:70vh;display:flex;align-items:center;justify-content:center}
 .error-wrapper{text-align:center;max-width:700px;padding:2rem}
-.error-svg{max-width:300px;height:auto;margin-bottom:2rem;opacity:0.9;animation:float 3s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-.error-code{font-size:clamp(4rem,15vw,8rem);font-weight:900;background:linear-gradient(135deg,var(--accent) 0%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:1rem 0;font-family:var(--font-d)}
+.error-svg{max-width:300px;height:auto;margin-bottom:2rem;opacity:0.9;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:0.9}50%{opacity:0.7}}
+.error-code{font-size:clamp(4rem,15vw,8rem);font-weight:900;background:linear-gradient(135deg,var(--danger) 0%,var(--danger) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:1rem 0;font-family:var(--font-d)}
 h1{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;margin:1rem 0;color:var(--primary);font-family:var(--font-d)}
 .error-description{font-size:1.1rem;color:var(--text-light);margin:1.5rem 0 2.5rem;line-height:1.8}
 .action-buttons{display:flex;flex-direction:column;gap:1rem;margin:2rem 0}
 .btn{padding:1rem 2rem;border-radius:var(--radius);font-weight:600;font-size:1rem;border:none;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block;font-family:var(--font-d)}
-.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 16px rgba(14,165,233,0.3)}
-.btn-secondary{background:var(--surface);color:var(--primary);border:2px solid var(--accent)}.btn-secondary:hover{background:var(--accent);color:#fff}
-.btn-tertiary{background:transparent;color:var(--accent);border:2px solid var(--accent)}.btn-tertiary:hover{background:var(--accent);color:#fff}
-.info-box{background:var(--surface);border-left:4px solid var(--gold);border-radius:var(--radius);padding:1.5rem;margin:2rem 0;text-align:left}
-footer.error-footer{background:var(--primary);color:#ccc;padding:2rem 0;margin-top:4rem;font-size:.85rem;text-align:center;border-top:2px solid var(--accent)}
+.btn-primary{background:var(--danger);color:#fff}.btn-primary:hover{background:#DC2626;transform:translateY(-2px);box-shadow:0 8px 16px rgba(239,68,68,0.3)}
+.btn-secondary{background:var(--surface);color:var(--primary);border:2px solid var(--danger)}.btn-secondary:hover{background:var(--danger);color:#fff}
+.info-box{background:var(--surface);border-left:4px solid var(--danger);border-radius:var(--radius);padding:1.5rem;margin:2rem 0;text-align:left}
+.info-box strong{color:var(--danger)}
+footer.error-footer{background:var(--primary);color:#ccc;padding:2rem 0;margin-top:4rem;font-size:.85rem;text-align:center;border-top:2px solid var(--danger)}
 footer.error-footer a{color:var(--accent-light)}
 footer.error-footer .footer-links{margin-bottom:.75rem}
 footer.error-footer .footer-links a{margin:0 .75rem;display:inline-block}
-@media (max-width:768px){.error-code{font-size:3rem}h1{font-size:1.5rem}.action-buttons{display:grid;grid-template-columns:1fr;gap:0.75rem}.btn{padding:0.75rem 1.5rem;font-size:0.95rem}.error-svg{max-width:250px}nav.error-nav{display:none}}
+@media (max-width:768px){.error-code{font-size:3rem}h1{font-size:1.5rem}.action-buttons{grid-template-columns:1fr;gap:0.75rem}.btn{padding:0.75rem 1.5rem;font-size:0.95rem}.error-svg{max-width:250px}nav.error-nav{display:none}}
 @media (max-width:480px){main{padding:2rem 0}.error-wrapper{padding:1rem}.error-code{font-size:2.5rem}.btn{padding:0.75rem 1.25rem}}
 </style>
 </head>
@@ -66,26 +66,23 @@ footer.error-footer .footer-links a{margin:0 .75rem;display:inline-block}
   <div class="error-wrapper">
     <svg class="error-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
       <circle cx="100" cy="100" r="80" stroke="currentColor" opacity="0.3"/>
-      <g transform="translate(70,60)">
-        <circle cx="10" cy="10" r="8" fill="currentColor" opacity="0.6"/>
-        <circle cx="50" cy="10" r="8" fill="currentColor" opacity="0.6"/>
-        <path d="M 15 40 Q 30 50 45 40" stroke="currentColor" stroke-linecap="round" opacity="0.6"/>
-      </g>
-      <path d="M 60 140 L 140 140 M 70 140 L 70 160 M 130 140 L 130 160" stroke="currentColor" opacity="0.4"/>
+      <path d="M 60 70 L 140 70 M 60 130 L 140 130 M 70 70 L 70 130 M 85 70 L 85 130 M 100 70 L 100 130 M 115 70 L 115 130 M 130 70 L 130 130" stroke="currentColor" opacity="0.6" stroke-linecap="round"/>
+      <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" opacity="0.4"/>
+      <path d="M 85 85 L 115 115 M 115 85 L 85 115" stroke="currentColor" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
     </svg>
 
-    <div class="error-code">404</div>
-    <h1>Page non trouvée</h1>
-    <p class="error-description">La page que vous recherchez n'existe pas ou a été déplacée. Vérifiez l'URL et réessayez.</p>
+    <div class="error-code">500</div>
+    <h1>Erreur serveur</h1>
+    <p class="error-description">Une erreur interne s'est produite. Notre équipe technique a été notifiée et travaille déjà à la résolution du problème.</p>
 
     <div class="action-buttons">
       <a href="/" class="btn btn-primary">Retour à l'accueil</a>
-      <a href="/#contact" class="btn btn-secondary">Nous contacter</a>
-      <a href="javascript:history.back()" class="btn btn-tertiary">Page précédente</a>
+      <a href="/#contact" class="btn btn-secondary">Contacter le support</a>
     </div>
 
     <div class="info-box">
-      <p><strong>Besoin d'aide ?</strong><br>Contactez-nous à <strong>midstream@enertchad.td</strong> ou appelez <strong>+235-66-38-42-15</strong>.</p>
+      <p><strong>Que s'est-il passé ?</strong><br>Une erreur temporaire a affecté le serveur. Veuillez réessayer dans quelques instants.</p>
+      <p style="margin-top:1rem;margin-bottom:0"><strong>Besoin d'aide immédiate ?</strong><br>Contactez-nous à <strong>midstream@enertchad.td</strong> ou appelez <strong>+235-66-38-42-15</strong>.</p>
     </div>
   </div>
 </main>

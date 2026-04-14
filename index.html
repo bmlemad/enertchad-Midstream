@@ -2505,6 +2505,26 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
 <script>/* FOUC prevention — apply theme before first paint */
 (function(){try{var t=localStorage.getItem('enertchad-theme');var p=window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches;if(t==='light'||(t!=='dark'&&p))document.documentElement.classList.add('light-theme')}catch(e){}})()</script>
+<!-- ═══ ANALYTICS — Add your tracking IDs ═══ -->
+<!-- Google Analytics 4 (uncomment + replace G-XXXXXX):
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXX"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config','G-XXXXXX',{anonymize_ip:true});
+</script>
+-->
+<!-- Plausible (uncomment + replace domain):
+<script defer data-domain="enertchad.td" src="https://plausible.io/js/script.outbound-links.js"></script>
+-->
+<script>
+window.addEventListener('cookie-consent',function(e){
+  if(e.detail.choice==='all'){
+    // Load analytics scripts here when consent given
+    // Example: var s=document.createElement('script');s.src='...';document.head.appendChild(s);
+  }
+});
+</script>
 </head>
 <body class="preloader-active">
 
@@ -2949,8 +2969,8 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
         <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
       </button>
       <div class="lang-switch" aria-label="Langue" role="radiogroup">
-        <button class="lang-btn active" data-lang="fr" role="radio" aria-checked="true">FR</button>
-        <button class="lang-btn" data-lang="en" role="radio" aria-checked="false">EN</button>
+        <button class="lang-btn active" data-lang-btn="fr" role="radio" aria-checked="true">FR</button>
+        <button class="lang-btn" data-lang-btn="en" role="radio" aria-checked="false">EN</button>
       </div>
       <button class="mob-toggle" id="mobOpen" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav"><i class="fas fa-bars" aria-hidden="true"></i></button>
     </div>
@@ -2967,8 +2987,8 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
 
     <!-- Language toggle -->
     <div class="mn-lang">
-      <button class="mn-lang-btn active" data-mlang="fr">🇫🇷 Français</button>
-      <button class="mn-lang-btn" data-mlang="en">🇬🇧 English</button>
+      <button class="mn-lang-btn active" data-lang-btn="fr">🇫🇷 Français</button>
+      <button class="mn-lang-btn" data-lang-btn="en">🇬🇧 English</button>
     </div>
 
     <!-- Theme toggle for mobile -->
@@ -6426,6 +6446,97 @@ if('PerformanceObserver' in window){
   if(!reduced){
     setInterval(refresh,8000);
   }
+})();
+</script>
+
+<!-- ═══ COOKIE CONSENT BANNER ═══ -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent" hidden>
+  <div class="cookie-banner-inner">
+    <div class="cookie-banner-text">
+      <strong data-i18n data-en="🍪 Cookies & privacy">🍪 Cookies & confidentialité</strong>
+      <p data-i18n data-en="We use essential cookies for site functionality and optional analytics to improve experience. You control your choices.">Nous utilisons des cookies essentiels pour le fonctionnement du site et des cookies analytiques optionnels pour améliorer l'expérience. Vous contrôlez vos choix.</p>
+    </div>
+    <div class="cookie-banner-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline" data-i18n data-en="Essential only">Essentiels uniquement</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept" data-i18n data-en="Accept all">Tout accepter</button>
+      <a href="cookies.html" class="cookie-link" data-i18n data-en="Learn more →">En savoir plus →</a>
+    </div>
+  </div>
+</div>
+
+<style>
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(15,15,20,0.95);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-top:1px solid rgba(14,165,233,0.25);box-shadow:0 -8px 30px rgba(0,0,0,0.35);transform:translateY(100%);transition:transform 0.5s cubic-bezier(0.22,0.61,0.36,1);padding:18px 0}
+.cookie-banner.show{transform:translateY(0)}
+.cookie-banner-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.cookie-banner-text{flex:1;min-width:280px;color:rgba(255,255,255,0.9)}
+.cookie-banner-text strong{display:block;font-family:var(--font-d);font-size:0.95rem;font-weight:700;margin-bottom:4px}
+.cookie-banner-text p{font-size:0.82rem;line-height:1.5;color:rgba(255,255,255,0.7);margin:0}
+.cookie-banner-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cookie-btn{padding:10px 20px;border-radius:999px;font-family:var(--font-d);font-weight:600;font-size:0.82rem;cursor:pointer;border:1px solid rgba(255,255,255,0.18);background:transparent;color:#fff;transition:all 0.3s;min-height:44px}
+.cookie-btn:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.3)}
+.cookie-btn-accept{background:var(--accent);border-color:var(--accent);color:#fff}
+.cookie-btn-accept:hover{background:var(--accent-light);border-color:var(--accent-light);transform:translateY(-1px);box-shadow:0 6px 16px rgba(14,165,233,0.35)}
+.cookie-link{color:rgba(255,255,255,0.6);font-size:0.78rem;text-decoration:none;transition:color 0.3s;white-space:nowrap}
+.cookie-link:hover{color:rgba(255,255,255,0.9)}
+body.light-theme .cookie-banner{background:rgba(255,255,255,0.95);border-top-color:rgba(2,132,199,0.15)}
+body.light-theme .cookie-banner-text{color:rgba(30,58,138,0.9)}
+body.light-theme .cookie-banner-text p{color:rgba(30,58,138,0.7)}
+body.light-theme .cookie-btn{border-color:rgba(30,58,138,0.15);color:rgba(30,58,138,0.7)}
+body.light-theme .cookie-btn:hover{background:rgba(30,58,138,0.06);border-color:rgba(30,58,138,0.2)}
+body.light-theme .cookie-btn-accept{background:var(--accent);color:#fff}
+body.light-theme .cookie-link{color:rgba(30,58,138,0.6)}
+body.light-theme .cookie-link:hover{color:rgba(30,58,138,0.9)}
+@media(max-width:768px){.cookie-banner-inner{flex-direction:column;align-items:stretch;gap:14px;padding:0 16px}.cookie-banner-actions{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.cookie-banner{transition:none}}
+</style>
+
+<script>
+/* ═══ COOKIE CONSENT ═══ */
+(function(){
+  var KEY='enertchad-cookies';
+  var banner=document.getElementById('cookieBanner');
+  if(!banner)return;
+  if(localStorage.getItem(KEY))return;
+  setTimeout(function(){
+    banner.hidden=false;
+    requestAnimationFrame(function(){banner.classList.add('show')});
+  },1200);
+  function setChoice(val){
+    localStorage.setItem(KEY,val);
+    localStorage.setItem(KEY+'-date',new Date().toISOString());
+    banner.classList.remove('show');
+    setTimeout(function(){banner.hidden=true},500);
+    window.dispatchEvent(new CustomEvent('cookie-consent',{detail:{choice:val}}));
+  }
+  document.getElementById('cookieAccept')?.addEventListener('click',function(){setChoice('all')});
+  document.getElementById('cookieDecline')?.addEventListener('click',function(){setChoice('essential')});
+})();
+
+/* ═══ LANGUAGE TOGGLE WITH PERSISTENCE ═══ */
+(function(){
+  var KEY='enertchad-lang';
+  function applyLang(lang){
+    document.documentElement.lang=lang;
+    document.body.classList.toggle('lang-en',lang==='en');
+    document.querySelectorAll('[data-i18n][data-en]').forEach(function(el){
+      if(!el.dataset.frOriginal){el.dataset.frOriginal=el.textContent;el.dataset.frHTML=el.innerHTML}
+      if(lang==='en'){
+        el.innerHTML=el.dataset.en;
+      } else {
+        el.innerHTML=el.dataset.frHTML||el.dataset.frOriginal;
+      }
+    });
+    document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+      btn.classList.toggle('active',btn.dataset.langBtn===lang);
+      btn.setAttribute('aria-pressed',btn.dataset.langBtn===lang?'true':'false');
+    });
+    localStorage.setItem(KEY,lang);
+  }
+  document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+    btn.addEventListener('click',function(e){e.preventDefault();applyLang(btn.dataset.langBtn)});
+  });
+  var saved=localStorage.getItem(KEY);
+  if(saved==='en'||saved==='fr'){applyLang(saved)}
 })();
 </script>
 
