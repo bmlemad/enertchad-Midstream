@@ -1188,6 +1188,9 @@ body.light-theme .dash-station-meta,body.light-theme .dash-station-status{color:
 .form-submit-success p{font-size:0.85rem;color:var(--text-sec);line-height:1.6}
 @keyframes successPop{0%{transform:scale(0)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
 @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.form-msg{display:none;padding:14px 18px;border-radius:10px;font-size:0.88rem;font-weight:500;margin-top:14px}
+.form-msg--success{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#22c55e}
+.form-msg--error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);color:#ef4444}
 .form-shake{animation:shake 0.4s ease}
 
 /* ═══ SEARCH OVERLAY ═══ */
@@ -1304,6 +1307,7 @@ body.light-theme .ftr-nl-input{background:rgba(0,0,0,0.04);border-color:rgba(0,0
 body.light-theme .ftr-nl-input::placeholder{color:rgba(0,0,0,0.3)}
 body.light-theme .ftr-newsletter-content p{color:rgba(0,0,0,0.5)}
 @media(max-width:768px){.ftr-newsletter{flex-direction:column;text-align:center}.ftr-newsletter-form{width:100%}.ftr-nl-input{flex:1;width:auto}}
+.nl-success{color:#22c55e;font-size:0.85rem;display:flex;align-items:center;gap:8px;font-weight:600}
 
 /* ═══ DOT NAV ═══ */
 .dot-nav{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:0}
@@ -2442,6 +2446,72 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
   .scroll-top{bottom:calc(76px + env(safe-area-inset-bottom,0px))!important;right:14px!important}
 }
 
+/* ═══ CALCULATOR STYLES (MIDSTREAM) ═══ */
+.calc-section{padding:60px 0}
+.calc-section .ctn > div:first-child {margin-bottom: 40px}
+.calc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
+@media(max-width:1024px){.calc-wrap{grid-template-columns:1fr;gap:32px}}
+.calc-inputs{background:linear-gradient(155deg,rgba(15,23,42,0.6),rgba(30,41,59,0.4));border:1px solid rgba(14,165,233,0.18);border-radius:16px;padding:28px}
+.calc-input-group{margin-bottom:20px}
+.calc-input-group:last-child{margin-bottom:0}
+.calc-input-group label{display:block;font-family:var(--font-d);font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:8px}
+.calc-input-group .calc-value{float:right;color:#38BDF8;font-variant-numeric:tabular-nums;font-weight:700}
+.calc-input-group input[type="range"]{width:100%;-webkit-appearance:none;appearance:none;height:6px;background:rgba(255,255,255,0.08);border-radius:999px;outline:none;margin-top:8px}
+.calc-input-group input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;background:#0EA5E9;border-radius:50%;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3),0 0 0 4px rgba(14,165,233,0.15);transition:all 0.2s}
+.calc-input-group input[type="range"]::-moz-range-thumb{width:20px;height:20px;background:#0EA5E9;border-radius:50%;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3),0 0 0 4px rgba(14,165,233,0.15);border:none;transition:all 0.2s}
+.calc-input-group input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+.calc-input-group input[type="range"]::-moz-range-thumb:hover{transform:scale(1.15)}
+.calc-input-group input[type="number"],.calc-input-group select{width:100%;padding:12px 14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-size:0.95rem;font-family:inherit;margin-top:6px}
+.calc-input-group input[type="number"]:focus,.calc-input-group select:focus{outline:none;border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,0.18)}
+.calc-results{background:linear-gradient(155deg,rgba(15,23,42,0.85),rgba(30,41,59,0.7));border:1px solid rgba(14,165,233,0.22);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.calc-result-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.calc-result-row:last-of-type{border-bottom:none}
+.calc-result-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.calc-result-value{font-family:var(--font-d);font-size:1.4rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.calc-result-value.highlight{background:linear-gradient(135deg,#0EA5E9,#38BDF8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-size:1.7rem}
+.calc-cta{margin-top:8px;padding:14px 24px;background:#0EA5E9;color:#fff;border-radius:10px;text-decoration:none;text-align:center;font-weight:700;font-size:0.95rem;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.3s;border:none;cursor:pointer}
+.calc-cta:hover{background:#38BDF8;transform:translateY(-2px);box-shadow:0 8px 20px rgba(14,165,233,0.35)}
+.calc-disclaimer{font-size:0.7rem;color:rgba(255,255,255,0.5);font-style:italic;text-align:center;margin-top:8px}
+body.light-theme .calc-inputs{background:#fff;border-color:rgba(14,165,233,0.15)}
+body.light-theme .calc-input-group label{color:#1a1a1a}
+body.light-theme .calc-input-group input[type="number"],body.light-theme .calc-input-group select{background:#fafafa;border-color:rgba(0,0,0,0.1);color:#1a1a1a}
+body.light-theme .calc-results{background:#fff;border-color:rgba(14,165,233,0.15)}
+body.light-theme .calc-result-label{color:#666}
+body.light-theme .calc-result-value{color:#1a1a1a}
+@media(max-width:480px){.calc-inputs,.calc-results{padding:20px}.calc-wrap{gap:20px}}
+
+
+/* ═══ TIMELINE STYLES ═══ */
+.timeline-section{padding:60px 0;background:linear-gradient(180deg, #0B1426, #162A4A)}
+.timeline-track{position:relative;display:flex;gap:0;padding:40px 0 20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.timeline-track::before{content:'';position:absolute;top:90px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent) 60%,rgba(14,165,233,0.2) 60%,rgba(14,165,233,0.2) 100%);z-index:0}
+.timeline-item{flex:0 0 280px;scroll-snap-align:center;padding:0 16px;position:relative;z-index:1}
+.timeline-year{font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#fff;text-align:center;margin-bottom:12px;background:linear-gradient(135deg,var(--accent),var(--accent-light));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.timeline-dot{width:16px;height:16px;border-radius:50%;background:var(--accent);margin:0 auto 16px;box-shadow:0 0 0 5px rgba(14,165,233,0.15),0 0 12px rgba(14,165,233,0.5);position:relative;z-index:2}
+.timeline-item.future .timeline-dot{background:transparent;border:2px dashed var(--accent);box-shadow:0 0 0 5px rgba(14,165,233,0.08)}
+.timeline-item.future .timeline-year{opacity:0.7}
+.timeline-card{background:linear-gradient(155deg,rgba(15,30,60,0.85),rgba(11,20,38,0.7));border:1px solid rgba(14,165,233,0.18);border-radius:14px;padding:18px;text-align:center;font-size:0.85rem;color:rgba(255,255,255,0.85);line-height:1.5;min-height:120px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.timeline-card strong{display:block;font-family:var(--font-d);font-size:0.95rem;font-weight:700;color:#fff;margin-bottom:6px}
+.timeline-item.future .timeline-card{border-style:dashed;background:linear-gradient(155deg,rgba(15,30,60,0.5),rgba(11,20,38,0.3))}
+@media(max-width:768px){.timeline-item{flex:0 0 240px}}
+@media(max-width:480px){.timeline-item{flex:0 0 220px;padding:0 10px}}
+body.light-theme .timeline-card{background:#fff;border-color:rgba(14,165,233,0.15);color:#333}
+body.light-theme .timeline-card strong{color:#1a1a1a}
+
+/* ═══ CERTIFICATIONS STYLES ═══ */
+.certif-strip{padding:32px 0;background:rgba(0,0,0,0.04);border-top:1px solid rgba(14,165,233,0.1);border-bottom:1px solid rgba(14,165,233,0.1);overflow:hidden}
+.certif-title{text-align:center;font-family:var(--font-d);font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:20px}
+body.light-theme .certif-title{color:#666}
+.certif-marquee{display:flex;gap:36px;animation:certifScroll 40s linear infinite;width:max-content}
+.certif-marquee:hover{animation-play-state:paused}
+.certif-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(14,165,233,0.18);border-radius:999px;font-family:var(--font-d);font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.85);white-space:nowrap;transition:all 0.3s}
+.certif-badge i{color:var(--accent-light);font-size:0.85rem}
+.certif-badge:hover{border-color:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(14,165,233,0.2)}
+@keyframes certifScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.certif-marquee{animation:none;flex-wrap:wrap;justify-content:center;width:100%}}
+body.light-theme .certif-strip{background:#f5f5f5}
+body.light-theme .certif-badge{background:#fff;color:#333}
+
 </style>
 <script type="application/ld+json">
 [
@@ -3315,6 +3385,59 @@ window.addEventListener('cookie-consent',function(e){
       <div class="chapter-marker" aria-hidden="true">
         <span class="chapter-marker-num">01</span>
         <span class="chapter-marker-sep"></span>
+
+<!-- ═══ TIMELINE ═══ -->
+<section class="timeline-section" id="timeline">
+  <div class="ctn">
+    <div data-r class="text-center">
+      <div class="eyb blue"><i class="fas fa-clock-rotate-left"></i> <span data-i18n data-en="Our journey">Notre parcours</span></div>
+      <h2 class="stitle" data-i18n data-en="Milestones since 2010">Jalons depuis 2010</h2>
+      <p class="sdesc" data-i18n data-en="Key moments shaping our trajectory.">Les moments clés qui ont façonné notre trajectoire.</p>
+    </div>
+    <div class="timeline-track" data-r>
+      <div class="timeline-item">
+        <div class="timeline-year">2010</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card"><strong data-i18n data-en="Launch">Lancement</strong>Pipeline Doba-Kribi opérationnel (1070 km)</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2015</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card"><strong data-i18n data-en="Expansion">Expansion</strong>Hub stockage Komé-Kribi (capacité doublée)</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card"><strong data-i18n data-en="Innovation">Innovation</strong>Premier ILI smart pigging</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2020</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card"><strong data-i18n data-en="Certification">Certification</strong>API 1160, 99% uptime</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card"><strong data-i18n data-en="Modernization">Modernisation</strong>SCADA + IA prédictive déployés</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card"><strong data-i18n data-en="Current">Actuel</strong>Dashboard live, 2 hubs, 5 stations</div>
+      </div>
+      <div class="timeline-item future">
+        <div class="timeline-year">2027</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card"><strong data-i18n data-en="Vision 2027">Vision 2027</strong>Extension Bongor-Doba 350 km</div>
+      </div>
+      <div class="timeline-item future">
+        <div class="timeline-year">2030</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card"><strong data-i18n data-en="Vision 2030">Vision 2030</strong>Réseau régional Tchad-Cameroun-Centrafrique</div>
+      </div>
+    </div>
+  </div>
+</section>
         <span data-i18n data-en="Vision">Vision</span>
       </div>
       <div class="eyb blue"><i class="fas fa-bullseye" aria-hidden="true"></i> <span data-i18n data-en="Our Mission">Notre Mission</span></div>
@@ -4579,6 +4702,85 @@ window.addEventListener('cookie-consent',function(e){
   </div>
 </section>
 
+<!-- ═══ TRANSPORT COST ESTIMATOR ═══ -->
+<section class="calc-section sec-dark" id="calc-transport" aria-labelledby="calc-transport-title">
+  <div class="ctn">
+    <div data-r class="text-center">
+      <div class="eyb teal"><i class="fas fa-calculator" aria-hidden="true"></i> <span data-i18n data-en="Cost Comparison">Comparaison des coûts</span></div>
+      <h2 class="stitle" id="calc-transport-title" data-i18n data-en="Transport Cost Estimator – Pipeline vs Truck">Estimateur Coût Transport – Pipeline vs Camion</h2>
+      <p class="sdesc" data-i18n data-en="Compare pipeline and truck transport costs, timelines, and environmental impact for your crude shipments.">Comparez les coûts pipeline et camion, les délais et l'impact environnemental pour vos expéditions.</p>
+    </div>
+
+    <div class="calc-wrap" data-r>
+      <!-- INPUTS -->
+      <div class="calc-inputs">
+        <div class="calc-input-group">
+          <label for="calc-volume-bbl" data-i18n data-en="Volume (barrels)">Volume (barils)</label>
+          <input type="number" id="calc-volume-bbl" min="1000" max="1000000" value="50000">
+        </div>
+
+        <div class="calc-input-group">
+          <label for="calc-distance-km" data-i18n data-en="Distance (km)">Distance (km)</label>
+          <span class="calc-value"><span id="calc-distance-km-val">500</span> km</span>
+          <input type="range" id="calc-distance-km" min="100" max="1500" value="500" data-unit=" km">
+        </div>
+
+        <div class="calc-input-group">
+          <label for="calc-frequence" data-i18n data-en="Frequency">Fréquence</label>
+          <select id="calc-frequence">
+            <option value="ponctuel" data-i18n data-en="One-time">Ponctuel</option>
+            <option value="hebdo" data-i18n data-en="Weekly">Hebdo</option>
+            <option value="mensuel" data-i18n data-en="Monthly">Mensuel</option>
+            <option value="quotidien" data-i18n data-en="Daily">Quotidien</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- OUTPUTS: Comparison Cards -->
+      <div class="calc-results">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <!-- PIPELINE CARD -->
+          <div style="background: rgba(14,165,233,0.15); border: 1px solid rgba(14,165,233,0.3); border-radius: 12px; padding: 16px;">
+            <div style="font-weight: 700; color: #0EA5E9; margin-bottom: 12px; font-size: 0.95rem;" data-i18n data-en="Pipeline">Pipeline</div>
+            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 8px;" data-i18n data-en="Estimated cost (USD)">Coût estimé (USD)</div>
+            <div style="font-size: 1.3rem; font-weight: 800; color: #0EA5E9; margin-bottom: 12px;">$<span id="calc-cost-pipeline">3000</span></div>
+            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-bottom: 8px;" data-i18n data-en="Transit time (h)">Délai (h)</div>
+            <div style="font-size: 1.1rem; font-weight: 700; color: #fff;"><span id="calc-time-pipeline">12.5</span>h</div>
+            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 8px;" data-i18n data-en="CO2 (tonnes)">CO2 (tonnes)</div>
+            <div style="font-size: 1rem; font-weight: 700; color: #22c55e;"><span id="calc-co2-pipeline">2.5</span>t</div>
+          </div>
+
+          <!-- TRUCK CARD -->
+          <div style="background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 12px; padding: 16px;">
+            <div style="font-weight: 700; color: #EF4444; margin-bottom: 12px; font-size: 0.95rem;" data-i18n data-en="Truck">Camion</div>
+            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 8px;" data-i18n data-en="Estimated cost (USD)">Coût estimé (USD)</div>
+            <div style="font-size: 1.3rem; font-weight: 800; color: #EF4444; margin-bottom: 12px;">$<span id="calc-cost-truck">6000</span></div>
+            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-bottom: 8px;" data-i18n data-en="Transit time (h)">Délai (h)</div>
+            <div style="font-size: 1.1rem; font-weight: 700; color: #fff;"><span id="calc-time-truck">22.3</span>h</div>
+            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 8px;" data-i18n data-en="CO2 (tonnes)">CO2 (tonnes)</div>
+            <div style="font-size: 1rem; font-weight: 700; color: #EF4444;"><span id="calc-co2-truck">6</span>t</div>
+          </div>
+        </div>
+
+        <div class="calc-result-row" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
+          <span class="calc-result-label" data-i18n data-en="Savings vs truck (USD)">Économies vs camion (USD)</span>
+          <span class="calc-result-value highlight" id="calc-savings-transport">$3,000</span>
+        </div>
+
+        <div class="calc-result-row">
+          <span class="calc-result-label" data-i18n data-en="Savings % vs truck">Économies % vs camion</span>
+          <span class="calc-result-value highlight" id="calc-savings-pct">50%</span>
+        </div>
+
+        <a href="#contact" class="calc-cta" data-i18n data-en="Estimate your project">
+          <i class="fas fa-paper-plane"></i> Estimer votre projet
+        </a>
+        <p class="calc-disclaimer" data-i18n data-en="Estimates based on Doba–Kribi corridor rates and current market prices. Actual costs depend on volume, frequency, and seasonal factors.">Estimations basées sur les tarifs du corridor Doba–Kribi. Les coûts réels dépendent du volume, fréquence et facteurs saisonniers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ FLEET ═══ -->
 <section class="sec-light" id="fleet">
   <div class="ctn">
@@ -5268,6 +5470,40 @@ window.addEventListener('cookie-consent',function(e){
   </div>
 </section>
 
+<!-- ═══ CERTIFICATIONS ═══ -->
+<section class="certif-strip" aria-label="Certifications et affiliations">
+  <div class="ctn">
+    <div class="certif-title" data-i18n data-en="Certifications & affiliations">Certifications & affiliations</div>
+    <div class="certif-marquee">
+      <span class="certif-badge"><i class="fas fa-certificate"></i> ISO 9001</span>
+      <span class="certif-badge"><i class="fas fa-certificate"></i> ISO 14001</span>
+      <span class="certif-badge"><i class="fas fa-certificate"></i> ISO 45001</span>
+      <span class="certif-badge"><i class="fas fa-shield-halved"></i> ATEX</span>
+      <span class="certif-badge"><i class="fas fa-award"></i> Bureau Veritas</span>
+      <span class="certif-badge"><i class="fas fa-graduation-cap"></i> OPITO</span>
+      <span class="certif-badge"><i class="fas fa-graduation-cap"></i> NEBOSH</span>
+      <span class="certif-badge"><i class="fas fa-graduation-cap"></i> BOSIET</span>
+      <span class="certif-badge"><i class="fas fa-flask"></i> NACE/AMPP</span>
+      <span class="certif-badge"><i class="fas fa-oil-well"></i> IADC</span>
+      <span class="certif-badge"><i class="fas fa-oil-well"></i> API</span>
+      <span class="certif-badge"><i class="fas fa-people-group"></i> SPE</span>
+      <!-- duplicate set for seamless infinite scroll -->
+      <span class="certif-badge"><i class="fas fa-certificate"></i> ISO 9001</span>
+      <span class="certif-badge"><i class="fas fa-certificate"></i> ISO 14001</span>
+      <span class="certif-badge"><i class="fas fa-certificate"></i> ISO 45001</span>
+      <span class="certif-badge"><i class="fas fa-shield-halved"></i> ATEX</span>
+      <span class="certif-badge"><i class="fas fa-award"></i> Bureau Veritas</span>
+      <span class="certif-badge"><i class="fas fa-graduation-cap"></i> OPITO</span>
+      <span class="certif-badge"><i class="fas fa-graduation-cap"></i> NEBOSH</span>
+      <span class="certif-badge"><i class="fas fa-graduation-cap"></i> BOSIET</span>
+      <span class="certif-badge"><i class="fas fa-flask"></i> NACE/AMPP</span>
+      <span class="certif-badge"><i class="fas fa-oil-well"></i> IADC</span>
+      <span class="certif-badge"><i class="fas fa-oil-well"></i> API</span>
+      <span class="certif-badge"><i class="fas fa-people-group"></i> SPE</span>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ ÉTUDES DE CAS ═══ -->
 <section class="sec-light" id="cases">
   <div class="ctn">
@@ -5390,11 +5626,14 @@ window.addEventListener('cookie-consent',function(e){
         <div class="cd"><div class="cd-icon"><i class="fas fa-phone"></i></div><div class="cd-text"><strong>+235 66 38 42 15</strong><small data-i18n data-en="Mon-Fri, 8am-5pm">Lun-Ven, 8h-17h</small></div></div>
         <div class="cd"><div class="cd-icon"><i class="fas fa-envelope"></i></div><div class="cd-text"><strong>midstream@enertchad.td</strong><small data-i18n data-en="Response within 24h">Réponse sous 24h</small></div></div>
       </div>
-      <form class="contact-form" id="contactForm" data-r>
-        <div class="fg-row"><div class="form-group"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" required aria-required="true" aria-describedby="cf-name-error"><div class="form-error" id="cf-name-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div><div class="form-group"><label data-i18n data-en="Email">Email *</label><input type="email" id="cf-email" required aria-required="true" aria-describedby="cf-email-error"><div class="form-error" id="cf-email-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="Valid email required">Email valide requis</span></div><i class="fas fa-check-circle valid-check"></i></div></div>
-        <div class="form-group"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company"><i class="fas fa-check-circle valid-check"></i></div>
-        <div class="form-group"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE — Pipeline Services">HSE — Services pipeline</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select><i class="fas fa-check-circle valid-check"></i></div>
-        <div class="form-group"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" required aria-required="true" aria-describedby="cf-msg-error"></textarea><div class="form-error" id="cf-msg-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div>
+      <!-- Replace MIDSTREAM_FORM_ID with real Formspree ID from formspree.io -->
+      <form class="contact-form" id="contactForm" data-r action="https://formspree.io/f/MIDSTREAM_FORM_ID" method="POST">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="EnerTchad Midstream — Nouvelle demande">
+        <div class="fg-row"><div class="form-group"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" name="name" required aria-required="true" aria-describedby="cf-name-error"><div class="form-error" id="cf-name-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div><div class="form-group"><label data-i18n data-en="Email">Email *</label><input type="email" id="cf-email" name="email" required aria-required="true" aria-describedby="cf-email-error"><div class="form-error" id="cf-email-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="Valid email required">Email valide requis</span></div><i class="fas fa-check-circle valid-check"></i></div></div>
+        <div class="form-group"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company" name="company"><i class="fas fa-check-circle valid-check"></i></div>
+        <div class="form-group"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject" name="subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE — Pipeline Services">HSE — Services pipeline</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select><i class="fas fa-check-circle valid-check"></i></div>
+        <div class="form-group"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" name="message" required aria-required="true" aria-describedby="cf-msg-error"></textarea><div class="form-error" id="cf-msg-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div>
         <button type="submit" class="btn btn-brand w-full-center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer la demande</button>
         <div class="form-msg" id="formMsg" role="alert" aria-live="assertive" aria-atomic="true"></div>
       </form>
@@ -5491,9 +5730,12 @@ window.addEventListener('cookie-consent',function(e){
         <h4 data-i18n="ftr_newsletter_title" data-en="Stay Informed">Restez informé</h4>
         <p data-i18n="ftr_newsletter_desc" data-en="Get the latest EnerTchad Intermédiaire news.">Recevez les dernières actualités d'EnerTchad Intermédiaire.</p>
       </div>
-      <form class="ftr-newsletter-form" onsubmit="event.preventDefault();this.classList.add('submitted');this.querySelector('.ftr-nl-btn').textContent=this.querySelector('.ftr-nl-btn').dataset.success;">
-        <input type="email" class="ftr-nl-input" placeholder="votre@email.com" required aria-label="Adresse email pour newsletter">
-        <button type="submit" class="ftr-nl-btn" data-success="✓ Inscrit !" data-i18n="ftr_nl_btn" data-en="Subscribe">S'inscrire</button>
+      <!-- Replace MIDSTREAM_NEWSLETTER_ID with real Formspree ID from formspree.io -->
+      <form class="ftr-newsletter-form" id="newsletterForm" action="https://formspree.io/f/MIDSTREAM_NEWSLETTER_ID" method="POST">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="Newsletter signup — EnerTchad Midstream">
+        <input type="email" class="ftr-nl-input" name="email" placeholder="votre@email.com" required aria-label="Adresse email pour newsletter">
+        <button type="submit" class="ftr-nl-btn" data-i18n="ftr_nl_btn" data-en="Subscribe">S'inscrire</button>
       </form>
     </div>
 
@@ -6541,6 +6783,69 @@ body.light-theme .cookie-link:hover{color:rgba(30,58,138,0.9)}
 </script>
 
 <script>
+/* ═══ CONTACT FORM — ASYNC SUBMIT WITH FORMSPREE ═══ */
+(function(){
+  var form=document.getElementById('contactForm');
+  if(!form)return;
+  var msgBox=document.getElementById('formMsg')||document.querySelector('.form-msg');
+  var submitBtn=form.querySelector('[type="submit"]');
+  function showMsg(type,text){
+    if(!msgBox){alert(text);return;}
+    msgBox.className='form-msg form-msg--'+type;
+    msgBox.textContent=text;
+    msgBox.style.display='block';
+    setTimeout(function(){msgBox.style.display='none'},6000);
+  }
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(form._gotcha&&form._gotcha.value)return;
+    var btnOriginal=submitBtn?submitBtn.innerHTML:'';
+    if(submitBtn){submitBtn.disabled=true;submitBtn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Envoi...'}
+    try{
+      var data=new FormData(form);
+      var res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});
+      if(res.ok){
+        showMsg('success','Merci ! Votre message a bien été envoyé. Notre équipe vous répond sous 24h.');
+        form.reset();
+      } else {
+        showMsg('error','Erreur d\'envoi. Merci de réessayer ou de nous contacter par email.');
+      }
+    } catch(err){
+      showMsg('error','Connexion impossible. Vérifiez votre réseau ou contactez-nous par téléphone.');
+    } finally {
+      if(submitBtn){submitBtn.disabled=false;submitBtn.innerHTML=btnOriginal}
+    }
+  });
+})();
+
+/* ═══ NEWSLETTER FORM — ASYNC SUBMIT WITH FORMSPREE ═══ */
+(function(){
+  var nlForm=document.getElementById('newsletterForm');
+  if(!nlForm)return;
+  nlForm.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var input=nlForm.querySelector('input[type="email"]');
+    var btn=nlForm.querySelector('[type="submit"]');
+    if(!input||!input.value)return;
+    var btnHtml=btn?btn.innerHTML:'';
+    if(btn){btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i>'}
+    try{
+      var res=await fetch(nlForm.action,{method:'POST',body:new FormData(nlForm),headers:{'Accept':'application/json'}});
+      if(res.ok){
+        nlForm.innerHTML='<div class="nl-success"><i class="fas fa-check-circle"></i> Inscription confirmée ! Un email de bienvenue vous sera envoyé.</div>';
+      } else {
+        if(btn){btn.disabled=false;btn.innerHTML=btnHtml}
+        alert('Erreur. Merci de réessayer.');
+      }
+    } catch(err){
+      if(btn){btn.disabled=false;btn.innerHTML=btnHtml}
+      alert('Connexion impossible.');
+    }
+  });
+})();
+</script>
+
+<script>
 /* PWA: register service worker (graceful no-op if missing) */
 if('serviceWorker' in navigator){
   window.addEventListener('load',function(){
@@ -6549,6 +6854,73 @@ if('serviceWorker' in navigator){
     });
   });
 }
+</script>
+
+<!-- ═══ MIDSTREAM CALCULATOR SCRIPT ═══ -->
+<script>
+(function(){
+  var section = document.getElementById('calc-transport');
+  if(!section) return;
+
+  var inputs = {
+    volumeBbl: section.querySelector('#calc-volume-bbl'),
+    distanceKm: section.querySelector('#calc-distance-km'),
+    frequence: section.querySelector('#calc-frequence')
+  };
+
+  var outputs = {
+    costPipeline: section.querySelector('#calc-cost-pipeline'),
+    costTruck: section.querySelector('#calc-cost-truck'),
+    timePipeline: section.querySelector('#calc-time-pipeline'),
+    timeTruck: section.querySelector('#calc-time-truck'),
+    co2Pipeline: section.querySelector('#calc-co2-pipeline'),
+    co2Truck: section.querySelector('#calc-co2-truck'),
+    savingsTransport: section.querySelector('#calc-savings-transport'),
+    savingsPct: section.querySelector('#calc-savings-pct'),
+    distanceVal: section.querySelector('#calc-distance-km-val')
+  };
+
+  function formatNumber(num) {
+    return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function compute() {
+    var volume = parseInt(inputs.volumeBbl.value) || 50000;
+    var distance = parseInt(inputs.distanceKm.value) || 500;
+
+    // Pipeline costs: $0.012 per barrel per 100km
+    var costPipeline = volume * 0.012 * (distance / 100);
+    // Truck costs: ~2x more expensive ($0.025 per barrel per 100km)
+    var costTruck = volume * 0.025 * (distance / 100);
+
+    // Transit times
+    var timePipeline = distance / 40; // 40 km/h avg
+    var timeTruck = (distance / 60) + 4; // 60 km/h + 4h loading
+
+    // CO2 emissions
+    var co2Pipeline = volume * 0.05 / 1000; // tonnes
+    var co2Truck = volume * 0.12 / 1000; // tonnes
+
+    var savings = costTruck - costPipeline;
+    var savingsPct = ((savings / costTruck) * 100);
+
+    outputs.costPipeline.textContent = formatNumber(costPipeline);
+    outputs.costTruck.textContent = formatNumber(costTruck);
+    outputs.timePipeline.textContent = timePipeline.toFixed(1);
+    outputs.timeTruck.textContent = timeTruck.toFixed(1);
+    outputs.co2Pipeline.textContent = co2Pipeline.toFixed(1);
+    outputs.co2Truck.textContent = co2Truck.toFixed(1);
+    outputs.savingsTransport.textContent = '$' + formatNumber(savings);
+    outputs.savingsPct.textContent = savingsPct.toFixed(0) + '%';
+    outputs.distanceVal.textContent = distance;
+  }
+
+  Object.keys(inputs).forEach(function(key) {
+    inputs[key].addEventListener('input', compute);
+  });
+
+  compute();
+})();
 </script>
 </body>
 </html>
