@@ -76,6 +76,23 @@
   --radius:14px;--radius-sm:8px;--radius-xs:6px;
   --tr:0.4s cubic-bezier(0.22,0.61,0.36,1)
 }
+
+/* ═══════════════════════════════════════════════
+ * Z-INDEX LAYERING STRATEGY
+ * ───────────────────────────────────────────────
+ *  1     base content
+ *  10    raised cards / hover lifts
+ *  50    dropdowns / accordions
+ *  80    sticky elements (header, kpi-bar)
+ *  100   fixed header / nav-cta
+ *  120   bottom-nav (mobile)
+ *  150   mobile-nav overlay
+ *  200   search overlay
+ *  900   case-modal / lightbox
+ *  9998  cookie banner
+ *  9999  scroll-progress / skip-nav
+ * ══════════════════════════════════════════════ */
+
 html{scroll-behavior:smooth}
 body{font-family:var(--font-b);color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden;font-size:16px;-webkit-user-select:auto}
 @media(max-width:768px){
@@ -85,6 +102,9 @@ body{font-family:var(--font-b);color:var(--text);background:var(--white);line-he
 .ctn{max-width:1200px;margin:0 auto;padding:0 24px}
 @media(max-width:768px){.ctn{padding:0 20px}}
 @media(max-width:480px){.ctn{padding:0 16px}}
+
+.form-required-help{font-size:0.78rem;color:rgba(255,255,255,0.55);margin-bottom:14px;font-family:var(--font-b)}
+body.light-theme .form-required-help{color:#666}
 
 /* ═══ A11Y ═══ */
 .skip-nav{position:absolute;top:-100%;left:16px;background:var(--accent);color:#fff;padding:12px 24px;border-radius:0 0 8px 8px;z-index:9999;font-weight:600;text-decoration:none;font-size:0.9rem;min-height:48px;display:flex;align-items:center}
@@ -5801,17 +5821,18 @@ window.addEventListener('cookie-consent',function(e){
       <form class="contact-form" id="contactForm" data-r action="https://formspree.io/f/MIDSTREAM_FORM_ID" method="POST">
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <input type="hidden" name="_subject" value="EnerTchad Midstream — Nouvelle demande">
-        <div class="fg-row"><div class="form-group"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" name="name" required aria-required="true" aria-describedby="cf-name-error"><div class="form-error" id="cf-name-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div><div class="form-group"><label data-i18n data-en="Email">Email *</label><input type="email" id="cf-email" name="email" required aria-required="true" aria-describedby="cf-email-error"><div class="form-error" id="cf-email-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="Valid email required">Email valide requis</span></div><i class="fas fa-check-circle valid-check"></i></div></div>
+        <p class="form-required-help"><span style="color:#EF4444">*</span> <span data-i18n data-en="Required fields">Champs obligatoires</span></p>
+        <div class="fg-row"><div class="form-group"><label data-i18n data-en="Full Name">Nom complet *</label><input type="text" id="cf-name" name="name" required aria-required="true" aria-describedby="cf-name-error"><div class="form-error" id="cf-name-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="Please fill in this field">Merci de renseigner ce champ</span></div><i class="fas fa-check-circle valid-check"></i></div><div class="form-group"><label data-i18n data-en="Email">Email *</label><input type="email" id="cf-email" name="email" required aria-required="true" aria-describedby="cf-email-error"><div class="form-error" id="cf-email-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="Please enter a valid email address">Veuillez entrer une adresse email valide</span></div><i class="fas fa-check-circle valid-check"></i></div></div>
         <div class="form-group"><label data-i18n data-en="Company">Société</label><input type="text" id="cf-company" name="company"><i class="fas fa-check-circle valid-check"></i></div>
         <div class="form-group"><label data-i18n data-en="Subject">Objet</label><select id="cf-subject" name="subject"><option data-i18n data-en="Pipeline interconnection">Interconnexion pipeline</option><option data-i18n data-en="Storage capacity">Capacité stockage</option><option data-i18n data-en="Metering services">Services métrologie</option><option data-i18n data-en="Transport logistics">Logistique transport</option><option data-i18n data-en="HSE — Pipeline Services">HSE — Services pipeline</option><option data-i18n data-en="HSE & Environment">HSE & Environnement</option><option data-i18n data-en="EnerTech — Engineering & R&D">EnerTech — Ingénierie & R&D</option><option data-i18n data-en="Other">Autre</option></select><i class="fas fa-check-circle valid-check"></i></div>
-        <div class="form-group"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" name="message" required aria-required="true" aria-describedby="cf-msg-error"></textarea><div class="form-error" id="cf-msg-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="This field is required">Ce champ est requis</span></div><i class="fas fa-check-circle valid-check"></i></div>
-        <button type="submit" class="btn btn-brand w-full-center" data-i18n data-en="Send Request"><i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer la demande</button>
+        <div class="form-group"><label data-i18n data-en="Message">Message *</label><textarea id="cf-msg" name="message" required aria-required="true" aria-describedby="cf-msg-error"></textarea><div class="form-error" id="cf-msg-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n data-en="Please fill in this field">Merci de renseigner ce champ</span></div><i class="fas fa-check-circle valid-check"></i></div>
+        <button type="submit" class="btn btn-brand w-full-center" data-i18n data-en="Request pipeline quote"><i class="fas fa-paper-plane" aria-hidden="true"></i> Demander un devis pipeline</button>
         <div class="form-msg" id="formMsg" role="alert" aria-live="assertive" aria-atomic="true"></div>
       </form>
       <div class="form-submit-success" id="formSuccess">
         <div class="success-icon"><i class="fas fa-check"></i></div>
-        <h3 data-i18n data-en="Message Sent!">Message Envoyé !</h3>
-        <p data-i18n data-en="Thank you for contacting us. Our team will respond within 24 hours.">Merci de nous avoir contacté. Notre équipe vous répondra sous 24 heures.</p>
+        <h3 data-i18n data-en="Request Received!">Demande reçue !</h3>
+        <p data-i18n data-en="Request received! Our transport team contacts you within 24h. Explore the Doba-Kribi corridor in 3D →">Demande reçue ! Notre équipe transport vous contacte sous 24h. Découvrez le corridor Doba-Kribi en 3D →</p>
       </div>
     </div>
   </div>
@@ -5906,7 +5927,7 @@ window.addEventListener('cookie-consent',function(e){
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <input type="hidden" name="_subject" value="Newsletter signup — EnerTchad Midstream">
         <input type="email" class="ftr-nl-input" name="email" placeholder="votre@email.com" required aria-label="Adresse email pour newsletter">
-        <button type="submit" class="ftr-nl-btn" data-i18n="ftr_nl_btn" data-en="Subscribe">S'inscrire</button>
+        <button type="submit" class="ftr-nl-btn" data-i18n data-en="Get updates">Recevoir les actualités</button>
       </form>
     </div>
 
@@ -7432,6 +7453,22 @@ if('serviceWorker' in navigator){
     // Hide loading
     setTimeout(function(){loading.classList.add('hidden')},400);
   }
+})();
+
+/* ═══ INTERVAL CLEANUP — Prevent memory leaks on navigation ═══ */
+(function(){
+  // Capture all active intervals to clean up on page unload
+  var origSetInterval = window.setInterval;
+  var activeIntervals = new Set();
+  window.setInterval = function(fn, delay){
+    var id = origSetInterval(fn, delay);
+    activeIntervals.add(id);
+    return id;
+  };
+  window.addEventListener('pagehide', function(){
+    activeIntervals.forEach(function(id){clearInterval(id)});
+    activeIntervals.clear();
+  });
 })();
 </script>
 </body>
