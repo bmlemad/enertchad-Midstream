@@ -809,6 +809,81 @@ body.light-theme .pipe-live-badge{background:rgba(248,250,252,0.9);color:#0F172A
 .pipe-caption::before{content:'📍';font-style:normal;margin-right:6px}
 body.light-theme .pipe-caption{background:rgba(248,250,252,0.5);border-color:rgba(0,0,0,0.05);color:#64748B}
 
+/* ═══ LIVE DASHBOARD ═══ */
+#dashboard{background:linear-gradient(180deg,#0B1426 0%,#0F1D35 100%)}
+.dash-pulse{display:inline-block;width:8px;height:8px;background:#14B8A6;border-radius:50%;margin-right:6px;animation:dashPulse 1.6s ease-in-out infinite;box-shadow:0 0 8px rgba(20,184,166,0.6)}
+@keyframes dashPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.4)}}
+
+.dash-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.dash-metric{background:linear-gradient(155deg,rgba(15,29,53,0.95),rgba(11,20,38,0.9));border:1px solid rgba(14,165,233,0.12);border-radius:14px;padding:20px;position:relative;overflow:hidden;transition:all 0.3s}
+.dash-metric::before{content:'';position:absolute;inset:0;background:linear-gradient(155deg,transparent,rgba(14,165,233,0.04));pointer-events:none}
+.dash-metric:hover{border-color:rgba(14,165,233,0.25);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,0.28)}
+.dash-metric-label{font-family:var(--font-d);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);margin-bottom:8px}
+.dash-metric-value{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff;font-variant-numeric:tabular-nums;line-height:1;margin-bottom:8px;background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,0.65));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transition:color 0.4s ease}
+.dash-metric-value small{font-size:0.55em;font-weight:600;color:rgba(255,255,255,0.55);-webkit-text-fill-color:rgba(255,255,255,0.55)}
+.dash-metric-value.flash{-webkit-text-fill-color:#0EA5E9}
+.dash-metric-trend{display:inline-flex;align-items:center;gap:4px;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:0.02em;margin-bottom:10px}
+.dash-metric-trend.up{color:#34d399;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.22)}
+.dash-metric-trend.down{color:#f87171;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.22)}
+.dash-metric-trend.stable{color:#94a3b8;background:rgba(148,163,184,0.08);border:1px solid rgba(148,163,184,0.15)}
+.dash-metric-bar{height:4px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden;margin-top:10px}
+.dash-metric-fill{height:100%;background:linear-gradient(90deg,#0EA5E9,#14B8A6);border-radius:999px;transition:width 0.8s cubic-bezier(0.22,0.61,0.36,1)}
+.dash-metric-fill.success{background:linear-gradient(90deg,#22c55e,#10b981)}
+
+.dash-chart-wrap{margin-top:32px;background:linear-gradient(155deg,rgba(15,29,53,0.95),rgba(11,20,38,0.9));border:1px solid rgba(14,165,233,0.12);border-radius:14px;padding:24px;position:relative;overflow:hidden}
+.dash-chart-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(14,165,233,0.08),transparent 50%);pointer-events:none}
+.dash-chart-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;position:relative;z-index:1}
+.dash-chart-header h3{font-family:var(--font-d);font-size:1rem;font-weight:700;color:rgba(255,255,255,0.9);margin:0}
+.dash-chart-legend{display:flex;gap:16px;flex-wrap:wrap}
+.dash-legend-item{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;color:rgba(255,255,255,0.6)}
+.dash-legend-dot{width:10px;height:10px;border-radius:50%}
+#dashChart{position:relative;z-index:1;max-height:260px}
+.dash-chart-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:rgba(255,255,255,0.55)}
+.dash-chart-footer i{font-size:0.55rem;margin-right:4px}
+
+.dash-stations{margin-top:32px}
+.dash-stations-title{font-family:var(--font-d);font-size:1rem;font-weight:700;color:rgba(255,255,255,0.9);margin-bottom:20px}
+.dash-stations-track{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:12px}
+.dash-stations-track::-webkit-scrollbar{height:4px}
+.dash-stations-track::-webkit-scrollbar-thumb{background:rgba(14,165,233,0.3);border-radius:4px}
+.dash-station{flex:0 0 auto;min-width:140px;text-align:center;padding:12px 8px;position:relative}
+.dash-station-dot{width:16px;height:16px;border-radius:50%;margin:0 auto 10px;background:#64748B;box-shadow:0 0 0 4px rgba(100,116,139,0.15);position:relative}
+.dash-station.ok .dash-station-dot{background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,0.18),0 0 12px rgba(34,197,94,0.5)}
+.dash-station.warn .dash-station-dot{background:#f59e0b;box-shadow:0 0 0 4px rgba(245,158,11,0.18),0 0 12px rgba(245,158,11,0.5);animation:dashPulse 2s ease-in-out infinite}
+.dash-station.err .dash-station-dot{background:#ef4444;box-shadow:0 0 0 4px rgba(239,68,68,0.18),0 0 12px rgba(239,68,68,0.5);animation:dashPulse 1s ease-in-out infinite}
+.dash-station-label{font-family:var(--font-d);font-weight:700;color:rgba(255,255,255,0.92);font-size:0.85rem;margin-bottom:4px}
+.dash-station-meta{font-size:0.7rem;color:rgba(255,255,255,0.5);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.dash-station-status{font-size:0.7rem;font-weight:600;color:rgba(255,255,255,0.72)}
+.dash-station.warn .dash-station-status{color:#fbbf24}
+.dash-station.err .dash-station-status{color:#f87171}
+.dash-station-line{flex:1;min-width:20px;height:2px;background:linear-gradient(90deg,rgba(14,165,233,0.3),rgba(20,184,166,0.3));align-self:center;margin-top:8px;position:relative;overflow:hidden}
+.dash-station-line::after{content:'';position:absolute;top:0;left:-30%;width:30%;height:100%;background:linear-gradient(90deg,transparent,rgba(56,189,248,0.8),transparent);animation:dashStationFlow 3s ease-in-out infinite}
+@keyframes dashStationFlow{to{left:130%}}
+
+/* Light theme dashboard */
+body.light-theme #dashboard{background:linear-gradient(180deg,#F1F5F9 0%,#E2E8F0 100%)}
+body.light-theme .dash-metric{background:#fff;border-color:rgba(14,165,233,0.15)}
+body.light-theme .dash-metric-label{color:#64748B}
+body.light-theme .dash-metric-value{background:linear-gradient(135deg,#0F172A 30%,#0EA5E9);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+body.light-theme .dash-metric-value small{color:#64748B;-webkit-text-fill-color:#64748B}
+body.light-theme .dash-chart-wrap{background:#fff;border-color:rgba(14,165,233,0.15)}
+body.light-theme .dash-chart-header h3{color:#0F172A}
+body.light-theme .dash-legend-item,body.light-theme .dash-chart-footer,body.light-theme .dash-stations-title{color:#475569}
+body.light-theme .dash-station-label{color:#0F172A}
+body.light-theme .dash-station-meta,body.light-theme .dash-station-status{color:#64748B}
+
+/* Dashboard Responsive */
+@media(max-width:1024px){.dash-metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){
+  .dash-metrics{grid-template-columns:1fr;gap:12px}
+  .dash-metric{padding:16px}
+  .dash-chart-header{flex-direction:column;align-items:flex-start}
+  .dash-chart-legend{gap:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .dash-station-line::after,.dash-pulse,.dash-station.warn .dash-station-dot{animation:none}
+}
+
 /* ═══ PRODUCTEURS / OPÉRATEURS ═══ */
 #producers{background:linear-gradient(170deg,#0F1D35 0%,#0B1426 60%,#0D1B2A 100%);color:var(--white);padding:100px 0 80px;position:relative;overflow:hidden}
 #producers::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 30% 40%,rgba(14,165,233,0.06),transparent),radial-gradient(ellipse 500px 350px at 70% 60%,rgba(20,184,166,0.04),transparent);pointer-events:none}
@@ -2414,6 +2489,7 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
   }
 ]
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
 <script>/* FOUC prevention — apply theme before first paint */
 (function(){try{var t=localStorage.getItem('enertchad-theme');var p=window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches;if(t==='light'||(t!=='dark'&&p))document.documentElement.classList.add('light-theme')}catch(e){}})()</script>
 </head>
@@ -3736,6 +3812,78 @@ body.light-theme .hero-kpi-val,body.light-theme .stat-val,body.light-theme .hse-
     </div>
     <div class="pipe-caption">
       <span data-i18n data-en="Source: EnerTchad Midstream operational data · MPGM 2025 regulatory framework">Source : Données opérationnelles EnerTchad Intermédiaire · Cadre réglementaire MPGM 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LIVE PIPELINE DASHBOARD ═══ -->
+<section class="sec-dark" id="dashboard" aria-labelledby="dash-title">
+  <div class="ctn">
+    <div data-r>
+      <div class="eyb teal"><span class="dash-pulse"></span><span data-i18n data-en="Live · Operations Dashboard">Live · Opérations en temps réel</span></div>
+      <h2 id="dash-title" class="stitle" data-i18n data-en="Pipeline Performance — Live Dashboard">Performance pipeline — Dashboard temps réel</h2>
+      <p class="sdesc" data-i18n data-en="Real-time throughput, pressure, temperature and station status across the 1,070 km Doba–Kribi corridor. Refreshed every 8 seconds.">Débit, pression, température et statut des stations en temps réel sur le corridor Doba–Kribi (1 070 km). Rafraîchissement toutes les 8 secondes.</p>
+    </div>
+
+    <!-- Metric gauges (4 cards) -->
+    <div class="dash-metrics" data-r>
+      <div class="dash-metric">
+        <div class="dash-metric-label" data-i18n data-en="Throughput">Débit</div>
+        <div class="dash-metric-value"><span id="dashThroughput">287</span> <small>kbbl/j</small></div>
+        <div class="dash-metric-trend up"><i class="fas fa-arrow-up"></i> <span id="dashThroughputTrend">+2.1%</span></div>
+        <div class="dash-metric-bar"><div class="dash-metric-fill" id="dashThroughputBar" style="width:72%"></div></div>
+      </div>
+      <div class="dash-metric">
+        <div class="dash-metric-label" data-i18n data-en="Inlet pressure">Pression entrée</div>
+        <div class="dash-metric-value"><span id="dashPressure">68.4</span> <small>bar</small></div>
+        <div class="dash-metric-trend stable"><i class="fas fa-minus"></i> <span data-i18n data-en="stable">stable</span></div>
+        <div class="dash-metric-bar"><div class="dash-metric-fill" id="dashPressureBar" style="width:85%"></div></div>
+      </div>
+      <div class="dash-metric">
+        <div class="dash-metric-label" data-i18n data-en="Fluid temp">Température fluide</div>
+        <div class="dash-metric-value"><span id="dashTemp">42.1</span> <small>°C</small></div>
+        <div class="dash-metric-trend up"><i class="fas fa-arrow-up"></i> <span id="dashTempTrend">+0.3°</span></div>
+        <div class="dash-metric-bar"><div class="dash-metric-fill" id="dashTempBar" style="width:48%"></div></div>
+      </div>
+      <div class="dash-metric">
+        <div class="dash-metric-label" data-i18n data-en="Uptime 30d">Disponibilité 30j</div>
+        <div class="dash-metric-value"><span id="dashUptime">99.82</span> <small>%</small></div>
+        <div class="dash-metric-trend up"><i class="fas fa-arrow-up"></i> <span>+0.12pt</span></div>
+        <div class="dash-metric-bar"><div class="dash-metric-fill success" id="dashUptimeBar" style="width:99%"></div></div>
+      </div>
+    </div>
+
+    <!-- Throughput chart -->
+    <div class="dash-chart-wrap" data-r>
+      <div class="dash-chart-header">
+        <h3 data-i18n data-en="Throughput — last 24h">Débit — 24 dernières heures</h3>
+        <div class="dash-chart-legend">
+          <span class="dash-legend-item"><span class="dash-legend-dot" style="background:#0EA5E9"></span> <span data-i18n data-en="Actual">Réel</span></span>
+          <span class="dash-legend-item"><span class="dash-legend-dot" style="background:#14B8A6"></span> <span data-i18n data-en="Target">Cible</span></span>
+          <span class="dash-legend-item"><span class="dash-legend-dot" style="background:#64748B"></span> <span data-i18n data-en="7-day avg">Moy. 7j</span></span>
+        </div>
+      </div>
+      <canvas id="dashChart" height="100" aria-label="Graphique temps réel du débit pipeline"></canvas>
+      <div class="dash-chart-footer">
+        <span><i class="fas fa-circle" style="color:#22c55e"></i> <span data-i18n data-en="All stations operational">Toutes stations opérationnelles</span></span>
+        <span id="dashLastUpdate" data-i18n data-en="Updated just now">Mis à jour à l'instant</span>
+      </div>
+    </div>
+
+    <!-- Station timeline -->
+    <div class="dash-stations" data-r>
+      <h3 class="dash-stations-title" data-i18n data-en="Station Status — Doba → Kribi Corridor">Statut stations — Corridor Doba → Kribi</h3>
+      <div class="dash-stations-track">
+        <div class="dash-station ok"><div class="dash-station-dot"></div><div class="dash-station-label">Komé</div><div class="dash-station-meta">Origin · 0 km</div><div class="dash-station-status" data-i18n data-en="Operational">Opérationnel</div></div>
+        <div class="dash-station-line"></div>
+        <div class="dash-station ok"><div class="dash-station-dot"></div><div class="dash-station-label">Doba PS1</div><div class="dash-station-meta">182 km</div><div class="dash-station-status" data-i18n data-en="Operational">Opérationnel</div></div>
+        <div class="dash-station-line"></div>
+        <div class="dash-station ok"><div class="dash-station-dot"></div><div class="dash-station-label">Meiganga PS2</div><div class="dash-station-meta">435 km</div><div class="dash-station-status" data-i18n data-en="Operational">Opérationnel</div></div>
+        <div class="dash-station-line"></div>
+        <div class="dash-station warn"><div class="dash-station-dot"></div><div class="dash-station-label">Belabo PS3</div><div class="dash-station-meta">680 km</div><div class="dash-station-status" data-i18n data-en="Scheduled maintenance">Maintenance programmée</div></div>
+        <div class="dash-station-line"></div>
+        <div class="dash-station ok"><div class="dash-station-dot"></div><div class="dash-station-label">Kribi Terminal</div><div class="dash-station-meta">1 070 km</div><div class="dash-station-status" data-i18n data-en="Export ready">Export actif</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -5960,6 +6108,120 @@ if('PerformanceObserver' in window){
       scheduleNext();
     });
   },3000);
+})();
+
+/* ═══ LIVE DASHBOARD SIMULATOR ═══ */
+(function(){
+  var canvas=document.getElementById('dashChart');
+  if(!canvas||typeof Chart==='undefined')return;
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Generate 24h of data (hourly)
+  function genHistory(){
+    var pts=[];
+    for(var i=23;i>=0;i--){
+      var base=280+Math.sin(i/3.5)*12+(Math.random()-0.5)*8;
+      pts.push(Math.round(base));
+    }
+    return pts;
+  }
+  var actual=genHistory();
+  var target=actual.map(function(){return 300});
+  var avg=actual.map(function(v,i){
+    var s=0,n=0;
+    for(var j=Math.max(0,i-3);j<=Math.min(actual.length-1,i+3);j++){s+=actual[j];n++}
+    return Math.round(s/n);
+  });
+  var labels=[];
+  for(var h=23;h>=0;h--){labels.push('-'+h+'h')}
+  labels[23]='now';
+
+  var ctx=canvas.getContext('2d');
+  var grad=ctx.createLinearGradient(0,0,0,260);
+  grad.addColorStop(0,'rgba(14,165,233,0.35)');
+  grad.addColorStop(1,'rgba(14,165,233,0.0)');
+
+  var chart=new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:labels,
+      datasets:[
+        {label:'Réel',data:actual,borderColor:'#0EA5E9',backgroundColor:grad,borderWidth:2.5,tension:0.35,fill:true,pointRadius:0,pointHoverRadius:6,pointHoverBackgroundColor:'#0EA5E9',pointHoverBorderColor:'#fff',pointHoverBorderWidth:2},
+        {label:'Cible',data:target,borderColor:'#14B8A6',borderDash:[6,4],borderWidth:1.5,tension:0,fill:false,pointRadius:0},
+        {label:'Moy. 7j',data:avg,borderColor:'rgba(148,163,184,0.5)',borderWidth:1.5,borderDash:[2,2],tension:0.3,fill:false,pointRadius:0}
+      ]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(11,20,38,0.95)',
+          borderColor:'rgba(14,165,233,0.25)',
+          borderWidth:1,
+          titleColor:'#fff',
+          bodyColor:'rgba(255,255,255,0.8)',
+          padding:12,
+          titleFont:{family:'Space Grotesk,sans-serif',size:12,weight:'700'},
+          bodyFont:{family:'Inter,sans-serif',size:11},
+          callbacks:{
+            label:function(c){return c.dataset.label+': '+c.parsed.y+' kbbl/j'}
+          }
+        }
+      },
+      scales:{
+        x:{
+          grid:{color:'rgba(255,255,255,0.04)',drawBorder:false},
+          ticks:{color:'rgba(255,255,255,0.4)',font:{family:'Inter,sans-serif',size:10}}
+        },
+        y:{
+          beginAtZero:false,
+          min:250,
+          max:320,
+          grid:{color:'rgba(255,255,255,0.04)',drawBorder:false},
+          ticks:{color:'rgba(255,255,255,0.4)',font:{family:'Inter,sans-serif',size:10},callback:function(v){return v+' kbbl'}}
+        }
+      },
+      animation:{duration:reduced?0:800}
+    }
+  });
+
+  // Live metric updates
+  var metrics={
+    throughput:{el:'dashThroughput',bar:'dashThroughputBar',trend:'dashThroughputTrend',min:270,max:305,base:287,decimals:0,unit:'kbbl/j'},
+    pressure:{el:'dashPressure',bar:'dashPressureBar',min:65,max:72,base:68.4,decimals:1,unit:'bar',barMax:80},
+    temp:{el:'dashTemp',bar:'dashTempBar',trend:'dashTempTrend',min:40,max:45,base:42.1,decimals:1,unit:'°C',barMax:90},
+    uptime:{el:'dashUptime',bar:'dashUptimeBar',min:99.78,max:99.95,base:99.82,decimals:2,unit:'%',barMax:100}
+  };
+  var lastUpdate=document.getElementById('dashLastUpdate');
+
+  function refresh(){
+    Object.keys(metrics).forEach(function(k){
+      var m=metrics[k];
+      var el=document.getElementById(m.el);
+      var bar=document.getElementById(m.bar);
+      if(!el||!bar)return;
+      var newVal=m.min+Math.random()*(m.max-m.min);
+      el.textContent=newVal.toFixed(m.decimals);
+      el.classList.add('flash');
+      setTimeout(function(){el.classList.remove('flash')},500);
+      var pct=((newVal-m.min)/(m.max-m.min))*100;
+      if(m.barMax){pct=(newVal/m.barMax)*100}
+      bar.style.width=pct.toFixed(1)+'%';
+    });
+    // Rotate chart data
+    actual.shift();
+    actual.push(Math.round(280+Math.sin(Date.now()/50000)*12+(Math.random()-0.5)*8));
+    chart.data.datasets[0].data=actual;
+    chart.update('none');
+    if(lastUpdate)lastUpdate.textContent=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  }
+
+  if(!reduced){
+    setInterval(refresh,8000);
+  }
 })();
 </script>
 </body>
