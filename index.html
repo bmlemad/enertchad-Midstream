@@ -2647,6 +2647,7 @@ window.addEventListener('cookie-consent',function(e){
   }
 });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body class="preloader-active">
 
@@ -4952,6 +4953,64 @@ window.addEventListener('cookie-consent',function(e){
   </div>
 </section>
 
+<!-- ═══ 3D PIPELINE VISUALIZATION ═══ -->
+<section class="sec-dark" id="pipeline-3d" aria-labelledby="p3d-title">
+  <div class="ctn">
+    <div data-r class="text-center">
+      <div class="eyb teal"><i class="fas fa-cube"></i> <span data-i18n data-en="3D Visualization · Live">Visualisation 3D · Live</span></div>
+      <h2 id="p3d-title" class="stitle" data-i18n data-en="Pipeline Corridor — 3D Asset View">Corridor Pipeline — Vue 3D de l'asset</h2>
+      <p class="sdesc" data-i18n data-en="Interactive 3D model of the 1,070 km Doba–Kribi corridor with all 5 pumping stations. Click any station to see live operational metrics.">Modèle 3D interactif du corridor Doba–Kribi (1 070 km) avec les 5 stations de pompage. Cliquez sur une station pour voir les métriques opérationnelles.</p>
+    </div>
+
+    <div class="p3d-wrap" data-r>
+      <div class="p3d-stage" id="p3dStage">
+        <canvas id="p3dCanvas" aria-label="Modèle 3D interactif du corridor pipeline"></canvas>
+        <div class="p3d-loading" id="p3dLoading">
+          <div class="p3d-spinner"></div>
+          <span data-i18n data-en="Loading 3D scene...">Chargement de la scène 3D...</span>
+        </div>
+        <div class="p3d-hud">
+          <div class="p3d-compass" aria-hidden="true">
+            <div class="p3d-compass-n">N</div>
+            <div class="p3d-compass-ring"></div>
+            <div class="p3d-compass-arrow" id="p3dNorthArrow"></div>
+          </div>
+          <div class="p3d-info">
+            <div class="p3d-info-title">Doba → Kribi</div>
+            <div class="p3d-info-sub">1,070 km · 5 stations · Tchad-Cameroun</div>
+          </div>
+        </div>
+        <div class="p3d-controls">
+          <button id="p3dRotate" class="p3d-btn active" aria-label="Auto-rotation"><i class="fas fa-arrows-rotate"></i></button>
+          <button id="p3dReset" class="p3d-btn" aria-label="Recentrer"><i class="fas fa-compress"></i></button>
+          <span class="p3d-sep"></span>
+          <button id="p3dStation0" class="p3d-stn-btn active" data-station="0">Komé</button>
+          <button id="p3dStation1" class="p3d-stn-btn" data-station="1">Doba</button>
+          <button id="p3dStation2" class="p3d-stn-btn" data-station="2">Meiganga</button>
+          <button id="p3dStation3" class="p3d-stn-btn" data-station="3">Belabo</button>
+          <button id="p3dStation4" class="p3d-stn-btn" data-station="4">Kribi</button>
+        </div>
+        <div class="p3d-tooltip" id="p3dTooltip" role="status" aria-live="polite"></div>
+      </div>
+      <aside class="p3d-side">
+        <div class="p3d-detail" id="p3dDetail">
+          <div class="p3d-detail-tag" data-i18n data-en="Selected station">Station sélectionnée</div>
+          <h3 id="p3dDetailName">Komé</h3>
+          <div class="p3d-detail-meta" id="p3dDetailMeta">Origin · 0 km</div>
+          <div class="p3d-detail-stats">
+            <div class="p3d-stat"><span class="p3d-stat-v" id="p3dStatPressure">68.4</span><span class="p3d-stat-l" data-i18n data-en="Pressure (bar)">Pression (bar)</span></div>
+            <div class="p3d-stat"><span class="p3d-stat-v" id="p3dStatTemp">42.1</span><span class="p3d-stat-l" data-i18n data-en="Fluid temp (°C)">Température (°C)</span></div>
+            <div class="p3d-stat"><span class="p3d-stat-v" id="p3dStatFlow">287</span><span class="p3d-stat-l" data-i18n data-en="Throughput (kbbl/d)">Débit (kbbl/j)</span></div>
+            <div class="p3d-stat"><span class="p3d-stat-v" id="p3dStatStatus">OK</span><span class="p3d-stat-l" data-i18n data-en="Status">Statut</span></div>
+          </div>
+          <p class="p3d-detail-desc" id="p3dDetailDesc">Origin terminal — collecte brut Doba, première station de pompage.</p>
+        </div>
+        <div class="p3d-hint"><i class="fas fa-hand-pointer"></i> <span data-i18n data-en="Drag to rotate · Scroll to zoom · Click station for details">Glisser pour pivoter · Molette pour zoomer · Cliquer station pour détails</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ ESG ═══ -->
 <section id="esg">
   <div class="ctn">
@@ -6819,6 +6878,58 @@ if('PerformanceObserver' in window){
 </div>
 
 <style>
+/* ═══ 3D PIPELINE VIZ ═══ */
+#pipeline-3d{padding:80px 0;background:linear-gradient(180deg,#0B1426 0%,#162A4A 100%)}
+.p3d-wrap{display:grid;grid-template-columns:1.6fr 1fr;gap:32px;margin-top:40px;align-items:start}
+@media(max-width:1024px){.p3d-wrap{grid-template-columns:1fr;gap:24px}}
+.p3d-stage{position:relative;background:linear-gradient(155deg,#0F1D35,#0B1426);border:1px solid rgba(14,165,233,0.18);border-radius:16px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 24px 60px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.04)}
+#p3dCanvas{width:100%;height:100%;display:block;cursor:grab}
+#p3dCanvas:active{cursor:grabbing}
+.p3d-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#0B1426;color:rgba(255,255,255,0.7);font-size:0.85rem;font-family:var(--font-d,'Space Grotesk',sans-serif);transition:opacity 0.6s ease;z-index:5}
+.p3d-loading.hidden{opacity:0;pointer-events:none}
+.p3d-spinner{width:36px;height:36px;border:3px solid rgba(14,165,233,0.18);border-top-color:#0EA5E9;border-radius:50%;animation:p3dSpin 0.8s linear infinite}
+@keyframes p3dSpin{to{transform:rotate(360deg)}}
+.p3d-hud{position:absolute;top:16px;right:16px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;z-index:4;pointer-events:none}
+.p3d-compass{position:relative;width:54px;height:54px;background:rgba(11,20,38,0.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(14,165,233,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.p3d-compass-n{position:absolute;top:5px;left:50%;transform:translateX(-50%);font-family:var(--font-d);font-size:0.65rem;font-weight:800;color:#38BDF8}
+.p3d-compass-ring{width:34px;height:34px;border:1px dashed rgba(14,165,233,0.35);border-radius:50%}
+.p3d-compass-arrow{position:absolute;top:50%;left:50%;width:2px;height:18px;background:linear-gradient(180deg,#F59E0B,transparent);transform-origin:bottom center;transform:translate(-50%,-100%) rotate(0deg);border-radius:2px;transition:transform 0.4s}
+.p3d-info{padding:8px 14px;background:rgba(11,20,38,0.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(14,165,233,0.18);border-radius:8px;text-align:right}
+.p3d-info-title{font-family:var(--font-d);font-size:0.78rem;font-weight:700;color:#fff}
+.p3d-info-sub{font-size:0.65rem;color:rgba(255,255,255,0.6);margin-top:2px}
+.p3d-controls{position:absolute;bottom:16px;left:16px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;z-index:4;background:rgba(11,20,38,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(14,165,233,0.18);border-radius:999px;padding:5px}
+.p3d-btn,.p3d-stn-btn{padding:8px 14px;background:transparent;border:none;color:rgba(255,255,255,0.7);font-family:var(--font-d);font-size:0.72rem;font-weight:600;cursor:pointer;border-radius:999px;transition:all 0.3s;min-height:36px;min-width:36px;display:inline-flex;align-items:center;justify-content:center}
+.p3d-btn:hover,.p3d-stn-btn:hover{background:rgba(14,165,233,0.1);color:#fff}
+.p3d-btn.active,.p3d-stn-btn.active{background:#0EA5E9;color:#fff}
+.p3d-sep{width:1px;height:18px;background:rgba(255,255,255,0.12)}
+.p3d-tooltip{position:absolute;pointer-events:none;background:rgba(11,20,38,0.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(14,165,233,0.3);border-radius:8px;padding:8px 12px;font-family:var(--font-d);font-size:0.78rem;color:#fff;opacity:0;transition:opacity 0.2s;z-index:10;white-space:nowrap}
+.p3d-tooltip.visible{opacity:1}
+.p3d-side{display:flex;flex-direction:column;gap:18px}
+.p3d-detail{background:linear-gradient(155deg,#0F1D35,#0B1426);border:1px solid rgba(14,165,233,0.18);border-radius:14px;padding:24px}
+.p3d-detail-tag{font-family:var(--font-d);font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#38BDF8;margin-bottom:6px}
+.p3d-detail h3{font-family:var(--font-d);font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:4px}
+.p3d-detail-meta{font-size:0.78rem;color:rgba(255,255,255,0.6);margin-bottom:18px}
+.p3d-detail-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.p3d-stat{padding:10px;background:rgba(255,255,255,0.04);border-radius:10px}
+.p3d-stat-v{display:block;font-family:var(--font-d);font-size:1.3rem;font-weight:800;color:#38BDF8;line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.p3d-stat-l{font-size:0.65rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.05em}
+.p3d-detail-desc{font-size:0.85rem;color:rgba(255,255,255,0.7);line-height:1.55}
+.p3d-hint{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,rgba(14,165,233,0.06),rgba(20,184,166,0.04));border:1px solid rgba(14,165,233,0.15);border-radius:10px;font-size:0.78rem;color:rgba(255,255,255,0.7)}
+.p3d-hint i{color:#0EA5E9;font-size:1rem}
+body.light-theme #pipeline-3d{background:linear-gradient(180deg,#FAFAF9 0%,#F1F5F9 100%)}
+body.light-theme .p3d-stage,body.light-theme .p3d-detail{background:#fff;border-color:rgba(14,165,233,0.18)}
+body.light-theme .p3d-loading{background:#fff;color:#475569}
+body.light-theme .p3d-info,body.light-theme .p3d-controls,body.light-theme .p3d-compass,body.light-theme .p3d-tooltip{background:rgba(255,255,255,0.92);color:#0F172A;border-color:rgba(14,165,233,0.2)}
+body.light-theme .p3d-info-title{color:#0F172A}
+body.light-theme .p3d-info-sub{color:#475569}
+body.light-theme .p3d-btn,body.light-theme .p3d-stn-btn{color:#475569}
+body.light-theme .p3d-detail h3{color:#0F172A}
+body.light-theme .p3d-stat{background:#f5f5f5}
+body.light-theme .p3d-detail-desc,body.light-theme .p3d-hint{color:#475569}
+@media(prefers-reduced-motion:reduce){.p3d-spinner{animation:none}}
+</style>
+
+<style>
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(15,15,20,0.95);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-top:1px solid rgba(14,165,233,0.25);box-shadow:0 -8px 30px rgba(0,0,0,0.35);transform:translateY(100%);transition:transform 0.5s cubic-bezier(0.22,0.61,0.36,1);padding:18px 0}
 .cookie-banner.show{transform:translateY(0)}
 .cookie-banner-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
@@ -7079,6 +7190,248 @@ if('serviceWorker' in navigator){
   }
   tick();
   setInterval(tick,2200);
+})();
+
+/* ═══ 3D PIPELINE VISUALIZATION ═══ */
+(function(){
+  var canvas=document.getElementById('p3dCanvas');
+  if(!canvas||typeof THREE==='undefined'){
+    // Wait for Three.js to load
+    var checkTHREE=setInterval(function(){
+      if(typeof THREE!=='undefined'){clearInterval(checkTHREE);initScene()}
+    },200);
+    setTimeout(function(){clearInterval(checkTHREE)},10000);
+    return;
+  }
+  initScene();
+
+  function initScene(){
+    var canvas=document.getElementById('p3dCanvas');
+    if(!canvas)return;
+    var stage=document.getElementById('p3dStage');
+    var loading=document.getElementById('p3dLoading');
+    var northArrow=document.getElementById('p3dNorthArrow');
+    var tooltip=document.getElementById('p3dTooltip');
+    var w=stage.clientWidth,h=stage.clientHeight;
+
+    var scene=new THREE.Scene();
+    scene.background=null;
+    scene.fog=new THREE.Fog(0x0B1426,40,160);
+
+    var camera=new THREE.PerspectiveCamera(45,w/h,0.1,500);
+    camera.position.set(0,35,55);
+    camera.lookAt(0,0,0);
+
+    var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+    renderer.setSize(w,h,false);
+
+    // Lights
+    var amb=new THREE.AmbientLight(0xffffff,0.4);
+    scene.add(amb);
+    var key=new THREE.DirectionalLight(0x38BDF8,0.8);
+    key.position.set(20,30,20);
+    scene.add(key);
+    var fill=new THREE.DirectionalLight(0xF59E0B,0.3);
+    fill.position.set(-20,15,-10);
+    scene.add(fill);
+
+    // Ground (terrain plane)
+    var groundGeo=new THREE.PlaneGeometry(120,80,40,30);
+    var groundMat=new THREE.MeshStandardMaterial({color:0x0F1D35,roughness:0.95,wireframe:false,transparent:true,opacity:0.85});
+    var ground=new THREE.Mesh(groundGeo,groundMat);
+    ground.rotation.x=-Math.PI/2;
+    ground.position.y=-0.5;
+    scene.add(ground);
+
+    // Grid lines
+    var grid=new THREE.GridHelper(120,30,0x0EA5E9,0x162A4A);
+    grid.material.transparent=true;
+    grid.material.opacity=0.18;
+    grid.position.y=-0.45;
+    scene.add(grid);
+
+    // Pipeline corridor (curve from west to east)
+    var stations=[
+      {name:'Komé',pos:new THREE.Vector3(-45,0.5,-8),km:0,desc:'Origin terminal — collecte brut Doba, premiere station de pompage.',pressure:68.4,temp:42.1,flow:287,status:'OK'},
+      {name:'Doba PS1',pos:new THREE.Vector3(-25,0.5,-2),km:182,desc:'Pumping Station 1 — boost pression apres collecte champ.',pressure:65.2,temp:41.8,flow:287,status:'OK'},
+      {name:'Meiganga PS2',pos:new THREE.Vector3(0,0.5,4),km:435,desc:'Pumping Station 2 — relai mi-corridor, frontiere Cameroun.',pressure:62.1,temp:40.5,flow:286,status:'OK'},
+      {name:'Belabo PS3',pos:new THREE.Vector3(20,0.5,8),km:680,desc:'Pumping Station 3 — actuellement en maintenance programmee.',pressure:0,temp:38.0,flow:0,status:'MAINT'},
+      {name:'Kribi Terminal',pos:new THREE.Vector3(45,0.5,2),km:1070,desc:'Terminal export Atlantique — chargement tankers.',pressure:38.5,temp:36.2,flow:285,status:'OK'}
+    ];
+
+    // Pipeline tube (CatmullRom curve)
+    var curve=new THREE.CatmullRomCurve3(stations.map(function(s){return s.pos}));
+    var tubeGeo=new THREE.TubeGeometry(curve,80,0.6,12,false);
+    var tubeMat=new THREE.MeshStandardMaterial({color:0x0EA5E9,emissive:0x0EA5E9,emissiveIntensity:0.4,roughness:0.4,metalness:0.7});
+    var tube=new THREE.Mesh(tubeGeo,tubeMat);
+    scene.add(tube);
+
+    // Animated flow particles along pipe
+    var particles=[];
+    for(var p=0;p<10;p++){
+      var pgeo=new THREE.SphereGeometry(0.35,8,8);
+      var pmat=new THREE.MeshBasicMaterial({color:0x38BDF8,transparent:true,opacity:0.85});
+      var pm=new THREE.Mesh(pgeo,pmat);
+      pm.userData.t=p/10;
+      particles.push(pm);
+      scene.add(pm);
+    }
+
+    // Station markers
+    var markerObjects=[];
+    var statusColors={'OK':0x22c55e,'MAINT':0xF59E0B,'WARN':0xef4444};
+    stations.forEach(function(s,i){
+      var grp=new THREE.Group();
+      var col=statusColors[s.status]||0x22c55e;
+      // Outer ring
+      var ringGeo=new THREE.RingGeometry(2.2,2.6,32);
+      var ringMat=new THREE.MeshBasicMaterial({color:col,side:THREE.DoubleSide,transparent:true,opacity:0.6});
+      var ring=new THREE.Mesh(ringGeo,ringMat);
+      ring.rotation.x=-Math.PI/2;
+      ring.position.copy(s.pos);
+      ring.position.y=0.05;
+      grp.add(ring);
+      // Pole
+      var poleGeo=new THREE.CylinderGeometry(0.1,0.1,3.5,8);
+      var poleMat=new THREE.MeshStandardMaterial({color:0xffffff,emissive:col,emissiveIntensity:0.3});
+      var pole=new THREE.Mesh(poleGeo,poleMat);
+      pole.position.copy(s.pos);
+      pole.position.y=2;
+      grp.add(pole);
+      // Sphere top
+      var topGeo=new THREE.SphereGeometry(0.7,16,16);
+      var topMat=new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:0.7,roughness:0.3});
+      var top=new THREE.Mesh(topGeo,topMat);
+      top.position.copy(s.pos);
+      top.position.y=4;
+      top.userData.station=s;
+      top.userData.index=i;
+      markerObjects.push(top);
+      grp.add(top);
+      scene.add(grp);
+    });
+
+    // Mouse interactions: orbit + zoom + click
+    var rotation={x:0,y:0};
+    var autoRotate=true;
+    var dragging=false;
+    var lastX=0,lastY=0;
+    var distance=70;
+
+    canvas.addEventListener('pointerdown',function(e){dragging=true;lastX=e.clientX;lastY=e.clientY;autoRotate=false;document.getElementById('p3dRotate').classList.remove('active')});
+    window.addEventListener('pointerup',function(){dragging=false});
+    window.addEventListener('pointermove',function(e){
+      if(!dragging)return;
+      rotation.y+=(e.clientX-lastX)*0.005;
+      rotation.x=Math.max(-0.6,Math.min(0.6,rotation.x+(e.clientY-lastY)*0.005));
+      lastX=e.clientX;lastY=e.clientY;
+    });
+    canvas.addEventListener('wheel',function(e){
+      e.preventDefault();
+      distance=Math.max(35,Math.min(120,distance+e.deltaY*0.05));
+    },{passive:false});
+
+    // Raycaster for click detection
+    var raycaster=new THREE.Raycaster();
+    var mouse=new THREE.Vector2();
+    canvas.addEventListener('click',function(e){
+      var rect=canvas.getBoundingClientRect();
+      mouse.x=((e.clientX-rect.left)/rect.width)*2-1;
+      mouse.y=-((e.clientY-rect.top)/rect.height)*2+1;
+      raycaster.setFromCamera(mouse,camera);
+      var hits=raycaster.intersectObjects(markerObjects);
+      if(hits.length>0){selectStation(hits[0].object.userData.index)}
+    });
+    canvas.addEventListener('mousemove',function(e){
+      var rect=canvas.getBoundingClientRect();
+      mouse.x=((e.clientX-rect.left)/rect.width)*2-1;
+      mouse.y=-((e.clientY-rect.top)/rect.height)*2+1;
+      raycaster.setFromCamera(mouse,camera);
+      var hits=raycaster.intersectObjects(markerObjects);
+      if(hits.length>0){
+        var s=hits[0].object.userData.station;
+        tooltip.textContent=s.name+' · '+s.km+' km';
+        tooltip.style.left=(e.clientX-rect.left+12)+'px';
+        tooltip.style.top=(e.clientY-rect.top-30)+'px';
+        tooltip.classList.add('visible');
+        canvas.style.cursor='pointer';
+      } else {
+        tooltip.classList.remove('visible');
+        canvas.style.cursor=dragging?'grabbing':'grab';
+      }
+    });
+
+    function selectStation(i){
+      var s=stations[i];
+      document.getElementById('p3dDetailName').textContent=s.name;
+      document.getElementById('p3dDetailMeta').textContent=(s.km===0?'Origin · 0 km':s.km+' km');
+      document.getElementById('p3dStatPressure').textContent=s.pressure;
+      document.getElementById('p3dStatTemp').textContent=s.temp;
+      document.getElementById('p3dStatFlow').textContent=s.flow;
+      document.getElementById('p3dStatStatus').textContent=s.status;
+      document.getElementById('p3dDetailDesc').textContent=s.desc;
+      document.querySelectorAll('.p3d-stn-btn').forEach(function(b){b.classList.remove('active')});
+      document.getElementById('p3dStation'+i).classList.add('active');
+    }
+    document.querySelectorAll('.p3d-stn-btn').forEach(function(b){
+      b.addEventListener('click',function(){selectStation(parseInt(b.dataset.station,10))});
+    });
+    document.getElementById('p3dRotate').addEventListener('click',function(){
+      autoRotate=!autoRotate;
+      this.classList.toggle('active',autoRotate);
+    });
+    document.getElementById('p3dReset').addEventListener('click',function(){
+      rotation.x=0;rotation.y=0;distance=70;
+      autoRotate=true;
+      document.getElementById('p3dRotate').classList.add('active');
+    });
+
+    // Resize handler
+    window.addEventListener('resize',function(){
+      var w=stage.clientWidth,h=stage.clientHeight;
+      renderer.setSize(w,h,false);
+      camera.aspect=w/h;
+      camera.updateProjectionMatrix();
+    });
+
+    // Animation loop
+    var t=0;
+    function animate(){
+      requestAnimationFrame(animate);
+      t+=0.012;
+      if(autoRotate)rotation.y+=0.003;
+
+      // Camera orbit
+      camera.position.x=Math.sin(rotation.y)*distance*Math.cos(rotation.x);
+      camera.position.z=Math.cos(rotation.y)*distance*Math.cos(rotation.x);
+      camera.position.y=Math.max(15,distance*Math.sin(rotation.x)+30);
+      camera.lookAt(0,0,0);
+
+      // Animate flow particles along pipe
+      particles.forEach(function(p){
+        p.userData.t=(p.userData.t+0.0035)%1;
+        var pos=curve.getPointAt(p.userData.t);
+        p.position.copy(pos);
+        p.material.opacity=0.6+0.4*Math.sin(t*3+p.userData.t*10);
+      });
+
+      // Pulse markers (status indicators)
+      markerObjects.forEach(function(m,i){
+        var scale=1+0.12*Math.sin(t*2+i*0.5);
+        m.scale.set(scale,scale,scale);
+      });
+
+      // North arrow (based on Y rotation)
+      if(northArrow)northArrow.style.transform='translate(-50%,-100%) rotate('+(-rotation.y*180/Math.PI)+'deg)';
+
+      renderer.render(scene,camera);
+    }
+    animate();
+
+    // Hide loading
+    setTimeout(function(){loading.classList.add('hidden')},400);
+  }
 })();
 </script>
 </body>
