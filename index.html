@@ -2208,6 +2208,31 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
 /* 6. HERO MOBILE (compact 85vh) */
 @media(max-width:768px){.hero{min-height:85vh}}
 @media(max-width:480px){.hero{min-height:80vh}}
+
+/* ═══ TASK 1: HERO META CHIP — Time & Weather Widget ═══ */
+.hero-meta-chip{position:absolute;top:calc(56px + env(safe-area-inset-top,0px));right:clamp(16px,3vw,32px);z-index:5;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:rgba(11,20,38,0.55);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(255,255,255,0.08);border-radius:999px;font-family:var(--font-d,'Space Grotesk',sans-serif);font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.02em;opacity:0;animation:heroReveal 0.6s 0.6s ease-out forwards;box-shadow:0 8px 24px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.06);white-space:nowrap;max-width:calc(100vw - 32px)}
+.hero-meta-chip i{font-size:0.95rem}
+.hero-meta-chip .hmc-temp{color:var(--accent-light,#38BDF8);font-weight:700}
+.hero-meta-chip .hmc-time{color:var(--gold-light,#D4A840);font-weight:700;font-variant-numeric:tabular-nums}
+.hero-meta-chip .hmc-sep{opacity:0.3;margin:0 2px}
+.hero-meta-chip .hmc-city{opacity:0.6;font-weight:500;font-size:0.72rem;display:none}
+@media(min-width:481px){.hero-meta-chip .hmc-city{display:inline}}
+@media(max-width:480px){.hero-meta-chip{top:calc(64px + env(safe-area-inset-top,0px));right:12px;padding:6px 12px;font-size:0.72rem;gap:8px}}
+body.light-theme .hero-meta-chip{background:rgba(255,255,255,0.65);border-color:rgba(0,0,0,0.06);color:rgba(15,23,42,0.92)}
+body.light-theme .hero-meta-chip .hmc-temp{color:#0284C7}
+body.light-theme .hero-meta-chip .hmc-time{color:#92400E}
+
+/* ═══ TASK 2: Mobile Design Polish ═══ */
+@media(max-width:768px){
+  .mobile-nav{backdrop-filter:blur(20px) saturate(1.2)!important;-webkit-backdrop-filter:blur(20px) saturate(1.2)!important}
+}
+@media(max-width:480px){
+  section{padding:3rem 0!important}
+  .bottom-nav-item{font-size:0!important;min-height:52px}
+  .bottom-nav-item i{font-size:1.35rem!important;margin-bottom:0!important}
+  .bottom-nav-item span{display:none}
+  .scroll-progress{height:2px}
+}
 </style>
 <script type="application/ld+json">
 [
@@ -2875,6 +2900,14 @@ body.light-theme .bottom-nav-item.active{color:#0284C7;background:rgba(2,132,199
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
+  <div class="hero-meta-chip" id="heroMetaChip" role="status" aria-live="polite" aria-label="Heure et météo à N'Djamena">
+    <i id="hmcIcon" class="fas fa-cloud-sun" aria-hidden="true"></i>
+    <span class="hmc-temp" id="hmcTemp">—°C</span>
+    <span class="hmc-sep">·</span>
+    <span class="hmc-time" id="hmcTime">--:--</span>
+    <span class="hmc-sep">·</span>
+    <span class="hmc-city">N'Djamena</span>
+  </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-eyebrow" data-i18n data-en="Pipeline · Transport · Storage · Chad">Pipeline · Transport · Stockage · Tchad</div>
@@ -5570,6 +5603,48 @@ if('PerformanceObserver' in window){
     }
   });
 }
+
+/* ═══ TASK 1: HERO META CHIP — Time & Weather Widget ═══ */
+(function(){
+  var icon=document.getElementById('hmcIcon');
+  var temp=document.getElementById('hmcTemp');
+  var time=document.getElementById('hmcTime');
+  if(!time)return;
+  function updateTime(){
+    try{
+      var now=new Date();
+      var ndjTime=new Date(now.toLocaleString('en-US',{timeZone:'Africa/Ndjamena'}));
+      var h=String(ndjTime.getHours()).padStart(2,'0');
+      var m=String(ndjTime.getMinutes()).padStart(2,'0');
+      time.textContent=h+':'+m;
+    }catch(e){}
+  }
+  function codeToIcon(c){
+    if(c===0)return['fa-sun','Ensoleillé'];
+    if(c>=1&&c<=3)return['fa-cloud-sun','Partiellement nuageux'];
+    if(c===45||c===48)return['fa-smog','Brouillard'];
+    if(c>=51&&c<=57)return['fa-cloud-rain','Bruine'];
+    if((c>=61&&c<=67)||(c>=80&&c<=82))return['fa-cloud-showers-heavy','Pluie'];
+    if((c>=71&&c<=77)||c===85||c===86)return['fa-snowflake','Neige'];
+    if(c>=95&&c<=99)return['fa-bolt','Orage'];
+    return['fa-cloud-sun','—'];
+  }
+  function fetchWeather(){
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=12.1348&longitude=15.0557&current_weather=true&timezone=Africa%2FNdjamena')
+      .then(function(r){return r.json()})
+      .then(function(d){
+        if(!d||!d.current_weather)return;
+        var t=Math.round(d.current_weather.temperature);
+        temp.textContent=t+'°C';
+        var ci=codeToIcon(d.current_weather.weathercode);
+        if(icon){icon.className='fas '+ci[0];icon.setAttribute('aria-label',ci[1])}
+      })
+      .catch(function(){temp.textContent='—'});
+  }
+  updateTime();fetchWeather();
+  setInterval(updateTime,30000);
+  setInterval(fetchWeather,15*60*1000);
+})();
 </script>
 </body>
 </html>
