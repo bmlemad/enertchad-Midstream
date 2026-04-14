@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "name": "enertchad-midstream",
+  "public": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com https://formspree.io https://www.google-analytics.com https://analytics.google.com https://plausible.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io" }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache" },
+        { "key": "Service-Worker-Allowed", "value": "/" }
+      ]
+    },
+    {
+      "source": "/(.*\\.svg)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/confidentialite.html", "destination": "/privacy.html", "permanent": true },
+    { "source": "/confidentialite", "destination": "/privacy.html", "permanent": true },
+    { "source": "/mentions-legales.html", "destination": "/terms.html", "permanent": true },
+    { "source": "/mentions-legales", "destination": "/terms.html", "permanent": true },
+    { "source": "/cgv.html", "destination": "/terms.html", "permanent": true },
+    { "source": "/cgv", "destination": "/terms.html", "permanent": true }
+  ],
+  "trailingSlash": false
+}
