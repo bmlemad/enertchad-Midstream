@@ -930,7 +930,7 @@ window.addEventListener('cookie-consent',function(e){
 </div>
 
 <!-- ═══ MISSION ═══ -->
-<section id="mission">
+<section id="mission" aria-labelledby="mission-title">
   <div class="ctn">
     <div data-r>
       <div class="chapter-marker" aria-hidden="true">
@@ -938,11 +938,11 @@ window.addEventListener('cookie-consent',function(e){
         <span class="chapter-marker-sep"></span>
 
 <!-- ═══ TIMELINE ═══ -->
-<section class="timeline-section" id="timeline">
+<section class="timeline-section" id="timeline" aria-labelledby="timeline-title">
   <div class="ctn">
     <div data-r class="text-center">
       <div class="eyb blue"><i class="fas fa-clock-rotate-left"></i> <span data-i18n data-en="Our journey">Notre parcours</span></div>
-      <h2 class="stitle" data-i18n data-en="Milestones since 2010">Jalons depuis 2010</h2>
+      <h2 id="timeline-title" class="stitle" data-i18n data-en="Milestones since 2010">Jalons depuis 2010</h2>
       <p class="sdesc" data-i18n data-en="Key moments shaping our trajectory.">Les moments clés qui ont façonné notre trajectoire.</p>
     </div>
     <div class="timeline-track" data-r>
@@ -992,29 +992,29 @@ window.addEventListener('cookie-consent',function(e){
         <span data-i18n data-en="Vision">Vision</span>
       </div>
       <div class="eyb blue"><i class="fas fa-bullseye" aria-hidden="true"></i> <span data-i18n data-en="Our Mission">Notre Mission</span></div>
-      <h2 class="stitle" data-i18n data-en="Connecting production to <span class='hl'>market</span>">Connecter la production au <span class="hl">marché</span></h2>
+      <h2 id="mission-title" class="stitle" data-i18n data-en="Connecting production to <span class='hl'>market</span>">Connecter la production au <span class="hl">marché</span></h2>
       <p class="sdesc" data-i18n data-en="EnerTchad Intermédiaire operates the critical infrastructure linking upstream production to downstream distribution — pipelines, terminals, metering, and logistics.">EnerTchad Intermédiaire opère les infrastructures critiques reliant la production amont à la distribution aval — pipelines, terminaux, métrologie et logistique.</p>
     </div>
-    <div class="mission-grid" data-r>
+    <div class="mission-grid" data-r role="list">
       <div class="grid-gap-lg">
-        <div class="mission-card">
+        <div class="mission-card" role="listitem">
           <i class="fas fa-project-diagram" aria-hidden="true"></i>
           <h4 data-i18n data-en="Pipeline Transport">Transport par pipeline</h4>
           <p data-i18n data-en="1,070 km of pipeline operated from Doba to the Kribi export terminal, with 4 booster pump stations and real-time SCADA monitoring.">1 070 km de pipeline opérés de Doba au terminal d'export de Kribi, avec 4 stations de pompage et surveillance SCADA temps réel.</p>
         </div>
-        <div class="mission-card">
+        <div class="mission-card" role="listitem">
           <i class="fas fa-warehouse" aria-hidden="true"></i>
           <h4 data-i18n data-en="Strategic Storage">Stockage stratégique</h4>
           <p data-i18n data-en="6 storage facilities with a total capacity of 2.8 million barrels, ensuring one month of national supply autonomy.">6 sites de stockage d'une capacité totale de 2,8 millions de barils, assurant un mois d'autonomie nationale d'approvisionnement.</p>
         </div>
       </div>
       <div class="grid-gap-lg">
-        <div class="mission-card">
+        <div class="mission-card" role="listitem">
           <i class="fas fa-gauge-high" aria-hidden="true"></i>
           <h4 data-i18n data-en="Fiscal Metering">Métrologie fiscale</h4>
           <p data-i18n data-en="OIML-certified metering systems at every custody transfer point — loading terminals, pipeline junctions, and export facilities.">Systèmes de comptage certifiés OIML à chaque point de transfert de garde — terminaux de chargement, jonctions pipeline et installations d'export.</p>
         </div>
-        <div class="mission-card">
+        <div class="mission-card" role="listitem">
           <i class="fas fa-shield-halved" aria-hidden="true"></i>
           <h4 data-i18n data-en="Integrity & HSE">Intégrité & HSE</h4>
           <p data-i18n data-en="Pipeline integrity management (pigging, corrosion monitoring, cathodic protection) with zero-tolerance safety culture and 24/7 emergency response.">Gestion de l'intégrité pipeline (raclage, suivi corrosion, protection cathodique) avec culture sécurité zéro-tolérance et intervention d'urgence 24/7.</p>
@@ -1037,7 +1037,7 @@ window.addEventListener('cookie-consent',function(e){
 </div>
 
 <!-- ═══ OPERATIONS ═══ -->
-<section class="sec-dark" id="operations">
+<section class="sec-dark" id="operations" aria-labelledby="operations-title">
   <div class="ctn">
     <div data-r>
       <div class="chapter-marker" aria-hidden="true">
@@ -1046,53 +1046,53 @@ window.addEventListener('cookie-consent',function(e){
         <span data-i18n data-en="Operations">Opérations</span>
       </div>
       <div class="eyb blue"><i class="fas fa-industry" aria-hidden="true"></i> <span data-i18n data-en="Operations">Opérations</span></div>
-      <h2 class="stitle text-white" data-i18n data-en="Eight operational <span class='hl'>pillars</span>">Huit piliers <span class="hl">opérationnels</span></h2>
+      <h2 id="operations-title" class="stitle text-white" data-i18n data-en="Eight operational <span class='hl'>pillars</span>">Huit piliers <span class="hl">opérationnels</span></h2>
       <p class="sdesc" data-i18n data-en="From crude gathering in the Doba Basin to the maritime export terminal — an integrated chain of critical infrastructure.">De la collecte brut dans le bassin de Doba au terminal d'export maritime — une chaîne intégrée d'infrastructures critiques.</p>
     </div>
-    <div class="ops-grid" data-r>
-      <div class="op-card">
+    <div class="ops-grid" data-r role="list">
+      <div class="op-card" role="listitem">
         <div class="op-icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
         <h3 data-i18n data-en="Pipeline Transport">Transport Pipeline</h3>
         <p data-i18n data-en="1,070 km export pipeline, 30&quot; diameter (760 mm), 48 sectioning valves, 3 pump stations (Komé, Dompta, Belabo). Bimonthly pigging, annual ILI inspections, continuous cathodic protection. FSO Komé Kribi 1 (2.4M bbl, 357,000 dwt) anchored 12 km offshore, 22 km subsea pipeline.">Pipeline d'export de 1 070 km, diamètre 30" (760 mm), 48 vannes de sectionnement, 3 stations de pompage (Komé, Dompta, Belabo). Pigging bimensuel, inspections ILI annuelles, protection cathodique continue. <abbr title="Navire Flottant de Stockage et Déchargement">FSO</abbr> Komé Kribi 1 (2,4M bbl, 357 000 tpl) ancré à 12 km au large, pipeline sous-marin de 22 km.</p>
         <span class="op-tag"><abbr title="American Petroleum Institute">API</abbr> 5L X60</span>
       </div>
-      <div class="op-card">
+      <div class="op-card" role="listitem">
         <div class="op-icon"><i class="fas fa-arrows-split-up-and-left" aria-hidden="true"></i></div>
         <h3 data-i18n data-en="Crude Gathering">Collecte Brut</h3>
         <p data-i18n data-en="350+ km steel/composite gathering lines, 8 multi-well manifolds, 3 gas-oil-water separation stations. Connects 120+ wells to the Central Processing Facility (CPF).">350+ km de conduites acier/composite, 8 manifolds multi-puits, 3 stations de séparation gaz-pétrole-eau. Connecte 120+ puits à l'usine de traitement central (CPF).</p>
         <span class="op-tag">120+ puits</span>
       </div>
-      <div class="op-card">
+      <div class="op-card" role="listitem">
         <div class="op-icon"><i class="fas fa-warehouse" aria-hidden="true"></i></div>
         <h3 data-i18n data-en="Storage & Terminals">Stockage & Terminaux</h3>
         <p data-i18n data-en="6 tank farms, 2.8M bbl combined capacity. Sedimentation tanks with level/density monitors, daily chromatographic readings, 4 repump stations. 99.5% availability — Doba, Bero, Komé, pump stations and Kribi FSO terminal.">6 parcs de stockage, 2,8M bbl de capacité combinée. Bacs de sédimentation avec moniteurs niveau/densité, relevés chromatographiques quotidiens, 4 stations de repompage. 99,5 % disponibilité — Doba, Béro, Komé, stations de pompage et terminal FSO Kribi.</p>
         <span class="op-tag">2.8M bbl</span>
       </div>
-      <div class="op-card">
+      <div class="op-card" role="listitem">
         <div class="op-icon"><i class="fas fa-gauge-high" aria-hidden="true"></i></div>
         <h3 data-i18n data-en="Fiscal Metering">Comptage & Metering</h3>
         <p data-i18n data-en="3 redundant Coriolis flowmeters per API MPMS Ch. 5. Annual calibration by accredited lab, ±0.1% precision. Custody transfer at pipeline entry/exit, loading terminals and export facilities.">3 débitmètres Coriolis en redondance selon API MPMS Ch. 5. Calibration annuelle par labo accrédité, ±0,1 % de précision. Transfert de garde aux points d'entrée/sortie pipeline, terminaux et installations d'export.</p>
         <span class="op-tag">±0.1 %</span>
       </div>
-      <div class="op-card">
+      <div class="op-card" role="listitem">
         <div class="op-icon"><i class="fas fa-satellite-dish" aria-hidden="true"></i></div>
         <h3 data-i18n data-en="SCADA & Monitoring">SCADA & Monitoring</h3>
         <p data-i18n data-en="Real-time supervisory control and data acquisition across all pipeline sections with leak detection, pressure monitoring, and automated valve control.">Contrôle supervisé et acquisition de données temps réel sur toutes les sections pipeline avec détection de fuites, suivi de pression et contrôle automatisé des vannes.</p>
         <span class="op-tag">24/7</span>
       </div>
-      <div class="op-card">
+      <div class="op-card" role="listitem">
         <div class="op-icon"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></div>
         <h3 data-i18n data-en="Integrity Management">Gestion Intégrité</h3>
         <p data-i18n data-en="In-line inspection (smart pigging), cathodic protection, corrosion monitoring, and predictive maintenance using ILI data analytics.">Inspection en ligne (raclage intelligent), protection cathodique, suivi corrosion et maintenance prédictive par analyse des données ILI.</p>
         <span class="op-tag">Smart Pigging</span>
       </div>
-      <div class="op-card">
+      <div class="op-card" role="listitem">
         <div class="op-icon"><i class="fas fa-truck-moving" aria-hidden="true"></i></div>
         <h3 data-i18n data-en="Road Transport">Transport Routier</h3>
         <p data-i18n data-en="Fleet of 60+ tanker trucks for secondary distribution from terminals to depots and emergency pipeline bypass operations.">Flotte de 60+ camions-citernes pour la distribution secondaire des terminaux aux dépôts et les opérations de bypass d'urgence.</p>
         <span class="op-tag">60+ citernes</span>
       </div>
-      <div class="op-card">
+      <div class="op-card" role="listitem">
         <div class="op-icon"><i class="fas fa-hard-hat" aria-hidden="true"></i></div>
         <h3 data-i18n data-en="HSE & Emergency">HSE & Urgence</h3>
         <p data-i18n data-en="Zero-tolerance safety culture with dedicated emergency response teams, spill containment equipment, and continuous HSE training programs.">Culture sécurité zéro-tolérance avec équipes d'intervention d'urgence dédiées, équipements de confinement des déversements et programmes HSE continus.</p>
@@ -1103,11 +1103,11 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ BASSINS DE PRODUCTION — CONNEXIONS AU PIPELINE ═══ -->
-<section id="basins">
+<section id="basins" aria-labelledby="basins-title">
   <div class="ctn">
     <div data-r>
       <div class="eyb blue"><i class="fas fa-diagram-project" aria-hidden="true"></i> <span data-i18n data-en="Production Network">Réseau de Production</span></div>
-      <h2 class="stitle" data-i18n data-en="Production basins <span class='hl'>connected</span> to the pipeline">Bassins de production <span class="hl">connectés</span> au pipeline</h2>
+      <h2 id="basins-title" class="stitle" data-i18n data-en="Production basins <span class='hl'>connected</span> to the pipeline">Bassins de production <span class="hl">connectés</span> au pipeline</h2>
       <p class="sdesc" data-i18n data-en="From 5 production areas, crude flows through 350+ km of gathering lines, 8 manifolds and 3 separation stations into the Doba hub — gateway to the 1,070 km COTCO export pipeline.">Depuis 5 zones de production, le brut circule via 350+ km de conduites de collecte, 8 manifolds et 3 stations de séparation vers le hub de Doba — porte d'entrée du pipeline d'export COTCO de 1 070 km.</p>
     </div>
 
@@ -1363,11 +1363,11 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ PIPELINE ═══ -->
-<section id="pipeline">
+<section id="pipeline" aria-labelledby="pipeline-title">
   <div class="ctn">
     <div data-r>
       <div class="eyb teal"><i class="fas fa-route" aria-hidden="true"></i> Réseau Pipeline</div>
-      <h2 class="stitle">Doba — Kribi — Atlantique : <span class="hl">1 070 km</span></h2>
+      <h2 id="pipeline-title" class="stitle">Doba — Kribi — Atlantique : <span class="hl">1 070 km</span></h2>
       <p class="sdesc">Du gisement au terminal flottant FSO sur l'océan Atlantique. L'oléoduc d'export Tchad-Cameroun, opéré par COTCO, traverse 170 km au Tchad et 904 km au Cameroun. Tubes de 760 mm de diamètre, enfouis à 1 m minimum, protégés par 48 vannes de sectionnement et un système de protection cathodique continue. En service depuis octobre 2003.</p>
       <div class="pipe-edition-badge">
         <span class="pipe-edition-pulse"></span>
@@ -1636,7 +1636,7 @@ window.addEventListener('cookie-consent',function(e){
     </div>
 
     <!-- Metric gauges (4 cards) -->
-    <div class="dash-metrics" data-r>
+    <div class="dash-metrics" data-r aria-live="polite" aria-label="Métriques pipeline temps réel">
       <div class="dash-metric">
         <div class="dash-metric-label" data-i18n data-en="Throughput">Débit</div>
         <div class="dash-metric-value"><span id="dashThroughput">287</span> <small>kbbl/j</small></div>
@@ -1699,17 +1699,17 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ PRODUCTEURS — OPÉRATEURS CONNECTÉS AU PIPELINE ═══ -->
-<section id="producers">
+<section id="producers" aria-labelledby="producers-title">
   <div class="ctn">
     <div data-r>
       <div class="eyb"><i class="fas fa-handshake" aria-hidden="true"></i> <span data-i18n data-en="Connected Operators">Opérateurs Connectés</span></div>
-      <h2 class="stitle" data-i18n data-en="Producers connected to the <span class='hl'>Doba — Kribi</span> pipeline">Producteurs connectés au pipeline <span class="hl">Doba — Kribi</span></h2>
+      <h2 id="producers-title" class="stitle" data-i18n data-en="Producers connected to the <span class='hl'>Doba — Kribi</span> pipeline">Producteurs connectés au pipeline <span class="hl">Doba — Kribi</span></h2>
       <p class="sdesc" data-i18n data-en="The COTCO pipeline serves as the export backbone for all major operators in Chad's Doba basin. Five producers channel their crude through this 1,070 km infrastructure to the Kribi FSO on the Atlantic.">Le pipeline COTCO est l'artère d'export de tous les opérateurs majeurs du bassin de Doba. Cinq producteurs acheminent leur brut via cette infrastructure de 1 070 km jusqu'au FSO Kribi sur l'Atlantique.</p>
     </div>
 
-    <div class="prod-grid" data-r>
+    <div class="prod-grid" data-r role="list">
       <!-- SHT — National -->
-      <div class="prod-card national">
+      <div class="prod-card national" role="listitem">
         <div class="prod-header">
           <div class="prod-logo sht">SHT</div>
           <div class="prod-name">Société des Hydrocarbures du Tchad<span data-i18n data-en="National Oil Company — est. 2006">Compagnie nationale — créée 2006</span></div>
@@ -1723,7 +1723,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CNPC -->
-      <div class="prod-card">
+      <div class="prod-card" role="listitem">
         <div class="prod-header">
           <div class="prod-logo cnpc">CNPC</div>
           <div class="prod-name">China National Petroleum Corp.<span data-i18n data-en="Block H — Salamat Basin">Bloc H — Bassin de Salamat</span></div>
@@ -1737,7 +1737,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- Perenco -->
-      <div class="prod-card">
+      <div class="prod-card" role="listitem">
         <div class="prod-header">
           <div class="prod-logo perenco">PER</div>
           <div class="prod-name">Perenco<span data-i18n data-en="Mangara, Badila & Krim fields">Champs Mangara, Badila & Krim</span></div>
@@ -1751,7 +1751,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- OPIC Africa -->
-      <div class="prod-card">
+      <div class="prod-card" role="listitem">
         <div class="prod-header">
           <div class="prod-logo opic">OPIC</div>
           <div class="prod-name">OPIC Africa Corporation<span data-i18n data-en="ORYX development — CPC Taiwan subsidiary">Développement ORYX — filiale CPC Taiwan</span></div>
@@ -1776,18 +1776,18 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ VISION — PROJETS FUTURS & MAILLAGE RÉGIONAL ═══ -->
-<section id="vision">
+<section id="vision" aria-labelledby="vision-title">
   <div class="ctn">
     <div data-r>
       <div class="eyb gold"><i class="fas fa-globe-africa" aria-hidden="true"></i> Vision & Projets</div>
-      <h2 class="stitle" data-i18n data-en="Chad, <span class='hl'>strategic energy hub</span> of Central Africa">Le Tchad, <span class="hl">hub énergétique stratégique</span> d'Afrique Centrale</h2>
+      <h2 id="vision-title" class="stitle" data-i18n data-en="Chad, <span class='hl'>strategic energy hub</span> of Central Africa">Le Tchad, <span class="hl">hub énergétique stratégique</span> d'Afrique Centrale</h2>
       <p class="sdesc" data-i18n data-en="Chad's central position makes it the natural crossroads of Central and West African energy corridors. From oil pipeline interconnections (CAPS, South Sudan, CAR) to the $20 billion trans-Saharan gas pipeline to Europe, refinery expansion, and future processing — Chad is evolving from transit corridor to continental energy hub.">La position centrale du Tchad en fait le carrefour naturel des corridors énergétiques d'Afrique Centrale et de l'Ouest. Des interconnexions pipeline (<abbr title="Central Africa Pipeline System">CAPS</abbr>, Soudan du Sud, Centrafrique) au gazoduc transsaharien de 20 milliards $ vers l'Europe, en passant par l'expansion du raffinage — le Tchad évolue de simple corridor de transit vers un hub énergétique continental.</p>
     </div>
 
-    <div class="vision-grid" data-r>
+    <div class="vision-grid" data-r role="list">
 
       <!-- CARD 1: Featured — Maillage stratégique CAPS -->
-      <div class="vision-card featured card-glow-31">
+      <div class="vision-card featured card-glow-31" role="listitem">
         <div>
           <div class="vision-status study"><span class="pulse-sm"></span> PROJET STRATÉGIQUE</div>
           <h3><span><abbr title="Central Africa Pipeline System">CAPS</abbr></span> — Central Africa Pipeline System</h3>
@@ -1894,7 +1894,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CARD 2: Pipeline Niger-Bénin -->
-      <div class="vision-card card-glow-32">
+      <div class="vision-card card-glow-32" role="listitem">
         <div class="vision-status active"><span class="pulse-sm"></span> OPÉRATIONNEL · 2024</div>
         <h3>Pipeline <span>Niger — Bénin</span></h3>
         <p>Le plus long pipeline d'Afrique (1 950 km). Relie les champs d'Agadem au terminal offshore de Sèmè-Kpodji. Construit par CNPC, opérationnel depuis mai 2024 avec 110 000 bbl/jour de capacité. Plus de 14 millions de barils déjà exportés.</p>
@@ -1906,7 +1906,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CARD 3: Interconnexion Niger-Tchad -->
-      <div class="vision-card card-glow-31">
+      <div class="vision-card card-glow-31" role="listitem">
         <div class="vision-status study"><span class="pulse-sm"></span> ÉTUDE · RELANCÉ 2024</div>
         <h3>Interconnexion <span>Agadem — Doba</span></h3>
         <p>Pipeline de 600 km reliant le bassin d'Agadem (Niger) au hub de Doba, offrant un second accès à l'Atlantique via le pipeline Tchad-Cameroun et le FSO Kribi. Initialement planifié par CNPC, le projet a été relancé en juin 2024 par le gouvernement nigérien comme route d'export alternative.</p>
@@ -1918,7 +1918,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CARD: Raffinerie Djarmaya — Pipeline Bongor -->
-      <div class="vision-card card-glow-33">
+      <div class="vision-card card-glow-33" role="listitem">
         <div class="vision-status active"><span class="pulse-sm"></span> OPÉRATIONNEL · 2011</div>
         <h3>Raffinerie <span>Djarmaya</span> — Pipeline Bongor</h3>
         <p data-i18n data-en="Chad's only refinery, 40 km north of N'Djamena. Owned 60% by CNPC, 40% SHT, operated by SRN SA. Connected via the 311 km Ronier–Djarmaya pipeline to the Bongor Basin (Rônier, Mimosa, Koudalwa fields). Capacity of 20,000 bbl/day, currently ~14,000 bbl/day due to crude quality. Produces gasoline, diesel, fuel oil, LPG and polypropylene. New COSA agreement signed Sept. 2025 (3 years) to improve supply and crude quality. CNPC plans to expand the existing refinery and build a second one in eastern Chad.">Seule raffinerie du Tchad, à 40 km au nord de N'Djamena. Détenue 60 % CNPC, 40 % SHT, opérée par SRN SA. Connectée via le pipeline Rônier–Djarmaya de 311 km au bassin de Bongor (champs Rônier, Mimosa, Koudalwa). Capacité de 20 000 bbl/j, actuellement ~14 000 bbl/j en raison de la qualité du brut. Produit essence, diesel, fioul, <abbr title="Gaz de Pétrole Liquéfié">GPL</abbr> et polypropylène. Nouvel accord COSA signé en sept. 2025 (3 ans) pour améliorer l'approvisionnement et la qualité du brut. CNPC prévoit d'étendre la raffinerie et d'en construire une seconde dans l'est du Tchad.</p>
@@ -1932,7 +1932,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CARD 4: WAGP connexion -->
-      <div class="vision-card card-glow-34">
+      <div class="vision-card card-glow-34" role="listitem">
         <div class="vision-status planned"><span class="pulse-sm"></span> VISION LONG TERME</div>
         <h3>Connexion au <span><abbr title="West Africa Gas Pipeline">WAGP</abbr></span></h3>
         <p>Le West African Gas Pipeline (681 km) relie déjà le Nigeria au Bénin, Togo et Ghana. L'interconnexion du réseau CAPS avec le corridor <abbr title="West Africa Gas Pipeline">WAGP</abbr> via le Bénin ouvrirait un accès aux marchés d'Afrique de l'Ouest et aux hubs de raffinage nigérians, complétant le maillage continental.</p>
@@ -1987,7 +1987,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CARD 6: Centrafrique — exploration -->
-      <div class="vision-card card-glow-33">
+      <div class="vision-card card-glow-33" role="listitem">
         <div class="vision-status study"><span class="pulse-sm"></span> EXPLORATION · 2024-2025</div>
         <h3>Raccordement <span>Centrafrique — Doba</span></h3>
         <p data-i18n data-en="The Central African Republic launched its first offshore block licensing in 2024 (8 blocks, 31,883 km²), with exploration in the Doba-Doseo-Salamat basin straddling the CAR-Chad border. Any future CAR production would naturally connect to the COTCO pipeline via the Doba hub — adding new volumes to the existing export corridor.">La Centrafrique a lancé son premier appel d'offres pétrolier en 2024 (8 blocs, 31 883 km²), avec exploration dans le bassin Doba-Doseo-Salamat à cheval sur la frontière RCA-Tchad. Toute production future de la RCA se raccorderait naturellement au pipeline COTCO via le hub de Doba — ajoutant de nouveaux volumes au corridor d'export existant.</p>
@@ -1999,7 +1999,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CARD 7: Expansion raffinerie -->
-      <div class="vision-card card-glow-34">
+      <div class="vision-card card-glow-34" role="listitem">
         <div class="vision-status study"><span class="pulse-sm"></span> EN DISCUSSION</div>
         <h3>Expansion <span>Capacité Raffinage</span></h3>
         <p data-i18n data-en="With domestic refining at 20,000 bbl/day (Djarmaya, CNPC-SHT joint venture) against 137,000 bbl/day production, Chad captures only 15% of value domestically. Expansion plans under discussion would increase capacity, reduce fuel imports, and position the Doba corridor as a processing hub — not just a transit pipeline.">Avec une capacité de raffinage de 20 000 bbl/j (Djarmaya, co-entreprise CNPC-SHT) contre 137 000 bbl/j de production, le Tchad ne capture que 15% de la valeur localement. Des plans d'expansion en discussion augmenteraient la capacité, réduiraient les importations de carburant et positionneraient le corridor Doba comme hub de transformation — pas seulement un pipeline de transit.</p>
@@ -2011,7 +2011,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CARD 8: Soudan du Sud — nouvelle connexion -->
-      <div class="vision-card card-glow-36">
+      <div class="vision-card card-glow-36" role="listitem">
         <div class="vision-status study"><span class="pulse-sm"></span> CONCEPT STRATÉGIQUE</div>
         <h3>Connexion <span>Soudan du Sud — Doba</span></h3>
         <p data-i18n data-en="South Sudan holds 3.5 billion barrels of proven reserves but depends on a single export route via Sudan (GNPOC pipeline to Port Sudan). An alternative pipeline (~800 km) from Paloich/Upper Nile to the Doba hub would unlock a second Atlantic export route via Kribi FSO, bypassing Sudan transit risks. Chad's central position makes this corridor geographically viable.">Le Soudan du Sud dispose de 3,5 milliards de barils de réserves prouvées mais dépend d'une seule route d'export via le Soudan (pipeline GNPOC vers Port-Soudan). Un pipeline alternatif (~800 km) de Paloich/Haut-Nil vers le hub de Doba offrirait une seconde route d'export Atlantique via le FSO Kribi, contournant les risques de transit soudanais. La position centrale du Tchad rend ce corridor géographiquement viable.</p>
@@ -2024,7 +2024,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CARD 9: Connexion Soudan — Darfour -->
-      <div class="vision-card card-glow-35">
+      <div class="vision-card card-glow-35" role="listitem">
         <div class="vision-status study"><span class="pulse-sm"></span> OPPORTUNITÉ STRATÉGIQUE</div>
         <h3>Corridor <span>Soudan (Darfour) — Doba</span></h3>
         <p data-i18n data-en="Sudan's Darfur region holds an estimated 5–15 billion barrels of untapped potential across five basins, with CNPC Block 6 straddling the Chad border. The ongoing civil war (since April 2023) has devastated Sudan's oil infrastructure — a 70% sector contraction, pipeline ruptures, and $5B in damage. Port Sudan remains contested. Chad's existing COTCO pipeline offers a natural alternative export route for future Darfur production, positioning the Doba hub as a strategic alternative to the disrupted Red Sea corridor.">La région du Darfour au Soudan recèle un potentiel estimé de 5 à 15 milliards de barils dans cinq bassins, dont le Bloc 6 de CNPC chevauche la frontière tchadienne. La guerre civile en cours (depuis avril 2023) a dévasté l'infrastructure pétrolière soudanaise — contraction de 70%, ruptures de pipeline et 5 Mrd$ de dommages. Port-Soudan reste contesté. Le pipeline COTCO existant offre une route d'export alternative naturelle pour la future production du Darfour, positionnant le hub de Doba comme alternative stratégique au corridor de la Mer Rouge perturbé.</p>
@@ -2037,7 +2037,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- CARD 10: Position géostratégique -->
-      <div class="vision-card card-glow-37">
+      <div class="vision-card card-glow-37" role="listitem">
         <div class="vision-status planned"><span class="pulse-sm"></span> VISION CONTINENTALE</div>
         <h3>Le Tchad, <span>carrefour continental</span></h3>
         <p data-i18n data-en="Bordering 6 countries (Libya, Sudan, Central African Republic, Cameroon, Nigeria, Niger), Chad is the only country that can link the Sahel, Central African, and Gulf of Guinea oil corridors. Including South Sudan and the Darfur reserves, this makes 8 potential pipeline connections — an unrivaled transit hub positioning EnerTchad as a strategic operator of African interconnection.">Frontalier de 6 pays (Libye, Soudan, Centrafrique, Cameroun, Nigeria, Niger), le Tchad est le seul pays à pouvoir relier les corridors pétroliers du Sahel, de l'Afrique Centrale et du Golfe de Guinée. Avec le Soudan du Sud et les réserves du Darfour, cela ouvre 8 connexions pipeline potentielles — un hub de transit inégalé positionnant EnerTchad comme opérateur stratégique de l'interconnexion africaine.</p>
@@ -2053,7 +2053,7 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ ENERTECH — INGÉNIERIE PIPELINE ═══ -->
-<section id="enertech">
+<section id="enertech" aria-labelledby="enertech-title">
   <div class="ctn">
     <div data-r>
       <div class="chapter-marker" aria-hidden="true">
@@ -2062,12 +2062,12 @@ window.addEventListener('cookie-consent',function(e){
         <span data-i18n data-en="Innovation">Innovation</span>
       </div>
       <div class="et-brand"><span class="et-brand-name">EnerTech</span><span class="et-brand-tag">Filiale Ingénierie, Technologie & R&D</span></div>
-      <h2 class="stitle text-white" data-i18n data-en="Pipeline engineering, <span class='hl'>from design to integrity</span>">Ingénierie pipeline, <span class="hl">du design à l'intégrité</span></h2>
+      <h2 id="enertech-title" class="stitle text-white" data-i18n data-en="Pipeline engineering, <span class='hl'>from design to integrity</span>">Ingénierie pipeline, <span class="hl">du design à l'intégrité</span></h2>
       <p class="sdesc text-white-dim-55" data-i18n data-en="EnerTech is EnerTchad's specialized subsidiary for engineering, technology and R&D. Our pipeline engineers cover the full lifecycle — hydraulic design, construction supervision, SCADA integration, integrity management, and decommissioning.">EnerTech est la filiale spécialisée d'EnerTchad en ingénierie, technologie et R&D. Nos ingénieurs pipeline couvrent le cycle de vie complet — conception hydraulique, supervision de construction, intégration SCADA, gestion d'intégrité et décommissionnement.</p>
     </div>
-    <div class="et-grid" data-r>
+    <div class="et-grid" data-r role="list">
 
-      <div class="et-card">
+      <div class="et-card" role="listitem">
         <div class="et-card-scan"></div>
         <div class="et-card-status"><span class="dt-id">ET-SCADA-01</span><span class="flex-center-xs"><span class="dt-led"></span> LIVE</span></div>
         <div class="et-card-body">
@@ -2079,7 +2079,7 @@ window.addEventListener('cookie-consent',function(e){
         <div class="et-card-flow"></div>
       </div>
 
-      <div class="et-card">
+      <div class="et-card" role="listitem">
         <div class="et-card-scan"></div>
         <div class="et-card-status"><span class="dt-id">ET-ILI-02</span><span class="flex-center-xs"><span class="dt-led"></span> LIVE</span></div>
         <div class="et-card-body">
@@ -2091,7 +2091,7 @@ window.addEventListener('cookie-consent',function(e){
         <div class="et-card-flow"></div>
       </div>
 
-      <div class="et-card">
+      <div class="et-card" role="listitem">
         <div class="et-card-scan"></div>
         <div class="et-card-status"><span class="dt-id">ET-CP-03</span><span class="flex-center-xs"><span class="dt-led"></span> LIVE</span></div>
         <div class="et-card-body">
@@ -2103,7 +2103,7 @@ window.addEventListener('cookie-consent',function(e){
         <div class="et-card-flow"></div>
       </div>
 
-      <div class="et-card">
+      <div class="et-card" role="listitem">
         <div class="et-card-scan"></div>
         <div class="et-card-status"><span class="dt-id">ET-MET-04</span><span class="flex-center-xs"><span class="dt-led"></span> LIVE</span></div>
         <div class="et-card-body">
@@ -2115,7 +2115,7 @@ window.addEventListener('cookie-consent',function(e){
         <div class="et-card-flow"></div>
       </div>
 
-      <div class="et-card">
+      <div class="et-card" role="listitem">
         <div class="et-card-scan"></div>
         <div class="et-card-status"><span class="dt-id">ET-HYD-05</span><span class="flex-center-xs"><span class="dt-led"></span> LIVE</span></div>
         <div class="et-card-body">
@@ -2127,7 +2127,7 @@ window.addEventListener('cookie-consent',function(e){
         <div class="et-card-flow"></div>
       </div>
 
-      <div class="et-card">
+      <div class="et-card" role="listitem">
         <div class="et-card-scan"></div>
         <div class="et-card-status"><span class="dt-id">ET-EPC-06</span><span class="flex-center-xs"><span class="dt-led"></span> LIVE</span></div>
         <div class="et-card-body">
@@ -2139,7 +2139,7 @@ window.addEventListener('cookie-consent',function(e){
         <div class="et-card-flow"></div>
       </div>
 
-      <div class="et-card">
+      <div class="et-card" role="listitem">
         <div class="et-card-scan"></div>
         <div class="et-card-status"><span class="dt-id">ET-MAR-07</span><span class="flex-center-xs"><span class="dt-led"></span> LIVE</span></div>
         <div class="et-card-body">
@@ -2151,7 +2151,7 @@ window.addEventListener('cookie-consent',function(e){
         <div class="et-card-flow"></div>
       </div>
 
-      <div class="et-card">
+      <div class="et-card" role="listitem">
         <div class="et-card-scan"></div>
         <div class="et-card-status"><span class="dt-id">ET-ENV-08</span><span class="flex-center-xs"><span class="dt-led"></span> LIVE</span></div>
         <div class="et-card-body">
@@ -2168,16 +2168,16 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ ENERTECH — TECHNOLOGIES ═══ -->
-<section id="enertech-tech">
+<section id="enertech-tech" aria-labelledby="enertech-tech-title">
   <div class="ctn">
     <div data-r>
       <div class="et-brand"><span class="et-brand-name">EnerTech</span><span class="et-brand-tag">Écosystème Technologique</span></div>
-      <h2 class="stitle" data-i18n data-en="The technology backbone of <span class='hl'>pipeline excellence</span>">L'ossature technologique de <span class="hl">l'excellence pipeline</span></h2>
+      <h2 id="enertech-tech-title" class="stitle" data-i18n data-en="The technology backbone of <span class='hl'>pipeline excellence</span>">L'ossature technologique de <span class="hl">l'excellence pipeline</span></h2>
       <p class="sdesc" data-i18n data-en="From control rooms to edge sensors, EnerTech deploys an integrated digital ecosystem purpose-built for pipeline operations — real-time, secure, predictive.">Des salles de contrôle aux capteurs de terrain, EnerTech déploie un écosystème numérique intégré conçu pour les opérations pipeline — temps réel, sécurisé, prédictif.</p>
     </div>
-    <div class="ett-grid" data-r>
+    <div class="ett-grid" data-r role="list">
 
-      <div class="ett-card">
+      <div class="ett-card" role="listitem">
         <div class="ett-card-body">
           <div class="ett-card-ic"><i class="fas fa-display"></i></div>
           <h3 data-i18n data-en="DCS & Pipeline SCADA">DCS & SCADA Pipeline</h3>
@@ -2333,15 +2333,15 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ FLEET ═══ -->
-<section class="sec-light" id="fleet">
+<section class="sec-light" id="fleet" aria-labelledby="fleet-title">
   <div class="ctn">
     <div data-r>
       <div class="eyb gold"><i class="fas fa-truck-moving" aria-hidden="true"></i> <span data-i18n data-en="Fleet & Logistics">Flotte & Logistique</span></div>
-      <h2 class="stitle" data-i18n data-en="A fleet designed for <span class='hl'>continuity</span>">Une flotte conçue pour la <span class="hl">continuité</span></h2>
+      <h2 id="fleet-title" class="stitle" data-i18n data-en="A fleet designed for <span class='hl'>continuity</span>">Une flotte conçue pour la <span class="hl">continuité</span></h2>
       <p class="sdesc" data-i18n data-en="Road tankers, maintenance vehicles, and emergency response units — all GPS-tracked and maintained to the highest safety standards.">Camions-citernes, véhicules de maintenance et unités d'intervention d'urgence — tous géolocalisés et maintenus aux plus hauts standards de sécurité.</p>
     </div>
-    <div class="fleet-grid" data-r>
-      <div class="fleet-card">
+    <div class="fleet-grid" data-r role="list">
+      <div class="fleet-card" role="listitem">
         <div class="fleet-icon"><i class="fas fa-truck-moving"></i></div>
         <h3 data-i18n data-en="Road Tankers">Camions-citernes</h3>
         <p data-i18n data-en="MC 306/DOT 407 certified tankers for secondary distribution and emergency bypass operations.">Citernes certifiées MC 306/DOT 407 pour distribution secondaire et opérations de bypass d'urgence.</p>
@@ -2364,7 +2364,7 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ CLIMATE RESILIENCE ═══ -->
-<section id="climate-resilience">
+<section id="climate-resilience" aria-labelledby="climate-resilience-title">
   <div class="ctn">
     <div data-r>
       <div class="chapter-marker" aria-hidden="true">
@@ -2373,10 +2373,10 @@ window.addEventListener('cookie-consent',function(e){
         <span data-i18n data-en="Resilience">Résilience</span>
       </div>
       <div class="eyb teal"><i class="fas fa-shield-heart" aria-hidden="true"></i> <span data-i18n data-en="Climate Resilience · Energy Security">Résilience climatique · Sécurité énergétique</span></div>
-      <h2 class="stitle" data-i18n data-en="Climate-Resilient Infrastructure">Infrastructure résiliente au climat</h2>
+      <h2 id="climate-resilience-title" class="stitle" data-i18n data-en="Climate-Resilient Infrastructure">Infrastructure résiliente au climat</h2>
       <p class="sdesc" data-i18n data-en="1,070 km of pipeline, 5 storage hubs and 3 pumping stations engineered for climate volatility — from Sahelian heat to seasonal floods. AI-monitored, redundancy-designed, ready for the next 30 years.">1 070 km de pipeline, 5 réservoirs et 3 stations de pompage conçus pour la volatilité climatique — du chaud sahélien aux inondations saisonnières. Moniturés IA, redondance intégrée, prêts pour 30 ans.</p>
     </div>
-    <div class="esg-kpi-strip" data-r>
+    <div class="esg-kpi-strip" data-r aria-live="polite" aria-label="Indicateurs de résilience climatique">
       <div class="esg-kpi"><span class="esg-kpi-val" data-i18n data-en="99.8%">99.8%</span><span class="esg-kpi-lbl" data-i18n data-en="Uptime (5-year)">Disponibilité (5 ans)</span></div>
       <div class="esg-kpi"><span class="esg-kpi-val" data-i18n data-en="0">0</span><span class="esg-kpi-lbl" data-i18n data-en="Climate-related incidents">Incidents climatiques</span></div>
       <div class="esg-kpi"><span class="esg-kpi-val" data-i18n data-en="85">85</span><span class="esg-kpi-lbl" data-i18n data-en="Monitoring stations">Stations monitoring</span></div>
@@ -2391,8 +2391,8 @@ window.addEventListener('cookie-consent',function(e){
       </div>
       <div class="esg-tab-content">
         <div class="esg-tab-pane active" id="res-heat">
-          <div class="esg-grid">
-            <div class="esg-pillar">
+          <div class="esg-grid" role="list">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-teal"><i class="fas fa-temperature-arrow-up" aria-hidden="true"></i></div>
               <h3 data-i18n data-en="Heat & Drought Hardening">Durcissement chaleur & sécheresse</h3>
               <p data-i18n data-en="Pipeline coating rated 60°C+ (Sahel summer extremes)">Revêtement pipeline noté 60°C+</p>
@@ -2405,8 +2405,8 @@ window.addEventListener('cookie-consent',function(e){
           </div>
         </div>
         <div class="esg-tab-pane" id="res-flood">
-          <div class="esg-grid">
-            <div class="esg-pillar">
+          <div class="esg-grid" role="list">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-teal"><i class="fas fa-droplet-slash" aria-hidden="true"></i></div>
               <h3 data-i18n data-en="Flood & Erosion Defense">Défense inondation & érosion</h3>
               <p data-i18n data-en="85 piezometric stations monitor groundwater on entire corridor">85 stations piézométriques corridor complet</p>
@@ -2419,8 +2419,8 @@ window.addEventListener('cookie-consent',function(e){
           </div>
         </div>
         <div class="esg-tab-pane" id="res-ai">
-          <div class="esg-grid">
-            <div class="esg-pillar">
+          <div class="esg-grid" role="list">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-teal"><i class="fas fa-microchip" aria-hidden="true"></i></div>
               <h3 data-i18n data-en="AI Monitoring & Predictive Maintenance">Monitoring IA & maintenance prédictive</h3>
               <p data-i18n data-en="SCADA + ML predictive: detects micro-leaks 3-5 days before rupture">SCADA + ML : détecte micro-fuites 3-5j avant rupture</p>
@@ -2433,8 +2433,8 @@ window.addEventListener('cookie-consent',function(e){
           </div>
         </div>
         <div class="esg-tab-pane" id="res-redundancy">
-          <div class="esg-grid">
-            <div class="esg-pillar">
+          <div class="esg-grid" role="list">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-teal"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
               <h3 data-i18n data-en="Redundancy & Diversification">Redondance & diversification</h3>
               <p data-i18n data-en="2 storage hubs (Doba + Kribi) provide 7-day reserve buffer">2 réservoirs (Doba + Kribi) : 7j réserve</p>
@@ -2510,7 +2510,7 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ ESG ═══ -->
-<section id="esg">
+<section id="esg" aria-labelledby="esg-title">
   <div class="ctn">
     <div data-r>
       <div class="chapter-marker" aria-hidden="true">
@@ -2519,10 +2519,10 @@ window.addEventListener('cookie-consent',function(e){
         <span data-i18n data-en="Impact">Impact</span>
       </div>
       <div class="eyb teal"><i class="fas fa-leaf" aria-hidden="true"></i> <span data-i18n data-en="Sustainability">Durabilité</span></div>
-      <h2 class="stitle" data-i18n data-en="ESG at <span class='hl'>Midstream</span>"><abbr title="Environnement, Social, Gouvernance">ESG</abbr> au cœur de <span class="hl">Intermédiaire</span></h2>
+      <h2 id="esg-title" class="stitle" data-i18n data-en="ESG at <span class='hl'>Midstream</span>"><abbr title="Environnement, Social, Gouvernance">ESG</abbr> au cœur de <span class="hl">Intermédiaire</span></h2>
       <p class="sdesc" data-i18n data-en="Environmental stewardship, social responsibility, and operational governance across 1,070 km of pipeline infrastructure.">Gestion environnementale, responsabilité sociale et gouvernance opérationnelle sur 1 070 km d'infrastructure pipeline.</p>
     </div>
-    <div class="esg-kpi-strip" data-r>
+    <div class="esg-kpi-strip" data-r aria-live="polite" aria-label="Indicateurs clés ESG">
       <div class="esg-kpi"><span class="esg-kpi-val">0</span><span class="esg-kpi-lbl" data-i18n data-en="Major spill incidents">Déversement majeur</span></div>
       <div class="esg-kpi"><span class="esg-kpi-val">99.2%</span><span class="esg-kpi-lbl" data-i18n data-en="Water treatment efficiency">Efficacité traitement eaux</span></div>
       <div class="esg-kpi"><span class="esg-kpi-val">92%</span><span class="esg-kpi-lbl" data-i18n data-en="Local hire rate">Emploi local</span></div>
@@ -2537,8 +2537,8 @@ window.addEventListener('cookie-consent',function(e){
       </div>
       <div class="esg-tab-content">
         <div class="esg-tab-pane active" id="esg-env">
-          <div class="esg-grid">
-            <div class="esg-pillar">
+          <div class="esg-grid" role="list">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-teal"><i class="fas fa-water"></i></div>
               <h3 data-i18n data-en="Soil Bioremediation">Bioremédiation de l'emprise pipeline</h3>
               <p data-i18n data-en="Complete hydrocarbon remediation across 1,070 km corridor">Remédiation complète des hydrocarbures sur corridor 1 070 km</p>
@@ -2548,7 +2548,7 @@ window.addEventListener('cookie-consent',function(e){
                 <span class="esg-tag" data-i18n data-en="18-month cycle">Cycle 18 mois</span>
               </div>
             </div>
-            <div class="esg-pillar">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-teal"><i class="fas fa-droplet"></i></div>
               <h3 data-i18n data-en="Water Monitoring">Monitoring piézométrique continu</h3>
               <p data-i18n data-en="Real-time groundwater piezometer surveillance">Surveillance piézométrique continue des nappes phréatiques</p>
@@ -2558,7 +2558,7 @@ window.addEventListener('cookie-consent',function(e){
                 <span class="esg-tag" data-i18n data-en="Real-time data">Données temps réel</span>
               </div>
             </div>
-            <div class="esg-pillar">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-teal"><i class="fas fa-wind"></i></div>
               <h3 data-i18n data-en="Zero Flaring">Programme zéro torchage</h3>
               <p data-i18n data-en="Gas recovery for power generation and electrification">Récupération gaz pour électrification locale</p>
@@ -2568,7 +2568,7 @@ window.addEventListener('cookie-consent',function(e){
                 <span class="esg-tag" data-i18n data-en="Power gen">Électrification</span>
               </div>
             </div>
-            <div class="esg-pillar">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-teal"><i class="fas fa-certificate"></i></div>
               <h3 data-i18n data-en="Certifications">Certifications ISO & normes</h3>
               <p data-i18n data-en="International standards compliance">Conformité aux normes internationales</p>
@@ -2581,8 +2581,8 @@ window.addEventListener('cookie-consent',function(e){
           </div>
         </div>
         <div class="esg-tab-pane" id="esg-social">
-          <div class="esg-grid">
-            <div class="esg-pillar">
+          <div class="esg-grid" role="list">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-accent"><i class="fas fa-briefcase"></i></div>
               <h3 data-i18n data-en="Local Employment">Emploi local direct</h3>
               <p data-i18n data-en="High proportion of local workforce recruitment">Recrutement local majoritaire dans la région du Tchad</p>
@@ -2592,7 +2592,7 @@ window.addEventListener('cookie-consent',function(e){
                 <span class="esg-tag" data-i18n data-en="Chad focus">Région Tchad</span>
               </div>
             </div>
-            <div class="esg-pillar">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-accent"><i class="fas fa-graduation-cap"></i></div>
               <h3 data-i18n data-en="Technical Training">Programme de formation continue</h3>
               <p data-i18n data-en="Continuous professional development for all staff">Formation technique continue pour tous les employés</p>
@@ -2602,7 +2602,7 @@ window.addEventListener('cookie-consent',function(e){
                 <span class="esg-tag" data-i18n data-en="Skills">Compétences</span>
               </div>
             </div>
-            <div class="esg-pillar">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-accent"><i class="fas fa-road"></i></div>
               <h3 data-i18n data-en="Community Infrastructure">Maintenance d'infrastructures</h3>
               <p data-i18n data-en="Maintenance of access roads and community pathways">Entretien des pistes communautaires le long de l'emprise</p>
@@ -2612,7 +2612,7 @@ window.addEventListener('cookie-consent',function(e){
                 <span class="esg-tag" data-i18n data-en="Access">Accès</span>
               </div>
             </div>
-            <div class="esg-pillar">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-accent"><i class="fas fa-heart-pulse"></i></div>
               <h3 data-i18n data-en="Health Partnerships">Partenariats santé</h3>
               <p data-i18n data-en="Medical facility support in pipeline operational zones">Cliniques partenaires dans les zones traversées</p>
@@ -2625,8 +2625,8 @@ window.addEventListener('cookie-consent',function(e){
           </div>
         </div>
         <div class="esg-tab-pane" id="esg-gov">
-          <div class="esg-grid">
-            <div class="esg-pillar">
+          <div class="esg-grid" role="list">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-gold"><i class="fas fa-chart-line"></i></div>
               <h3 data-i18n data-en="ESG Oversight">Comité ESG & Reporting</h3>
               <p data-i18n data-en="Quarterly ESG committee meetings with board reporting">Comité ESG trimestriel avec reporting au CA</p>
@@ -2636,7 +2636,7 @@ window.addEventListener('cookie-consent',function(e){
                 <span class="esg-tag" data-i18n data-en="Reporting">Reporting</span>
               </div>
             </div>
-            <div class="esg-pillar">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-gold"><i class="fas fa-book"></i></div>
               <h3 data-i18n data-en="Sustainability Report">Publication rapport annuel</h3>
               <p data-i18n data-en="Comprehensive annual sustainability disclosure">Rapport de durabilité annuel complet</p>
@@ -2646,7 +2646,7 @@ window.addEventListener('cookie-consent',function(e){
                 <span class="esg-tag" data-i18n data-en="Accountability">Responsabilité</span>
               </div>
             </div>
-            <div class="esg-pillar">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-gold"><i class="fas fa-scales"></i></div>
               <h3 data-i18n data-en="EITI Compliance">Conformité EITI</h3>
               <p data-i18n data-en="Extractive Industries Transparency Initiative alignment">Initiative pour la Transparence des Industries Extractives</p>
@@ -2656,7 +2656,7 @@ window.addEventListener('cookie-consent',function(e){
                 <span class="esg-tag" data-i18n data-en="Transparency">Transparence</span>
               </div>
             </div>
-            <div class="esg-pillar">
+            <div class="esg-pillar" role="listitem">
               <div class="esg-pillar-icon text-gold"><i class="fas fa-shield-check"></i></div>
               <h3 data-i18n data-en="Anti-Corruption">Politique anti-corruption</h3>
               <p data-i18n data-en="Comprehensive business ethics and compliance framework">Politique anti-corruption et éthique des affaires</p>
@@ -2674,46 +2674,46 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ HSE SERVICES ═══ -->
-<section id="hse-services">
+<section id="hse-services" aria-labelledby="hse-services-title">
   <div class="ctn">
     <div data-r>
       <div class="eyb teal"><i class="fas fa-hard-hat" aria-hidden="true"></i> <span data-i18n data-en="HSE Excellence">Excellence HSE</span></div>
-      <h2 class="stitle" data-i18n data-en="HSE Pipeline & Infrastructure Services">Services HSE Pipeline & Infrastructure</h2>
+      <h2 id="hse-services-title" class="stitle" data-i18n data-en="HSE Pipeline & Infrastructure Services">Services HSE Pipeline & Infrastructure</h2>
       <p class="sdesc" data-i18n data-en="EnerTchad Midstream offers specialized HSE services for pipeline operators, terminals and critical infrastructure.">EnerTchad Intermédiaire propose des services HSE spécialisés pour les opérateurs de pipelines, terminaux et infrastructures critiques.</p>
     </div>
-    <div class="hse-grid" data-r>
-      <div class="hse-card">
+    <div class="hse-grid" data-r role="list">
+      <div class="hse-card" role="listitem">
         <div class="hse-card-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
         <h3 data-i18n data-en="Pipeline Integrity Inspection">Inspection intégrité pipeline</h3>
         <p data-i18n data-en="ILI (In-Line Inspection), smart pigging, corrosion detection, API 570/ASME B31.4 compliance assessment.">ILI (In-Line Inspection), smart pigging, détection corrosion, évaluation conformité API 570/ASME B31.4.</p>
       </div>
-      <div class="hse-card">
+      <div class="hse-card" role="listitem">
         <div class="hse-card-icon"><i class="fas fa-person-chalkboard"></i></div>
         <h3 data-i18n data-en="HSE Field Training">Formation HSE terrain</h3>
         <p data-i18n data-en="Pipeline safety, emergency response, trench work, confined spaces, ATEX certification. 2,400+ personnel trained."><span class="hse-highlight" data-i18n data-en="2,400+ trained">2 400+ formés</span> — Sécurité pipeline, intervention d'urgence, travaux en tranchée, espace confiné, habilitations ATEX.</p>
       </div>
-      <div class="hse-card">
+      <div class="hse-card" role="listitem">
         <div class="hse-card-icon"><i class="fas fa-fire-extinguisher"></i></div>
         <h3 data-i18n data-en="Emergency Plans & Drills">Plan d'urgence & simulation</h3>
         <p data-i18n data-en="ERP development, field exercises (rupture, leak, fire), coordination with Civil Protection and riverine communities.">Élaboration ERP pipeline, exercices terrain (rupture, fuite, incendie), coordination avec Protection Civile et communautés riveraines.</p>
       </div>
-      <div class="hse-card">
+      <div class="hse-card" role="listitem">
         <div class="hse-card-icon"><i class="fas fa-satellite-dish"></i></div>
         <h3 data-i18n data-en="Environmental Monitoring">Monitoring environnemental</h3>
         <p data-i18n data-en="Piezometric monitoring (85 stations), air/water/soil quality, IFC PS 1-8 reports, biodiversity corridor tracking."><span class="hse-highlight">85 stations</span> — Surveillance piézométrique, qualité air/eau/sol, rapports IFC PS 1-8, suivi biodiversité corridor.</p>
       </div>
-      <div class="hse-card">
+      <div class="hse-card" role="listitem">
         <div class="hse-card-icon"><i class="fas fa-droplet-slash"></i></div>
         <h3 data-i18n data-en="Spill Management">Gestion déversements</h3>
         <p data-i18n data-en="Spill containment equipment, soil bioremediation, pipeline cleaning, site restoration. Response time &lt;2h."><span class="hse-highlight">&lt;2h intervention</span> — Équipements spill containment, bioremédiation des sols, nettoyage pipeline, restauration sites.</p>
       </div>
-      <div class="hse-card">
+      <div class="hse-card" role="listitem">
         <div class="hse-card-icon"><i class="fas fa-shield-halved"></i></div>
         <h3 data-i18n data-en="Audit & Certification">Audit & Certification</h3>
         <p data-i18n data-en="ISO 45001, ISO 14001, API 1160 support. Gap analysis, compliance roadmap, pre-certification audits.">Accompagnement ISO 45001, ISO 14001, API 1160. Gap analysis, roadmap conformité, audit blanc pré-certification.</p>
       </div>
     </div>
-    <div class="hse-kpi-row" data-r>
+    <div class="hse-kpi-row" data-r aria-live="polite" aria-label="Indicateurs clés HSE">
       <div class="hse-kpi">
         <span class="hse-kpi-val">85</span>
         <span class="hse-kpi-lbl" data-i18n data-en="Piezometer stations">Stations piézométriques</span>
@@ -2742,7 +2742,7 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ ACADEMY ═══ -->
-<section id="academy" class="sec-grad">
+<section id="academy" class="sec-grad" aria-labelledby="academy-title">
   <div class="ctn">
     <div data-r>
       <div class="chapter-marker" aria-hidden="true">
@@ -2751,7 +2751,7 @@ window.addEventListener('cookie-consent',function(e){
         <span data-i18n data-en="People">People</span>
       </div>
       <div class="eyb blue"><i class="fas fa-graduation-cap" aria-hidden="true"></i> <span>EnerTchad Academy</span></div>
-      <h2 class="stitle" data-i18n data-en="Pipeline Training & Certifications">Formations & Certifications Pipeline</h2>
+      <h2 id="academy-title" class="stitle" data-i18n data-en="Pipeline Training & Certifications">Formations & Certifications Pipeline</h2>
       <p class="sdesc" data-i18n data-en="Transport & infrastructure skills development program — API, ASME and NACE certifications, specialized pipeline field training.">Programme de développement des compétences transport & infrastructure — certifications API, ASME et NACE, formations terrain spécialisées pipeline.</p>
     </div>
     <div class="academy-filter-bar" data-r>
@@ -2762,9 +2762,9 @@ window.addEventListener('cookie-consent',function(e){
       <button class="academy-filter-tab" data-filter="corrosion" data-i18n data-en="Corrosion" role="tab" aria-pressed="false">Corrosion</button>
       <button class="academy-filter-tab" data-filter="management" data-i18n data-en="Management" role="tab" aria-pressed="false">Management</button>
     </div>
-    <div class="academy-grid" data-r>
+    <div class="academy-grid" data-r role="list">
       <!-- 1. API 1169 -->
-      <div class="academy-card" data-category="integrity">
+      <div class="academy-card" data-category="integrity" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-helmet-safety"></i></div>
           <div class="academy-card-badges">
@@ -2786,7 +2786,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- 2. API 1160 -->
-      <div class="academy-card" data-category="integrity">
+      <div class="academy-card" data-category="integrity" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-chart-line"></i></div>
           <div class="academy-card-badges">
@@ -2808,7 +2808,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- 3. NACE/AMPP CIP -->
-      <div class="academy-card" data-category="corrosion">
+      <div class="academy-card" data-category="corrosion" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-spray-can"></i></div>
           <div class="academy-card-badges">
@@ -2830,7 +2830,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- 4. NACE/AMPP CP Technician -->
-      <div class="academy-card" data-category="corrosion">
+      <div class="academy-card" data-category="corrosion" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-zap"></i></div>
           <div class="academy-card-badges">
@@ -2852,7 +2852,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- 5. ASME B31.4/B31.8 -->
-      <div class="academy-card" data-category="integrity">
+      <div class="academy-card" data-category="integrity" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-ruler"></i></div>
           <div class="academy-card-badges">
@@ -2874,7 +2874,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- 6. BOSIET/FOET -->
-      <div class="academy-card" data-category="hse">
+      <div class="academy-card" data-category="hse" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-person-hiking"></i></div>
           <div class="academy-card-badges">
@@ -2896,7 +2896,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- 7. NEBOSH International -->
-      <div class="academy-card" data-category="hse">
+      <div class="academy-card" data-category="hse" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-briefcase"></i></div>
           <div class="academy-card-badges">
@@ -2918,7 +2918,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- 8. Pipeline Pigging & ILI -->
-      <div class="academy-card" data-category="integrity">
+      <div class="academy-card" data-category="integrity" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-robot"></i></div>
           <div class="academy-card-badges">
@@ -2940,7 +2940,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- 9. Custody Transfer Metering -->
-      <div class="academy-card" data-category="metering">
+      <div class="academy-card" data-category="metering" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-gauge"></i></div>
           <div class="academy-card-badges">
@@ -2962,7 +2962,7 @@ window.addEventListener('cookie-consent',function(e){
       </div>
 
       <!-- 10. ATEX/IECEx -->
-      <div class="academy-card" data-category="hse">
+      <div class="academy-card" data-category="hse" role="listitem">
         <div class="academy-card-header">
           <div class="academy-card-icon"><i class="fas fa-explosion"></i></div>
           <div class="academy-card-badges">
@@ -3047,30 +3047,30 @@ window.addEventListener('cookie-consent',function(e){
 </section>
 
 <!-- ═══ TEAM ═══ -->
-<section class="sec-dark" id="team">
+<section class="sec-dark" id="team" aria-labelledby="team-title">
   <div class="ctn">
     <div data-r>
       <div class="eyb blue"><i class="fas fa-users-gear" aria-hidden="true"></i> <span data-i18n data-en="Leadership">Direction</span></div>
-      <h2 class="stitle text-white" data-i18n data-en="Experienced <span class='hl'>leadership</span>">Un leadership <span class="hl">expérimenté</span></h2>
+      <h2 id="team-title" class="stitle text-white" data-i18n data-en="Experienced <span class='hl'>leadership</span>">Un leadership <span class="hl">expérimenté</span></h2>
       <p class="sdesc" data-i18n data-en="A team of seasoned pipeline &amp; transport professionals with decades of combined experience in pipeline operations, terminal management, and HSE across Africa.">Une équipe de professionnels intermédiaires chevronnés avec des décennies d'expérience cumulée en opérations pipeline, gestion de terminaux et HSE en Afrique.</p>
     </div>
-    <div class="team-grid" data-r>
-      <div class="team-card">
+    <div class="team-grid" data-r role="list">
+      <div class="team-card" role="listitem">
         <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
         <h4>Directeur Général</h4>
         <small data-i18n data-en="Pipeline & Transport Operations">Opérations Pipeline & Transport</small>
       </div>
-      <div class="team-card">
+      <div class="team-card" role="listitem">
         <div class="team-avatar"><i class="fas fa-hard-hat"></i></div>
         <h4>Dir. Opérations</h4>
         <small data-i18n data-en="Field Operations & Maintenance">Opérations Terrain & Maintenance</small>
       </div>
-      <div class="team-card">
+      <div class="team-card" role="listitem">
         <div class="team-avatar"><i class="fas fa-shield-halved"></i></div>
         <h4>Dir. HSE</h4>
         <small data-i18n data-en="Health, Safety & Environment">Santé, Sécurité & Environnement</small>
       </div>
-      <div class="team-card">
+      <div class="team-card" role="listitem">
         <div class="team-avatar"><i class="fas fa-satellite-dish"></i></div>
         <h4>Dir. SCADA</h4>
         <small data-i18n data-en="Control Systems & Monitoring">Systèmes de Contrôle & Monitoring</small>
