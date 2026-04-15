@@ -10,8 +10,7 @@
   --danger:#EF4444;
   --font-d:'Space Grotesk',sans-serif;--font-b:'Inter',sans-serif;
   --radius:14px;--radius-sm:8px;--radius-xs:6px;
-  --tr:0.4s cubic-bezier(0.22,0.61,0.36,1)
-}
+  --tr:0.4s cubic-bezier(0.22,0.61,0.36,1) --sky:#0EA5E9;}
 
 /* ═══════════════════════════════════════════════
  * Z-INDEX LAYERING STRATEGY

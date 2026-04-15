@@ -2,7 +2,7 @@
  * EnerTchad Midstream Service Worker v2 — versioned cache
  * ═══════════════════════════════════════════════════════════════════ */
 
-const SW_VERSION = 'enertchad-midstream-v2.0.0';
+const SW_VERSION = 'enertchad-midstream-v2.0.1';
 const CACHE_STATIC = SW_VERSION + '-static';
 const CACHE_IMMUTABLE = SW_VERSION + '-immutable';
 const CACHE_RUNTIME = SW_VERSION + '-runtime';
