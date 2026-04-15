@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hors-ligne — EnerTchad Midstream</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="/logo.svg">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:linear-gradient(180deg,#0B1426 0%,#162A4A 100%);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.offline-wrap{max-width:520px;width:100%;text-align:center;position:relative}
+.offline-orb{position:fixed;top:-20%;left:50%;transform:translateX(-50%);width:80vw;height:60vh;background:radial-gradient(circle,rgba(14,165,233,0.18),transparent 60%);filter:blur(60px);pointer-events:none;z-index:0}
+.offline-logo{width:72px;height:72px;border-radius:50%;margin:0 auto 32px;background:linear-gradient(135deg,#0EA5E9,#14B8A6);display:flex;align-items:center;justify-content:center;box-shadow:0 20px 60px rgba(14,165,233,0.4)}
+.offline-logo svg{width:40px;height:40px;fill:#fff}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;background:linear-gradient(135deg,#fff,rgba(255,255,255,0.65));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.offline-sub{font-size:1rem;color:rgba(255,255,255,0.7);margin-bottom:32px;line-height:1.6}
+.offline-status{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.28);border-radius:999px;font-family:'Space Grotesk',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#fca5a5;margin-bottom:28px}
+.offline-dot{width:8px;height:8px;background:#ef4444;border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.9rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:all 0.3s;min-height:48px}
+.btn-primary{background:#0EA5E9;color:#fff;box-shadow:0 8px 24px rgba(14,165,233,0.35)}
+.btn-primary:hover{background:#38BDF8;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.18)}
+.btn-ghost:hover{background:rgba(255,255,255,0.06)}
+.offline-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.offline-hint{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="offline-orb" aria-hidden="true"></div>
+<div class="offline-wrap">
+  <div class="offline-logo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.24L18 8v8l-6 3.76L6 16V8l6-3.76z"/></svg>
+  </div>
+  <div class="offline-status"><span class="offline-dot"></span><span>Hors ligne</span></div>
+  <h1>Connexion interrompue</h1>
+  <p class="offline-sub">Votre appareil n'a pas pu joindre nos serveurs. Les pages déjà consultées restent disponibles grâce au cache.</p>
+  <div class="offline-actions">
+    <button class="btn btn-primary" onclick="location.reload()">Réessayer</button>
+    <a href="/" class="btn btn-ghost">Accueil</a>
+  </div>
+  <p class="offline-hint">EnerTchad Midstream · Pipeline &amp; Transport au Tchad<br>Si le problème persiste, vérifiez votre connexion réseau.</p>
+</div>
+<script>window.addEventListener('online',function(){location.reload()});</script>
+</body>
+</html>
