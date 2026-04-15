@@ -1,6 +1,6 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --primary:#0B1426;--primary-mid:#0F1D35;--primary-light:#162A4A;
+  --primary:#0B1426;--primary-mid:#0F1D35;
   --accent:#0EA5E9;--accent-light:#38BDF8;--accent-glow:rgba(14,165,233,0.25);
   --teal:#14B8A6;--teal-light:#2DD4BF;
   --gold:#C8962E;--gold-light:#D4A840;
