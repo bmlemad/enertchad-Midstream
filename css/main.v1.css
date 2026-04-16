@@ -1,18 +1,27 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
+  /* ═══ ENERTCHAD DESIGN SYSTEM — Midstream (Pipeline & Transport) ═══ */
+  /* Primary palette — deep navy (Midstream identity) */
   --primary:#0B1426;--primary-mid:#0F1D35;
+  /* Accent — cyan/sky (Midstream signature) */
   --accent:#0EA5E9;--accent-light:#38BDF8;--accent-glow:rgba(14,165,233,0.25);--accent-text:#38BDF8;
-  --teal:#14B8A6;--teal-light:#2DD4BF;
+  /* Cross-filiale tokens (shared design system) */
   --gold:#C8962E;--gold-light:#D4A840;--gold-text:#E8C55A;
+  --teal:#14B8A6;--teal-light:#2DD4BF;
   --tech:#8B5CF6;--tech-glow:rgba(139,92,246,0.25);--tech-text:#A78BFA;
   --energy:#10B981;--energy-glow:rgba(16,185,129,0.25);--energy-text:#6EE7B7;
+  --sky:#0EA5E9;
+  /* Semantic */
   --success:#10B981;--success-light:#34D399;
-  --surface:#F0F4F8;--surface-alt:#E2E8F0;--white:#FFFFFF;
-  --text:#1A202C;--text-sec:#4A5568;--text-light:#64748B;
   --danger:#EF4444;
+  /* Surfaces */
+  --surface:#F0F4F8;--surface-alt:#E2E8F0;--white:#FFFFFF;
+  /* Typography */
+  --text:#1A202C;--text-sec:#4A5568;--text-light:#64748B;
   --font-d:'Space Grotesk',sans-serif;--font-b:'Inter',sans-serif;
+  /* Layout tokens */
   --radius:14px;--radius-sm:8px;--radius-xs:6px;
-  --tr:0.4s cubic-bezier(0.22,0.61,0.36,1);--sky:#0EA5E9;}
+  --tr:0.4s cubic-bezier(0.22,0.61,0.36,1);}
 
 /* ═══════════════════════════════════════════════
  * Z-INDEX LAYERING STRATEGY
