@@ -1,23 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://enertchad-midstream.vercel.app/</loc>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app</loc>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://enertchad-midstream-vercel-app.vercel.app"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enertchad-midstream-vercel-app.vercel.app?lang=en"/>
   </url>
   <url>
-    <loc>https://enertchad-midstream.vercel.app/privacy.html</loc>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#academy</loc>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://enertchad-midstream.vercel.app/terms.html</loc>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#basins</loc>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://enertchad-midstream.vercel.app/cookies.html</loc>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#bcDots</loc>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#calc-transport</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#cases</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#climate-resilience</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#contact</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#dashboard</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#dotNav</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#enertech</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#enertech-tech</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#fleet</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#hero</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#hse-services</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#operations</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#pipeline</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#pipeline-3d</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#process-flow</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#producers</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enertchad-midstream-vercel-app.vercel.app#vision</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
