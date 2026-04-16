@@ -893,6 +893,28 @@
     </div>
    </div>
   </header>
+  <!-- ═══ BREADCRUMB NAV ═══ -->
+  <nav aria-label="Fil d'Ariane" class="breadcrumb-nav" role="navigation">
+   <div class="ctn">
+    <ol class="breadcrumb-list">
+     <li class="breadcrumb-item">
+      <a href="https://enertchad-groupe.vercel.app" class="breadcrumb-link" data-en="Groupe EnerTchad" data-i18n="">
+       Groupe EnerTchad
+      </a>
+     </li>
+     <li class="breadcrumb-item">
+      <span class="breadcrumb-separator" aria-hidden="true">»</span>
+      <span class="breadcrumb-current" data-en="EnerTchad Midstream" data-i18n="">
+       EnerTchad Intermédiaire
+      </span>
+     </li>
+    </ol>
+   </div>
+  </nav>
+  <!-- ═══ BREADCRUMB JSON-LD ═══ -->
+  <script type="application/ld+json">
+   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Groupe EnerTchad","item":"https://enertchad-groupe.vercel.app"},{"@type":"ListItem","position":2,"name":"EnerTchad Midstream","item":"https://midstream.enertchad.td"}]}
+  </script>
   <!-- ═══ MOBILE NAV ═══ -->
   <nav aria-hidden="true" aria-label="Menu mobile" class="mobile-nav" id="mobileNav">
    <div class="mobile-nav-header">
@@ -4736,6 +4758,19 @@ function toggleTheme(){
   to { opacity: 1; transform: translateY(0); }
 }
 [data-live]{transition:color 0.4s ease,transform 0.3s ease}
+
+/* ═══ BREADCRUMB NAV ═══ */
+.breadcrumb-nav{background:rgba(11,20,38,0.85);padding:8px 0;position:sticky;top:0;z-index:95;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.3s ease}
+.breadcrumb-list{display:flex;align-items:center;gap:0;list-style:none;margin:0;padding:0}
+.breadcrumb-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;font-family:Inter,sans-serif;margin:0;padding:0}
+.breadcrumb-link{color:#C8962E;text-decoration:none;transition:color 0.3s ease;font-weight:500}
+.breadcrumb-link:hover{color:#D4A840}
+.breadcrumb-separator{color:#C8962E;opacity:0.6;margin:0 4px}
+.breadcrumb-current{color:#FFFFFF;font-weight:500}
+body.light-theme .breadcrumb-nav{background:rgba(250,250,249,0.95);border-bottom-color:rgba(0,0,0,0.06)}
+body.light-theme .breadcrumb-link{color:#C8962E}
+body.light-theme .breadcrumb-separator{color:#C8962E}
+body.light-theme .breadcrumb-current{color:#1A1A1A}
   </style>
   <nav aria-label="Navigation rapide mobile" class="bottom-nav" id="bottomNav">
    <a aria-current="page" class="bottom-nav-item active" data-section="hero" href="#hero">
