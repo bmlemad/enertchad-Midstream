@@ -3,7 +3,7 @@
   --primary:#0B1426;--primary-mid:#0F1D35;
   --accent:#0EA5E9;--accent-light:#38BDF8;--accent-glow:rgba(14,165,233,0.25);--accent-text:#38BDF8;
   --teal:#14B8A6;--teal-light:#2DD4BF;
-  --gold:#C8962E;--gold-light:#D4A840;--gold-text:#D4A840;
+  --gold:#C8962E;--gold-light:#D4A840;--gold-text:#E8C55A;
   --tech:#8B5CF6;--tech-glow:rgba(139,92,246,0.25);--tech-text:#A78BFA;
   --energy:#10B981;--energy-glow:rgba(16,185,129,0.25);--energy-text:#6EE7B7;
   --success:#10B981;--success-light:#34D399;
@@ -46,7 +46,7 @@ body.light-theme .form-required-help{color:#666}
 /* ═══ A11Y ═══ */
 .skip-nav{position:absolute;top:-100%;left:16px;background:var(--accent);color:#fff;padding:12px 24px;border-radius:0 0 8px 8px;z-index:9999;font-weight:600;text-decoration:none;font-size:0.9rem;min-height:48px;display:flex;align-items:center}
 .skip-nav:focus{top:0}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent-light);outline-offset:2px;border-radius:4px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent-light);outline-offset:2px;border-radius:4px}
 
 /* ═══ FORM INPUTS MOBILE ═══ */
 input[type="text"],input[type="email"],input[type="password"],input[type="tel"],input[type="number"],textarea,select{

@@ -265,7 +265,7 @@ var ENERTCHAD={
   setTimeout(hide,5000);
 })();
   </script>
-  <a class="skip-link" href="#main-content">
+  <a class="skip-nav" href="#main-content">
    Aller au contenu principal
   </a>
   <!-- ═══ MIDSTREAM TICKER BAR ═══ -->
@@ -424,7 +424,7 @@ var ENERTCHAD={
        <div class="mega-header">
         <div class="mega-panel-title">Opérations</div>
         <div class="mega-search">
-         <input placeholder="Rechercher..." type="text">
+         <input aria-label="Rechercher" placeholder="Rechercher..." type="text">
         </div>
         <button aria-label="Fermer" class="mega-close" type="button">
          <i class="fas fa-times"></i>
@@ -432,9 +432,9 @@ var ENERTCHAD={
        </div>
        <div class="mega-body">
         <div class="mega-tabs">
-         <div aria-selected="true" class="mega-tab active" data-tab="operations-main" tabindex="0">Transport</div>
-         <div aria-selected="false" class="mega-tab" data-tab="operations-monitoring" tabindex="0">Monitoring</div>
-         <div aria-selected="false" class="mega-tab" data-tab="operations-tools" tabindex="0">Outils</div>
+         <div aria-controls="operations-main" aria-selected="true" class="mega-tab active" data-tab="operations-main" role="tab" tabindex="0">Transport</div>
+         <div aria-controls="operations-monitoring" aria-selected="false" class="mega-tab" data-tab="operations-monitoring" role="tab" tabindex="0">Monitoring</div>
+         <div aria-controls="operations-tools" aria-selected="false" class="mega-tab" data-tab="operations-tools" role="tab" tabindex="0">Outils</div>
         </div>
         <div class="mega-vdivider"></div>
         <div class="mega-content">
@@ -552,7 +552,7 @@ var ENERTCHAD={
        <div class="mega-header">
         <div class="mega-panel-title">Groupe EnerTchad</div>
         <div class="mega-search">
-         <input placeholder="Rechercher..." type="text">
+         <input aria-label="Rechercher" placeholder="Rechercher..." type="text">
         </div>
         <button aria-label="Fermer" class="mega-close" type="button">
          <i class="fas fa-times"></i>
@@ -560,8 +560,8 @@ var ENERTCHAD={
        </div>
        <div class="mega-body">
         <div class="mega-tabs">
-         <div aria-selected="true" class="mega-tab active" data-tab="groupe-filiales" tabindex="0">Filiales</div>
-         <div aria-selected="false" class="mega-tab" data-tab="groupe-corporate" tabindex="0">Corporate</div>
+         <div aria-controls="groupe-filiales" aria-selected="true" class="mega-tab active" data-tab="groupe-filiales" role="tab" tabindex="0">Filiales</div>
+         <div aria-controls="groupe-corporate" aria-selected="false" class="mega-tab" data-tab="groupe-corporate" role="tab" tabindex="0">Corporate</div>
         </div>
         <div class="mega-vdivider"></div>
         <div class="mega-content">
@@ -697,10 +697,10 @@ var ENERTCHAD={
       </i>
      </button>
      <div aria-label="Langue" class="lang-switch" role="radiogroup">
-      <button aria-checked="true" class="lang-btn active" data-lang-btn="fr" role="radio">
+      <button aria-checked="true" aria-label="Français" class="lang-btn active" data-lang-btn="fr" role="radio">
        FR
       </button>
-      <button aria-checked="false" class="lang-btn" data-lang-btn="en" role="radio">
+      <button aria-checked="false" aria-label="English" class="lang-btn" data-lang-btn="en" role="radio">
        EN
       </button>
      </div>
@@ -1420,8 +1420,8 @@ var ENERTCHAD={
        <h3 data-en="Pipeline Transport" data-i18n="">
         Transport Pipeline
        </h3>
-       <p data-en='1,070 km export pipeline, 30" diameter (760 mm), 48 sectioning valves, 3 pump stations (Komé, Dompta, Belabo). Bimonthly pigging, annual ILI inspections, continuous cathodic protection. FSO Komé Kribi 1 (2.4M bbl, 357,000 dwt) anchored 12 km offshore, 22 km subsea pipeline.' data-i18n="">
-        Pipeline d'export de 1 070 km, diamètre 30" (760 mm), 48 vannes de sectionnement, 3 stations de pompage (Komé, Dompta, Belabo). Pigging bimensuel, inspections ILI annuelles, protection cathodique continue.
+       <p data-en='1,070 km export pipeline, 30" diameter (760 mm), 48 sectioning valves, 3 pump stations (Komé, Dompta, Belabo). API 5L X65 grade. MFL + caliper pigging, annual ILI campaigns. Impressed current cathodic protection. SCADA: redundant fiber + VSAT, negative pressure wave leak detection. 225,000 bbl/d throughput. FSO Komé Kribi 1 (2.4M bbl, 357,000 dwt) anchored 12 km offshore, 22 km subsea pipeline.' data-i18n="">
+        Pipeline d'export de 1 070 km, diamètre 30" (760 mm), 48 vannes de sectionnement, 3 stations de pompage (Komé, Dompta, Belabo). Acier grade API 5L X65. Raclage MFL + pied à coulisse, campagnes ILI annuelles. Protection cathodique courant impressionné. SCADA : fibre redondante + VSAT, détection de fuite par onde dépression négative. Débit 225 000 bbl/j.
         <abbr title="Navire Flottant de Stockage et Déchargement">
          FSO
         </abbr>
@@ -1431,7 +1431,7 @@ var ENERTCHAD={
         <abbr title="American Petroleum Institute">
          API
         </abbr>
-        5L X60
+        5L X65
        </span>
       </div>
       <div class="op-card" role="listitem">
@@ -1469,14 +1469,14 @@ var ENERTCHAD={
         <i aria-hidden="true" class="fas fa-gauge-high">
         </i>
        </div>
-       <h3 data-en="Fiscal Metering" data-i18n="">
-        Comptage &amp; Metering
+       <h3 data-en="Fiscal Metering &amp; Custody Transfer" data-i18n="">
+        Comptage Fiscal &amp; Transfert Garde
        </h3>
-       <p data-en="3 redundant Coriolis flowmeters per API MPMS Ch. 5. Annual calibration by accredited lab, ±0.1% precision. Custody transfer at pipeline entry/exit, loading terminals and export facilities." data-i18n="">
-        3 débitmètres Coriolis en redondance selon API MPMS Ch. 5. Calibration annuelle par labo accrédité, ±0,1 % de précision. Transfert de garde aux points d'entrée/sortie pipeline, terminaux et installations d'export.
+       <p data-en="LACT units at Doba, Komé, and Kribi. Coriolis flowmeters, 0.05% accuracy per API MPMS. Automatic sampling, temperature/pressure compensation. Bi-hourly gross volume reconciliation. Custody transfer points at pipeline entry/exit, shore terminal, and FSO loading." data-i18n="">
+        Unités LACT à Doba, Komé et Kribi. Débitmètres Coriolis, précision 0,05 % selon API MPMS. Échantillonnage automatique, compensation température/pression. Réconciliation volume brut bi-horaire. Transfert de garde aux points entrée/sortie pipeline, terminal côtier et chargement FSO.
        </p>
        <span class="op-tag">
-        ±0.1 %
+        0.05% ±
        </span>
       </div>
       <div class="op-card" role="listitem">
@@ -1537,6 +1537,36 @@ var ENERTCHAD={
        </p>
        <span class="op-tag">
         1 070 km inspectés
+       </span>
+      </div>
+      <div class="op-card" role="listitem">
+       <div class="op-icon">
+        <i aria-hidden="true" class="fas fa-shield-alt">
+        </i>
+       </div>
+       <h3 data-en="Corrosion Management" data-i18n="">
+        Gestion Corrosion
+       </h3>
+       <p data-en="CP surveys and coupon monitoring program. Chemical inhibition program (film formers, filming amines). Pipeline integrity management per API 1160. Annual corrosion rate assessment and trend analysis." data-i18n="">
+        Relevés de protection cathodique et programme de surveillance par coupons. Programme inhibition chimique (formeurs de film, amines filmantes). Gestion intégrité pipeline selon API 1160. Évaluation annuelle vitesse corrosion et analyse de tendance.
+       </p>
+       <span class="op-tag">
+        API 1160
+       </span>
+      </div>
+      <div class="op-card" role="listitem">
+       <div class="op-icon">
+        <i aria-hidden="true" class="fas fa-exclamation-triangle">
+        </i>
+       </div>
+       <h3 data-en="Emergency Response" data-i18n="">
+        Réponse Urgence
+       </h3>
+       <p data-en="Spill containment and boom deployment protocols. Environmental monitoring system. 24/7 emergency hotline. Trained rapid response team. 72-hour SLA for incident containment and assessment." data-i18n="">
+        Protocoles containment déversement et déploiement barrages. Système suivi environnemental. Ligne d'urgence 24/7. Équipe réponse rapide entraînée. SLA 72h pour containment et évaluation incidents.
+       </p>
+       <span class="op-tag">
+        72h SLA
        </span>
       </div>
      </div>
@@ -3542,7 +3572,7 @@ var ENERTCHAD={
         </div>
        </div>
        <div class="form-group">
-        <label data-en="Company" data-i18n="">
+        <label for="cf-company" data-en="Company" data-i18n="">
          Société
         </label>
         <input id="cf-company" name="company" type="text"/>
@@ -3550,7 +3580,7 @@ var ENERTCHAD={
         </i>
        </div>
        <div class="form-group">
-        <label data-en="Subject" data-i18n="">
+        <label for="cf-subject" data-en="Subject" data-i18n="">
          Objet
         </label>
         <select id="cf-subject" name="subject">
