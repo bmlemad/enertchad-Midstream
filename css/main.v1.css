@@ -474,11 +474,12 @@ body.preloader-active{overflow:hidden}
 
 /* ═══ HERO — CINEMATIC MAJORS ═══ */
 .hero{min-height:100vh;display:flex;align-items:flex-end;position:relative;background:var(--primary) url('pipeline-hero.svg') center 60%/cover no-repeat;overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.3;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E") repeat}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(8,14,26,0.95) 0%,rgba(8,14,26,0.65) 40%,rgba(14,165,233,0.1) 100%);z-index:1}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.03;z-index:2;pointer-events:none;mix-blend-mode:overlay}
 .hero-overlay{position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(11,20,38,0.55) 0%,rgba(11,20,38,0.3) 40%,rgba(11,20,38,0.65) 75%,rgba(11,20,38,0.95) 100%);z-index:1}
 /* Content — bottom-aligned, left-heavy */
-.hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 0;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding-top:30vh;padding-bottom:120px}
+.hero-content{position:relative;z-index:3;width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 0;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding-top:30vh;padding-bottom:120px}
 /* Eyebrow */
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-d);font-size:0.72rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent-light);opacity:0;animation:heroReveal 0.6s 0.1s ease-out forwards;margin-bottom:20px}
 .hero-eyebrow::before{content:'';width:32px;height:1.5px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px}
@@ -536,15 +537,6 @@ body.light-theme .hero-ctx-city{color:#475569}
 .hero[data-wx="rain"] .hero-wx-layer{background:linear-gradient(180deg,rgba(80,100,140,0.18) 0%,rgba(50,70,100,0.12) 60%,transparent);mix-blend-mode:normal}
 .hero[data-wx="storm"] .hero-wx-layer{background:linear-gradient(180deg,rgba(80,40,100,0.25) 0%,rgba(40,20,60,0.15) 60%,transparent);mix-blend-mode:normal}
 .hero[data-wx="snow"] .hero-wx-layer{background:linear-gradient(180deg,rgba(220,230,245,0.15) 0%,transparent 60%);mix-blend-mode:normal;backdrop-filter:saturate(0.8);-webkit-backdrop-filter:saturate(0.8)}
-.hero-time-wm{position:absolute;bottom:clamp(80px,12vh,140px);right:clamp(-20px,-2vw,-10px);z-index:1;font-family:'Space Grotesk',sans-serif;font-size:clamp(140px,22vw,320px);font-weight:900;font-variant-numeric:tabular-nums;line-height:0.9;letter-spacing:-0.05em;background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.01));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;pointer-events:none;user-select:none;opacity:0;animation:wmFade 1.5s 1.2s ease-out forwards;transition:opacity 0.8s}
-@keyframes wmFade{to{opacity:1}}
-.hero[data-tod="dawn"] .hero-time-wm,.hero[data-tod="dusk"] .hero-time-wm{background:linear-gradient(180deg,rgba(255,180,140,0.08),rgba(255,120,100,0.02));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero[data-tod="afternoon"] .hero-time-wm{background:linear-gradient(180deg,rgba(20,184,166,0.08),rgba(14,165,233,0.02));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero[data-tod="night"] .hero-time-wm{background:linear-gradient(180deg,rgba(180,200,255,0.06),rgba(100,120,180,0.02));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-body.light-theme .hero-time-wm{background:linear-gradient(180deg,rgba(11,20,38,0.04),rgba(11,20,38,0.01));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@media(max-width:768px){.hero-time-wm{font-size:clamp(100px,28vw,180px);bottom:100px;right:-10px;opacity:0.85}}
-@media(max-width:480px){.hero-time-wm{font-size:clamp(80px,30vw,140px);bottom:90px}}
-@media(prefers-reduced-motion:reduce){.hero-time-wm{animation:none;opacity:1}}
 .hero-greet{position:relative;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-d);font-size:0.78rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:10px;opacity:0;animation:heroReveal 0.6s 0.3s ease-out forwards;padding-left:0;transition:padding 0.3s}
 .hero-greet::before{content:'';position:absolute;left:-14px;top:50%;transform:translateY(-50%);width:3px;height:100%;max-height:16px;background:linear-gradient(180deg,var(--accent),transparent);border-radius:2px;opacity:0.6}
 .hero-greet i{font-size:0.85rem;color:var(--accent-light,#38BDF8)}

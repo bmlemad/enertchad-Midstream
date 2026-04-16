@@ -168,7 +168,8 @@ var ENERTCHAD={
   amont:'https://enertchad-amont-vercel-app.vercel.app',
   midstream:'https://enertchad-midstream-vercel-app.vercel.app',
   aval:'https://enertchad-aval-vercel-app.vercel.app',
-  tech:'https://enertchad-technologies.vercel.app'
+  tech:'https://enertchad-technologies.vercel.app',
+  energies:'https://enertchad-energies.vercel.app'
 };
   </script>
   <div aria-label="Chargement du site EnerTchad Intermédiaire" aria-live="polite" id="preloader" role="status">
@@ -1244,9 +1245,6 @@ var ENERTCHAD={
     <div aria-hidden="true" class="hero-tod-layer">
     </div>
     <div aria-hidden="true" class="hero-wx-layer">
-    </div>
-    <div aria-hidden="true" class="hero-time-wm" id="heroTimeWm">
-     14:23
     </div>
     <div aria-hidden="true" class="hero-overlay">
     </div>
@@ -4641,8 +4639,6 @@ if('PerformanceObserver' in window){
       var h=String(ndjTime.getHours()).padStart(2,'0');
       var m=String(ndjTime.getMinutes()).padStart(2,'0');
       time.textContent=h+':'+m;
-      var wm=document.getElementById('heroTimeWm');
-      if(wm)wm.textContent=h+':'+m;
     }catch(e){}
   }
   function codeToIcon(c){
