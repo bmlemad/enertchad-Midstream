@@ -1,74 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="EnerTchad">
-  <title>EnerTchad</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
-    <!-- Drop gradients — 3D metallic look -->
-    <radialGradient id="gGold" cx="40%" cy="30%" r="75%">
-      <stop offset="0%"  stop-color="#F5D06B"/>
-      <stop offset="45%" stop-color="#D4A83A"/>
-      <stop offset="100%" stop-color="#997020"/>
-    </radialGradient>
-    <radialGradient id="gGreen" cx="40%" cy="30%" r="75%">
-      <stop offset="0%"  stop-color="#3DB34E"/>
-      <stop offset="45%" stop-color="#1E8C30"/>
-      <stop offset="100%" stop-color="#0D5A1A"/>
-    </radialGradient>
-    <radialGradient id="gCream" cx="40%" cy="35%" r="75%">
-      <stop offset="0%"  stop-color="#FFF5C0"/>
-      <stop offset="45%" stop-color="#EDDA88"/>
-      <stop offset="100%" stop-color="#C9A44A"/>
-    </radialGradient>
-    <radialGradient id="gBlue" cx="40%" cy="30%" r="75%">
-      <stop offset="0%"  stop-color="#4A9DE0"/>
-      <stop offset="45%" stop-color="#2068B0"/>
-      <stop offset="100%" stop-color="#0A3668"/>
-    </radialGradient>
-
-    <!-- Gold ring gradient -->
-    <linearGradient id="ringGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#EDCB60"/>
-      <stop offset="40%" stop-color="#D4A83A"/>
-      <stop offset="100%" stop-color="#8E6B1E"/>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4A840"/>
+      <stop offset="100%" stop-color="#C8962E"/>
     </linearGradient>
-
-    <!-- Clip drops to the inner white circle -->
-    <clipPath id="circClip"><circle cx="320" cy="320" r="270"/></clipPath>
   </defs>
-
-  <!-- Outer gold ring — pushed outward for breathing room -->
-  <circle cx="320" cy="320" r="300" fill="none" stroke="url(#ringGrad)" stroke-width="16"/>
-  <circle cx="320" cy="320" r="310" fill="none" stroke="#B8922E" stroke-width="1.2" opacity="0.35"/>
-  <circle cx="320" cy="320" r="290" fill="none" stroke="#B8922E" stroke-width="0.8" opacity="0.3"/>
-
-  <!-- White fill inside the ring -->
-  <circle cx="320" cy="320" r="282" fill="#FFFFFF"/>
-
-  <!-- Four drops, clipped to the circle — scaled down 0.78x for more padding -->
-  <g clip-path="url(#circClip)">
-    <g transform="translate(320 320) scale(0.78)">
-      <!-- Top: GOLD (pointing up) -->
-      <path d="M0 -6 L-74 -128 A85 85 0 1 1 74 -128 Z" fill="url(#gGold)"/>
-      <!-- Right: GREEN (pointing right) -->
-      <path d="M6 0 L128 -74 A85 85 0 1 1 128 74 Z" fill="url(#gGreen)"/>
-      <!-- Bottom: CREAM (pointing down) -->
-      <path d="M0 6 L74 128 A85 85 0 1 1 -74 128 Z" fill="url(#gCream)"/>
-      <!-- Left: BLUE (pointing left) -->
-      <path d="M-6 0 L-128 74 A85 85 0 1 1 -128 -74 Z" fill="url(#gBlue)"/>
-
-      <!-- Subtle gold outlines on drops -->
-      <g fill="none" stroke="#8E6B1E" stroke-width="1.2" opacity="0.3">
-        <path d="M0 -6 L-74 -128 A85 85 0 1 1 74 -128 Z"/>
-        <path d="M6 0 L128 -74 A85 85 0 1 1 128 74 Z"/>
-        <path d="M0 6 L74 128 A85 85 0 1 1 -74 128 Z"/>
-        <path d="M-6 0 L-128 74 A85 85 0 1 1 -128 -74 Z"/>
-      </g>
-
-      <!-- Glossy highlights on each drop bulb -->
-      <g fill="#FFFFFF" opacity="0.22">
-        <ellipse cx="-28" cy="-158" rx="18" ry="32" transform="rotate(-15 -28 -158)"/>
-        <ellipse cx="158" cy="-28" rx="32" ry="18" transform="rotate(-15 158 -28)"/>
-        <ellipse cx="28" cy="158" rx="18" ry="32" transform="rotate(15 28 158)"/>
-        <ellipse cx="-158" cy="28" rx="32" ry="18" transform="rotate(15 -158 28)"/>
-      </g>
-    </g>
-  </g>
+  <!-- Gold ring -->
+  <circle cx="100" cy="100" r="82" fill="none" stroke="url(#ringGrad)" stroke-width="8"/>
+  <!-- Petals — 4 teardrop shapes arranged as a clover -->
+  <!-- Top petal — Gold/Yellow -->
+  <ellipse cx="100" cy="62" rx="22" ry="30" fill="#D4A840" transform="rotate(0,100,100)"/>
+  <!-- Left petal — Blue -->
+  <ellipse cx="62" cy="105" rx="22" ry="30" fill="#2E6FBF" transform="rotate(90,62,105)"/>
+  <!-- Right petal — Green -->
+  <ellipse cx="138" cy="105" rx="22" ry="30" fill="#3A8C3F" transform="rotate(90,138,105)"/>
+  <!-- Bottom petal — Cream -->
+  <ellipse cx="100" cy="138" rx="22" ry="30" fill="#F0E6B8" transform="rotate(0,100,138)"/>
+  <!-- Center overlap — subtle blend -->
+  <circle cx="100" cy="100" r="14" fill="#F5F0D8" opacity="0.5"/>
 </svg>
