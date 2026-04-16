@@ -161,6 +161,15 @@
   <div class="scroll-progress" id="scrollProgress">
   </div>
   <!-- ═══ PRELOADER / SPLASH ═══ -->
+  <script>
+/* ═══ CROSS-SITE URLS — Single source of truth ═══ */
+var ENERTCHAD={
+  groupe:'https://enertchad-groupe.vercel.app',
+  amont:'https://enertchad-amont-vercel-app.vercel.app',
+  midstream:'https://enertchad-midstream-vercel-app.vercel.app',
+  aval:'https://enertchad-aval-vercel-app.vercel.app'
+};
+  </script>
   <div aria-label="Chargement du site EnerTchad Intermédiaire" aria-live="polite" id="preloader" role="status">
    <!-- Floating particles -->
    <div aria-hidden="true" class="preloader-particles" id="preloaderParticles">
@@ -403,254 +412,111 @@
      </div>
     </a>
     <nav aria-label="Navigation principale" class="nav">
-     <!-- 1. Nos Activités mega -->
+     <!-- 1. Opérations Mega Menu -->
      <div class="nav-item" data-mega="">
-      <a aria-expanded="false" aria-haspopup="true" data-en="Our Operations" data-i18n="" href="#operations" data-mega="nos-activites" role="button">
-       Nos Activités
-       <i aria-hidden="true" class="fas fa-chevron-down chevron">
-       </i>
-      </a>
+      <button aria-expanded="false" aria-haspopup="true" class="nav-link" data-en="Operations" data-i18n="" data-mega="operations" role="button">
+       Opérations
+       <i aria-hidden="true" class="fas fa-chevron-down chevron"></i>
+      </button>
       <div class="mega-drop" role="menu">
        <div class="mega-inner">
-        <div class="mega-cols mega-cols-2">
+        <div class="mega-cols mega-cols-3">
+         <!-- Col 1: Transport -->
          <div>
-          <div class="mega-col-title" data-en="Infrastructure Pipeline" data-i18n="">
-           Infrastructure Pipeline
+          <div class="mega-col-title" data-en="Transport" data-i18n="">
+           Transport
           </div>
           <a class="mega-link" href="#pipeline" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-oil-well">
-            </i>
+           <div class="mega-link-icon">
+            <i class="fas fa-oil-can"></i>
            </div>
            <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Doba–Kribi Pipeline" data-i18n="">
-             Pipeline Doba–Kribi
-            </div>
-            <div class="mega-link-desc" data-en="1,070 km · 3 pump stations" data-i18n="">
-             1 070 km · 3 stations de pompage
-            </div>
-           </div>
-          </a>
-          <a class="mega-link" href="#operations" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-diagram-project">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Gathering Network" data-i18n="">
-             Réseau de Collecte
-            </div>
-            <div class="mega-link-desc" data-en="Gathering lines · manifolds" data-i18n="">
-             Collecte · manifolds
-            </div>
-           </div>
-          </a>
-          <a class="mega-link" href="#dashboard" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-gauge-high">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Dashboard Live" data-i18n="">
-             Dashboard Live
-            </div>
-            <div class="mega-link-desc" data-en="Real-time metrics" data-i18n="">
-             Métriques temps réel
-            </div>
-           </div>
-          </a>
-         </div>
-         <div>
-          <div class="mega-col-title" data-en="Operations" data-i18n="">
-           Opérations
-          </div>
-          <a class="mega-link" href="#operations" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-pump-soap">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Pump Stations" data-i18n="">
-             Stations de Pompage
-            </div>
-            <div class="mega-link-desc" data-en="Komé · Dompta · Belabo" data-i18n="">
-             Komé · Dompta · Belabo
-            </div>
-           </div>
-          </a>
-          <a class="mega-link" href="#producers" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-industry">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Producers" data-i18n="">
-             Producteurs
-            </div>
-            <div class="mega-link-desc" data-en="SHT · CNPC · Perenco" data-i18n="">
-             SHT · CNPC · Perenco
-            </div>
+            <h4 class="mega-link-title" data-en="Pipeline Doba–Kribi" data-i18n="">Pipeline Doba–Kribi</h4>
+            <p class="mega-link-desc" data-en="1,070 km corridor" data-i18n="">1 070 km de corridors</p>
            </div>
           </a>
           <a class="mega-link" href="#fleet" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-truck-moving">
-            </i>
+           <div class="mega-link-icon">
+            <i class="fas fa-truck-moving"></i>
            </div>
            <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Fleet &amp; Transport" data-i18n="">
-             Flotte &amp; Transport
-            </div>
-            <div class="mega-link-desc" data-en="Vehicles · logistics" data-i18n="">
-             Véhicules · logistique
-            </div>
+            <h4 class="mega-link-title" data-en="Road Fleet" data-i18n="">Flotte Routière</h4>
+            <p class="mega-link-desc" data-en="60+ tanker trucks" data-i18n="">60+ citernes</p>
            </div>
           </a>
-          <a class="mega-link" href="#calc-transport" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-calculator">
-            </i>
+          <a class="mega-link" href="#operations" role="menuitem">
+           <div class="mega-link-icon">
+            <i class="fas fa-warehouse"></i>
            </div>
            <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Transport Calculator" data-i18n="">
-             Calculateur Transport
-            </div>
-            <div class="mega-link-desc" data-en="Pipeline vs road" data-i18n="">
-             Pipeline vs route
-            </div>
+            <h4 class="mega-link-title" data-en="Storage &amp; Terminals" data-i18n="">Stockage &amp; Terminaux</h4>
+            <p class="mega-link-desc" data-en="Multimodal hubs" data-i18n="">Hubs multimodaux</p>
            </div>
           </a>
          </div>
-        </div>
-        <div class="mega-featured">
-         <div class="mega-featured-title" data-en="Key Figures" data-i18n="">
-          Chiffres Clés
-         </div>
-         <div class="mega-featured-stat">
-          <div class="val">
-           1 070
-           <small class="text-xs-muted">
-            km
-           </small>
-          </div>
-          <div class="label" data-en="Pipeline length" data-i18n="">
-           Longueur pipeline
-          </div>
-         </div>
-         <div class="mega-featured-stat">
-          <div class="val">
-           250K
-           <small class="text-xs-muted">
-            bbl/j
-           </small>
-          </div>
-          <div class="label" data-en="Transport capacity" data-i18n="">
-           Capacité transport
-          </div>
-         </div>
-         <div class="mega-featured-stat">
-          <div class="val">
-           762
-           <small class="text-xs-muted">
-            mm
-           </small>
-          </div>
-          <div class="label" data-en="Diameter" data-i18n="">
-           Diamètre
-          </div>
-         </div>
-         <a class="mega-featured-link" data-en="View full route" data-i18n="" href="#pipeline">
-          Voir le tracé complet
-          <i class="fas fa-arrow-right">
-          </i>
-         </a>
-        </div>
-       </div>
-      </div>
-     </div>
-     <!-- 2. Solutions & Services mega -->
-     <div class="nav-item" data-mega="">
-      <a aria-expanded="false" aria-haspopup="true" data-en="Solutions &amp; Services" data-i18n="" href="#operations" data-mega="solutions-services" role="button">
-       Solutions &amp; Services
-       <i aria-hidden="true" class="fas fa-chevron-down chevron">
-       </i>
-      </a>
-      <div class="mega-drop" role="menu">
-       <div class="mega-inner">
-        <div class="mega-cols mega-cols-2">
+         <!-- Col 2: Monitoring -->
          <div>
-          <div class="mega-col-title" data-en="Integrity &amp; Maintenance" data-i18n="">
-           Intégrité &amp; Maintenance
+          <div class="mega-col-title" data-en="Monitoring" data-i18n="">
+           Monitoring
           </div>
-          <a class="mega-link" href="#operations" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-magnifying-glass">
-            </i>
+          <a class="mega-link" href="#dashboard" role="menuitem">
+           <div class="mega-link-icon">
+            <i class="fas fa-gauge-high"></i>
            </div>
            <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Inspection ILI &amp; Smart Pig" data-i18n="">
-             Inspection ILI &amp; Smart Pig
-            </div>
-           </div>
-          </a>
-          <a class="mega-link" href="#operations" role="menuitem">
-           <div class="mega-link-icon gold">
-            <i class="fas fa-bolt">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Cathodic Protection" data-i18n="">
-             Protection Cathodique
-            </div>
-           </div>
-          </a>
-          <a class="mega-link" href="#operations" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-valve">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Valves &amp; Sectioning" data-i18n="">
-             Vannes &amp; Sectionnement
-            </div>
-           </div>
-          </a>
-         </div>
-         <div>
-          <div class="mega-col-title" data-en="Pipeline 3D &amp; Tools" data-i18n="">
-           Pipeline 3D &amp; Outils
-          </div>
-          <a class="mega-link" href="#pipeline-3d" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-cube">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="3D Pipeline View" data-i18n="">
-             Vue 3D du Corridor
-            </div>
-           </div>
-          </a>
-          <a class="mega-link" href="#process-flow" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-diagram-project">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Process Flow" data-i18n="">
-             Process Flow
-            </div>
+            <h4 class="mega-link-title" data-en="SCADA Dashboard" data-i18n="">Dashboard SCADA</h4>
+            <p class="mega-link-desc" data-en="Real-time metrics" data-i18n="">Temps réel</p>
            </div>
           </a>
           <a class="mega-link" href="#climate-resilience" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-leaf">
-            </i>
+           <div class="mega-link-icon">
+            <i class="fas fa-leaf"></i>
            </div>
            <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Climate Resilience" data-i18n="">
-             Résilience Climatique
-            </div>
+            <h4 class="mega-link-title" data-en="Climate Resilience" data-i18n="">Résilience Climatique</h4>
+            <p class="mega-link-desc" data-en="Risk management" data-i18n="">Gestion des risques</p>
+           </div>
+          </a>
+          <a class="mega-link" href="#pipeline-3d" role="menuitem">
+           <div class="mega-link-icon">
+            <i class="fas fa-cube"></i>
+           </div>
+           <div class="mega-link-text">
+            <h4 class="mega-link-title" data-en="Pipeline 3D" data-i18n="">Corridor 3D</h4>
+            <p class="mega-link-desc" data-en="Spatial visualization" data-i18n="">Visualisation spatiale</p>
+           </div>
+          </a>
+         </div>
+         <!-- Col 3: Tools -->
+         <div>
+          <div class="mega-col-title" data-en="Tools" data-i18n="">
+           Outils
+          </div>
+          <a class="mega-link" href="#calc-transport" role="menuitem">
+           <div class="mega-link-icon">
+            <i class="fas fa-calculator"></i>
+           </div>
+           <div class="mega-link-text">
+            <h4 class="mega-link-title" data-en="Transport Simulator" data-i18n="">Simulateur Transport</h4>
+            <p class="mega-link-desc" data-en="Pipeline vs road" data-i18n="">Pipeline vs routier</p>
+           </div>
+          </a>
+          <a class="mega-link" href="#process-flow" role="menuitem">
+           <div class="mega-link-icon">
+            <i class="fas fa-diagram-project"></i>
+           </div>
+           <div class="mega-link-text">
+            <h4 class="mega-link-title" data-en="Process Flow" data-i18n="">Process Flow</h4>
+            <p class="mega-link-desc" data-en="Wellhead to terminal" data-i18n="">Wellhead-terminal</p>
+           </div>
+          </a>
+          <a class="mega-link" href="#producers" role="menuitem">
+           <div class="mega-link-icon">
+            <i class="fas fa-industry"></i>
+           </div>
+           <div class="mega-link-text">
+            <h4 class="mega-link-title" data-en="Connected Producers" data-i18n="">Producteurs Connectés</h4>
+            <p class="mega-link-desc" data-en="Partner network" data-i18n="">Réseau partenaires</p>
            </div>
           </a>
          </div>
@@ -658,198 +524,60 @@
        </div>
       </div>
      </div>
-     <!-- 3. Innovation mega -->
+     <!-- 2. Groupe Mega Menu -->
      <div class="nav-item" data-mega="">
-      <a aria-expanded="false" aria-haspopup="true" data-en="Innovation" data-i18n="" href="#innovation" data-mega="innovation" role="button">
-       Innovation
-       <i aria-hidden="true" class="fas fa-chevron-down chevron">
-       </i>
-      </a>
+      <button aria-expanded="false" aria-haspopup="true" class="nav-link" data-en="Group" data-i18n="" data-mega="groupe" role="button">
+       Groupe
+       <i aria-hidden="true" class="fas fa-chevron-down chevron"></i>
+      </button>
       <div class="mega-drop" role="menu">
        <div class="mega-inner">
         <div class="mega-cols mega-cols-2">
+         <!-- Col 1: Filiales -->
          <div>
-          <div class="mega-col-title" data-en="EnerTech" data-i18n="">
-           EnerTech
+          <div class="mega-col-title" data-en="Business Units" data-i18n="">
+           Filiales
           </div>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#enertech" target="_blank" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-microchip">
-            </i>
+          <a class="mega-link" href="https://enertchad-amont-vercel-app.vercel.app" target="_blank" role="menuitem">
+           <div class="mega-link-icon">
+            <i class="fas fa-drill"></i>
            </div>
            <div class="mega-link-text">
-            <div class="mega-link-title" data-en="EnerTech Groupe" data-i18n="">
-             EnerTech Groupe
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
+            <h4 class="mega-link-title" data-en="Amont" data-i18n="">Amont (E&amp;P)</h4>
+            <p class="mega-link-desc" data-en="Exploration &amp; production" data-i18n="">Exploration &amp; production</p>
+           </div>
+          </a>
+          <a class="mega-link" href="https://enertchad-aval-vercel-app.vercel.app" target="_blank" role="menuitem">
+           <div class="mega-link-icon">
+            <i class="fas fa-gas-pump"></i>
+           </div>
+           <div class="mega-link-text">
+            <h4 class="mega-link-title" data-en="Aval" data-i18n="">Aval (Distribution)</h4>
+            <p class="mega-link-desc" data-en="Retail &amp; logistics" data-i18n="">Retail &amp; logistique</p>
            </div>
           </a>
          </div>
+         <!-- Col 2: Corporate -->
          <div>
-          <div class="mega-col-title" data-en="Technologies" data-i18n="">
-           Technologies
+          <div class="mega-col-title" data-en="Corporate" data-i18n="">
+           Corporate
           </div>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#academy" target="_blank" role="menuitem">
-           <div class="mega-link-icon gold">
-            <i class="fas fa-graduation-cap">
-            </i>
+          <a class="mega-link" href="https://enertchad-groupe.vercel.app" target="_blank" role="menuitem">
+           <div class="mega-link-icon">
+            <i class="fas fa-building"></i>
            </div>
            <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Academy" data-i18n="">
-             Academy
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
+            <h4 class="mega-link-title" data-en="Group Site" data-i18n="">Site Groupe</h4>
+            <p class="mega-link-desc" data-en="Holding company" data-i18n="">Société mère</p>
            </div>
           </a>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-     <!-- 4. Durabilité link -->
-     <div class="nav-item">
-      <a aria-expanded="false" data-en="Sustainability" data-i18n="" href="https://enertchad-groupe.vercel.app#esg" target="_blank" role="link">
-       Durabilité
-       <i class="fas fa-external-link-alt" style="font-size: 0.75em; margin-left: 0.5em; opacity: 0.7;">
-       </i>
-      </a>
-     </div>
-     <!-- 5. Entreprise mega -->
-     <div class="nav-item" data-mega="">
-      <a aria-expanded="false" aria-haspopup="true" data-en="Company" data-i18n="" href="#entreprise" data-mega="entreprise" role="button">
-       Entreprise
-       <i aria-hidden="true" class="fas fa-chevron-down chevron">
-       </i>
-      </a>
-      <div class="mega-drop" role="menu">
-       <div class="mega-inner">
-        <div class="mega-cols mega-cols-2">
-         <div>
-          <div class="mega-col-title" data-en="The Group" data-i18n="">
-           Le Groupe
-          </div>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#hero" target="_blank" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-bullseye">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Mission &amp; Vision" data-i18n="">
-             Mission &amp; Vision
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
-           </div>
-          </a>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#gouvernance" target="_blank" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-users">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Governance" data-i18n="">
-             Gouvernance
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
-           </div>
-          </a>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#investisseurs" target="_blank" role="menuitem">
-           <div class="mega-link-icon gold">
-            <i class="fas fa-chart-line">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Investors" data-i18n="">
-             Investisseurs
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
-           </div>
-          </a>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#bassins" target="_blank" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-mountain-sun">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Sedimentary Basins" data-i18n="">
-             Bassins Producteurs
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
-           </div>
-          </a>
-         </div>
-         <div>
-          <div class="mega-col-title" data-en="Resources" data-i18n="">
-           Ressources
-          </div>
           <a class="mega-link" href="https://enertchad-groupe.vercel.app#carrieres" target="_blank" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-user-tie">
-            </i>
+           <div class="mega-link-icon">
+            <i class="fas fa-user-tie"></i>
            </div>
            <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Careers" data-i18n="">
-             Carrières
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
-           </div>
-          </a>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#actualites" target="_blank" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-newspaper">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="News" data-i18n="">
-             Actualités
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
-           </div>
-          </a>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#mediatheque" target="_blank" role="menuitem">
-           <div class="mega-link-icon gold">
-            <i class="fas fa-images">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Media Library" data-i18n="">
-             Médiathèque
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
-           </div>
-          </a>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#etudes" target="_blank" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-book">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Case Studies" data-i18n="">
-             Études de Cas
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
-           </div>
-          </a>
-          <a class="mega-link" href="https://enertchad-groupe.vercel.app#contact" target="_blank" role="menuitem">
-           <div class="mega-link-icon teal">
-            <i class="fas fa-envelope">
-            </i>
-           </div>
-           <div class="mega-link-text">
-            <div class="mega-link-title" data-en="Contact" data-i18n="">
-             Contact
-            </div>
-            <i class="fas fa-external-link-alt" style="font-size: 0.75em; opacity: 0.7;">
-            </i>
+            <h4 class="mega-link-title" data-en="Careers" data-i18n="">Carrières</h4>
+            <p class="mega-link-desc" data-en="Join our team" data-i18n="">Rejoignez-nous</p>
            </div>
           </a>
          </div>
@@ -857,10 +585,9 @@
        </div>
       </div>
      </div>
-     <!-- 6. Contact link -->
+     <!-- Contact CTA Button -->
      <a class="nav-cta" data-en="Contact" data-i18n="" href="#contact">
-      <i aria-hidden="true" class="fas fa-paper-plane">
-      </i>
+      <i aria-hidden="true" class="fas fa-paper-plane"></i>
       Contact
      </a>
     </nav>
@@ -5615,8 +5342,9 @@ if('serviceWorker' in navigator){
 
     // Animation loop
     var t=0;
+    var rafId=null;
     function animate(){
-      requestAnimationFrame(animate);
+      rafId=requestAnimationFrame(animate);
       t+=0.012;
       if(autoRotate)rotation.y+=0.003;
 
@@ -5647,6 +5375,20 @@ if('serviceWorker' in navigator){
     }
     animate();
 
+    // Cleanup function — exposed for pagehide handler
+    window.__p3dCleanup=function(){
+      if(rafId){cancelAnimationFrame(rafId);rafId=null}
+      scene.traverse(function(child){
+        if(child.geometry)child.geometry.dispose();
+        if(child.material){
+          if(Array.isArray(child.material))child.material.forEach(function(m){m.dispose()});
+          else child.material.dispose();
+        }
+      });
+      renderer.dispose();
+      renderer.forceContextLoss();
+    };
+
     // Hide loading
     setTimeout(function(){loading.classList.add('hidden')},400);
   }
@@ -5665,6 +5407,8 @@ if('serviceWorker' in navigator){
   window.addEventListener('pagehide', function(){
     activeIntervals.forEach(function(id){clearInterval(id)});
     activeIntervals.clear();
+    /* Three.js cleanup — prevent WebGL memory leaks */
+    if(window.__p3dCleanup) window.__p3dCleanup();
   });
 })();
   </script>
