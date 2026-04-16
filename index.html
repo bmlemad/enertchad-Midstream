@@ -2,7 +2,7 @@
 <html lang="fr">
  <head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
   <title>
    EnerTchad Intermédiaire — Pipeline, Transport &amp; Stockage au Tchad
   </title>
@@ -5203,6 +5203,55 @@ body.light-theme .cookie-link{color:rgba(30,58,138,0.6)}
 body.light-theme .cookie-link:hover{color:rgba(30,58,138,0.9)}
 @media(max-width:768px){.cookie-banner-inner{flex-direction:column;align-items:stretch;gap:14px;padding:0 16px}.cookie-banner-actions{justify-content:center}}
 @media(prefers-reduced-motion:reduce){.cookie-banner{transition:none}}
+.scroll-top{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:rgba(14,165,233,0.9);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 20px rgba(14,165,233,0.3);z-index:90;opacity:0;pointer-events:none;transform:translateY(12px);transition:all 0.4s cubic-bezier(0.22,0.61,0.36,1)}
+.scroll-top.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+.scroll-top:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(14,165,233,0.4)}
+.scroll-top:active{transform:scale(0.92)}
+/* ═══ MOBILE MODERNIZATION ═══ */
+@media(max-width:768px){
+  body{padding-bottom:env(safe-area-inset-bottom)}
+  .header{padding-left:max(1.25rem,env(safe-area-inset-left));padding-right:max(1.25rem,env(safe-area-inset-right))}
+  /* Mobile nav stagger animation */
+  .mobile-nav.open .mn-body>*{animation:mnSlideIn 0.4s cubic-bezier(0.16,1,0.3,1) both}
+  .mobile-nav.open .mn-body>*:nth-child(1){animation-delay:0.03s}
+  .mobile-nav.open .mn-body>*:nth-child(2){animation-delay:0.06s}
+  .mobile-nav.open .mn-body>*:nth-child(3){animation-delay:0.09s}
+  .mobile-nav.open .mn-body>*:nth-child(4){animation-delay:0.12s}
+  .mobile-nav.open .mn-body>*:nth-child(5){animation-delay:0.15s}
+  .mobile-nav.open .mn-body>*:nth-child(6){animation-delay:0.18s}
+  .mobile-nav.open .mn-body>*:nth-child(7){animation-delay:0.21s}
+  /* Card tap feedback */
+  .op-card:active,.mission-card:active,.stat-card:active,.team-card:active,.news-card:active,.esg-card:active{transform:scale(0.985)!important;box-shadow:none!important;transition:transform 0.1s ease}
+  /* Touch optimization */
+  a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  /* Section padding reduction */
+  .sec-dark,.sec-grad,.sec-alt{padding:60px 0!important}
+  /* Typography mobile */
+  .stitle{font-size:clamp(1.5rem,4.5vw,2rem)!important}
+  .sdesc{font-size:0.88rem!important}
+  /* Card padding reduction */
+  .op-card,.esg-card,.team-card,.news-card{border-radius:10px}
+  /* Grid collapse */
+  .kpi-grid,.stat-grid{grid-template-columns:repeat(2,1fr)!important}
+  /* Scroll-to-top safe-area aware */
+  .scroll-top{bottom:calc(72px + env(safe-area-inset-bottom))!important;right:16px!important;width:44px!important;height:44px!important}
+  /* Bottom nav safe-area */
+  .bottom-nav{padding-bottom:env(safe-area-inset-bottom)}
+}
+@keyframes mnSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:480px){
+  .stitle{font-size:clamp(1.35rem,5vw,1.7rem)!important}
+  .hero h1{font-size:clamp(1.6rem,6vw,2rem)!important}
+  .hero-actions{flex-direction:column;width:100%}
+  .hero-actions .btn{width:100%;justify-content:center}
+  .kpi-grid,.stat-grid{grid-template-columns:1fr!important}
+  .scroll-top{bottom:16px!important;right:16px!important}
+  /* Bottom nav item sizing */
+  .bottom-nav-item{min-height:44px;min-width:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  .mobile-nav.open .mn-body>*{animation:none!important}
+}
   </style>
   <script>
    /* ═══ COOKIE CONSENT ═══ */
