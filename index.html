@@ -3838,6 +3838,9 @@ var ENERTCHAD={
     </div>
    </div>
   </footer>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <nav class="breadcrumb-bar" id="breadcrumbBar" aria-label="Fil d'Ariane"><a href="#hero" class="bc-home"><i class="fas fa-home"></i> Accueil</a><i class="fas fa-chevron-right bc-sep"></i><span class="bc-current" id="bcCurrent">—</span><div class="bc-sections" id="bcDots"></div></nav>
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Recherche globale"><div class="search-modal"><div class="search-input-wrap"><i class="fas fa-search"></i><input class="search-input" id="searchInput" type="text" placeholder="Rechercher sur EnerTchad Midstream…" autocomplete="off" spellcheck="false"/><span class="search-kbd">ESC</span></div><div class="search-results" id="searchResults"></div><div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> naviguer</span><span><kbd>↵</kbd> ouvrir</span><span><kbd>Ctrl</kbd>+<kbd>K</kbd> recherche</span></div></div></div>
   <!-- ═══ DOT NAV ═══ -->
   <nav aria-label="Navigation rapide par section" class="dot-nav" id="dotNav">
    <div class="dot-nav-progress" id="dotNavProgress">
@@ -5475,6 +5478,137 @@ if('serviceWorker' in navigator){
     // Hide loading
     setTimeout(function(){loading.classList.add('hidden')},400);
   }
+})();
+
+/* ═══ SCROLL PROGRESS BAR ═══ */
+(function(){
+  var prog=document.getElementById('scrollProgress');
+  if(!prog) return;
+  window.addEventListener('scroll',function(){
+    var scrollPercent=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+    prog.style.width=scrollPercent+'%';
+  },{passive:true});
+})();
+
+/* ═══ BREADCRUMB BAR ═══ */
+(function(){
+  var bar=document.getElementById('breadcrumbBar');
+  var current=document.getElementById('bcCurrent');
+  var dotsContainer=document.getElementById('bcDots');
+  if(!bar||!current) return;
+
+  var sections=[
+    {id:'hero',label:'Accueil',icon:'fa-home'},
+    {id:'mission',label:'Mission'},
+    {id:'operations',label:'Opérations'},
+    {id:'pipeline',label:'Pipeline'},
+    {id:'producers',label:'Producteurs'},
+    {id:'calc-transport',label:'Simulateur'},
+    {id:'fleet',label:'Flotte'},
+    {id:'climate-resilience',label:'Résilience'},
+    {id:'pipeline-3d',label:'Corridor 3D'},
+    {id:'contact',label:'Contact'}
+  ];
+
+  dotsContainer.innerHTML=sections.map(function(s){
+    return '<button class="bc-dot" data-section="'+s.id+'" data-label="'+s.label+'" type="button" aria-label="Aller à '+s.label+'"></button>';
+  }).join('');
+
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    var active='hero';
+    sections.forEach(function(s){
+      var el=document.getElementById(s.id);
+      if(el&&el.offsetTop-300<=y) active=s.id;
+    });
+    current.textContent=sections.find(function(s){return s.id===active})?.label||'—';
+    document.querySelectorAll('.bc-dot').forEach(function(d){
+      d.classList.toggle('active',d.dataset.section===active);
+    });
+  },{passive:true});
+
+  dotsContainer.addEventListener('click',function(e){
+    if(e.target.classList.contains('bc-dot')){
+      var el=document.getElementById(e.target.dataset.section);
+      if(el) el.scrollIntoView({behavior:'smooth'});
+    }
+  });
+
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>300) bar.classList.add('visible');
+    else bar.classList.remove('visible');
+  },{passive:true});
+})();
+
+/* ═══ GLOBAL SEARCH ═══ */
+(function(){
+  var overlay=document.getElementById('searchOverlay');
+  var input=document.getElementById('searchInput');
+  var results=document.getElementById('searchResults');
+  if(!overlay||!input) return;
+
+  var searchData=[
+    {title:'EnerTchad Groupe',desc:'Maison mère',icon:'fa-building',link:'https://enertchad-groupe.vercel.app',category:'Filiales'},
+    {title:'EnerTchad Amont',desc:'Exploration & Production',icon:'fa-oil-can',link:'https://enertchad-amont-vercel-app.vercel.app',category:'Filiales'},
+    {title:'EnerTchad Aval',desc:'Distribution & Commercialisation',icon:'fa-gas-pump',link:'https://enertchad-aval-vercel-app.vercel.app',category:'Filiales'},
+    {title:'EnerTchad Technologies',desc:'Innovation & Numérique',icon:'fa-microchip',link:'https://enertchad-technologies.vercel.app',category:'Filiales'},
+    {title:'Pipeline Doba-Kribi',desc:'1070 km, transport brut',icon:'fa-pipe',link:'#pipeline',category:'Infrastructure'},
+    {title:'Terminal Kribi',desc:'Stockage FSO Komé',icon:'fa-water',link:'#operations',category:'Infrastructure'},
+    {title:'Simulateur Transport',desc:'Calcul dynamique des coûts',icon:'fa-calculator',link:'#calc-transport',category:'Outils'},
+    {title:'Mission Midstream',desc:'Pipeline, transport & stockage',icon:'fa-compass',link:'#mission',category:'À propos'},
+    {title:'Producteurs',desc:'Partenaires opérateurs',icon:'fa-industry',link:'#producers',category:'Partenaires'},
+    {title:'Résilience Climatique',desc:'Adaptation changement climatique',icon:'fa-leaf',link:'#climate-resilience',category:'Durabilité'}
+  ];
+
+  function renderSearch(query){
+    if(!query.trim()){
+      results.innerHTML='';
+      return;
+    }
+    var q=query.toLowerCase();
+    var filtered=searchData.filter(function(item){
+      return item.title.toLowerCase().indexOf(q)!==-1||item.desc.toLowerCase().indexOf(q)!==-1;
+    });
+
+    if(filtered.length===0){
+      results.innerHTML='<div style="padding:2rem;text-align:center;color:rgba(255,255,255,0.5)">Aucun résultat…</div>';
+      return;
+    }
+
+    var grouped={};
+    filtered.forEach(function(item){
+      if(!grouped[item.category]) grouped[item.category]=[];
+      grouped[item.category].push(item);
+    });
+
+    results.innerHTML=Object.keys(grouped).map(function(cat){
+      return '<div class="sr-group-title">'+cat+'</div>'+
+        grouped[cat].map(function(item){
+          return '<a href="'+item.link+'" class="sr-item"><div class="sr-item-icon"><i class="fas '+item.icon+'"></i></div><div class="sr-item-text"><div class="sr-item-title">'+item.title+'</div><div class="sr-item-desc">'+item.desc+'</div></div><div class="sr-item-arrow">→</div></a>';
+        }).join('');
+    }).join('');
+
+    document.querySelectorAll('.sr-item').forEach(function(item){
+      item.addEventListener('click',function(){overlay.classList.remove('active')});
+    });
+  }
+
+  input.addEventListener('input',function(){
+    renderSearch(this.value);
+  });
+
+  document.addEventListener('keydown',function(e){
+    if((e.ctrlKey||e.metaKey)&&e.key==='k'){
+      e.preventDefault();
+      overlay.classList.add('active');
+      input.focus();
+    }
+    if(e.key==='Escape') overlay.classList.remove('active');
+  });
+
+  overlay.addEventListener('click',function(e){
+    if(e.target===overlay) overlay.classList.remove('active');
+  });
 })();
 
 /* ═══ INTERVAL CLEANUP — Prevent memory leaks on navigation ═══ */
